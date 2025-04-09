@@ -7,6 +7,24 @@
     <link rel="stylesheet" crossorigin href="./css/main.css">
 </head>
 <body>
-    <script type="module" crossorigin src="./js/main.js"></script>
+    <script type="module">
+        import { App } from "./js/main.js";
+
+        let app = null;
+
+        const tryInit = () => {
+            try {
+                app = new App();
+            } catch(err) {
+                console.error(err);
+                if(app.dispose) {
+                    app.dispose();
+                }
+                app = null;
+            }
+        }
+
+        tryInit();
+    </script>
 </body>
 </html>

@@ -109,6 +109,7 @@ class Simulation {
             for (let i = 0; i < this.humans.length; i++) {
                 await this.humans[i].tick();
             }
+            // console.log(JSON.stringify(this.humanPositions));
             this.timeoout = setTimeout(() => {
                 this.tick();
             }, this.tickTime);
@@ -149,6 +150,7 @@ class Simulation {
         for(let i = 0; i<startHumans; i++) {
             new Human(this);
         }
+        // console.log(JSON.stringify(this.getHumanData(0)));
     }
 }
 

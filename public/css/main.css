@@ -1,0 +1,495 @@
+@import url('./colors.css');
+
+* {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding: 0;
+    background: transparent;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    border-radius: 0;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, span {
+    display: inline-block;
+}
+
+ul, li {
+    display: flex;
+    flex-direction: column;
+}
+
+:is(p, a, h1, h2, h3, h4, h5, h6, span) :is(ul, li) {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+body {
+    position: absolute;
+    width: 100lvw;
+    height: 100lvh;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+}
+
+body.resizing-bottomRight *, body.resizing-bottomLeft *, body.resizing-bottom *, body.resizing-top *, body.resizing-left *, body.resizing-right *, body.resizing-topLeft *, body.resizing-topRight *, body.windowMoving * {
+    user-select: none;
+    touch-action: none;
+    pointer-events: none;
+    -webkit-user-select:none;
+}
+
+body.resizing-bottomRight, .window>.resizers>.resizePoint.bottomRight:not(.disabled) {
+    cursor: se-resize;
+}
+
+body.resizing-bottomLeft, .window>.resizers>.resizePoint.bottomLeft:not(.disabled) {
+    cursor: sw-resize;
+}
+
+body.resizing-bottom, .window>.resizers>.resizePoint.bottom:not(.disabled) {
+    cursor: s-resize;
+}
+
+body.resizing-top, .window>.resizers>.resizePoint.top:not(.disabled) {
+    cursor: n-resize;
+}
+
+body.resizing-topLeft, .window>.resizers>.resizePoint.topLeft:not(.disabled) {
+    cursor: nw-resize;
+}
+
+body.resizing-topRight, .window>.resizers>.resizePoint.topRight:not(.disabled) {
+    cursor: ne-resize;
+}
+
+body.resizing-right, .window>.resizers>.resizePoint.right:not(.disabled) {
+    cursor: e-resize;
+}
+
+body.windowMoving, .window>.resizers>.movePoint:not(.disabled) {
+    cursor: move;
+}
+
+.app {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--color5) 0%, var(--color5-dark-50) 100%) !important;
+}
+
+.window {
+    position: absolute;
+    box-sizing: border-box;
+    min-width: fit-content;
+    min-height: fit-content;
+    z-index: 1;
+    filter: drop-shadow(2px 2px 4px #00000080);
+}
+
+.window.fullscreen {
+    z-index: 100;
+    width: 100% !important;
+    height: 100% !important;
+    filter: none;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.window.fullscreenExit {
+    transition: all 0.3s ease-in-out;
+}
+
+.window > .resizers {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    height: 100%;
+    top: 0px;
+}
+
+.window.fullscreen>.resizers {
+    display: none;
+}
+
+.window>.container {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: fit-content;
+    min-height: fit-content;
+}
+
+.window>.container::before,
+.window>.container::after {
+    z-index: 3;
+    content: '';
+    user-select: none;
+    pointer-events: none;
+    touch-action: none;
+    position: absolute;
+    height: calc(100% + 2px);
+    box-sizing: border-box;
+    width: 10px;
+    filter: blur(3px);
+    top: -2px;
+}
+
+.window>.container::before {
+    left: -2px;
+    border-left: 3px #000 solid;
+    border-top-left-radius: 10px;
+    border-top: 3px #000 solid;
+}
+.window>.container::after {
+    right: -2px;
+    border-right: 3px #000 solid;
+    border-top-right-radius: 10px;
+    border-top: 3px #000 solid;
+}
+
+.window > .container {
+    background: linear-gradient(180deg, var(--color1) 0%, var(--color1-dark-20) 100%);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.window.fullscreen>.container,.window.fullscreenExit>.container {
+    transition: all 0.3s ease-in-out;
+}
+
+.window.fullscreen>.container {
+    border-radius: 0;
+}
+
+.window > .container > header {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-content: space-between;
+    padding-left: 15px;
+    column-gap: 5px;
+    padding-right: 5px;
+    background: linear-gradient(180deg, var(--color1-dark-50) 0%, var(--color1-light-50) 5%, var(--color1-dark-50) 18%, var(--color1-dark-10) 55%, var(--color1) 95%, var(--color1-dark-20) 100%);
+}
+
+.window>.container>header > .info {
+    height: 100%;
+    width: 0%;
+    min-width: 0px;
+    overflow: hidden;
+    display: flex;
+    column-gap: 5px;
+    flex-grow: 1;
+    z-index: 2;
+}
+
+.window>.container>header>.info h1.empty, .window>.container>header>.info h1.empty {
+    display: none;
+}
+
+.window>.container>header>.info h1 {
+    font-size: 16px;
+    font-weight: 500;
+    text-fill-color: #fff;
+    -webkit-text-fill-color: #fff;
+    text-stroke: #000 2px;
+    -webkit-text-stroke: #000 2px;
+    white-space: nowrap;
+    paint-order: stroke fill;
+    line-height: 30px;
+}
+
+.window>.container>header>.info h2 {
+    font-size: 12px;
+    font-weight: 400;
+    text-fill-color: #fff;
+    white-space: nowrap;
+    -webkit-text-fill-color: #fff;
+    text-stroke: #000 2px;
+    -webkit-text-stroke: #000 2px;
+    paint-order: stroke fill;
+    line-height: 34px;
+}
+
+.window>.container>header>.buttons {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: fit-content;
+    column-gap: 5px;
+    z-index: 200;
+}
+
+.window>.container>header>.buttons>button {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border: 1px var(--color1-light-50) solid;
+    overflow: hidden;
+}
+
+.window>.container>header>.buttons>button::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    content: '';
+    left: -2px;
+    top: -2px;
+    border: 2px solid #000;
+    opacity: 0;
+    will-change: filter;
+    z-index: 2;
+    transition: all 0.2s ease-in-out;
+}
+
+.window>.container>header>.buttons>button:not(.disabled) {
+    cursor: pointer;
+}
+
+.window>.container>header>.buttons>button:not(.disabled):hover::after {
+    opacity: 0.2;
+    filter: blur(3px);
+}
+
+.window>.container>header>.buttons>button.fullscreen {
+    background: linear-gradient(150deg, var(--color8-light-40) 0%, var(--color8) 4%, var(--color8) 20%, var(--color8-dark-20) 100%);
+}
+
+.window>.container>header>.buttons>button.fullscreen::before {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    left: 50%;
+    z-index: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.5px #fff solid;
+    border-bottom: 2.5px #fff solid;
+}
+
+.window>.container>header>.buttons>button.fullscreen.on::before {
+    opacity: 0;
+}
+
+.window>.container>header>.buttons>button.fullscreen .face {
+    opacity: 0;
+    left: 50%;
+    z-index: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+
+.window>.container>header>.buttons>button.fullscreen .face::before, .window>.container>header>.buttons>button.fullscreen .face::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    border: 1.5px #fff solid;
+    background: linear-gradient(150deg, var(--color8-light-40) 0%, var(--color8) 4%, var(--color8) 20%, var(--color8-dark-20) 100%);
+}
+
+.window>.container>header>.buttons>button.fullscreen .face::before {
+    left: -1px;
+    z-index: 2;
+    top: 1px;
+}
+
+.window>.container>header>.buttons>button.fullscreen .face::after {
+    left: 1px;
+    top: -1px;
+    z-index: 1;
+}
+
+.window>.container>header>.buttons>button.fullscreen.on .face {
+    opacity: 1;
+}
+
+.window>.container>header>.buttons>button.close {
+    background: linear-gradient(150deg, var(--color6-light-80) 0%, var(--color6-light-20) 4%, var(--color6-light-20) 20%, var(--color6-dark-20) 100%);
+}
+
+.window>.container>header>.buttons>button.close .face {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    left: 50%;
+    z-index: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.window>.container>header>.buttons>button.close .face::before, .window>.container>header>.buttons>button.close .face::after {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 2.5px;
+    box-sizing: border-box;
+    left: 50%;
+    z-index: 1;
+    top: 50%;
+    background: #fff;
+}
+
+.window>.container>header>.buttons>button.close .face::before {
+        transform: translate(-50%, -50%) rotateZ(45deg);
+}
+
+.window>.container>header>.buttons>button.close .face::after {
+    transform: translate(-50%, -50%) rotateZ(135deg);
+}
+
+.window>.container>header>.buttons>button.minimize {
+    background: linear-gradient(150deg, var(--color7-light-40) 0%, var(--color7) 4%, var(--color7) 20%, var(--color7-dark-20) 100%);
+}
+
+.window>.container>header>.buttons>button.minimize::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    left: 50%;
+    z-index: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 2.5px #fff solid;
+}
+
+.window > .container > footer {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    z-index: 3;
+    bottom: -3px;
+    background: #000;
+    filter: blur(3px);
+}
+
+.window > .resizers {
+    z-index: unset;
+    overflow: visible;
+}
+
+.window > .resizers > * {
+    position: absolute;
+    z-index: 100;
+    background: transparent !important;
+}
+
+.window>.resizers>.resizePoint {
+    position: absolute;
+}
+
+.window > .resizers > .resizePoint:is(.topLeft, .topRight, .bottomRight, .bottomLeft) {
+    width: 15px;
+    height: 15px;
+    z-index: 102;
+}
+
+.window>.resizers>.resizePoint.topLeft {
+    left: -3px;
+    top: -3px;
+}
+
+.window>.resizers>.resizePoint.topRight {
+    top: -3px;
+    right: -3px;
+}
+
+.window>.resizers>.resizePoint.bottomRight {
+    bottom: -3px;
+    right: -3px;
+}
+
+.window>.resizers>.resizePoint.bottomLeft {
+    bottom: -3px;
+    left: -3px;
+}
+
+.window>.resizers>.resizePoint:is(.left, .right) {
+    width: 15px;
+    height: 100%;
+    top: 0px;
+    z-index: 101;
+}
+
+.window>.resizers>.resizePoint.left {
+    left: -3px;
+}
+
+.window>.resizers>.resizePoint.left:not(.disabled) {
+    cursor: w-resize;
+}
+
+.window>.resizers>.resizePoint.right {
+    right: -3px;
+}
+
+.window>.resizers>.resizePoint:is(.bottom, .top) {
+    height: 15px;
+    width: 100%;
+    left: 0px;
+    z-index: 101;
+}
+
+.window>.resizers>.resizePoint.bottom {
+    bottom: -3px;
+}
+
+.window>.resizers>.resizePoint.top {
+    top: -3px;
+}
+
+.window>.resizers>.movePoint {
+    position: absolute;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+.window > .container > .contentHolder {
+    position: absolute;
+    width: calc(100% - 4px);
+    flex-grow: 1;
+    top: 30px;
+    left: 2px;
+    height: calc(100% - 32px);
+    z-index: 2;
+    background: var(--color4-light-90);
+}

@@ -1,4 +1,5 @@
 import sharp from "sharp";
+import { Color } from "./simulation/utils";
 import { Grid } from "./simulation/map";
 import { Simulation } from "./simulation/simulation";
 import express from "express";
@@ -8,6 +9,17 @@ let server = false;
 /** @type {Simulation|Null} */
 let simulation = null;
 const port = 80;
+
+const colors = {
+    color1: '#8C876D',
+    color2: '#F2BFA2',
+    color3: '#A2D92B',
+    color4: '#C7CFD9',
+    color5: '#A5A2F2',
+    color6: '#D9462B',
+    color7: '#A69F61',
+    color8: '#84A660'
+}
 
 const init = async () => {
     /** @returns {Promise<Array<Array<Number>>>} */
@@ -32,6 +44,18 @@ const init = async () => {
             }
         });
     }
+
+    const colorsFile = Bun.file('./public/css/colors.css');
+    let colorsObjStringStart = '';
+    let cssColorsString = '';
+    const colorsObj = Color.createAltColors(colors, "objString", {prefix: "    --"});
+    Object.keys(colorsObj).forEach((key) => {
+        colorsObjStringStart+=`    --${key}: ${colors[key]};\n`;
+        cssColorsString += `:root {\n${colorsObj[key]}\n}\n`
+    });
+
+    cssColorsString = `:root {\n${colorsObjStringStart}}\n${cssColorsString}`;
+    await colorsFile.write(cssColorsString);
 
     const RAW_MAP = await getRawMap(); //@ts-ignore
     simulation = new Simulation(new Grid(RAW_MAP), 1, 5);
@@ -67,6 +91,7 @@ const init = async () => {
         pathArr.forEach((part) => {
             newPath = `${newPath}/${part}`;
         });
+        console.log(path, newPath);
         return newPath;
     }
 

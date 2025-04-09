@@ -80,6 +80,8 @@ class Hospitality extends Plot {
  * @property {String} [customGenderName]
  */
 
+//atrybuty jako komentarz (modność, im więcej wystaw tym szybsza smierć), strata modności za wystawe z kimś niemodnym
+
 class Human {
     /** @type {Simulation} */
     simulation;
