@@ -538,6 +538,97 @@ class Utils {
         });
     }
 
+    /**
+     * Tłumaczy event myszki na dotyk
+     * @param {TouchEvent} e
+     * @returns {MouseEvent}
+     */
+    static translateTouchToMouse = (e) => {
+        let newEventData = {sourceCapabilities: {firesTouchEvents:false}, which:1, clientX:0, clientY:0, x:0, y:0, pageX:0, pageY: 0, screenX:0, screenY:0, layerX:0, layerY:0};
+        if(e.touches[0]) {
+            newEventData.clientX = e.touches[0].clientX;
+            newEventData.clientY = e.touches[0].clientY;
+            newEventData.x = e.touches[0].clientX;
+            newEventData.y = e.touches[0].clientY;
+            newEventData.pageX = e.touches[0].pageX;
+            newEventData.pageY = e.touches[0].pageY;
+            newEventData.layerX = e.touches[0].pageX;
+            newEventData.layerY = e.touches[0].pageY;
+            newEventData.screenX = e.touches[0].screenX;
+            newEventData.screenY = e.touches[0].screenY;
+        }
+        ['isTrusted', 'altKey', 'bubbles', 'cancelBubble', 'cancelable', 'composed', 'ctrlKey', 'currentTarget', 'defaultPrevented', 'detail', 'eventPhase', 'metaKey', 'returnValue', 'shiftKey', 'srcElement', 'target', 'timeStamp', 'view'].forEach((key) => {
+            Object.defineProperty(newEventData, key, {
+                set: () => {},
+                get: () => { return e[key] },
+                enumerable: true
+            })
+        });
+        //@ts-ignore
+        return newEventData;
+    }
+
+        /**
+     * zaokragla podana liczbe do ulamka o podanym mianowniku
+     * @param {number} num - numer do zaokrąglenia
+     * @param {number} [denominator=2] - mianownik ułamka
+     * @returns {number}
+     */
+    static roundToFraction = (num = 0.31221, denominator = 2) => {
+        if(denominator <= 0) {
+            return Math.round(num);
+        }
+        return (num - num%1) + Math.round((num%1)*denominator)/denominator;
+    }
+
+    /**
+     * zaokragla w gore podana liczbe do ulamka o podanym mianowniku
+     * @param {number} num - numer do zaokrąglenia
+     * @param {number} [denominator=2] - mianownik ułamka
+     * @returns {number}
+     */
+    static ceilToFraction = (num = 0.31221, denominator = 2) => {
+        if(denominator <= 0) {
+            return Math.ceil(num);
+        }
+        return (num - num%1) + Math.ceil((num%1)*denominator)/denominator;
+    }
+
+    /**
+     * zaokragla w dol podana liczbe do ulamka o podanym mianowniku
+     * @param {number} num - numer do zaokrąglenia
+     * @param {number} [denominator=2] - mianownik ułamka
+     * @returns {number}
+     */
+    static floorToFraction = (num = 0.31221, denominator = 2) => {
+        if(denominator <= 0) {
+            return Math.floor(num);
+        }
+        return (num - num%1) + Math.floor((num%1)*denominator)/denominator;
+    }
+
+    /** 
+     * @param {Number} a
+     * @param {Number} b
+     * @returns {Number}
+     */
+    static gcd = (a, b) => {
+        if (b) {
+            return Utils.gcd(b, a % b);
+        } else {
+            return Math.abs(a);
+        }
+    }
+
+    /**
+     * Czy coś jest obiektem HTMLOWYM
+     * @param {*} element
+     * @returns {Boolean}
+     */
+    static isElement = (element) => {
+        return element instanceof Element || element instanceof Document || element instanceof HTMLElement;
+    }
+
 
     constructor() {
 
@@ -2072,7 +2163,7 @@ class Color {
         }
         return colorsArr;
     }
-    /** @typedef {{"object": {[id:String]: {[id:String]: String}}, "string": String, "objString": {[id:String]: String}}} createAltColors_mode */
+    /** @typedef {{"object": {[id:String]: {dark: {[id:String]: String}, light: {[id:String]: String}}}, "string": String, "objString": {[id:String]: String}}} createAltColors_mode */
     /**
      * @template {keyof createAltColors_mode} MODE
      * @param {{[id: String]: Color|String}} colors 
@@ -2142,19 +2233,19 @@ class Color {
                 break;
             }
             case "object": {
-                /** @type {{[id:String]: {[id:String]: String}}} *///@ts-ignore
+                /** @type {{[id:String]: {dark: {[id:String]: String}, light: {[id:String]: String}}}} *///@ts-ignore
                 let returnObj = {};
 
                 Object.keys(colors).forEach((colorName) => {
                     let color = Color.toHex(colors[colorName]);
-                    /** @type {{[id:String]: String}} */
-                    let colorObj = {};
+                    /** @type {{dark: {[id:String]: String}, light: {[id:String]: String}}} */
+                    let colorObj = {dark: {}, light: {}};
                     if (color != '') {
                         for (let i = 1; i < config.colors; i++) {
                             let lighterColor = Color.getLighterColor(color, (config.colors - i) / config.colors);
                             let darkerColor = Color.getDarkerColor(color, i / config.colors);
-                            colorObj[`${config.prefix}${colorName}${config.lighter}${Math.round(((config.colors - i) / config.colors) * 100)}`] = lighterColor;
-                            colorObj[`${config.prefix}${colorName}${config.darker}${Math.round((i / config.colors) * 100)}`] = darkerColor;
+                            colorObj.light[`${config.prefix}${colorName}${config.lighter}${Math.round(((config.colors - i) / config.colors) * 100)}`] = lighterColor;
+                            colorObj.dark[`${config.prefix}${colorName}${config.darker}${Math.round((i / config.colors) * 100)}`] = darkerColor;
                         }
                     }
                     returnObj[colorName] = colorObj;

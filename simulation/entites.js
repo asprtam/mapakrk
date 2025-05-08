@@ -124,8 +124,14 @@ class Human {
     getPath = (from, to) => {
         return new Promise((res) => {
             this.simulation.findPaths(from, to).then((foundPaths) => {
+                // console.log(`findPaths ${this.info.name} ${this.info.lastname}`, foundPaths);
                 if (foundPaths.paths.length > 0) {
-                    res(foundPaths.paths[Utils.getRandomWithProbability(foundPaths.probability)]);
+                    let randomPath = foundPaths.paths[Utils.getRandomWithProbability(foundPaths.probability)];
+                    if(randomPath.length > 0) {
+                        res(randomPath);
+                    } else {
+                        res([to]);
+                    }
                 } else {
                     res([to]);
                 }
@@ -140,12 +146,14 @@ class Human {
             if(this.pathToWalkOn.length <= crossedPlots) {
                 this.currentTickVisitedPoints = JSON.parse(JSON.stringify(this.pathToWalkOn));
                 this.pathToWalkOn = null;
+                // console.log(`walk progress ${this.info.name} ${this.info.lastname}`, crossedPlots, this.currentTickVisitedPoints);
                 this.pos = this.currentTickVisitedPoints[this.currentTickVisitedPoints.length - 1];
                 this.onWalkEnd();
                 this.onWalkEnd = () => {};
             } else {
                 this.currentTickVisitedPoints = this.pathToWalkOn.slice(0, crossedPlots);
                 this.pathToWalkOn = this.pathToWalkOn.slice(crossedPlots);
+                // console.log(`walk progress ${this.info.name} ${this.info.lastname}`, crossedPlots, this.currentTickVisitedPoints);
                 this.pos = this.currentTickVisitedPoints[this.currentTickVisitedPoints.length - 1];
                 if(this.pathToWalkOn.length == 0) {
                     this.pathToWalkOn = null;

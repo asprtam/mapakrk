@@ -92,7 +92,7 @@ class Grid {
         /** @type {Array<pos>} */
         let returnArr = [];
         this.forEachPoint((point, pos) => {
-            if(point) {
+            if(point == 1) {
                 returnArr.push(pos);
             }
         });
@@ -118,7 +118,7 @@ class Grid {
             if (point) {
                 let found = false;
                 this.forPointSiblings(pos, (_point) => {
-                    if (_point) {
+                    if (_point == 0) {
                         found = true;
                     }
                 });

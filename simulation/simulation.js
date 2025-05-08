@@ -1,4 +1,4 @@
-import { Grid } from "./map";
+import { Grid } from "./grid";
 import { SimulationGlobals } from "./simulationGlobals";
 import { Plot, Home, Hospitality, Human } from "./entites";
 import { Utils } from "./utils";
@@ -85,17 +85,26 @@ class Simulation {
             let foundPaths = { paths: [], probability: {} };
 
             let gridClone = JSON.parse(JSON.stringify(this.grid.raw));
-            gridClone[from.y][from.x] = 0;
-            gridClone[to.y][to.x] = 0;
+            // from.x = 1;
+            // from.y = 0;
+            // to.x = 67;
+            // to.y = 39;
+            // console.log(gridClone);
+            // console.log(`findPaths from: ${JSON.stringify(from)}, to: ${JSON.stringify(to)}`, gridClone.length, gridClone[0].length, gridClone[from.x][from.y], gridClone[to.x][to.y])
+            gridClone[from.x][from.y] = 0;
+            gridClone[to.x][to.y] = 0;
 
             const easystar = new Easystar();
             easystar.setGrid(gridClone);
-            easystar.setAcceptableTiles([0]);
+            easystar.setAcceptableTiles(0);
             easystar.enableDiagonals();
-
-            easystar.findPath(from.x, from.y, to.x, to.y, (path) => {
+            
+            // easystar.findPath(0, 8, 15, 8, (path) => {
+            easystar.findPath(from.y, from.x, to.y, to.x, (path) => {
                 if(path) {
-                    let id = foundPaths.paths.push(path) - 1;
+                    let id = foundPaths.paths.push(path.map((pos) => {
+                        return {x: pos.y, y: pos.x};
+                    })) - 1;
                     foundPaths.probability[id] = 1;
                 }
                 res(foundPaths);

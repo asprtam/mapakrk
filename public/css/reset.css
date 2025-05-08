@@ -1,0 +1,78 @@
+* {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding: 0;
+    background: transparent;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    border-radius: 0;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, span {
+    display: inline-block;
+}
+
+ul, li {
+    display: flex;
+    flex-direction: column;
+}
+
+:is(p, a, h1, h2, h3, h4, h5, h6, span) :is(ul, li) {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+body {
+    position: absolute;
+    width: 100lvw;
+    height: 100lvh;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+}
+
+body.resizing-bottomRight *, body.resizing-bottomLeft *, body.resizing-bottom *, body.resizing-top *, body.resizing-left *, body.resizing-right *, body.resizing-topLeft *, body.resizing-topRight *, body.windowMoving * {
+    user-select: none;
+    touch-action: none;
+    pointer-events: none;
+    -webkit-user-select:none;
+}
+
+body.resizing-bottomRight, .window>.resizers>.resizePoint.bottomRight:not(.disabled) {
+    cursor: se-resize;
+}
+
+body.resizing-bottomLeft, .window>.resizers>.resizePoint.bottomLeft:not(.disabled) {
+    cursor: sw-resize;
+}
+
+body.resizing-bottom, .window>.resizers>.resizePoint.bottom:not(.disabled) {
+    cursor: s-resize;
+}
+
+body.resizing-top, .window>.resizers>.resizePoint.top:not(.disabled) {
+    cursor: n-resize;
+}
+
+body.resizing-topLeft, .window>.resizers>.resizePoint.topLeft:not(.disabled) {
+    cursor: nw-resize;
+}
+
+body.resizing-topRight, .window>.resizers>.resizePoint.topRight:not(.disabled) {
+    cursor: ne-resize;
+}
+
+body.resizing-right, .window>.resizers>.resizePoint.right:not(.disabled) {
+    cursor: e-resize;
+}
+
+body.windowMoving, .window>.resizers>.movePoint:not(.disabled) {
+    cursor: move;
+}

@@ -3,7 +3,6 @@ import { App } from "./main.js";
 /** @typedef {import("../../simulation/utils").HTML_TAGS} HTML_TAGS */
 /** @typedef {import("../../simulation/utils").CONTENT} CONTENT */
 /** @typedef {keyof HTML_TAGS} HTML_TAG */
-
 /** 
  * @typedef {Object} DisplayWindow_behaviourConfigOptional
  * @property {Boolean} [close] default false
@@ -12,7 +11,6 @@ import { App } from "./main.js";
  * @property {Boolean} [resize] default true
  * @property {Boolean} [move] default true
  */
-
 /** 
  * @typedef {Object} DisplayWindow_behaviourConfig
  * @property {Boolean} close
@@ -21,7 +19,6 @@ import { App } from "./main.js";
  * @property {Boolean} resize
  * @property {Boolean} move
  */
-
 /** 
  * @typedef {Object} DisplayWindow_creationConfig
  * @property {String|Array<String>} [className]
@@ -34,8 +31,8 @@ import { App } from "./main.js";
  * @property {{width?: Number, height?: Number}} [size]
  * @property {{x?: Number, y?: Number}} [pos]
  * @property {{onClose?: () => Promise<*>, onFullscreen?: () => Promise<*>}} [funcs]
+ * @property {Boolean} [aspectRatioScaling]
  */
-
 class DisplayWindow {
     /** @type {App} */
     #app;
@@ -132,7 +129,11 @@ class DisplayWindow {
             },
             move: (e) => {
                 let diffY = this.#mouseEventPos.y - e.clientY;
-                this.size = {width: this.#size.width, height: this.#size.height + diffY};
+                if(this.#aspectRatioScaling) {
+                    this.size = {width: (this.#size.height + diffY) * this.#aspectRatio_hw, height: (this.#size.height + diffY)};
+                } else {
+                    this.size = {width: this.#size.width, height: this.#size.height + diffY};
+                }
                 this.pos = {x: this.#pos.x, y: this.#pos.y - diffY};
                 this.#mouseEventPos.y = e.clientY;
             },
@@ -210,7 +211,19 @@ class DisplayWindow {
             move: (e) => {
                 let diffY = this.#mouseEventPos.y - e.clientY;
                 let diffX = this.#mouseEventPos.x - e.clientX;
-                this.size = { width: this.#size.width + diffX, height: this.#size.height + diffY };
+                if(this.#aspectRatioScaling) {
+                    if(diffX > diffY) {
+                        let prevHeight = this.#size.height + 0;
+                        this.size = { width: (this.#size.width + diffX), height: (this.#size.width + diffX) * this.#aspectRatio_wh };
+                        diffY = this.size.height - prevHeight;
+                    } else {
+                        let prevWidth = this.#size.width + 0;
+                        this.size = { width: (this.#size.height + diffY) * this.#aspectRatio_hw, height: (this.#size.height + diffY) };
+                        diffX = this.size.width - prevWidth;
+                    }
+                } else {
+                    this.size = { width: this.#size.width + diffX, height: this.#size.height + diffY };
+                }
                 this.pos = { x: this.#pos.x - diffX, y: this.#pos.y - diffY };
                 this.#mouseEventPos = { x: e.clientX, y: e.clientY };
             },
@@ -288,7 +301,19 @@ class DisplayWindow {
             move: (e) => {
                 let diffY = this.#mouseEventPos.y - e.clientY;
                 let diffX = this.#mouseEventPos.x - e.clientX;
-                this.size = { width: this.#size.width - diffX, height: this.#size.height + diffY };
+                if(this.#aspectRatioScaling) {
+                    if(diffX > diffY) {
+                        let prevHeight = this.#size.height + 0;
+                        this.size = { width: (this.#size.width - diffX), height: (this.#size.width - diffX) * this.#aspectRatio_wh };
+                        diffY = this.size.height - prevHeight;
+                    }  else {
+                        let prevWidth = this.#size.width + 0;
+                        this.size = { width: (this.#size.height + diffY) * this.#aspectRatio_hw, height: (this.#size.height + diffY) };
+                        diffX = this.size.width - prevWidth;
+                    }
+                } else {
+                    this.size = { width: this.#size.width - diffX, height: this.#size.height + diffY };
+                }
                 this.pos = { x: this.#pos.x, y: this.#pos.y - diffY };
                 this.#mouseEventPos = { x: e.clientX, y: e.clientY };
             },
@@ -365,7 +390,11 @@ class DisplayWindow {
             },
             move: (e) => {
                 let diffX = this.#mouseEventPos.x - e.clientX;
-                this.size = { height: this.#size.height, width: this.#size.width + diffX };
+                if(this.#aspectRatioScaling) {
+                    this.size = { height: (this.#size.width + diffX) * this.#aspectRatio_wh, width: this.#size.width + diffX };
+                } else {
+                    this.size = { height: this.#size.height, width: this.#size.width + diffX };
+                }
                 this.pos = { y: this.#pos.y, x: this.#pos.x - diffX };
                 this.#mouseEventPos.x = e.clientX;
             },
@@ -442,7 +471,11 @@ class DisplayWindow {
             },
             move: (e) => {
                 let diffX = this.#mouseEventPos.x - e.clientX;
-                this.size = { height: this.#size.height, width: this.#size.width - diffX };
+                if(this.#aspectRatioScaling) {
+                    this.size = { height: (this.#size.width - diffX) * this.#aspectRatio_wh, width: this.#size.width - diffX };
+                } else {
+                    this.size = { height: this.#size.height, width: this.#size.width - diffX };
+                }
                 this.#mouseEventPos.x = e.clientX;
             },
             up: (e) => {
@@ -518,7 +551,11 @@ class DisplayWindow {
             },
             move: (e) => {
                 let diffY = this.#mouseEventPos.y - e.clientY;
-                this.size = { width: this.#size.width, height: this.#size.height - diffY };
+                if(this.#aspectRatioScaling) {
+                    this.size = {width: (this.#size.height - diffY) * this.#aspectRatio_hw, height: (this.#size.height - diffY)};
+                } else {
+                    this.size = {width: this.#size.width, height: this.#size.height - diffY};
+                }
                 this.#mouseEventPos.y = e.clientY;
             },
             up: (e) => {
@@ -595,7 +632,19 @@ class DisplayWindow {
             move: (e) => {
                 let diffY = this.#mouseEventPos.y - e.clientY;
                 let diffX = this.#mouseEventPos.x - e.clientX;
-                this.size = { width: this.#size.width - diffX, height: this.#size.height - diffY };
+                if(this.#aspectRatioScaling) {
+                    if(diffX > diffY) {
+                        let prevHeight = this.#size.height + 0;
+                        this.size = { width: (this.#size.width - diffX), height: (this.#size.width - diffX) * this.#aspectRatio_wh };
+                        diffY = this.size.height - prevHeight;
+                    }  else {
+                        let prevWidth = this.#size.width + 0;
+                        this.size = { width: (this.#size.height - diffY) * this.#aspectRatio_hw, height: (this.#size.height - diffY) };
+                        diffX = this.size.width - prevWidth;
+                    }
+                } else {
+                    this.size = { width: this.#size.width - diffX, height: this.#size.height - diffY };
+                }
                 this.#mouseEventPos = { x: e.clientX, y: e.clientY };
             },
             up: (e) => {
@@ -672,7 +721,19 @@ class DisplayWindow {
             move: (e) => {
                 let diffY = this.#mouseEventPos.y - e.clientY;
                 let diffX = this.#mouseEventPos.x - e.clientX;
-                this.size = { width: this.#size.width + diffX, height: this.#size.height - diffY };
+                if(this.#aspectRatioScaling) {
+                    if(diffX > diffY) {
+                        let prevHeight = this.#size.height + 0;
+                        this.size = { width: (this.#size.width + diffX), height: (this.#size.width + diffX) * this.#aspectRatio_wh };
+                        diffY = this.size.height - prevHeight;
+                    }  else {
+                        let prevWidth = this.#size.width + 0;
+                        this.size = { width: (this.#size.height - diffY) * this.#aspectRatio_hw, height: (this.#size.height - diffY) };
+                        diffX = this.size.width - prevWidth;
+                    }
+                } else {
+                    this.size = { width: this.#size.width + diffX, height: this.#size.height - diffY };
+                }
                 this.pos = { x: this.#pos.x - diffX, y: this.#pos.y };
                 this.#mouseEventPos = { x: e.clientX, y: e.clientY };
             },
@@ -999,11 +1060,32 @@ class DisplayWindow {
 
         }
     };
+    /** @type {Boolean} */
+    #aspectRatioScaling = false;
+    /** @type {Number} */
+    #aspectRatio_wh = 1;
+    /** @type {Number} */
+    #aspectRatio_hw = 1;
     /** @type {{close: {el: HTMLButtonElement, disable: () => void, enable: () => void}, fullscreen: {el: HTMLButtonElement, disable: () => void, enable: () => void}, minimize:{el: HTMLButtonElement, disable: () => void, enable: () => void}}} */
     buttons;
     /** @type {HTMLElement} */
     content;
-
+    /** @type {() => Promise<*>} */
+    get onFullscreen() { //@ts-ignore
+        return this.#userFuncs.onFullscreen;
+    }
+    /** @type {() => Promise<*>} */
+    set onFullscreen(val) { //@ts-ignore
+        this.#userFuncs.onFullscreen = val;
+    }
+    /** @type {() => Promise<*>} */
+    get onClose() { //@ts-ignore
+        return this.#userFuncs.onClose;
+    }
+    /** @type {() => Promise<*>} */
+    set onClose(val) { //@ts-ignore
+        this.#userFuncs.onClose = val;
+    }
     /**
      * 
      * @param {{x: Number, y:Number}} pos 
@@ -1043,7 +1125,6 @@ class DisplayWindow {
             }
         });
     }
-
     /**
      * 
      * @param {{width: Number, height:Number}} size 
@@ -1080,10 +1161,9 @@ class DisplayWindow {
             }
         });
     }
-
     /**
      * @param {App} app
-     * @param {CONTENT|String|Number} content 
+     * @param {CONTENT|String|Number|HTMLElement} content 
      * @param {DisplayWindow_creationConfig} [config={}]
      */
     constructor(app, content, config={}) {
@@ -1133,6 +1213,12 @@ class DisplayWindow {
             if (config.size.width !== null) {
                 this.#size.width = config.size.width;
             }
+        }
+        let gdc = Utils.gcd(this.#size.width, this.#size.height);
+            this.#aspectRatio_hw = (this.#size.width/gdc)/(this.#size.height/gdc);
+            this.#aspectRatio_wh = (this.#size.height/gdc)/(this.#size.width/gdc);
+        if (config.aspectRatioScaling) {
+            this.#aspectRatioScaling = true;
         }
         if (config.pos) {
             if(config.pos.x !== null) {
@@ -1294,9 +1380,7 @@ class DisplayWindow {
             this.#buttonsFuncsStatus.handleClick_close = false;
             this.buttons.close.enable();
         }
-
         this.#resizePoints = this.#createResizePoints();
-
         if(this.#behaviourConfig.resize) {
             this.#resizeContainer.appendChild(this.#resizePoints.topLeft);
             this.#resizeEvents.topLeft.enable();
@@ -1315,24 +1399,28 @@ class DisplayWindow {
             this.#resizeContainer.appendChild(this.#resizePoints.bottom);
             this.#resizeEvents.bottom.enable();
         }
-
         if(this.#behaviourConfig.move) {
             this.#resizeContainer.appendChild(this.#movePoint.el);
             this.#movePoint.enable();
         }
-
         this.#contentHolder = Utils.createAndAppendHTMLElement(this.#container, 'section', ['contentHolder']);
         if(typeof content == 'string' || typeof content == 'number') {
             this.content = Utils.createAndAppendHTMLElement(this.#contentHolder, 'div', ['content'], {}, `${content}`);
+        } else if(Utils.isElement(content)) { //@ts-ignore
+            if(!content.classList.contains('content')) { //@ts-ignore
+                content.classList.add('content')
+            } //@ts-ignore
+            this.#contentHolder.appendChild(content); //@ts-ignore
+            this.content = content;
         } else {
-            let classNames = ['content'];
-            if(content.classNames) {
+            let classNames = ['content']; //@ts-ignore
+            if(content.classNames) { //@ts-ignore
                 content.classNames.forEach((className) => {
                     if(!classNames.includes(className)) {
                         classNames.push(className);
                     }
                 });
-            }
+            } //@ts-ignore
             this.content = Utils.createAndAppendHTMLElement(this.#contentHolder, content.type, classNames, content.params, content.content);
         }
         this.#footer = Utils.createAndAppendHTMLElement(this.#container, 'footer');
