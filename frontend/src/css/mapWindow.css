@@ -1,0 +1,81 @@
+.window.map-window .contentHolder {
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.window.map-window .contentHolder .map.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.window.map-window .contentHolder .map.content .screen {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.window.map-window .contentHolder .map.content {
+    --currentMapScale: 1;
+    --currentMapOffsetX: -50%;
+    --currentMapOffsetY: -50%;
+}
+
+.window.map-window .contentHolder .map.content .screen.outlines {
+    z-index: 1;
+}
+
+.window.map-window .contentHolder .map.content .screen.humans {
+    z-index: 2;
+}
+
+.window.map-window .contentHolder .map.content .screen.humans.pinned {
+    z-index: 3;
+}
+
+.window.map-window .contentHolder .map.content .screen.fake {
+    z-index: 4;
+}
+
+.window.map-window .contentHolder .map.content .screen.fake.dragging {
+    cursor: grabbing;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    max-width: 10px;
+    max-height: 200px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls .zoom-input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform-origin: top left;
+    width: 200px;
+    height: 10px;
+    transform: rotateZ(-90deg) translate(-100%, 0%);
+}
+
+.window.map-window .contentHolder .map.content .screen.humans canvas,
+.window.map-window .contentHolder .map.content .screen.outlines canvas {
+    touch-action: none;
+    pointer-events: none;
+    user-select: none;
+}
+
+.window.map-window .contentHolder .map.content .screen canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(var(--currentMapOffsetX), var(--currentMapOffsetY)) scale(var(--currentMapScale));
+}

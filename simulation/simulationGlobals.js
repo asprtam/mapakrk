@@ -1,18 +1,18 @@
 class SimulationGlobals {
     /** @type {Number} */
-    static tickTime = 500;
+    static tickTime = 1000;
     /** @type {Number} */
-    static fps = 50;
+    static fps = 20;
     /** @type {Number} */
     static currentSpeed = 1;
     /** @type {Number} */
-    static mapScalingFactor = 8;
+    static mapScalingFactor = 16;
     /** @type {Number} */
-    static startHumans = 20;
+    static startHumans = 30;
     /** @type {Number} */
     static humanDisplayWidth = 0.75;
     /** @type {Number} */
-    static startHospitalities = 2;
+    static startHospitalities = 20;
 
     constructor() {
 

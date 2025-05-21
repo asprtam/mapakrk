@@ -1,0 +1,120 @@
+.loader {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    max-height: 100%;
+    background: #000;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.loader > .cont {
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    padding-bottom: 2vw;
+    z-index: 1;
+    left: 50%;
+    box-sizing: border-box;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader > .cont .belt {
+    position: absolute;
+    width: 12vw;
+    height: 1.2vw;
+    background: transparent;
+    box-sizing: border-box;
+    --borderWidth:2px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+    z-index: 1;
+}
+
+.loader > .cont .belt .border {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.loader > .cont .belt .border::before, .loader > .cont .belt .border::after {
+    content: '';
+}
+
+.loader > .cont .belt .border::before {
+    z-index: 1;
+    position: absolute;
+    --cutRadius:5px;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #fff;
+}   
+
+.loader > .cont .belt .border::after {
+    z-index: 2;
+    background: #000;
+}
+
+.loader > .cont .belt .symbols {
+    z-index: 3;
+}
+
+.loader > .cont .belt .symbols, .loader > .cont .belt .border::after {
+    --cutRadius:4px;
+    position: absolute;
+    width: calc(100% - calc(var(--borderWidth) + var(--borderWidth)));
+    height: calc(100% - calc(var(--borderWidth) + var(--borderWidth)));
+    left: var(--borderWidth);
+    top: var(--borderWidth);
+}
+
+.loader > .cont .belt .symbols .symbolsBag {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    display: flex;
+    column-gap: var(--borderWidth);
+}
+
+@keyframes loader_symbol_flicker {
+    0% {
+        opacity: 1;
+    }
+    19% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.loader > .cont .belt .symbols .symbolsBag > div {
+    height: 100%;
+    flex-basis: 100%;
+    opacity: 0;
+    background: linear-gradient(180deg, var(--color3) 0%, var(--color3-light-50) 12%, var(--color3-light-50) 15%, var(--color3) 30%, var(--color3-dark-50) 60%, var(--color3-dark-50) 70%, var(--color3) 100%) !important;
+}
+
+.loading .loader > .cont .belt .symbols .symbolsBag > div, .loading-close .loader > .cont .belt .symbols .symbolsBag > div {
+    animation-name: loader_symbol_flicker;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.loading-close .loader, body:not(.loading) .loader {
+    opacity: 0;
+}

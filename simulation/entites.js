@@ -1,7 +1,7 @@
-import { Simulation } from "./simulation";
-import { SimulationGlobals } from "./simulationGlobals";
-import { Utils } from "./utils";
-import { LASTNAMES, MALE_NAMES, FEMALE_NAMES, OTHER_NAMES } from "./names";
+import { Simulation } from "./simulation.js";
+import { SimulationGlobals } from "./simulationGlobals.js";
+import { Utils } from "./utils.js";
+import { LASTNAMES, MALE_NAMES, FEMALE_NAMES, OTHER_NAMES } from "./names.js";
 
 /**
  * @typedef {{x: Number, y:Number}} pos
@@ -80,6 +80,8 @@ class Hospitality extends Plot {
  * @property {String} [customGenderName]
  */
 
+/** @typedef {'in home'|'walking'|'meeting'|'in hospitality'} HUMAN_ACTION */
+
 //atrybuty jako komentarz (modność, im więcej wystaw tym szybsza smierć), strata modności za wystawe z kimś niemodnym
 
 class Human {
@@ -89,7 +91,7 @@ class Human {
     id;
     /** @type {Number} */
     homeId;
-    /** @type {'in home'|'walking'|'meeting'|'in hospitality'} */
+    /** @type {HUMAN_ACTION} */
     action = 'in home';
     /** @type {{boredom: Number}} */
     status = {
@@ -128,7 +130,7 @@ class Human {
                 if (foundPaths.paths.length > 0) {
                     let randomPath = foundPaths.paths[Utils.getRandomWithProbability(foundPaths.probability)];
                     if(randomPath.length > 0) {
-                        res(randomPath);
+                        res(randomPath.slice(1));
                     } else {
                         res([to]);
                     }
@@ -146,15 +148,18 @@ class Human {
             if(this.pathToWalkOn.length <= crossedPlots) {
                 this.currentTickVisitedPoints = JSON.parse(JSON.stringify(this.pathToWalkOn));
                 this.pathToWalkOn = null;
-                // console.log(`walk progress ${this.info.name} ${this.info.lastname}`, crossedPlots, this.currentTickVisitedPoints);
+                this.simulation.logWrite(`walk progress ${this.info.name} ${this.info.lastname}`, this.pathToWalkOn, crossedPlots, this.currentTickVisitedPoints);
                 this.pos = this.currentTickVisitedPoints[this.currentTickVisitedPoints.length - 1];
+                while(this.currentTickVisitedPoints.length < crossedPlots) {
+                    this.currentTickVisitedPoints.push({x: this.pos.x, y: this.pos.y});
+                }
                 this.onWalkEnd();
                 this.onWalkEnd = () => {};
             } else {
                 this.currentTickVisitedPoints = this.pathToWalkOn.slice(0, crossedPlots);
                 this.pathToWalkOn = this.pathToWalkOn.slice(crossedPlots);
-                // console.log(`walk progress ${this.info.name} ${this.info.lastname}`, crossedPlots, this.currentTickVisitedPoints);
                 this.pos = this.currentTickVisitedPoints[this.currentTickVisitedPoints.length - 1];
+                this.simulation.logWrite(`walk progress ${this.info.name} ${this.info.lastname}`, this.pathToWalkOn, crossedPlots, this.currentTickVisitedPoints);
                 if(this.pathToWalkOn.length == 0) {
                     this.pathToWalkOn = null;
                     this.onWalkEnd();

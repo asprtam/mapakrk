@@ -1,0 +1,7 @@
+.cutCorners, .cutCornersBefore, .cutCornersAfter {
+    --cutRadius:0px;
+}
+
+.cutCorners, .cutCornersBefore::before, .cutCornersAfter::after {
+    clip-path: polygon(var(--cutRadius) 0%, calc(100% - var(--cutRadius)) 0%, 100% var(--cutRadius), 100% calc(100% - var(--cutRadius)), calc(100% - var(--cutRadius)) 100%, var(--cutRadius) 100%, 0% calc(100% - var(--cutRadius)), 0% var(--cutRadius));
+}

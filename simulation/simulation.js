@@ -1,15 +1,37 @@
-import { Grid } from "./grid";
-import { SimulationGlobals } from "./simulationGlobals";
-import { Plot, Home, Hospitality, Human } from "./entites";
-import { Utils } from "./utils";
-import { js as Easystar } from "easystarjs";
+import { Grid } from "./grid.js";
+import { SimulationGlobals } from "./simulationGlobals.js";
+import { Plot, Home, Hospitality, Human } from "./entites.js";
+import { Utils } from "./utils.js";
+import { LogWrite } from "../logWrite.js"; //@ts-ignore
+import pkg from "easystarjs";
+const Easystar = pkg.js;
+// import { EasyStar } from "easystarjs";
+// const Easystar = require('easystarjs/bin/easystar-0.4.4.js');
+// const Easystar = require('easystarjs');
 
 /** @typedef {import("./entites").HUMAN_INFO} HUMAN_INFO */
 /** @typedef {import("./entites").HUMAN_ATTRIBUTES} HUMAN_ATTRIBUTES */
+/** @typedef {import("./entites").HUMAN_ACTION} HUMAN_ACTION */
+
+/**
+ * @typedef {Object} TICK_HUMAN_DATA
+ * @property {Number} id
+ * @property {HUMAN_ACTION} action
+ * @property {pos} pos
+ * @property {Array<pos>} crossedPoints
+ */
+
+/**
+ * @typedef {Object} TICK_DATA
+ * @property {Number} id
+ * @property {Array<TICK_HUMAN_DATA>} humanPos
+ */
 
 /**
  * @typedef {{x: Number, y:Number}} pos
  */
+
+const log = new LogWrite();
 
 class Simulation {
     /** @type {Array<Plot>} */
@@ -24,16 +46,23 @@ class Simulation {
     tickTime = SimulationGlobals.tickTime;
     /** @type {Number} */
     currentSpeed = SimulationGlobals.currentSpeed;
-    /** @type {Timer|null} */
+    /** @type {*|null} */
     timeoout = null;
     /** @type {Boolean} */
     isRunning = false;
+    /** @type {Number} */
+    #tickId = 0;
 
-    get humanPositions() {
-        let infoToReturn = [];
+    logWrite = (...args) => {
+        log.write(...args);
+    }
+    
+    /** @type {TICK_DATA} */
+    get tick() {
+        /** @type {TICK_DATA} */
+        let infoToReturn = {id: this.#tickId + 0, humanPos: []};
         this.humans.forEach((human) => {
-            let humanData = {id: human.id, pos: human.pos, action: human.action, crossedPoints: human.currentTickVisitedPoints};
-            infoToReturn.push(humanData);
+            infoToReturn.humanPos.push({id: human.id, pos: human.pos, action: human.action, crossedPoints: human.currentTickVisitedPoints});
         });
         return infoToReturn;
     }
@@ -113,15 +142,52 @@ class Simulation {
         });
     }
 
-    tick = async () => {
+    /** 
+     * @param {TICK_DATA} tickData
+     * @param {String} msg
+     * @returns {Promise<*>}
+     *  */
+    onNewTick = (tickData, msg) => {
+        return new Promise((res) => {
+            res(true);
+        });
+    }
+
+    #tick = async () => {
         if(this.isRunning) {
+            const startTime = performance.now();
             for (let i = 0; i < this.humans.length; i++) {
                 await this.humans[i].tick();
             }
-            // console.log(JSON.stringify(this.humanPositions));
-            this.timeoout = setTimeout(() => {
-                this.tick();
-            }, this.tickTime);
+            let calculationTime = Math.ceil(performance.now() - startTime);
+            let msg = `Last tick (\x1b[32m${this.#tickId}\x1b[0m) calculation time \x1b[32m${(Math.ceil(calculationTime/10))/100}\x1b[0ms`;
+            log.write(msg);
+            if(calculationTime >= this.tickTime) {
+                this.timeoout = setTimeout(() => {
+                    this.#tickId++;
+                    if(this.#tickId >= Number.MAX_SAFE_INTEGER) {
+                        this.#tickId = 0;
+                    }
+                    this.onNewTick(this.tick, msg).then(() => {
+                        this.#tick();
+                    }).catch((e) => {
+                        console.error(e);
+                    });
+                });
+            } else {
+                this.timeoout = setTimeout(() => {
+                    this.#tickId++;
+                    if(this.#tickId >= Number.MAX_SAFE_INTEGER) {
+                        this.#tickId = 0;
+                    }
+                    this.onNewTick(this.tick, msg).then(() => {
+                        this.#tick();
+                    }).catch((e) => {
+                        console.error(e);
+                    });
+                }, this.tickTime - calculationTime);
+            }
+            
         }
     }
 
@@ -142,7 +208,7 @@ class Simulation {
             }
             this.timeoout = null;
             this.isRunning = true;
-            this.tick();
+            this.#tick();
         }
     }
 

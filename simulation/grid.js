@@ -5,11 +5,11 @@
 class Grid {
     /** @type {Number} */
     get width() {
-        return this.raw[0].length;
+        return this.raw.length;
     }
     /** @type {Number} */
     get height() {
-        return this.raw.length;
+        return this.raw[0].length;
     }
     /** @type {Array<Array<Number>>} */
     raw = [[]];
@@ -18,8 +18,8 @@ class Grid {
      * @param {(point:Number, pos?:pos) => void} callback
      */
     forEachPoint = (callback) => {
-        this.raw.forEach((column, row_id) => {
-            column.forEach((point, column_id) => {
+        this.raw.forEach((column, column_id) => {
+            column.forEach((point, row_id) => {
                 callback(point, {x: column_id, y: row_id});
             });
         });

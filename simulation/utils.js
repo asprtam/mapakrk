@@ -629,6 +629,17 @@ class Utils {
         return element instanceof Element || element instanceof Document || element instanceof HTMLElement;
     }
 
+    /**
+     * @param {Number} waitTime
+     */
+    static waitFor = (waitTime) => {
+        return new Promise((res) => {
+            setTimeout(() => {
+                res(undefined);
+            }, waitTime);
+        });
+    }
+
 
     constructor() {
 
