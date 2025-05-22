@@ -150,6 +150,9 @@ class LogWrite {
     constructor() {
         const {time, date} = this.#getTimeDate();
         this.fileName = `${date.replaceAll('.', '-')}_${time.replaceAll(':', '-')}.txt`;
+        if (!fs.existsSync('./logs')) {
+            fs.mkdirSync('./logs');
+        }
         this.#writer = fs.createWriteStream(`./logs/${this.fileName}`);
         this.#writer.write(`Start: ${time}, ${date}`);
     }

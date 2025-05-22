@@ -191,6 +191,8 @@ class DisplayedHuman {
 class App {
     /** @type {String} */
     serverUrl;
+    /** @type {String} */
+    wsUrl;
     /** @type {Boolean} */
     noSimulation = false;
     /** @type {Array<DisplayWindow>} */
@@ -277,6 +279,12 @@ class App {
     /** @type {{x: Number, y: Number}} */
     mapDisplayFocusPoint = {x: 0, y: 0};
     mapDisplayFocusPointLimits = {x: {max: 0, min: 0}, y: {max: 0, min: 0}};
+    /** @type {Number} */
+    startTime;
+    /** @type {Number} */
+    lastTime;
+    /** @type {WebSocket} */
+    socket;
 
     /** @returns {HTMLElement} */
     createLoader = () => {
@@ -373,7 +381,7 @@ class App {
                         } else {
                            timeoutHelper = setTimeout(() => {
                             waitForOrStopHelperFunc();
-                           }, 1);
+                           });
                         }
                     }
                     waitForOrStopHelperFunc();
@@ -384,8 +392,7 @@ class App {
             let frames = length/this.frameTime;
             let i = 0;
             while(i < frames && !stopped) {
-                // console.log(`draw frame ${i} of ${frames} in tick ${tickData.id}`);
-                await waitForOrStop(this.frameTime);
+                console.log(`draw frame ${i} of ${frames} in tick ${tickData.id}`);
                 this.pinnedHumansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
                 this.fakeCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
                 this.humansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
@@ -396,6 +403,7 @@ class App {
                         human.drawPos(i+0, frames+0, [], tickData.id);   
                     }
                 }
+                await waitForOrStop(this.frameTime);
                 if(stopped) {
                     break;
                 }
@@ -408,14 +416,14 @@ class App {
     }
 
     startDataFetch = () => {
-        this.tickHumans();
+        // this.tickHumans();
     }
 
     stopDataFetch = () => {
-        if(this.humansFetchTimer) {
-            clearTimeout(this.humansFetchTimer);
-            this.humansFetchTimer = null;
-        }
+        // if(this.humansFetchTimer) {
+        //     clearTimeout(this.humansFetchTimer);
+        //     this.humansFetchTimer = null;
+        // }
     }
 
     /** 
@@ -426,6 +434,7 @@ class App {
     onNewData = (fetchTime, lastTick) => {
         this.promFirstFetch.resolve(true);
         return new Promise(async (res) => {
+            console.log(fetchTime, lastTick);
             lastTick.humanPos.forEach(/** @param {TICK_HUMAN_DATA} set */ (set) => {
                 if(this.humans[set.id]) {
                     this.humans[set.id].update(set);
@@ -443,39 +452,90 @@ class App {
         });
     }
 
-    tickHumans = () => {
-        let startTime = performance.now();
-        const getNextTickHelperFunc = async () => {
-            const setNewTimer = () => {
-                this.humansFetchTimer = setTimeout(() => {
-                    getNextTickHelperFunc();
-                }, 10);
-            }
-            if(this.humansFetchTimer) {
-                clearTimeout(this.humansFetchTimer);
-                this.humansFetchTimer = null;
-            }
+    // tickHumans = () => {
+    //     let startTime = performance.now();
+    //     const getNextTickHelperFunc = async () => {
+    //         const setNewTimer = () => {
+    //             this.humansFetchTimer = setTimeout(() => {
+    //                 getNextTickHelperFunc();
+    //             }, 10);
+    //         }
+    //         if(this.humansFetchTimer) {
+    //             clearTimeout(this.humansFetchTimer);
+    //             this.humansFetchTimer = null;
+    //         }
 
-            const response = await fetch(`${this.serverUrl}/tick`);
-            if(response.ok) {
-                /** @type {TICK_DATA} */
-                const responseJson = await response.json();
-                if(responseJson.id !== this.lastTick.id) {
-                    this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
-                    console.log(this.lastTick, this.lastFetchTime);
-                    this.lastTick = responseJson;
-                    this.lastFetchTime = performance.now() - startTime;
-                    this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
-                    startTime = performance.now();
-                }
-            }
-            setNewTimer();
-        }
-        getNextTickHelperFunc();
-    }
+    //         const response = await fetch(`${this.serverUrl}/tick`);
+    //         if(response.ok) {
+    //             /** @type {TICK_DATA} */
+    //             const responseJson = await response.json();
+    //             if(responseJson.id !== this.lastTick.id) {
+    //                 this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
+    //                 console.log(this.lastTick, this.lastFetchTime);
+    //                 this.lastTick = responseJson;
+    //                 this.lastFetchTime = performance.now() - startTime;
+    //                 this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
+    //                 startTime = performance.now();
+    //             }
+    //         }
+    //         setNewTimer();
+    //     }
+    //     getNextTickHelperFunc();
+    // }
 
     dispose = () => {
         this.stopDataFetch();
+    }
+
+    // createHumansLayer = () => {
+    //     return new Promise(async (resolve, reject) => {
+    //         let gdc = Utils.gcd(this.mapSize.width, this.mapSize.height);
+    //         this.humansCanvas = Utils.createAndAppendHTMLElement(this.humansScreen, 'canvas', ['humans-canvas'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
+    //         this.humansCanvasCTX = this.humansCanvas.getContext('2d');
+    //         this.mapWindowCont.appendChild(this.humansScreen);
+    //         this.pinnedHumansCanvas = Utils.createAndAppendHTMLElement(this.pinnedHumansScreen, 'canvas', ['humans-canvas', 'pinned'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
+    //         this.pinnedHumansCanvasCTX = this.humansCanvas.getContext('2d');
+    //         this.mapWindowCont.appendChild(this.pinnedHumansScreen);
+    //         const startTime = performance.now();
+    //         const response = await fetch(`${this.serverUrl}/tick`);
+    //         if(response.ok) {
+    //             this.lastTick = await response.json();
+    //             this.lastTick.humanPos.forEach((set) => {
+    //                 if(set.crossedPoints.length > 0) {
+    //                     this.humans[set.id] = new DisplayedHuman(this, set.id, set.crossedPoints[0], set.action);
+    //                 } else {
+    //                     this.humans[set.id] = new DisplayedHuman(this, set.id, set.pos, set.action);
+    //                 }
+    //             });
+
+    //             this.lastFetchTime = performance.now() - startTime;
+    //             if(this.lastFetchTime <= this.tickTime) {
+    //                 this.lastFetchTime = this.tickTime + 0;
+    //             }
+    //             this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
+    //             if(!this.noSimulation) {
+    //                 this.startDataFetch();
+    //                 this.promFirstFetch.promise.then(() => {
+    //                     resolve(true);
+    //                 });
+    //             } else {
+    //                 resolve(false);
+    //             }
+    //         } else {
+    //             reject(500);
+    //         }
+    //     });
+    // }
+
+    handleSocketMessage = (event) => {
+        this.lastFetchTime = performance.now() - this.startTime;
+        if(this.lastFetchTime <= this.tickTime) {
+            this.lastFetchTime = this.tickTime + 0;
+        }
+        this.lastFetchTime = (Math.ceil(this.lastFetchTime/this.frameTime)) * this.frameTime;
+        this.startTime = performance.now();
+        this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
+        this.lastTick = JSON.parse(event.data);
     }
 
     createHumansLayer = () => {
@@ -486,11 +546,12 @@ class App {
             this.mapWindowCont.appendChild(this.humansScreen);
             this.pinnedHumansCanvas = Utils.createAndAppendHTMLElement(this.pinnedHumansScreen, 'canvas', ['humans-canvas', 'pinned'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
             this.pinnedHumansCanvasCTX = this.humansCanvas.getContext('2d');
-            this.mapWindowCont.appendChild(this.pinnedHumansScreen);
+            this.socket = new WebSocket(this.wsUrl);
             const startTime = performance.now();
-            const response = await fetch(`${this.serverUrl}/tick`);
-            if(response.ok) {
-                this.lastTick = await response.json();
+            this.socket.addEventListener('open', () => {
+            });
+            let handleFirstMessage = (event) => {
+                this.lastTick = JSON.parse(event.data);
                 this.lastTick.humanPos.forEach((set) => {
                     if(set.crossedPoints.length > 0) {
                         this.humans[set.id] = new DisplayedHuman(this, set.id, set.crossedPoints[0], set.action);
@@ -498,23 +559,18 @@ class App {
                         this.humans[set.id] = new DisplayedHuman(this, set.id, set.pos, set.action);
                     }
                 });
-
                 this.lastFetchTime = performance.now() - startTime;
                 if(this.lastFetchTime <= this.tickTime) {
                     this.lastFetchTime = this.tickTime + 0;
                 }
                 this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
-                if(!this.noSimulation) {
-                    this.startDataFetch();
-                    this.promFirstFetch.promise.then(() => {
-                        resolve(true);
-                    });
-                } else {
-                    resolve(false);
-                }
-            } else {
-                reject(500);
+                this.startTime = performance.now();
+                this.lastTime = performance.now();
+                this.socket.removeEventListener("message", handleFirstMessage);
+                this.socket.addEventListener('message', this.handleSocketMessage);
+                resolve(true);
             }
+            this.socket.addEventListener("message", handleFirstMessage);
         });
     }
 
@@ -577,18 +633,18 @@ class App {
     init = () => {
         return new Promise((resolve, reject) => {
             this.createMap().then((res) => {
-              resolve(true);
-            //     this.createHumansLayer().then((_res) => {
-            //         resolve(_res);
-            //     }, (code) => {
-            //         setTimeout(() => {
-            //             reject(code);
-            //         }, 5000);
-            //     });
-            // }, (code) => {
-            //     setTimeout(() => {
-            //         reject(code);
-            //     }, 5000);
+            //   resolve(true);
+                this.createHumansLayer().then((_res) => {
+                    resolve(_res);
+                }, (code) => {
+                    setTimeout(() => {
+                        reject(code);
+                    }, 5000);
+                });
+            }, (code) => {
+                setTimeout(() => {
+                    reject(code);
+                }, 5000);
             })
         });
     }
@@ -603,6 +659,7 @@ class App {
     
     constructor(params) {
         this.serverUrl = `${window.location.protocol}//${window.location.hostname}:3000`;
+        this.wsUrl = `ws://${window.location.hostname}:3000`;
         if(params) {
             if(params.noSimulation) {
                 this.noSimulation = true;

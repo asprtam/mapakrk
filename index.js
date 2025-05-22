@@ -1,7 +1,8 @@
 import Files from "files";
 import sharp from "sharp";
-import express from "express";
-import { WebSocketServer } from 'ws';
+// import express from "express";
+// import { WebSocketServer } from 'ws';
+import { WebSocketExpress, Router } from 'websocket-express';
 import { Grid } from "./simulation/grid.js";
 import { Simulation } from "./simulation/simulation.js";
 import { SimulationGlobals } from "./simulation/simulationGlobals.js";
@@ -30,41 +31,72 @@ const init = async () => {
             }
         });
     }
-
+    
     const RAW_MAP = await getRawMap();
-    const app = express();
+    let simulation = new Simulation(new Grid(RAW_MAP), SimulationGlobals.startHumans, SimulationGlobals.startHospitalities);
+
+    const app = new WebSocketExpress();
+    const router = new Router();
+    /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number}>} */
+    let connections = [];
 
     // app.use(bodyParser.text());
 
-    app.get('/mapSize', async (req, res) => {
+    router.ws('/', async(req, res) => {
+        const ws = await res.accept();
+        let id = connections.length;
+        let connection = {ws: ws};
+        Object.defineProperty(connection, 'id', {
+            set: (val) => {
+                id = val;
+            },
+            get: () => {
+                return id;
+            },
+            enumerable: true
+        }); //@ts-ignore
+        connections.push(connection);
+        ws.send(JSON.stringify(simulation.tick));
+        ws.onclose = () => {
+            /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number}>} */
+            let newConnections = [];
+            let newIndex = 0;
+            connections.forEach((_con) => {
+                if(_con.id !== id) {
+                    _con.id = newIndex + 0;
+                    newConnections.push(_con);
+                    newIndex++;
+                }
+            });
+            connections = newConnections;
+        }
+    });
+
+    router.get('/mapSize', async (req, res) => {
         res.set({
             'Access-Control-Allow-Origin': '*'
         });
         res.json({width: RAW_MAP.length, height: RAW_MAP[0].length});
     });
 
-    app.get('/rawMap', async (req, res) => {
+    router.get('/rawMap', async (req, res) => {
         res.set({
             'Access-Control-Allow-Origin': '*'
         });
         res.json(RAW_MAP);
     });
 
-    let simulation = new Simulation(new Grid(RAW_MAP), SimulationGlobals.startHumans, SimulationGlobals.startHospitalities);
+    // let webSocketServer = new WebSocketServer({ port: port+1, });
+    app.use(router);
+    const server = app.createServer();
+    console.clear();
+    console.log(`Listening on port ${port}...`);
+    server.listen(port);
 
-    let webSocketServer = new WebSocketServer({ port: port+1, });
-
-    let server = app.listen(port, () => {
-        console.clear();
-        console.log(`Listening on port ${port}...`);
-    });
-
-    /** @type {*} */
-    let connection = null;
-
-    webSocketServer.on('connection', (ws) => {
-        connection = ws;
-    });
+    // let server = app.listen(port, () => {
+    //     console.clear();
+    //     console.log(`Listening on port ${port}...`);
+    // });
 
     simulation.onNewTick = ((tickData, msg) => {
         return new Promise((res) => {
@@ -72,6 +104,13 @@ const init = async () => {
             console.log(`Listening on port ${port}...`);
             console.log(`\n`);
             console.log(msg);
+            connections.forEach((con) => {
+                try {
+                    con.ws.send(JSON.stringify(tickData));
+                } catch(err) {
+                    console.error(err);
+                }
+            });
             res(true);
         });
     });
