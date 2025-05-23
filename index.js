@@ -1,7 +1,5 @@
 import Files from "files";
 import sharp from "sharp";
-// import express from "express";
-// import { WebSocketServer } from 'ws';
 import { WebSocketExpress, Router } from 'websocket-express';
 import { Grid } from "./simulation/grid.js";
 import { Simulation } from "./simulation/simulation.js";
@@ -56,7 +54,15 @@ const init = async () => {
             enumerable: true
         }); //@ts-ignore
         connections.push(connection);
-        ws.send(JSON.stringify(simulation.tick));
+        ws.onmessage = (event) => {
+            if(event.data.slice(0, 'humanData-'.length) == 'humanData-') {
+                let targetId = Number(event.data.slice('humanData-'.length));
+                if(!isNaN(targetId)) {
+                    ws.send(`humanData-${JSON.stringify(simulation.getHumanData(targetId))}`);
+                }
+            }
+        }
+        ws.send(`tickData-${JSON.stringify(simulation.tick)}`);
         ws.onclose = () => {
             /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number}>} */
             let newConnections = [];
@@ -86,17 +92,11 @@ const init = async () => {
         res.json(RAW_MAP);
     });
 
-    // let webSocketServer = new WebSocketServer({ port: port+1, });
     app.use(router);
     const server = app.createServer();
     console.clear();
     console.log(`Listening on port ${port}...`);
     server.listen(port);
-
-    // let server = app.listen(port, () => {
-    //     console.clear();
-    //     console.log(`Listening on port ${port}...`);
-    // });
 
     simulation.onNewTick = ((tickData, msg) => {
         return new Promise((res) => {
@@ -106,7 +106,7 @@ const init = async () => {
             console.log(msg);
             connections.forEach((con) => {
                 try {
-                    con.ws.send(JSON.stringify(tickData));
+                    con.ws.send(`tickData-${JSON.stringify(tickData)}`);
                 } catch(err) {
                     console.error(err);
                 }

@@ -4,6 +4,7 @@
 @import url('./window.css');
 @import url('./loader.css');
 @import url('./mapWindow.css');
+@import url('./mapTooltips.css');
 
 .app {
     position: absolute;

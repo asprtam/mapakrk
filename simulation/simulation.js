@@ -12,6 +12,7 @@ const Easystar = pkg.js;
 /** @typedef {import("./entites").HUMAN_INFO} HUMAN_INFO */
 /** @typedef {import("./entites").HUMAN_ATTRIBUTES} HUMAN_ATTRIBUTES */
 /** @typedef {import("./entites").HUMAN_ACTION} HUMAN_ACTION */
+/** @typedef {import("./entites").HUMAN_DATA} HUMAN_DATA */
 
 /**
  * @typedef {Object} TICK_HUMAN_DATA
@@ -80,13 +81,14 @@ class Simulation {
 
     /** 
      * @param {Number} id
-     * @returns {{id: Number, info: HUMAN_INFO, attributes: HUMAN_ATTRIBUTES, status: *}|null}
+     * @returns {HUMAN_DATA|null}
      */
     getHumanData = (id) => {
         if(this.humans[id]) {
-            return {id: id, info: this.humans[id].info, attributes: this.humans[id].attributes, status: this.humans[id].status};
+            return {id: id, info: this.humans[id].info, attributes: this.humans[id].attributes};
+        } else {
+            return {id: id, info: {name: '', lastname: '', age: 0, gender: 'other', genderPronoun: 'other', customGenderName: null}, attributes: {social: 0, physical: 0, intelligence: 0}};
         }
-        return null;
     }
 
     /**
@@ -126,7 +128,8 @@ class Simulation {
             const easystar = new Easystar();
             easystar.setGrid(gridClone);
             easystar.setAcceptableTiles(0);
-            easystar.enableDiagonals();
+            easystar.disableDiagonals();
+            // easystar.enableDiagonals();
             
             // easystar.findPath(0, 8, 15, 8, (path) => {
             easystar.findPath(from.y, from.x, to.y, to.x, (path) => {

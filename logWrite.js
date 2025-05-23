@@ -130,13 +130,13 @@ class LogWrite {
      */
     write = async (...args) => {
         let writText = {time: `${this.#getTimeDate().time}`, val: this.#returnText(...args)};
-        setTimeout(() => {
-            this.#queue.push(writText);
-            if(!this.#queueRunning) {
-                this.#queueRunning = true;
-                this.#queueFunc();
-            }
-        });
+        // setTimeout(() => {
+        //     this.#queue.push(writText);
+        //     if(!this.#queueRunning) {
+        //         this.#queueRunning = true;
+        //         this.#queueFunc();
+        //     }
+        // });
     }
 
     /**

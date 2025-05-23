@@ -6,8 +6,13 @@ import { SimulationGlobals } from "./simulationGlobals";
 /** @typedef {keyof HTML_TAGS} HTML_TAG */
 /** @typedef {import("../../simulation/simulation").TICK_HUMAN_DATA} TICK_HUMAN_DATA */
 /** @typedef {import("../../simulation/simulation").TICK_DATA} TICK_DATA */
+/** @typedef {import("../../simulation/entites").HUMAN_DATA} HUMAN_DATA */
 
 class DisplayedHuman {
+    /** @type {Number} */
+    tooltipTimeout = 2000;
+    #tooltipTimerClass = null;
+    #tooltipTimerDeletion = null;
     /** @type {App} */
     parent;
     /** @type {Number} */
@@ -49,6 +54,15 @@ class DisplayedHuman {
     }
 
     /** @type {Boolean} */
+    #hovered = false;
+    get hovered() {
+        return this.#hovered;
+    }
+
+    /** @type {HTMLElement} */
+    #hoverToolTip;
+
+    /** @type {Boolean} */
     #pinned = false;
     /** @type {Boolean} */
     get pinned() {
@@ -56,6 +70,14 @@ class DisplayedHuman {
     }
     /** @type {Boolean} */
     set pinned(val) {
+        if(this.#tooltipTimerClass) {
+            clearTimeout(this.#tooltipTimerClass);
+            this.#tooltipTimerClass = null;
+        }
+        if(this.#tooltipTimerDeletion) {
+            clearTimeout(this.#tooltipTimerDeletion);
+            this.#tooltipTimerDeletion = null;
+        }
         if(val) {
             if(!this.#pinned) {
                 this.#pinned = true;
@@ -63,6 +85,7 @@ class DisplayedHuman {
                     this.parent.pinnedHumanIds.push(this.id);
                 }
             }
+            this.showToolTip();
             this.stopDeleteDataTimer();
         } else {
             if(this.#pinned) {
@@ -71,6 +94,95 @@ class DisplayedHuman {
                 if(indexof >= 0) {
                     this.parent.pinnedHumanIds = this.parent.pinnedHumanIds.slice(0, indexof).concat(this.parent.pinnedHumanIds.slice(indexof + 1))
                 }
+            }
+            if(this.#hoverToolTip) {
+                if(this.#hoverToolTip.classList.contains('pinned')) {
+                    this.#hoverToolTip.classList.remove('pinned');
+                }
+            }
+            this.hideToolTip();
+        }
+    }
+
+    updateTooltipPos = () => {
+        if(this.#hoverToolTip) {
+            // this.#hoverToolTip.style.setProperty('left', `${this.renderedPos.x}px`);
+            // this.#hoverToolTip.style.setProperty('top', `${this.renderedPos.y}px`);
+            this.#hoverToolTip.style.setProperty('left', `${(this.renderedPos.x * (this.parent.currentMapDisplayScale / 1000)) + this.parent.mapCut.x}px`);
+            this.#hoverToolTip.style.setProperty('top', `${(this.renderedPos.y * (this.parent.currentMapDisplayScale / 1000)) + this.parent.mapCut.y}px`);
+        }
+    }
+
+    hideToolTip = () => {
+        if(this.#tooltipTimerClass) {
+            clearTimeout(this.#tooltipTimerClass);
+            this.#tooltipTimerClass = null;
+        }
+        if(this.#tooltipTimerDeletion) {
+            clearTimeout(this.#tooltipTimerDeletion);
+            this.#tooltipTimerDeletion = null;
+        }
+        this.#tooltipTimerClass = setTimeout(() => {
+            this.#hovered = false;
+            let waitTime = 0;
+            if(this.#hoverToolTip) {
+                if(!this.#hoverToolTip.classList.contains('close')) {
+                    this.#hoverToolTip.classList.add('close');
+                }
+                waitTime = Utils.getTransitionTime(this.#hoverToolTip);
+            }
+            this.#tooltipTimerDeletion = setTimeout(() => {
+                if(this.#hoverToolTip) {
+                    this.#hoverToolTip.remove();
+                    this.#hoverToolTip = undefined;
+                }
+            }, waitTime);
+        }, this.tooltipTimeout);
+    }
+
+    showToolTip = () => {
+        if(this.#tooltipTimerClass) {
+            clearTimeout(this.#tooltipTimerClass);
+            this.#tooltipTimerClass = null;
+        }
+        if(this.#tooltipTimerDeletion) {
+            clearTimeout(this.#tooltipTimerDeletion);
+            this.#tooltipTimerDeletion = null;
+        }
+        if(this.#hoverToolTip == undefined || this.#hoverToolTip == null) {
+            const classArr = ['toolTip'];
+            if(this.#pinned) {
+                classArr.push('pinned');
+            }
+            this.#hoverToolTip = Utils.createAndAppendHTMLElement(this.parent.tooltipsCont, 'div', classArr, {attibutes: {'id': `tooltipHuman-${this.id}`}});
+        } else {
+            if(this.#hoverToolTip.classList.contains('close')) {
+                this.#hoverToolTip.classList.remove('close');
+            }
+            if(this.#pinned) {
+                if(!this.#hoverToolTip.classList.contains('pinned')) {
+                    this.#hoverToolTip.classList.add('pinned');
+                }
+            } else {
+                if(this.#hoverToolTip.classList.contains('pinned')) {
+                    this.#hoverToolTip.classList.remove('pinned');
+                }
+            }
+        }
+        this.updateTooltipPos();
+    }
+
+    hover = () => {
+        this.#hovered = true;
+        this.showToolTip();
+    }
+
+    unHover = () => {
+        if(this.#hovered) {
+            if(this.#pinned) {
+                this.#hovered = false;
+            } else {
+                this.hideToolTip();
             }
         }
     }
@@ -122,11 +234,20 @@ class DisplayedHuman {
         let startX = Math.round(pos.x*this.parent.mapScalingFactor) + (this.parent.mapScalingFactor/2);
         let startY = Math.round(pos.y*this.parent.mapScalingFactor) + (this.parent.mapScalingFactor/2);
         this.renderedPos = {x: startX, y: startY};
-        this.parent.humansCanvasCTX.beginPath();
-        this.parent.humansCanvasCTX.arc(startX, startY, this.parent.humanDisplayWidth * this.parent.mapScalingFactor, 0, 2*Math.PI);
-        this.parent.humansCanvasCTX.fillStyle = colors.color5.light['color5-light-30'];
-        this.parent.humansCanvasCTX.fill();
-        this.parent.humansCanvasCTX.closePath();
+        this.updateTooltipPos();
+        if(this.#pinned) {
+            this.parent.pinnedHumansCanvasCTX.beginPath();
+            this.parent.pinnedHumansCanvasCTX.arc(startX, startY, this.parent.humanDisplayWidth * this.parent.mapScalingFactor, 0, 2*Math.PI);
+            this.parent.pinnedHumansCanvasCTX.fillStyle = colors.color5.light['color5-light-30'];
+            this.parent.pinnedHumansCanvasCTX.fill();
+            this.parent.pinnedHumansCanvasCTX.closePath();
+        } else {
+            this.parent.humansCanvasCTX.beginPath();
+            this.parent.humansCanvasCTX.arc(startX, startY, this.parent.humanDisplayWidth * this.parent.mapScalingFactor, 0, 2*Math.PI);
+            this.parent.humansCanvasCTX.fillStyle = colors.color5.light['color5-light-30'];
+            this.parent.humansCanvasCTX.fill();
+            this.parent.humansCanvasCTX.closePath();
+        }
     }
 
     /** 
@@ -189,6 +310,8 @@ class DisplayedHuman {
 }
 
 class App {
+    /** @type {{showPinnedOnly: Boolean}} */
+    displayConfig = {showPinnedOnly: false};
     /** @type {String} */
     serverUrl;
     /** @type {String} */
@@ -243,6 +366,8 @@ class App {
     pinnedHumansCanvasCTX;
     /** @type {HTMLElement} */
     fakeScreen = Utils.createHTMLElement('div', ['screen', 'fake']);  
+    /** @type {HTMLElement} */
+    tooltipsCont = Utils.createHTMLElement('div', ['tooltips']);
     /** @type {HTMLCanvasElement} */
     fakeCanvas;
     /** @type {CanvasRenderingContext2D} */
@@ -278,6 +403,8 @@ class App {
     mapMaxDisplayScale = 2000;
     /** @type {{x: Number, y: Number}} */
     mapDisplayFocusPoint = {x: 0, y: 0};
+    /** @type {{x: Number, y: Number}} */
+    mapCut = {x: 0, y: 0};
     mapDisplayFocusPointLimits = {x: {max: 0, min: 0}, y: {max: 0, min: 0}};
     /** @type {Number} */
     startTime;
@@ -285,6 +412,80 @@ class App {
     lastTime;
     /** @type {WebSocket} */
     socket;
+
+    /**
+     * @typedef {Object} HUMAN_DATA_QUEUE
+     * @property {Array<Number>} requestedIds
+     * @property {(id:Number) => Promise<HUMAN_DATA>} request
+     * @property {(id:Number, data: HUMAN_DATA) => void} resolve
+     */
+    /** @type {HUMAN_DATA_QUEUE} */
+    #humanDataQueue;
+    
+    /** @returns {HUMAN_DATA_QUEUE} */
+    #createHumanDataQueue = () => {
+        /** @type {{[id:String]: PromiseWithResolvers<HUMAN_DATA>}} */
+        let _requests = {};
+        /** @type {{[id:String]: HUMAN_DATA}} */
+        let _preResolved = {};
+        /** @type {HUMAN_DATA_QUEUE} */ //@ts-ignore
+        let humanDataQueue = {};
+        Object.defineProperty(humanDataQueue, 'requestedIds', {
+            set: () => {},
+            get: () => {
+                let _requestsIds = Object.keys(_requests).map((key) => { return Number(key) });
+                Object.keys(_preResolved).forEach((key) => {
+                    if(!_requestsIds.includes(Number(key))) {
+                        _requestsIds.push(Number(key));
+                    }
+                });
+                return _requestsIds;
+            },
+            enumerable: true
+        });
+        humanDataQueue.request = (id) => {
+            if(Object.keys(_preResolved).includes(`${id}`)) {
+                return new Promise((res) => {
+                    let _preResolvedData = JSON.parse(JSON.stringify(_preResolved[`${id}`]));
+                    /** @type {{[id:String]: HUMAN_DATA}} */
+                    let _newPreResolved = {};
+                    Object.keys(_newPreResolved).forEach((key) => {
+                        if(key !== `${id}`) {
+                            _newPreResolved[key] = _preResolved[key];
+                        }
+                    });
+                    _preResolved = _newPreResolved;
+                    res(_preResolvedData);
+                });
+            } else if(Object.keys(_requests).includes(`${id}`)) {
+                return _requests[`${id}`].promise;
+            } else {
+                _requests[`${id}`] = Promise.withResolvers();
+                this.promFirstFetch.promise.then(() => {
+                    this.socket.send(`humanData-${id}`);
+                });
+                return _requests[`${id}`].promise;
+            }
+        }
+        humanDataQueue.resolve = (id, data) => {
+            if(Object.keys(_requests).includes(`${id}`)) {
+                /** @type {{[id:String]: PromiseWithResolvers<HUMAN_DATA>}} */
+                let _newRequests = {};
+                Object.keys(_requests).forEach((key) => {
+                    if(key !== `${id}`) {
+                        _newRequests[key] = _requests[key];
+                    } else {
+                        _requests[key].resolve(data);
+                    }
+                });
+                _requests = _newRequests;
+            } else if(!Object.keys(_preResolved).includes(`${id}`)) {
+                _preResolved[`${id}`] = data;
+            }
+        }
+        return humanDataQueue;
+    }
+
 
     /** @returns {HTMLElement} */
     createLoader = () => {
@@ -341,6 +542,14 @@ class App {
     }
 
     /**
+     * @param {Number} id 
+     * @returns {Promise<HUMAN_DATA>}
+     */
+    getHumanData = (id) => {
+        return this.#humanDataQueue.request(id);
+    }
+
+    /**
      * @typedef {Object} DRAWING_INSTANCE
      * @property {() => void} stop
      * @property {Promise} finish
@@ -392,7 +601,7 @@ class App {
             let frames = length/this.frameTime;
             let i = 0;
             while(i < frames && !stopped) {
-                console.log(`draw frame ${i} of ${frames} in tick ${tickData.id}`);
+                // console.log(`draw frame ${i} of ${frames} in tick ${tickData.id}`);
                 this.pinnedHumansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
                 this.fakeCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
                 this.humansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
@@ -412,18 +621,13 @@ class App {
             drawingInstancePromise.resolve(true);
         }
         drawingInstanceFunc();
-        return { stop: () => { stopped = true; console.log(`stopped animation of tick ${tickData.id}`) }, finish: drawingInstancePromise.promise };
+        return { stop: () => { stopped = true; /* console.log(`stopped animation of tick ${tickData.id}`) */ }, finish: drawingInstancePromise.promise };
     }
 
     startDataFetch = () => {
-        // this.tickHumans();
     }
 
     stopDataFetch = () => {
-        // if(this.humansFetchTimer) {
-        //     clearTimeout(this.humansFetchTimer);
-        //     this.humansFetchTimer = null;
-        // }
     }
 
     /** 
@@ -432,9 +636,8 @@ class App {
      * @returns {Promise<Boolean>}
      */
     onNewData = (fetchTime, lastTick) => {
-        this.promFirstFetch.resolve(true);
         return new Promise(async (res) => {
-            console.log(fetchTime, lastTick);
+            // console.log(fetchTime, lastTick);
             lastTick.humanPos.forEach(/** @param {TICK_HUMAN_DATA} set */ (set) => {
                 if(this.humans[set.id]) {
                     this.humans[set.id].update(set);
@@ -452,90 +655,39 @@ class App {
         });
     }
 
-    // tickHumans = () => {
-    //     let startTime = performance.now();
-    //     const getNextTickHelperFunc = async () => {
-    //         const setNewTimer = () => {
-    //             this.humansFetchTimer = setTimeout(() => {
-    //                 getNextTickHelperFunc();
-    //             }, 10);
-    //         }
-    //         if(this.humansFetchTimer) {
-    //             clearTimeout(this.humansFetchTimer);
-    //             this.humansFetchTimer = null;
-    //         }
-
-    //         const response = await fetch(`${this.serverUrl}/tick`);
-    //         if(response.ok) {
-    //             /** @type {TICK_DATA} */
-    //             const responseJson = await response.json();
-    //             if(responseJson.id !== this.lastTick.id) {
-    //                 this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
-    //                 console.log(this.lastTick, this.lastFetchTime);
-    //                 this.lastTick = responseJson;
-    //                 this.lastFetchTime = performance.now() - startTime;
-    //                 this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
-    //                 startTime = performance.now();
-    //             }
-    //         }
-    //         setNewTimer();
-    //     }
-    //     getNextTickHelperFunc();
-    // }
-
     dispose = () => {
         this.stopDataFetch();
     }
 
-    // createHumansLayer = () => {
-    //     return new Promise(async (resolve, reject) => {
-    //         let gdc = Utils.gcd(this.mapSize.width, this.mapSize.height);
-    //         this.humansCanvas = Utils.createAndAppendHTMLElement(this.humansScreen, 'canvas', ['humans-canvas'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
-    //         this.humansCanvasCTX = this.humansCanvas.getContext('2d');
-    //         this.mapWindowCont.appendChild(this.humansScreen);
-    //         this.pinnedHumansCanvas = Utils.createAndAppendHTMLElement(this.pinnedHumansScreen, 'canvas', ['humans-canvas', 'pinned'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
-    //         this.pinnedHumansCanvasCTX = this.humansCanvas.getContext('2d');
-    //         this.mapWindowCont.appendChild(this.pinnedHumansScreen);
-    //         const startTime = performance.now();
-    //         const response = await fetch(`${this.serverUrl}/tick`);
-    //         if(response.ok) {
-    //             this.lastTick = await response.json();
-    //             this.lastTick.humanPos.forEach((set) => {
-    //                 if(set.crossedPoints.length > 0) {
-    //                     this.humans[set.id] = new DisplayedHuman(this, set.id, set.crossedPoints[0], set.action);
-    //                 } else {
-    //                     this.humans[set.id] = new DisplayedHuman(this, set.id, set.pos, set.action);
-    //                 }
-    //             });
-
-    //             this.lastFetchTime = performance.now() - startTime;
-    //             if(this.lastFetchTime <= this.tickTime) {
-    //                 this.lastFetchTime = this.tickTime + 0;
-    //             }
-    //             this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
-    //             if(!this.noSimulation) {
-    //                 this.startDataFetch();
-    //                 this.promFirstFetch.promise.then(() => {
-    //                     resolve(true);
-    //                 });
-    //             } else {
-    //                 resolve(false);
-    //             }
-    //         } else {
-    //             reject(500);
-    //         }
-    //     });
-    // }
-
+    /**
+     * 
+     * @param {MessageEvent} event 
+     */
     handleSocketMessage = (event) => {
-        this.lastFetchTime = performance.now() - this.startTime;
-        if(this.lastFetchTime <= this.tickTime) {
-            this.lastFetchTime = this.tickTime + 0;
+        let indexOfDash = event.data.indexOf('-');
+        if(indexOfDash >= 0) {
+            let tag = event.data.slice(0, indexOfDash);
+            let rest = event.data.slice(indexOfDash + 1);
+            switch(tag) {
+                case 'tickData': {
+                    this.lastFetchTime = performance.now() - this.startTime;
+                    if(this.lastFetchTime <= this.tickTime) {
+                        this.lastFetchTime = this.tickTime + 0;
+                    }
+                    this.lastFetchTime = (Math.ceil(this.lastFetchTime/this.frameTime)) * this.frameTime;
+                    this.startTime = performance.now();
+                    this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
+                    this.lastTick = JSON.parse(rest);
+                    break;
+                }
+                case 'humanData': {
+                    /** @type {HUMAN_DATA} */
+                    let humanData = JSON.parse(rest);
+                    this.#humanDataQueue.resolve(humanData.id, humanData);
+                    break;
+                }
+            }
         }
-        this.lastFetchTime = (Math.ceil(this.lastFetchTime/this.frameTime)) * this.frameTime;
-        this.startTime = performance.now();
-        this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
-        this.lastTick = JSON.parse(event.data);
     }
 
     createHumansLayer = () => {
@@ -548,27 +700,35 @@ class App {
             this.pinnedHumansCanvasCTX = this.humansCanvas.getContext('2d');
             this.socket = new WebSocket(this.wsUrl);
             const startTime = performance.now();
+            let unpassed = true;
             this.socket.addEventListener('open', () => {
             });
             let handleFirstMessage = (event) => {
-                this.lastTick = JSON.parse(event.data);
-                this.lastTick.humanPos.forEach((set) => {
-                    if(set.crossedPoints.length > 0) {
-                        this.humans[set.id] = new DisplayedHuman(this, set.id, set.crossedPoints[0], set.action);
-                    } else {
-                        this.humans[set.id] = new DisplayedHuman(this, set.id, set.pos, set.action);
+                if(unpassed) {
+                    if(event.data.slice(0, 'tickData-'.length) == 'tickData-') {
+                        this.lastTick = JSON.parse(event.data.slice('tickData-'.length));
+                        this.lastTick.humanPos.forEach((set) => {
+                            console.log(set);
+                            if(set.crossedPoints.length > 0) {
+                                this.humans[set.id] = new DisplayedHuman(this, set.id, set.crossedPoints[0], set.action);
+                            } else {
+                                this.humans[set.id] = new DisplayedHuman(this, set.id, set.pos, set.action);
+                            }
+                        });
+                        this.lastFetchTime = performance.now() - startTime;
+                        if(this.lastFetchTime <= this.tickTime) {
+                            this.lastFetchTime = this.tickTime + 0;
+                        }
+                        this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
+                        this.startTime = performance.now();
+                        this.lastTime = performance.now();
+                        this.socket.removeEventListener("message", handleFirstMessage);
+                        this.socket.addEventListener('message', this.handleSocketMessage);
+                        this.promFirstFetch.resolve(true);
+                        unpassed = false;
+                        resolve(true);
                     }
-                });
-                this.lastFetchTime = performance.now() - startTime;
-                if(this.lastFetchTime <= this.tickTime) {
-                    this.lastFetchTime = this.tickTime + 0;
                 }
-                this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
-                this.startTime = performance.now();
-                this.lastTime = performance.now();
-                this.socket.removeEventListener("message", handleFirstMessage);
-                this.socket.addEventListener('message', this.handleSocketMessage);
-                resolve(true);
             }
             this.socket.addEventListener("message", handleFirstMessage);
         });
@@ -666,6 +826,7 @@ class App {
             }
         }
         this.#loader = this.createLoader();
+        this.#humanDataQueue = this.#createHumanDataQueue();
         this.appCont = Utils.createAndAppendHTMLElement(document.body, 'div', ['app'], {attibutes: {id: 'app'}});
         Object.defineProperty(this.mapSizeScaled, 'width', {
             set: () => {},
@@ -695,6 +856,9 @@ class App {
             }
 
             let gdc = Utils.gcd(this.mapSize.width, this.mapSize.height);
+            // this.tooltipsCont.style.setProperty('width', `${this.mapSizeScaled.width}px`);
+            // this.tooltipsCont.style.setProperty('height', `${this.mapSizeScaled.height}px`);
+            this.fakeScreen.appendChild(this.tooltipsCont);
             this.fakeCanvas = Utils.createAndAppendHTMLElement(this.fakeScreen, 'canvas', ['fake-canvas'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
             this.mapWindowCont.appendChild(this.fakeScreen);
             this.fakeCanvasCTX = this.fakeCanvas.getContext('2d');
@@ -712,6 +876,15 @@ class App {
                 mapZoomInput.value = `${this.currentMapDisplayScale}`;
 
                 this.mapDisplayFocusPointLimits = {x: {min: -50, max: -50}, y: {min: -50, max: -50}};
+
+                let baseX = 0;
+                let baseY = 0;
+                
+                const setMapCut = () => {
+                    let bounds = this.mapCanvas.getBoundingClientRect();
+                    let bounds_parent = this.humansScreen.getBoundingClientRect();
+                    this.mapCut = {x: (bounds.left - bounds_parent.left) - baseX, y: (bounds.top - bounds_parent.top) - baseY};
+                }
 
                 const handleResize = () => {
                     this.mapMinDisplayScale = Math.ceil((this.mapWindowCont.offsetWidth/this.mapSizeScaled.width)*1000);
@@ -738,6 +911,10 @@ class App {
                         this.mapWindowCont.style.setProperty(`--currentMapOffsetX`, `${this.mapDisplayFocusPoint.x}%`);
                         this.mapWindowCont.style.setProperty(`--currentMapOffsetY`, `${this.mapDisplayFocusPoint.y}%`);
                         this.mapWindowCont.style.setProperty('--currentMapScale', `${this.currentMapDisplayScale/1000}`);
+                        setMapCut();
+                        this.humans.forEach((human) => {
+                            human.updateTooltipPos();
+                        });
                     }
                 }
 
@@ -765,6 +942,10 @@ class App {
                             this.mapWindowCont.style.setProperty(`--currentMapOffsetX`, `${this.mapDisplayFocusPoint.x}%`);
                             this.mapWindowCont.style.setProperty(`--currentMapOffsetY`, `${this.mapDisplayFocusPoint.y}%`);
                             this.mapWindowCont.style.setProperty('--currentMapScale', `${this.currentMapDisplayScale/1000}`);
+                            setMapCut();
+                            this.humans.forEach((human) => {
+                                human.updateTooltipPos();
+                            });
                         }
                     }
                 });
@@ -780,8 +961,6 @@ class App {
                 const handleDragMouse = (e) => {
                     const diffX = ((e.offsetX - dragStartPos.x)/this.mapSizeScaled.width)*100;
                     const diffY = ((e.offsetY - dragStartPos.y)/this.mapSizeScaled.height)*100;
-                    //console.log(`{ width: ${this.mapSizeScaled.width}, height: ${this.mapSizeScaled.height}, x: ${e.offsetX}, y: ${e.offsetY}, diffX: ${diffX}, diffY: ${diffY} }`);
-                    //console.log(JSON.stringify(this.mapDisplayFocusPointLimits))
                     this.mapDisplayFocusPoint.x = this.mapDisplayFocusPoint.x + diffX;
                     if(this.mapDisplayFocusPoint.x <= this.mapDisplayFocusPointLimits.x.min) {
                         this.mapDisplayFocusPoint.x = this.mapDisplayFocusPointLimits.x.min + 0;
@@ -798,6 +977,24 @@ class App {
                     }
                     this.mapWindowCont.style.setProperty(`--currentMapOffsetX`, `${this.mapDisplayFocusPoint.x}%`);
                     this.mapWindowCont.style.setProperty(`--currentMapOffsetY`, `${this.mapDisplayFocusPoint.y}%`);
+                    setMapCut();
+                    this.humans.forEach((human) => {
+                        human.updateTooltipPos();
+                    });
+                }
+
+                /** @param {MouseEvent} e */
+                const handleMouseMoveNormal = (e) => {
+                    let pos = {x: e.offsetX, y: e.offsetY};
+                    let half = this.mapScalingFactor;
+                    // let half = (this.humanDisplayWidth * this.mapScalingFactor);
+                    this.humans.forEach((human) => {
+                        if((pos.x >= (human.renderedPos.x - half) && pos.x <= (human.renderedPos.x + half)) && (pos.y >= (human.renderedPos.y - half) && pos.y <= (human.renderedPos.y + half)) && ((this.displayConfig.showPinnedOnly && human.pinned) || !this.displayConfig.showPinnedOnly)) {
+                            human.hover();
+                        } else {
+                            human.unHover();
+                        }
+                    });
                 }
 
                 /** @param {MouseEvent} e */
@@ -808,9 +1005,13 @@ class App {
                         this.fakeScreen.classList.add('dragging');
                     }
                     this.fakeCanvas.removeEventListener('mousedown', handleStartDrag);
+                    this.fakeCanvas.removeEventListener('mousemove', handleMouseMoveNormal);
                     this.fakeCanvas.addEventListener('mousemove', handleDragMouse);
                     this.fakeCanvas.addEventListener('mouseup', handleStopDrag);
                     this.fakeCanvas.addEventListener('mouseout', handleStopDrag);
+                    this.humans.forEach((human) => {
+                        human.unHover();
+                    });
                 }
 
                 /** @param {MouseEvent} e */
@@ -823,13 +1024,19 @@ class App {
                     this.fakeCanvas.removeEventListener('mouseup', handleStopDrag);
                     this.fakeCanvas.removeEventListener('mouseout', handleStopDrag);
                     this.fakeCanvas.addEventListener('mousedown', handleStartDrag);
+                    this.fakeCanvas.addEventListener('mousemove', handleMouseMoveNormal);
                 }
 
                 setTimeout(() => {
                     this.mapWindowCont.style.setProperty('--currentMapScale', `${this.currentMapDisplayScale/1000}`);
                     this.mapWindowCont.style.setProperty(`--currentMapOffsetX`, `${this.mapDisplayFocusPoint.x}%`);
                     this.mapWindowCont.style.setProperty(`--currentMapOffsetY`, `${this.mapDisplayFocusPoint.y}%`);
+                    let bounds = this.mapCanvas.getBoundingClientRect();
+                    let bounds_parent = this.humansScreen.getBoundingClientRect();
+                    baseX = bounds.left - bounds_parent.left;
+                    baseY = bounds.top - bounds_parent.top;
                     this.fakeCanvas.addEventListener('mousedown', handleStartDrag);
+                    this.fakeCanvas.addEventListener('mousemove', handleMouseMoveNormal);
                     this.removeLoader();
                 });
             });
@@ -839,7 +1046,6 @@ class App {
 
 try {
   const app = new App();
-  app.init();
 } catch(err) {
   console.error(err);
 }

@@ -40,6 +40,25 @@
     z-index: 4;
 }
 
+.window.map-window .contentHolder .map.content .screen.fake .tooltips {
+    z-index: 2;
+    position: absolute;
+    /* left: 50%;
+    top: 50%;
+    transform: translate(var(--currentMapOffsetX), var(--currentMapOffsetY)); */
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    touch-action: none !important;
+    user-select: none !important;
+    pointer-events: none !important;
+}
+
+.window.map-window .contentHolder .map.content .screen.fake canvas {
+    z-index: 1;
+}
+
 .window.map-window .contentHolder .map.content .screen.fake.dragging {
     cursor: grabbing;
 }

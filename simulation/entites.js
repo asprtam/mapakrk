@@ -82,6 +82,18 @@ class Hospitality extends Plot {
 
 /** @typedef {'in home'|'walking'|'meeting'|'in hospitality'} HUMAN_ACTION */
 
+/**
+ * @typedef {Object} HUMAN_STATUSES
+ * @property {Number} boredom
+ */
+
+/**
+ * @typedef {Object} HUMAN_DATA
+ * @property {Number} id
+ * @property {HUMAN_INFO} info
+ * @property {HUMAN_ATTRIBUTES} attributes
+ */
+
 //atrybuty jako komentarz (modność, im więcej wystaw tym szybsza smierć), strata modności za wystawe z kimś niemodnym
 
 class Human {
@@ -93,7 +105,7 @@ class Human {
     homeId;
     /** @type {HUMAN_ACTION} */
     action = 'in home';
-    /** @type {{boredom: Number}} */
+    /** @type {HUMAN_STATUSES} */
     status = {
         boredom: 1
     }
@@ -144,7 +156,7 @@ class Human {
     /** @returns {Promise<Boolean>} */
     walkProgress = () => {
         return new Promise((res) => {
-            let crossedPlots = (Math.floor(this.attributes.physical / 10) + 1) * this.simulation.currentSpeed;
+            let crossedPlots = (Math.floor(this.attributes.physical / 20) + 1) * this.simulation.currentSpeed;
             if(this.pathToWalkOn.length <= crossedPlots) {
                 this.currentTickVisitedPoints = JSON.parse(JSON.stringify(this.pathToWalkOn));
                 this.pathToWalkOn = null;
@@ -418,6 +430,10 @@ class Human {
     attributes;
     /** @type {HUMAN_INFO} */
     info;
+
+    get data () {
+        return {info: this.info, attributes: this.attributes}
+    }
 
     /**
      * @param {Simulation} simulation
