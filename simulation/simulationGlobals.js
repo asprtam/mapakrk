@@ -8,9 +8,9 @@ class SimulationGlobals {
     /** @type {Number} */
     static mapScalingFactor = 16;
     /** @type {Number} */
-    static startHumans = 3;
+    static startHumans = 30;
     /** @type {Number} */
-    static humanDisplayWidth = 0.75;
+    static humanDisplayWidth = 1.5;
     /** @type {Number} */
     static startHospitalities = 20;
 

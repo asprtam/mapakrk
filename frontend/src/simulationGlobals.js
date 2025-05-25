@@ -10,7 +10,7 @@ class SimulationGlobals {
     /** @type {Number} */
     static startHumans = 3;
     /** @type {Number} */
-    static humanDisplayWidth = 0.75;
+    static humanDisplayWidth = 1.5;
     /** @type {Number} */
     static startHospitalities = 20;
 

@@ -1,6 +1,170 @@
+.window.map-window .contentHolder .map.content .screen.fake .tooltips {
+    --sizeHalf: calc(var(--humanPixelWidth) / 2);
+    --arrowSize: 10px;
+}
+
+@keyframes tooltip_open {
+    0% {
+        opacity: 0;
+        transform: translate(var(--sizeHalf), -50%) scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(var(--sizeHalf), -50%);
+    }
+}
+
 .tooltips .tooltip {
     position: absolute;
-    background: red;
-    width: 10px;
-    height: 10px;
+    box-sizing: border-box;
+    padding-left: calc(10px + var(--arrowSize));
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    transform-origin: left center;
+    transform: translate(var(--sizeHalf), -50%);
+    animation-name: tooltip_open;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+}
+
+@keyframes tooltip_close {
+    0% {
+        opacity: 1;
+        transform: translate(var(--sizeHalf), -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--sizeHalf), -50%) scale(0);
+    }
+}
+
+
+.tooltips .tooltip.close {
+    animation-name: tooltip_close;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+}
+
+.tooltips .tooltip .face {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    --borderSize:2px;
+}
+
+.tooltips .tooltip .face .bg {
+    position: absolute;
+    z-index: 1;
+    width: calc(100% - var(--arrowSize));
+    left: var(--arrowSize);
+    top: 0px;
+    height: 100%;
+    background: #000;
+    box-sizing: border-box;
+    border: var(--borderSize) solid var(--color3-light-10);
+}
+
+.tooltips .tooltip .face .arrow {
+    width: calc(var(--arrowSize) * 1.41);
+    height: calc(var(--arrowSize) * 1.41);
+    left: calc(var(--arrowSize) * 0.4);
+    top: 50%;
+    position: absolute;
+    z-index: 2;
+    transform: translate(0, -50%);
+}
+
+.tooltips .tooltip .face .arrow::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    content: '';
+    box-sizing: border-box;
+    border-left: var(--borderSize) solid var(--color3-light-10);
+    border-top: var(--borderSize) solid var(--color3-light-10);
+    background: #000;
+    transform: rotateZ(-45deg);
+}
+
+/* .tooltips .tooltip.tooltip::after {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    background: #000;
+    top: 50%;
+    left: 0px;
+    transform: translate(0%, -50%);
+    width: var(--arrowSize);
+    height: var(--arrowSize);
+    clip-path: polygon(0 50%, 100% 100%, 100% 0);
+}
+
+.tooltips .tooltip::before {
+    content: '';
+    left: calc(var(--arrowSize) - 1px);
+    top: 0px;
+    position: absolute;
+    width: calc(100% - calc(var(--arrowSize) - 1px));
+    height: 100%;
+    z-index: 1;
+    background: #000;
+} */
+
+.tooltip .content {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.tooltip .content p {
+    width: 100%;
+    text-align: center;
+}
+
+.tooltip .content p {
+    font-family: "IBM Plex Mono", monospace !important;
+    color: var(--color3-light-10);
+    font-size: 0.85em;
+    line-height: 0.85em;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.tooltip .content p span {
+    color: inherit;
+    font-family:  inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    word-break: inherit;
+    white-space: inherit;
+    letter-spacing: inherit;
+}
+
+.tooltip .content p.name {
+    letter-spacing: 0.085em;
+    font-weight: 600;
+}
+
+.tooltip .content p.action {
+    font-size: 0.75em;
+    line-height: 0.75em;
+    letter-spacing: 0.075em;
+    font-weight: 500;
+    color: var(--color3-light-50);
+}
+
+.tooltip .content p.action .location {
+    font-style: 500;
+    /* color: var(--color12); */
 }

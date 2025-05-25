@@ -13,6 +13,7 @@ const Easystar = pkg.js;
 /** @typedef {import("./entites").HUMAN_ATTRIBUTES} HUMAN_ATTRIBUTES */
 /** @typedef {import("./entites").HUMAN_ACTION} HUMAN_ACTION */
 /** @typedef {import("./entites").HUMAN_DATA} HUMAN_DATA */
+/** @typedef {import("./entites").HUMAN_TARGET_TYPE} HUMAN_TARGET_TYPE */
 
 /**
  * @typedef {Object} TICK_HUMAN_DATA
@@ -20,6 +21,8 @@ const Easystar = pkg.js;
  * @property {HUMAN_ACTION} action
  * @property {pos} pos
  * @property {Array<pos>} crossedPoints
+ * @property {HUMAN_TARGET_TYPE} targetType
+ * @property {Number|null} target
  */
 
 /**
@@ -31,8 +34,6 @@ const Easystar = pkg.js;
 /**
  * @typedef {{x: Number, y:Number}} pos
  */
-
-const log = new LogWrite();
 
 class Simulation {
     /** @type {Array<Plot>} */
@@ -53,9 +54,11 @@ class Simulation {
     isRunning = false;
     /** @type {Number} */
     #tickId = 0;
+    /** @type {LogWrite} */
+    log;
 
     logWrite = (...args) => {
-        log.write(...args);
+        this.log.write(...args);
     }
     
     /** @type {TICK_DATA} */
@@ -63,7 +66,7 @@ class Simulation {
         /** @type {TICK_DATA} */
         let infoToReturn = {id: this.#tickId + 0, humanPos: []};
         this.humans.forEach((human) => {
-            infoToReturn.humanPos.push({id: human.id, pos: human.pos, action: human.action, crossedPoints: human.currentTickVisitedPoints});
+            infoToReturn.humanPos.push({id: human.id, pos: human.pos, action: human.action, crossedPoints: human.currentTickVisitedPoints, targetType: human.targetType, target: human.target});
         });
         return infoToReturn;
     }
@@ -128,8 +131,8 @@ class Simulation {
             const easystar = new Easystar();
             easystar.setGrid(gridClone);
             easystar.setAcceptableTiles(0);
-            easystar.disableDiagonals();
-            // easystar.enableDiagonals();
+            // easystar.disableDiagonals();
+            easystar.enableDiagonals();
             
             // easystar.findPath(0, 8, 15, 8, (path) => {
             easystar.findPath(from.y, from.x, to.y, to.x, (path) => {
@@ -164,7 +167,7 @@ class Simulation {
             }
             let calculationTime = Math.ceil(performance.now() - startTime);
             let msg = `Last tick (\x1b[32m${this.#tickId}\x1b[0m) calculation time \x1b[32m${(Math.ceil(calculationTime/10))/100}\x1b[0ms`;
-            log.write(msg);
+            this.log.write(msg);
             if(calculationTime >= this.tickTime) {
                 this.timeoout = setTimeout(() => {
                     this.#tickId++;
@@ -219,9 +222,11 @@ class Simulation {
      * @param {Grid} grid
      * @param {Number} startHumans
      * @param {Number} startHospitalities
+     * @param {LogWrite} log
      */
-    constructor(grid, startHumans, startHospitalities) {
+    constructor(grid, startHumans, startHospitalities, log) {
         this.grid = grid;
+        this.log = log;
         for(let i = 0; i<startHospitalities; i++) {
             new Hospitality(this, Utils.getRandomArrayElement(this.grid.getBoundaryPoints()));
         }

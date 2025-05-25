@@ -94,6 +94,8 @@ class Hospitality extends Plot {
  * @property {HUMAN_ATTRIBUTES} attributes
  */
 
+/** @typedef {'home'|'hospitality'} HUMAN_TARGET_TYPE */
+
 //atrybuty jako komentarz (modność, im więcej wystaw tym szybsza smierć), strata modności za wystawe z kimś niemodnym
 
 class Human {
@@ -111,6 +113,10 @@ class Human {
     }
     /** @type {pos} */
     pos;
+    /** @type {Number|null} */
+    target = null;
+    /** @type {HUMAN_TARGET_TYPE} */
+    targetType = 'home';
     /** @type {pos|null} */
     walkingTo = null;
     /** @type {Array<pos>|null} */
@@ -188,15 +194,20 @@ class Human {
             switch (this.action) {
                 case "in home": {
                     let nextAction = Utils.getRandomWithProbability({'stay home': 100 - this.status.boredom, 'leave home': this.status.boredom});
-                    
+
                     if(nextAction == 'stay home') {
+                        this.targetType = 'home';
+                        this.target = this.homeId;
                         this.status.boredom += Math.floor((this.attributes.social + 10) / 10) * this.simulation.currentSpeed;
                         if(this.status.boredom > 99) {
                             this.status.boredom = 99;
                         }
                     } else {
                         this.status.boredom = 1;
-                        this.walkingTo = Utils.getRandomArrayElement(this.simulation.hospitalities).pos;
+                        this.targetType = 'hospitality';
+                        let targetHospitality = Utils.getRandomArrayElement(this.simulation.hospitalities);
+                        this.target = targetHospitality.id;
+                        this.walkingTo = targetHospitality.pos;
                         this.pathToWalkOn = await this.getPath(this.pos, this.walkingTo);
                         this.action = 'walking';
                         this.onWalkEnd = () => {
@@ -210,8 +221,10 @@ class Human {
                 }
                 case "in hospitality": {
                     let nextAction = Utils.getRandomWithProbability({ 'return home': this.status.boredom, 'stay': 100 - this.status.boredom });
-
+                    
                     if(nextAction == 'return home') {
+                        this.targetType = 'home';
+                        this.target = this.homeId;
                         this.status.boredom = 1;
                         this.walkingTo = this.home.pos;
                         this.pathToWalkOn = await this.getPath(this.pos, this.walkingTo);
@@ -464,6 +477,8 @@ class Human {
         }
 
         this.pos = { x: this.home.pos.x + 0, y: this.home.pos.y + 0 };
+        this.targetType = 'home';
+        this.target = this.homeId;
     }
 }
 

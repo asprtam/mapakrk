@@ -6,11 +6,13 @@ import { SimulationGlobals } from "./simulationGlobals";
 /** @typedef {keyof HTML_TAGS} HTML_TAG */
 /** @typedef {import("../../simulation/simulation").TICK_HUMAN_DATA} TICK_HUMAN_DATA */
 /** @typedef {import("../../simulation/simulation").TICK_DATA} TICK_DATA */
+/** @typedef {import("../../simulation/entites").HUMAN_ACTION} HUMAN_ACTION */
 /** @typedef {import("../../simulation/entites").HUMAN_DATA} HUMAN_DATA */
+/** @typedef {import("../../simulation/entites").HUMAN_TARGET_TYPE} HUMAN_TARGET_TYPE */
 
 class DisplayedHuman {
     /** @type {Number} */
-    tooltipTimeout = 2000;
+    tooltipTimeout = 1000;
     #tooltipTimerClass = null;
     #tooltipTimerDeletion = null;
     /** @type {App} */
@@ -23,8 +25,18 @@ class DisplayedHuman {
     renderedPos = {x: 0, y: 0};
     /** @type {Array<{x: Number, y: Number}>} */
     crossedPoints = [{x: 0, y: 0}];
-    /** @type {'in home'|'walking'|'meeting'|'in hospitality'} */
+    /** @type {HUMAN_ACTION} */
     action;
+    /** @type {HUMAN_TARGET_TYPE} */
+    #targetType = 'home';
+    /** @type {Number|Null} */
+    #target = null;
+    /** @type {String} */
+    #name;
+    /** @type {String} */
+    #lastName;
+    /** @type {{data: HUMAN_DATA}} */ //@ts-ignore
+    #temp = {};
 
     /** @type {*|Null|Number} */
     deleteDataTimer = null;
@@ -44,13 +56,13 @@ class DisplayedHuman {
     }
 
     deleteData = () => {
-
-    }
-
-    getData = () => {
-        return new Promise((res) => {
-
-        });
+        if(this.#temp.data) {
+            delete this.#temp.data;
+        }
+        if(this.deleteDataTimer) {
+            clearTimeout(this.deleteDataTimer);
+            this.deleteDataTimer = null;
+        }
     }
 
     /** @type {Boolean} */
@@ -61,6 +73,12 @@ class DisplayedHuman {
 
     /** @type {HTMLElement} */
     #hoverToolTip;
+    /** @type {HTMLElement} */
+    #hoverToolTipName;
+    /** @type {HTMLElement} */
+    #hoverToolTipAction;
+    /** @type {Boolean} */
+    #hoverToolTipClosing = false;
 
     /** @type {Boolean} */
     #pinned = false;
@@ -113,17 +131,80 @@ class DisplayedHuman {
         }
     }
 
-    hideToolTip = () => {
+    updateTooltipAction = () => {
+        if(this.#hoverToolTipAction) {
+            switch(this.action) {
+                case "in home": {
+                    if(!this.#hoverToolTipAction.classList.contains('inHome')) {
+                        this.#hoverToolTipAction.classList.add('inHome');
+                    }
+                    ['walking', 'meeting', 'inHospitality'].forEach((className) => {
+                        if(this.#hoverToolTipAction.classList.contains(className)) {
+                            this.#hoverToolTipAction.classList.remove(className);
+                        }
+                    });
+                    this.#hoverToolTipAction.innerHTML = `w <span class="location">domu</span>`;
+                    break;
+                }
+                case "walking": {
+                    if(!this.#hoverToolTipAction.classList.contains('walking')) {
+                        this.#hoverToolTipAction.classList.add('walking');
+                    }
+                    ['inHome', 'meeting', 'inHospitality'].forEach((className) => {
+                        if(this.#hoverToolTipAction.classList.contains(className)) {
+                            this.#hoverToolTipAction.classList.remove(className);
+                        }
+                    });
+                    if(this.#targetType == 'home') {
+                        this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                    } else {
+                        this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">${this.#target}</span>`;
+                    }
+                    break;
+                }
+                case "meeting": {
+                    if(!this.#hoverToolTipAction.classList.contains('meeting')) {
+                        this.#hoverToolTipAction.classList.add('meeting');
+                    }
+                    ['walking', 'inHome', 'inHospitality'].forEach((className) => {
+                        if(this.#hoverToolTipAction.classList.contains(className)) {
+                            this.#hoverToolTipAction.classList.remove(className);
+                        }
+                    });
+                    this.#hoverToolTipAction.innerHTML = 'spotyka się';
+                    break;
+                }
+                case "in hospitality": {
+                    if(!this.#hoverToolTipAction.classList.contains('inHospitality')) {
+                        this.#hoverToolTipAction.classList.add('inHospitality');
+                    }
+                    ['walking', 'inHome', 'meeting'].forEach((className) => {
+                        if(this.#hoverToolTipAction.classList.contains(className)) {
+                            this.#hoverToolTipAction.classList.remove(className);
+                        }
+                    });
+                    this.#hoverToolTipAction.innerHTML = `w <span class="location">${this.#target}</span>`;
+                    break;
+                }
+            }
+        }
+    }
+
+    /** @param {Boolean} [forceInstant=false] */
+    hideToolTip = (forceInstant=false) => {
         if(this.#tooltipTimerClass) {
             clearTimeout(this.#tooltipTimerClass);
             this.#tooltipTimerClass = null;
         }
-        if(this.#tooltipTimerDeletion) {
-            clearTimeout(this.#tooltipTimerDeletion);
-            this.#tooltipTimerDeletion = null;
+        if(!this.#hoverToolTipClosing) {
+            if(this.#tooltipTimerDeletion) {
+                clearTimeout(this.#tooltipTimerDeletion);
+                this.#tooltipTimerDeletion = null;
+            }
         }
-        this.#tooltipTimerClass = setTimeout(() => {
+        const hideFunc = () => {
             this.#hovered = false;
+            this.#hoverToolTipClosing = true;
             let waitTime = 0;
             if(this.#hoverToolTip) {
                 if(!this.#hoverToolTip.classList.contains('close')) {
@@ -132,15 +213,34 @@ class DisplayedHuman {
                 waitTime = Utils.getTransitionTime(this.#hoverToolTip);
             }
             this.#tooltipTimerDeletion = setTimeout(() => {
+                if(this.#hoverToolTipName) {
+                    this.#hoverToolTipName.remove();
+                    this.#hoverToolTipName = undefined;
+                }
+                if(this.#hoverToolTipAction) {
+                    this.#hoverToolTipAction.remove();
+                    this.#hoverToolTipAction = undefined;
+                }
                 if(this.#hoverToolTip) {
                     this.#hoverToolTip.remove();
                     this.#hoverToolTip = undefined;
                 }
+                this.#hoverToolTipClosing = false;
+                this.startDeleteDataTimer();
             }, waitTime);
-        }, this.tooltipTimeout);
+        }
+        if(forceInstant) {
+            if(!this.#hoverToolTipClosing) {
+                hideFunc();
+            }
+        } else {
+            this.#tooltipTimerClass = setTimeout(() => {
+                hideFunc();
+            }, this.tooltipTimeout);
+        }
     }
 
-    showToolTip = () => {
+    showToolTip = async () => {
         if(this.#tooltipTimerClass) {
             clearTimeout(this.#tooltipTimerClass);
             this.#tooltipTimerClass = null;
@@ -150,11 +250,23 @@ class DisplayedHuman {
             this.#tooltipTimerDeletion = null;
         }
         if(this.#hoverToolTip == undefined || this.#hoverToolTip == null) {
-            const classArr = ['toolTip'];
+            if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
+                if(typeof this.#temp.data == 'undefined') {
+                    this.#temp.data = await this.parent.getHumanData(this.id);
+                }
+                this.#name = `${this.#temp.data.info.name}`;
+                this.#lastName = `${this.#temp.data.info.lastname}`;
+            }
+            const classArr = ['tooltip'];
             if(this.#pinned) {
                 classArr.push('pinned');
             }
-            this.#hoverToolTip = Utils.createAndAppendHTMLElement(this.parent.tooltipsCont, 'div', classArr, {attibutes: {'id': `tooltipHuman-${this.id}`}});
+            this.#hoverToolTip = Utils.createHTMLElement('div', classArr, {attibutes: {'id': `tooltipHuman-${this.id}`}}, '<div class="face"><div class="bg"></div><div class="arrow"></div></div>');
+            const hoverToolTipInner = Utils.createAndAppendHTMLElement(this.#hoverToolTip, 'div', ['content']);
+            this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `<span class="firstname">${this.#name}</span> <span class="lastname">${this.#lastName}</span>`);
+            this.#hoverToolTipAction = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['action']);
+            this.updateTooltipAction();
+            this.parent.tooltipsCont.appendChild(this.#hoverToolTip);
         } else {
             if(this.#hoverToolTip.classList.contains('close')) {
                 this.#hoverToolTip.classList.remove('close');
@@ -168,8 +280,12 @@ class DisplayedHuman {
                     this.#hoverToolTip.classList.remove('pinned');
                 }
             }
+            this.updateTooltipAction();
         }
         this.updateTooltipPos();
+        if(!this.#pinned) {
+            this.hideToolTip();
+        }
     }
 
     hover = () => {
@@ -177,12 +293,13 @@ class DisplayedHuman {
         this.showToolTip();
     }
 
-    unHover = () => {
+    /** @param {Boolean} [forceInstant=false] */
+    unHover = (forceInstant=false) => {
         if(this.#hovered) {
             if(this.#pinned) {
                 this.#hovered = false;
             } else {
-                this.hideToolTip();
+                this.hideToolTip(forceInstant);
             }
         }
     }
@@ -237,14 +354,14 @@ class DisplayedHuman {
         this.updateTooltipPos();
         if(this.#pinned) {
             this.parent.pinnedHumansCanvasCTX.beginPath();
-            this.parent.pinnedHumansCanvasCTX.arc(startX, startY, this.parent.humanDisplayWidth * this.parent.mapScalingFactor, 0, 2*Math.PI);
-            this.parent.pinnedHumansCanvasCTX.fillStyle = colors.color5.light['color5-light-30'];
+            this.parent.pinnedHumansCanvasCTX.arc(startX, startY, (this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor, 0, 2*Math.PI);
+            this.parent.pinnedHumansCanvasCTX.fillStyle = colors.color9.light['color9-light-30'];
             this.parent.pinnedHumansCanvasCTX.fill();
             this.parent.pinnedHumansCanvasCTX.closePath();
         } else {
             this.parent.humansCanvasCTX.beginPath();
-            this.parent.humansCanvasCTX.arc(startX, startY, this.parent.humanDisplayWidth * this.parent.mapScalingFactor, 0, 2*Math.PI);
-            this.parent.humansCanvasCTX.fillStyle = colors.color5.light['color5-light-30'];
+            this.parent.humansCanvasCTX.arc(startX, startY, (this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor, 0, 2*Math.PI);
+            this.parent.humansCanvasCTX.fillStyle = colors.color9.light['color9-light-30'];
             this.parent.humansCanvasCTX.fill();
             this.parent.humansCanvasCTX.closePath();
         }
@@ -287,6 +404,9 @@ class DisplayedHuman {
             this.pos = data.pos;
             this.action = data.action;
             this.crossedPoints = data.crossedPoints;
+            this.#target = data.target;
+            this.#targetType = data.targetType;
+            this.updateTooltipAction();
             if(this.crossedPoints.length == 0) {
                 this.crossedPoints = [this.pos];
             } else if(this.crossedPoints[this.crossedPoints.length - 1].x !== this.pos.x && this.crossedPoints[this.crossedPoints.length - 1].y !== this.pos.y) {
@@ -336,6 +456,8 @@ class App {
     lastFetchTime = SimulationGlobals.tickTime + 0;
     /** @type {Number} */
     humanDisplayWidth = SimulationGlobals.humanDisplayWidth + 0;
+    /** @type {Number} */
+    humanPixelWidth = 0;
     /** @type {{width: Number, height: Number}} */ //@ts-ignore
     mapSizeScaled = {};
     /** @type {HTMLInputElement} */
@@ -856,8 +978,6 @@ class App {
             }
 
             let gdc = Utils.gcd(this.mapSize.width, this.mapSize.height);
-            // this.tooltipsCont.style.setProperty('width', `${this.mapSizeScaled.width}px`);
-            // this.tooltipsCont.style.setProperty('height', `${this.mapSizeScaled.height}px`);
             this.fakeScreen.appendChild(this.tooltipsCont);
             this.fakeCanvas = Utils.createAndAppendHTMLElement(this.fakeScreen, 'canvas', ['fake-canvas'], {attibutes: {"width": `${this.mapSizeScaled.width}`, "height": `${this.mapSizeScaled.height}`}, css: {'aspect-ratio': `${this.mapSize.width / gdc} / ${this.mapSize.height / gdc}`, 'width': `${this.mapSizeScaled.width}px`, 'height': `${this.mapSizeScaled.height}px`}});
             this.mapWindowCont.appendChild(this.fakeScreen);
@@ -886,6 +1006,11 @@ class App {
                     this.mapCut = {x: (bounds.left - bounds_parent.left) - baseX, y: (bounds.top - bounds_parent.top) - baseY};
                 }
 
+                const setHumanPixelWidth = () => {
+                    this.humanPixelWidth = (this.mapScalingFactor * this.humanDisplayWidth)*(this.currentMapDisplayScale/1000);
+                    this.mapWindowCont.style.setProperty('--humanPixelWidth', `${Utils.roundToFraction(this.humanPixelWidth, 2)}px`);
+                }
+
                 const handleResize = () => {
                     this.mapMinDisplayScale = Math.ceil((this.mapWindowCont.offsetWidth/this.mapSizeScaled.width)*1000);
                     mapZoomInput.setAttribute('min', `${this.mapMinDisplayScale}`);
@@ -912,6 +1037,7 @@ class App {
                         this.mapWindowCont.style.setProperty(`--currentMapOffsetY`, `${this.mapDisplayFocusPoint.y}%`);
                         this.mapWindowCont.style.setProperty('--currentMapScale', `${this.currentMapDisplayScale/1000}`);
                         setMapCut();
+                        setHumanPixelWidth();
                         this.humans.forEach((human) => {
                             human.updateTooltipPos();
                         });
@@ -943,6 +1069,7 @@ class App {
                             this.mapWindowCont.style.setProperty(`--currentMapOffsetY`, `${this.mapDisplayFocusPoint.y}%`);
                             this.mapWindowCont.style.setProperty('--currentMapScale', `${this.currentMapDisplayScale/1000}`);
                             setMapCut();
+                            setHumanPixelWidth();
                             this.humans.forEach((human) => {
                                 human.updateTooltipPos();
                             });
@@ -988,13 +1115,26 @@ class App {
                     let pos = {x: e.offsetX, y: e.offsetY};
                     let half = this.mapScalingFactor;
                     // let half = (this.humanDisplayWidth * this.mapScalingFactor);
+                    /** @type {Array<DisplayedHuman>} */
+                    const humansToHover = [];
+                    /** @type {Array<DisplayedHuman>} */
+                    const humansToUnhover = [];
                     this.humans.forEach((human) => {
                         if((pos.x >= (human.renderedPos.x - half) && pos.x <= (human.renderedPos.x + half)) && (pos.y >= (human.renderedPos.y - half) && pos.y <= (human.renderedPos.y + half)) && ((this.displayConfig.showPinnedOnly && human.pinned) || !this.displayConfig.showPinnedOnly)) {
-                            human.hover();
+                            humansToHover.push(human);
                         } else {
-                            human.unHover();
+                            humansToUnhover.push(human);
                         }
                     });
+                    let instant = humansToHover.length > 0;
+                    humansToUnhover.forEach((human) => {
+                        human.unHover(instant);
+                    });
+                    if(instant) {
+                        humansToHover.forEach((human) => {
+                            human.hover();
+                        });
+                    }
                 }
 
                 /** @param {MouseEvent} e */
@@ -1010,7 +1150,7 @@ class App {
                     this.fakeCanvas.addEventListener('mouseup', handleStopDrag);
                     this.fakeCanvas.addEventListener('mouseout', handleStopDrag);
                     this.humans.forEach((human) => {
-                        human.unHover();
+                        human.unHover(true);
                     });
                 }
 
@@ -1035,6 +1175,8 @@ class App {
                     let bounds_parent = this.humansScreen.getBoundingClientRect();
                     baseX = bounds.left - bounds_parent.left;
                     baseY = bounds.top - bounds_parent.top;
+                    this.humanPixelWidth = (this.mapScalingFactor * this.humanDisplayWidth)*(this.currentMapDisplayScale/1000);
+                    this.mapWindowCont.style.setProperty('--humanPixelWidth', `${Utils.roundToFraction(this.humanPixelWidth, 2)}px`);
                     this.fakeCanvas.addEventListener('mousedown', handleStartDrag);
                     this.fakeCanvas.addEventListener('mousemove', handleMouseMoveNormal);
                     this.removeLoader();
@@ -1048,5 +1190,5 @@ try {
   const app = new App();
 } catch(err) {
   console.error(err);
-}
+}   
 

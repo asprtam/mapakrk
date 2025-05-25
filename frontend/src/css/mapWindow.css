@@ -22,6 +22,7 @@
     --currentMapScale: 1;
     --currentMapOffsetX: -50%;
     --currentMapOffsetY: -50%;
+    --humanPixelWidth: 6px;
 }
 
 .window.map-window .contentHolder .map.content .screen.outlines {
@@ -43,9 +44,6 @@
 .window.map-window .contentHolder .map.content .screen.fake .tooltips {
     z-index: 2;
     position: absolute;
-    /* left: 50%;
-    top: 50%;
-    transform: translate(var(--currentMapOffsetX), var(--currentMapOffsetY)); */
     width: 100%;
     height: 100%;
     left: 0px;

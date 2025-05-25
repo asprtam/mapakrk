@@ -5,6 +5,8 @@ class LogWrite {
     fileName;
     /** @type {WriteStream} */
     #writer;
+    /** @type {Boolean} */
+    #save;
 
     /**
      * 
@@ -130,13 +132,15 @@ class LogWrite {
      */
     write = async (...args) => {
         let writText = {time: `${this.#getTimeDate().time}`, val: this.#returnText(...args)};
-        // setTimeout(() => {
-        //     this.#queue.push(writText);
-        //     if(!this.#queueRunning) {
-        //         this.#queueRunning = true;
-        //         this.#queueFunc();
-        //     }
-        // });
+        if(this.#save) {
+            setTimeout(() => {
+            this.#queue.push(writText);
+                if(!this.#queueRunning) {
+                    this.#queueRunning = true;
+                    this.#queueFunc();
+                }
+            });
+        }
     }
 
     /**
@@ -147,14 +151,20 @@ class LogWrite {
         return {time: `${date[1]}`, date: date[0]}; 
     }
 
-    constructor() {
+    /**
+     * @param {Boolean} save
+     */
+    constructor(save) {
+        this.#save = save;
         const {time, date} = this.#getTimeDate();
         this.fileName = `${date.replaceAll('.', '-')}_${time.replaceAll(':', '-')}.txt`;
-        if (!fs.existsSync('./logs')) {
-            fs.mkdirSync('./logs');
+        if(this.#save) {
+            if (!fs.existsSync('./logs')) {
+                fs.mkdirSync('./logs');
+            }
+            this.#writer = fs.createWriteStream(`./logs/${this.fileName}`);
+            this.#writer.write(`Start: ${time}, ${date}`);
         }
-        this.#writer = fs.createWriteStream(`./logs/${this.fileName}`);
-        this.#writer.write(`Start: ${time}, ${date}`);
     }
 }
 
