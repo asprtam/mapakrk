@@ -23,6 +23,7 @@
     --currentMapOffsetX: -50%;
     --currentMapOffsetY: -50%;
     --humanPixelWidth: 6px;
+    --humanPixelHeight: 6px;
 }
 
 .window.map-window .contentHolder .map.content .screen.outlines {

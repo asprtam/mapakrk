@@ -1,5 +1,6 @@
 import Files from "files";
 import sharp from "sharp";
+import { readdir, readFile } from 'node:fs/promises';
 import { Color } from "./simulation/utils.js";
 import { WebSocketExpress, Router } from 'websocket-express';
 import { Grid } from "./simulation/grid.js";
@@ -7,12 +8,15 @@ import { Simulation } from "./simulation/simulation.js";
 import { SimulationGlobals } from "./simulation/simulationGlobals.js";
 import { LogWrite } from "./logWrite.js";
 
-/** @returns {{saveLogs: Boolean, generateColors: Boolean}} */
+/** @returns {{saveLogs: Boolean, generateColors: Boolean, clearConsole: Boolean}} */
 const getCommandLineParams = () => {
-    let returnParams = {saveLogs: false, generateColors: false};
+    let returnParams = {saveLogs: false, generateColors: false, clearConsole:true};
     if (process.argv.length > 0) {
         if(process.argv.indexOf('-save-logs') > -1) {
             returnParams.saveLogs = true;
+        }
+        if(process.argv.indexOf('-no-clear') > -1) {
+            returnParams.clearConsole = false;
         }
         if(process.argv.indexOf('-colors') > -1) {
             returnParams.generateColors = true;
@@ -21,7 +25,7 @@ const getCommandLineParams = () => {
     return returnParams;
 }
 
-const {saveLogs, generateColors} = getCommandLineParams();
+const {saveLogs, generateColors, clearConsole} = getCommandLineParams();
 const log = new LogWrite(saveLogs);
 
 const createColors = () => {
@@ -95,6 +99,49 @@ const createColors = () => {
     });
 }
 
+/**
+ * @typedef {{size: {width: Number, height: Number}, data: Array<Array<Boolean>>}} SPRITE
+ */
+
+/** @returns {Promise<{[id:String]: SPRITE}>} */
+const getSprites = () => {
+    return new Promise((resolve) => {
+        readdir('./sprites', { withFileTypes: true }).then((entries) => {
+            /** @type {Array<Promise<{name: String, data: SPRITE}>>} */
+            const promiseArr = [];
+
+            for(let i = 0; i<entries.length; i++) {
+                if(!entries[i].isDirectory() && entries[i].name.slice(-4) == '.png') {
+                    let name = entries[i].name.slice(0, -4);
+                    promiseArr.push(new Promise(async (res) => {
+                        const { data, info } = await sharp(`./sprites/${name}.png`).toColourspace('b-w').raw().toBuffer({ resolveWithObject: true });
+                        /** @type {Array<Number>} */
+                        const RAW = Array.from(data);
+                        res({name: name, data: {size: {width: info.width, height: info.height}, data: new Array(info.width).fill(null).map((el, colId) => {
+                            return new Array(info.height).fill(false).map((_el, rowId) => {
+                                if (RAW[colId + rowId*info.width]) {
+                                    return false;
+                                } else {
+                                    return true;
+                                }
+                            });
+                        })}});
+                    }));
+                }
+            }
+
+            Promise.all(promiseArr).then((images) => {
+                /** @type {{[id:String]: SPRITE}} */
+                let returnObject = {};
+                images.forEach((imgData) => {
+                    returnObject[imgData.name] = imgData.data;
+                });
+                resolve(returnObject);
+            });
+        });
+    });
+}
+
 
 const port = 3000;
 
@@ -124,6 +171,10 @@ const init = async () => {
     if(generateColors) { 
         await createColors();
     }
+    console.clear();
+
+    const sprites = await getSprites();
+
     let simulation = new Simulation(new Grid(RAW_MAP), SimulationGlobals.startHumans, SimulationGlobals.startHospitalities, log);
 
     const app = new WebSocketExpress();
@@ -171,6 +222,22 @@ const init = async () => {
         }
     });
 
+    router.get('/sprite/*splat', async (req, res) => {
+        let name = `${req.url.trim()}`.replace(`/sprite/`, '');
+        let lastIndexOf = name.lastIndexOf(`/`);
+        if(lastIndexOf > 0) {
+            name = name.slice(0, lastIndexOf);
+        }
+        res.set({
+            'Access-Control-Allow-Origin': '*'
+        });
+        if(Object.keys(sprites).includes(name)) {
+            res.json(sprites[name]);
+        } else {
+            res.json([[false]]);
+        }
+    });
+
     router.get('/mapSize', async (req, res) => {
         res.set({
             'Access-Control-Allow-Origin': '*'
@@ -187,14 +254,15 @@ const init = async () => {
 
     app.use(router);
     const server = app.createServer();
-    console.clear();
     console.log(`Listening on port ${port}...`);
     server.listen(port);
 
     simulation.onNewTick = ((tickData, msg) => {
         return new Promise((res) => {
-            console.clear();
-            console.log(`Listening on port ${port}...`);
+            if(clearConsole) {
+                console.clear();
+                console.log(`Listening on port ${port}...`);
+            }
             console.log(`\n`);
             console.log(msg);
             connections.forEach((con) => {
