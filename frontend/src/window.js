@@ -1037,7 +1037,7 @@ class DisplayWindow {
     #buttonsFuncsStatus = {handleClick_close: false, handleClick_fullscreen_off: false, handleClick_fullscreen_on: false, handleClick_minimize: false};
     /** @type {{handleClick_close: () => void, handleClick_fullscreen_on: () => void, handleClick_fullscreen_off: () => void, handleClick_minimize: () => void}} */
     #buttonsFuncs = {
-        handleClick_close: () => {
+        handleClick_close: async () => {
             if(!this.#window.classList.contains('closing')) {
                 this.#window.classList.add('closing');
             }
@@ -1046,6 +1046,7 @@ class DisplayWindow {
                 this.#movePoint.disable();
             }
             let waitTime = Utils.getTransitionTime([this.#window]);
+            await this.#userFuncs.onClose();
             setTimeout(() => {
                 this.#window.remove();
             }, waitTime);

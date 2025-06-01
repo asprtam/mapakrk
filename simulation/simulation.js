@@ -14,6 +14,9 @@ const Easystar = pkg.js;
 /** @typedef {import("./entites").HUMAN_ACTION} HUMAN_ACTION */
 /** @typedef {import("./entites").HUMAN_DATA} HUMAN_DATA */
 /** @typedef {import("./entites").HUMAN_TARGET_TYPE} HUMAN_TARGET_TYPE */
+/** @typedef {import("./entites").HUMAN_STATUSES} HUMAN_STATUSES */
+/** @typedef {import("./entites").HUMAN_FRIEND_DATA} HUMAN_FRIEND_DATA */
+/** @typedef {import("./entites").HUMAN_FRIENDS_LIST} HUMAN_FRIENDS_LIST */
 
 /**
  * @typedef {Object} TICK_HUMAN_DATA
@@ -33,6 +36,13 @@ const Easystar = pkg.js;
 
 /**
  * @typedef {{x: Number, y:Number}} pos
+ */
+
+/**
+ * @typedef {Object} HUMAN_STATUS_SOCKET_MESSAGE
+ * @property {Number} id
+ * @property {HUMAN_STATUSES} status
+ * @property {HUMAN_FRIENDS_LIST} friends
  */
 
 class Simulation {
@@ -91,6 +101,22 @@ class Simulation {
             return {id: id, info: this.humans[id].info, attributes: this.humans[id].attributes};
         } else {
             return {id: id, info: {name: '', lastname: '', age: 0, gender: 'other', genderPronoun: 'other', customGenderName: null}, attributes: {social: 0, physical: 0, intelligence: 0}};
+        }
+    }
+    /**
+     * @param {Number} id
+     * @returns {HUMAN_STATUS_SOCKET_MESSAGE}
+     */
+    getHumanStatus = (id) => {
+        if(this.humans[id]) {
+            return {id: id, status: this.humans[id].status, friends: this.humans[id].friends};
+        } else {
+            /** @type {HUMAN_STATUSES} */ //@ts-ignore
+            let emptyStatusesObj = {};
+            Human.statusList.forEach((key) => {
+                emptyStatusesObj[key] = 1;
+            });
+            return {id: id, status: emptyStatusesObj, friends: []};
         }
     }
 
@@ -162,11 +188,14 @@ class Simulation {
     #tick = async () => {
         if(this.isRunning) {
             const startTime = performance.now();
+            /** @type {Array<Promise>} */
+            const promiseArr = [];
             for (let i = 0; i < this.humans.length; i++) {
-                await this.humans[i].tick();
+                promiseArr.push(this.humans[i].tick());
             }
+            await Promise.all(promiseArr);
             let calculationTime = Math.ceil(performance.now() - startTime);
-            let msg = `Last tick (\x1b[32m${this.#tickId}\x1b[0m) calculation time \x1b[32m${(Math.ceil(calculationTime/10))/100}\x1b[0ms`;
+            let msg = `Last tick (\x1b[32m${this.#tickId}\x1b[0m) calculation time \x1b[32m${calculationTime}\x1b[0mms`;
             this.log.write(msg);
             if(calculationTime >= this.tickTime) {
                 this.timeoout = setTimeout(() => {

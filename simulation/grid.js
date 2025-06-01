@@ -1,6 +1,26 @@
+
+//@ts-ignore
+import pkg from "easystarjs";
+const Easystar = pkg.js;
 /**
  * @typedef {{x: Number, y:Number}} pos
  */
+
+
+class Path {
+    /** @type {Array<pos>} */
+    plots;
+    /** @type {Number} */
+    distance = 0;
+    /**
+     * 
+     * @param {Array<pos>} plots 
+     * @param {Boolean} emergencyMode 
+     */
+    constructor(plots, emergencyMode=false) {
+        this.plots = plots;
+    }
+}
 
 class Grid {
     /** @type {Number} */
@@ -161,6 +181,32 @@ class Grid {
                     callback(point, pos);
                 }
             }
+        });
+    }
+
+    /** 
+     * Tutaj do zmiany na razie zwraca tylko jedna sciezke (najszybsza)
+     * @param {pos} from
+     * @param {pos} to
+     * @returns {Promise<Path>}
+     */
+    findPath = (from, to) => {
+        return new Promise((res) => {
+            let gridClone = JSON.parse(JSON.stringify(this.raw));
+            gridClone[from.x][from.y] = 0;
+            gridClone[to.x][to.y] = 0;
+            const easystar = new Easystar();
+            easystar.setGrid(gridClone);
+            easystar.setAcceptableTiles(0);
+            easystar.enableDiagonals();
+            easystar.findPath(from.y, from.x, to.y, to.x, (path) => {
+                if(path) {
+                    res(new Path(path));
+                } else {
+                    res(new Path(JSON.parse(JSON.stringify([from, to])), true));
+                }
+            });
+            easystar.calculate();
         });
     }
 

@@ -1,12 +1,125 @@
 /** @typedef {import("../../simulation/simulation").TICK_HUMAN_DATA} TICK_HUMAN_DATA */
 /** @typedef {import("../../simulation/simulation").TICK_DATA} TICK_DATA */
+/** @typedef {import("../../simulation/simulation").HUMAN_STATUS_SOCKET_MESSAGE} HUMAN_STATUS_SOCKET_MESSAGE */
 /** @typedef {import("../../simulation/entites").HUMAN_ACTION} HUMAN_ACTION */
 /** @typedef {import("../../simulation/entites").HUMAN_DATA} HUMAN_DATA */
 /** @typedef {import("../../simulation/entites").HUMAN_TARGET_TYPE} HUMAN_TARGET_TYPE */
+/** @typedef {import("../../simulation/entites").HUMAN_ATTRIBUTES} HUMAN_ATTRIBUTES */
+/** @typedef {import("../../simulation/entites").HUMAN_STATUSES} HUMAN_STATUSES */
+/** @typedef {import("../../simulation/entites").HUMAN_FRIEND_DATA} HUMAN_FRIEND_DATA */
+/** @typedef {import("../../simulation/entites").HUMAN_FRIENDS_LIST} HUMAN_FRIENDS_LIST */
 /** @typedef {import("../../index").SPRITE} SPRITE */
 /** @typedef {import("./app").App} App */
 import { colors } from "./colors";
 import { Utils } from "./utils";
+import { DisplayWindow } from "./window";
+import { localisation } from "./localisation";
+
+/** @type {Array<keyof HUMAN_ATTRIBUTES>} */
+const attriburesList = ['physical', 'social', 'intelligence'];
+/** @type {Array<keyof HUMAN_STATUSES>} */
+const statusList = ['boredom'];
+
+/**
+ * @typedef {Object} INFO_VALUES
+ * @property {HTMLElement} cont
+ * @property {HTMLElement} name
+ * @property {HTMLElement} value
+ */
+
+/**
+ * @typedef {Object} INFO_VALUES_AGE
+ * @property {HTMLElement} cont
+ * @property {HTMLElement} name
+ * @property {HTMLElement} value
+ * @property {HTMLElement} suffix
+ */
+
+class DisplayedHumanStatusWindow {
+    /** @type {DisplayedHuman} */
+    human;
+    /** @type {DisplayWindow} */
+    windowEl;
+    /** @type {HTMLElement} */
+    windowContent;
+    /** @type {HTMLElement} */
+    basicInfoCont;
+    /** @type {HTMLElement} */
+    basicInfoName;
+    /** @type {HTMLElement} */
+    basicInfoSubCont;
+    /** @type {{age: INFO_VALUES_AGE, gender: INFO_VALUES}} */ //@ts-ignore
+    basicInfoValues = {
+        age: {
+            cont: Utils.createHTMLElement('div', ['valueCont', 'age']),
+            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.infoNames.age}:`),
+            value: Utils.createHTMLElement('span', ['value']),
+            suffix: Utils.createHTMLElement('span', ['suffix'])
+        }
+    };
+    /** @type {HTMLElement} */
+    attributesCont;
+    /** @type {Boolean} */
+    pinPermanently = false;
+
+    /**
+     * @param {HUMAN_STATUS_SOCKET_MESSAGE} data 
+     */
+    updateStatuses = (data) => {
+    }
+
+    /**
+     * @param {DisplayedHuman} human 
+     */
+    constructor(human) {
+        this.human = human;
+        this.human.pinned = true;
+        this.windowContent = Utils.createHTMLElement('div', ['content']);
+        this.basicInfoCont = Utils.createAndAppendHTMLElement(this.windowContent, 'div', ['basicInfo']);
+        this.basicInfoName = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'h1');
+        this.basicInfoName.innerHTML = `${this.human.name} ${this.human.lastName}`;
+        this.basicInfoSubCont = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['subCont']);
+
+        this.basicInfoValues.age.value.innerHTML = `${this.human.age}`;
+        if(this.human.age <= 21 || this.human.age%2 == 1 || this.human.age%10 == 0 || this.human.age%10 >= 8) {
+            this.basicInfoValues.age.suffix.innerHTML = 'lat';
+        } else {
+            this.basicInfoValues.age.suffix.innerHTML = 'lata';
+        }
+        this.basicInfoSubCont.appendChild(this.basicInfoValues.age.cont);
+        this.basicInfoValues.age.cont.appendChild(this.basicInfoValues.age.name);
+        const ageH3 = Utils.createAndAppendHTMLElement(this.basicInfoValues.age.cont, 'h3');
+        ageH3.appendChild(this.basicInfoValues.age.value);
+        ageH3.appendChild(this.basicInfoValues.age.suffix);
+
+        this.windowEl = new DisplayWindow(this.windowContent, {
+            className: ['humanStatus', 'open'], 
+            id: `humanStatus-${this.human.id}`,
+            name: `${this.human.name} ${this.human.lastName}`,
+            type: `humanStatus-window`,
+            behaviour: {minimize: false, fullscreen: false, close: true},
+            size: {width: 400, height: 500},
+            pos: {x: (window.innerWidth/2) - 200, y: (window.innerHeight/2) - 250}
+        });
+        this.windowEl.onClose = () => {
+            return new Promise((res) => {
+                this.human.statusWindow = null;
+                this.human.parent.socket.send(`humanStatusRevoke-${this.human.id}`);
+                if(!this.pinPermanently) {
+                    this.human.pinned = false;
+                }
+                res(true);
+            });
+        }
+        this.human.parent.appCont.append(this.windowEl.window);
+        let waitTime = Utils.getTransitionTime(this.windowEl.window);
+        setTimeout(() => {
+            if(this.windowEl.window.classList.contains('open')) {
+                this.windowEl.window.classList.remove('open');
+            }
+        }, waitTime);
+    }
+}
 
 class DisplayedHuman {
     /** @type {Number} */
@@ -20,6 +133,8 @@ class DisplayedHuman {
     /** @type {{x: Number, y: Number}} */
     pos = {x: 0, y: 0};
     /** @type {{x: Number, y: Number}} */
+    lastPos = {x: 0, y: 0};
+    /** @type {{x: Number, y: Number}} */
     renderedPos = {x: 0, y: 0};
     /** @type {Array<{x: Number, y: Number}>} */
     crossedPoints = [{x: 0, y: 0}];
@@ -31,10 +146,49 @@ class DisplayedHuman {
     #target = null;
     /** @type {String} */
     #name;
+    get name() {
+        return this.#name;
+    }
+    /** @type {Number} */
+    #age;
+    get age() {
+        return this.#age;
+    }
+    /** @type {('male'|'female'|'other')} */
+    #gender;
+    get gender() {
+        return this.#gender;
+    }
     /** @type {String} */
     #lastName;
+    get lastName() {
+        return this.#lastName;
+    }
+    /** @type {HUMAN_ATTRIBUTES} */
+    #attributes;
+    get attributes() {
+        return this.#attributes;
+    }
     /** @type {{data: HUMAN_DATA}} */ //@ts-ignore
     #temp = {};
+    /** @type {DisplayedHumanStatusWindow|null} */
+    statusWindow = null;
+
+    handleClick = () => {
+        if(this.statusWindow === null) {
+            this.parent.socket.send(`humanStatus-${this.id}`);
+            this.statusWindow = new DisplayedHumanStatusWindow(this);
+        }
+    }
+
+    /**
+     * @param {HUMAN_STATUS_SOCKET_MESSAGE} data 
+     */
+    updateStatuses = (data) => {
+        if(this.statusWindow) {
+            this.statusWindow.updateStatuses(data);
+        }
+    }
 
     /** @type {*|Null|Number} */
     deleteDataTimer = null;
@@ -116,7 +270,7 @@ class DisplayedHuman {
                     this.#hoverToolTip.classList.remove('pinned');
                 }
             }
-            this.hideToolTip();
+            this.hideToolTip(true);
         }
     }
 
@@ -254,6 +408,9 @@ class DisplayedHuman {
                 }
                 this.#name = `${this.#temp.data.info.name}`;
                 this.#lastName = `${this.#temp.data.info.lastname}`;
+                this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
+                this.#age = this.#temp.data.info.age + 0;
+                this.#gender = `${this.#temp.data.info.gender}`;
             }
             const classArr = ['tooltip'];
             if(this.#pinned) {
@@ -350,8 +507,8 @@ class DisplayedHuman {
         let startY = Math.round(pos.y*this.parent.mapScalingFactor) + (this.parent.mapScalingFactor/2);
         this.renderedPos = {x: startX, y: startY};
         if(log) {
-            console.log(pos, this.id);
-            console.log(this.renderedPos, this.id);
+            // console.log(pos, this.id);
+            // console.log(this.renderedPos, this.id);
         }
         // let shiftX = this.parent.humanDisplayWidth * this.parent.mapScalingFactor;
         this.updateTooltipPos();
@@ -397,7 +554,7 @@ class DisplayedHuman {
                 let factor = (percent * (crossedPoints.length - 1))%1;
                 let beetwenPoint = this.getBetweenPoint(crossedPoints[closestPrevPoint], crossedPoints[closestNextPoint], factor);
                 if(crossedPoints[closestPrevPoint].x !== crossedPoints[closestNextPoint].x && crossedPoints[closestPrevPoint].y !== crossedPoints[closestNextPoint].y) {
-                    console.log('else factor', beetwenPoint, crossedPoints[closestPrevPoint], crossedPoints[closestNextPoint], this.id, factor);
+                    // console.log('else factor', beetwenPoint, crossedPoints[closestPrevPoint], crossedPoints[closestNextPoint], this.id, factor);
                     this.draw(beetwenPoint, true);
                 } else {
                     this.draw(beetwenPoint);
@@ -411,6 +568,7 @@ class DisplayedHuman {
      */
     update = (data) => {
         if(this.id == data.id) {
+            this.lastPos = {x: this.pos.x+0, y: this.pos.y+0};
             this.pos = data.pos;
             this.action = data.action;
             this.crossedPoints = data.crossedPoints;
@@ -434,6 +592,7 @@ class DisplayedHuman {
         this.parent = parent;
         this.id = id;
         this.pos = pos;
+        this.lastPos = {x: pos.x + 0, y: pos.y + 0};
         this.action = action;
         this.draw();
     }

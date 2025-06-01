@@ -6,7 +6,7 @@
  */
 
 const LASTNAMES = [
-    { male: "Dudekcki", female: "Dudekcka", other: "Dudekckie" },
+    { male: "Dudecki", female: "Dudecka", other: "Dudeckie" },
     { male: "Rzeka", female: "Rzeka", other: "Rzeka" },
     { male: "Zima", female: "Zima", other: "Zima" },
     { male: "Wieczor", female: "Wieczor", other: "Wieczor" },
@@ -890,7 +890,8 @@ const OTHER_NAMES = [
     'Alex',
     'Maria',
     'Iwo',
-    'Nico'
+    'Nico',
+    'Robin'
 ];
 
 export {LASTNAMES, MALE_NAMES, FEMALE_NAMES, OTHER_NAMES};

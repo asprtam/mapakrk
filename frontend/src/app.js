@@ -8,9 +8,13 @@ import { DisplayedHuman } from "./human";
 /** @typedef {keyof HTML_TAGS} HTML_TAG */
 /** @typedef {import("../../simulation/simulation").TICK_HUMAN_DATA} TICK_HUMAN_DATA */
 /** @typedef {import("../../simulation/simulation").TICK_DATA} TICK_DATA */
+/** @typedef {import("../../simulation/simulation").HUMAN_STATUS_SOCKET_MESSAGE} HUMAN_STATUS_SOCKET_MESSAGE */
 /** @typedef {import("../../simulation/entites").HUMAN_ACTION} HUMAN_ACTION */
 /** @typedef {import("../../simulation/entites").HUMAN_DATA} HUMAN_DATA */
 /** @typedef {import("../../simulation/entites").HUMAN_TARGET_TYPE} HUMAN_TARGET_TYPE */
+/** @typedef {import("../../simulation/entites").HUMAN_STATUSES} HUMAN_STATUSES */
+/** @typedef {import("../../simulation/entites").HUMAN_FRIEND_DATA} HUMAN_FRIEND_DATA */
+/** @typedef {import("../../simulation/entites").HUMAN_FRIENDS_LIST} HUMAN_FRIENDS_LIST */
 /** @typedef {import("../../index").SPRITE} SPRITE */
 
 class App {
@@ -272,68 +276,89 @@ class App {
      * @param {TICK_DATA} tickData
      * @returns {DRAWING_INSTANCE}
      */
+    // drawHumans = (length=this.lastFetchTime, tickData) => {
+    //     let stopped = false;
+    //     const drawingInstancePromise = Promise.withResolvers();
+    //     let lastFrame = 0;
+    //     const drawingInstanceFunc = async () => {
+
+    //         const waitForOrStop = (time=1000) => {
+    //             return new Promise((res) => {
+    //                 let timeoutHelper = null;
+    //                 let timeoutFunc = setTimeout(() => {
+    //                     if(timeoutHelper) {
+    //                         clearTimeout(timeoutHelper);
+    //                         timeoutHelper = null;
+    //                     }
+    //                     res(true);
+    //                 }, time);
+
+    //                 const waitForOrStopHelperFunc = () => {
+    //                     if(timeoutHelper) {
+    //                         clearTimeout(timeoutHelper);
+    //                         timeoutHelper = null;
+    //                     }
+    //                     if(stopped) {
+    //                         if(timeoutFunc) {
+    //                             clearTimeout(timeoutFunc);
+    //                             timeoutFunc = null;
+    //                         }
+    //                         res(true);
+    //                     } else {
+    //                        timeoutHelper = setTimeout(() => {
+    //                         waitForOrStopHelperFunc();
+    //                        });
+    //                     }
+    //                 }
+    //                 waitForOrStopHelperFunc();
+    //             });
+    //         }
+
+
+    //         let frames = length/this.frameTime;
+    //         let i = 0;
+    //         while(i < frames && !stopped) {
+    //             console.log(`draw frame ${i} of ${frames} in tick ${tickData.id}`);
+    //             this.pinnedHumansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
+    //             this.fakeCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
+    //             this.humansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
+    //             for(let human of this.humans) {
+    //                 if(tickData.humanPos[human.id]) {
+    //                     human.drawPos(i+0, frames+0, tickData.humanPos[human.id].crossedPoints, tickData.id);
+    //                 } else {
+    //                     human.drawPos(i+0, frames+0, [], tickData.id);   
+    //                 }
+    //             }
+    //             lastFrame = i+0;
+    //             await waitForOrStop(this.frameTime);
+    //             if(stopped) {
+    //                 break;
+    //             }
+    //             i++;
+    //         }
+    //         drawingInstancePromise.resolve(true);
+    //     }
+    //     drawingInstanceFunc();
+    //     return { stop: () => {
+    //         stopped = true;
+    //         console.log(`stopped animation of tick ${tickData.id}, last frame: ${lastFrame}`);
+    //     }, finish: drawingInstancePromise.promise };
+    // }
     drawHumans = (length=this.lastFetchTime, tickData) => {
-        let stopped = false;
         const drawingInstancePromise = Promise.withResolvers();
         const drawingInstanceFunc = async () => {
-
-            const waitForOrStop = (time=1000) => {
-                return new Promise((res) => {
-                    let timeoutHelper = null;
-                    let timeoutFunc = setTimeout(() => {
-                        if(timeoutHelper) {
-                            clearTimeout(timeoutHelper);
-                            timeoutHelper = null;
-                        }
-                        res(true);
-                    }, time);
-
-                    const waitForOrStopHelperFunc = () => {
-                        if(timeoutHelper) {
-                            clearTimeout(timeoutHelper);
-                            timeoutHelper = null;
-                        }
-                        if(stopped) {
-                            if(timeoutFunc) {
-                                clearTimeout(timeoutFunc);
-                                timeoutFunc = null;
-                            }
-                            res(true);
-                        } else {
-                           timeoutHelper = setTimeout(() => {
-                            waitForOrStopHelperFunc();
-                           });
-                        }
-                    }
-                    waitForOrStopHelperFunc();
-                });
+            this.pinnedHumansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
+            this.fakeCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
+            this.humansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
+            for(let human of this.humans) {
+                human.draw();
             }
-
-
-            let frames = length/this.frameTime;
-            let i = 0;
-            while(i < frames && !stopped) {
-                // console.log(`draw frame ${i} of ${frames} in tick ${tickData.id}`);
-                this.pinnedHumansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
-                this.fakeCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
-                this.humansCanvasCTX.clearRect(0, 0, this.mapSizeScaled.width, this.mapSizeScaled.height);
-                for(let human of this.humans) {
-                    if(tickData.humanPos[human.id]) {
-                        human.drawPos(i+0, frames+0, tickData.humanPos[human.id].crossedPoints, tickData.id);
-                    } else {
-                        human.drawPos(i+0, frames+0, [], tickData.id);   
-                    }
-                }
-                await waitForOrStop(this.frameTime);
-                if(stopped) {
-                    break;
-                }
-                i++;
-            }
-            drawingInstancePromise.resolve(true);
+            drawingInstancePromise.resolve();
         }
         drawingInstanceFunc();
-        return { stop: () => { stopped = true; /* console.log(`stopped animation of tick ${tickData.id}`) */ }, finish: drawingInstancePromise.promise };
+        return { stop: () => {
+
+        }, finish: drawingInstancePromise.promise };
     }
 
     startDataFetch = () => {
@@ -383,13 +408,21 @@ class App {
             switch(tag) {
                 case 'tickData': {
                     this.lastFetchTime = performance.now() - this.startTime;
-                    if(this.lastFetchTime <= this.tickTime) {
-                        this.lastFetchTime = this.tickTime + 0;
-                    }
+                    // if(this.lastFetchTime <= this.tickTime) {
+                    //     this.lastFetchTime = this.tickTime + 0;
+                    // }
                     this.lastFetchTime = (Math.ceil(this.lastFetchTime/this.frameTime)) * this.frameTime;
                     this.startTime = performance.now();
                     this.onNewData(this.lastFetchTime + 0, JSON.parse(JSON.stringify(this.lastTick)));
                     this.lastTick = JSON.parse(rest);
+                    break;
+                }
+                case 'humanStatus': {
+                    /** @type {HUMAN_STATUS_SOCKET_MESSAGE} */
+                    let data = JSON.parse(rest);
+                    if(this.humans[data.id]) {
+                        this.humans[data.id].updateStatuses(data);
+                    }
                     break;
                 }
                 case 'humanData': {
@@ -431,9 +464,9 @@ class App {
                             }
                         });
                         this.lastFetchTime = performance.now() - startTime;
-                        if(this.lastFetchTime <= this.tickTime) {
-                            this.lastFetchTime = this.tickTime + 0;
-                        }
+                        // if(this.lastFetchTime <= this.tickTime) {
+                        //     this.lastFetchTime = this.tickTime + 0;
+                        // }
                         this.lastFetchTime = Math.ceil(this.lastFetchTime/this.frameTime) * this.frameTime;
                         this.startTime = performance.now();
                         this.lastTime = performance.now();
@@ -462,7 +495,7 @@ class App {
                     if(responseJson.length > 0 && jsonSprite.data.length > 0) {
                         if(Array.isArray(responseJson[0]) && Array.isArray(jsonSprite.data[0])) {
                             if(responseJson[0].length > 0 && jsonSprite.data[0].length > 0) {
-                                console.log(jsonSprite);
+                                // console.log(jsonSprite);
                                 this.mapSize = {width: responseJson.length, height: responseJson[0].length};
 
                                 let gdc = Utils.gcd(this.mapSize.width, this.mapSize.height);
@@ -702,7 +735,7 @@ class App {
                 /** @param {MouseEvent} e */
                 const handleMouseMoveNormal = (e) => {
                     let pos = {x: e.offsetX, y: e.offsetY};
-                    let half = this.mapScalingFactor;
+                    let half = this.mapScalingFactor*3;
                     // let half = (this.humanDisplayWidth * this.mapScalingFactor);
                     /** @type {Array<DisplayedHuman>} */
                     const humansToHover = [];
@@ -727,20 +760,33 @@ class App {
                 }
 
                 /** @param {MouseEvent} e */
-                const handleStartDrag = (e) => {
-                    dragStartPos = {x: e.offsetX, y: e.offsetY}
-                    mapZoomInput.disabled = true;
-                    if(!this.fakeScreen.classList.contains('dragging')) {
-                        this.fakeScreen.classList.add('dragging');
-                    }
-                    this.fakeCanvas.removeEventListener('mousedown', handleStartDrag);
-                    this.fakeCanvas.removeEventListener('mousemove', handleMouseMoveNormal);
-                    this.fakeCanvas.addEventListener('mousemove', handleDragMouse);
-                    this.fakeCanvas.addEventListener('mouseup', handleStopDrag);
-                    this.fakeCanvas.addEventListener('mouseout', handleStopDrag);
+                const handleMouseDown = (e) => {
+                    let pos = {x: e.offsetX, y: e.offsetY};
+                    let half = this.mapScalingFactor;
+                    dragStartPos = {x: pos.x+0, y: pos.y+0};
+
+                    let hasClickedOnHuman = false;
                     this.humans.forEach((human) => {
-                        human.unHover(true);
+                        if((pos.x >= (human.renderedPos.x - half) && pos.x <= (human.renderedPos.x + half)) && (pos.y >= (human.renderedPos.y - half) && pos.y <= (human.renderedPos.y + half)) && ((this.displayConfig.showPinnedOnly && human.pinned) || !this.displayConfig.showPinnedOnly)) {
+                            hasClickedOnHuman = true;
+                            human.handleClick();
+                        }
                     });
+
+                    if(!hasClickedOnHuman) {
+                        mapZoomInput.disabled = true;
+                        if(!this.fakeScreen.classList.contains('dragging')) {
+                            this.fakeScreen.classList.add('dragging');
+                        }
+                        this.fakeCanvas.removeEventListener('mousedown', handleMouseDown);
+                        this.fakeCanvas.removeEventListener('mousemove', handleMouseMoveNormal);
+                        this.fakeCanvas.addEventListener('mousemove', handleDragMouse);
+                        this.fakeCanvas.addEventListener('mouseup', handleStopDrag);
+                        this.fakeCanvas.addEventListener('mouseout', handleStopDrag);
+                        this.humans.forEach((human) => {
+                            human.unHover(true);
+                        });
+                    }
                 }
 
                 /** @param {MouseEvent} e */
@@ -752,7 +798,7 @@ class App {
                     this.fakeCanvas.removeEventListener('mousemove', handleDragMouse);
                     this.fakeCanvas.removeEventListener('mouseup', handleStopDrag);
                     this.fakeCanvas.removeEventListener('mouseout', handleStopDrag);
-                    this.fakeCanvas.addEventListener('mousedown', handleStartDrag);
+                    this.fakeCanvas.addEventListener('mousedown', handleMouseDown);
                     this.fakeCanvas.addEventListener('mousemove', handleMouseMoveNormal);
                 }
 
@@ -768,7 +814,7 @@ class App {
                     this.humanPixelHeight = (this.mapScalingFactor * this.humanDisplayHeight)*(this.currentMapDisplayScale/1000);
                     this.mapWindowCont.style.setProperty('--humanPixelWidth', `${Utils.roundToFraction(this.humanPixelWidth, 2)}px`);
                     this.mapWindowCont.style.setProperty('--humanPixelHeight', `${Utils.roundToFraction(this.humanPixelHeight, 2)}px`);
-                    this.fakeCanvas.addEventListener('mousedown', handleStartDrag);
+                    this.fakeCanvas.addEventListener('mousedown', handleMouseDown);
                     this.fakeCanvas.addEventListener('mousemove', handleMouseMoveNormal);
                     this.removeLoader();
                 });

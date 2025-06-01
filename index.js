@@ -142,6 +142,18 @@ const getSprites = () => {
     });
 }
 
+/** @returns {Promise<Boolean>} */
+const copyGlobals = () => {
+    return new Promise(async (res) => {
+        let fileExists = await Files.exists('./simulation/simulationGlobals.js');
+        if(fileExists) {
+            let text = await Files.read('./simulation/simulationGlobals.js', {type: "text"});
+            await Files.write('./frontend/src/simulationGlobals.js', text);
+        }
+        res(true);
+    });
+}
+
 
 const port = 3000;
 
@@ -171,6 +183,7 @@ const init = async () => {
     if(generateColors) { 
         await createColors();
     }
+    await copyGlobals();
     console.clear();
 
     const sprites = await getSprites();
@@ -179,7 +192,7 @@ const init = async () => {
 
     const app = new WebSocketExpress();
     const router = new Router();
-    /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number}>} */
+    /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf: Array<Number>}>} */
     let connections = [];
 
     // app.use(bodyParser.text());
@@ -187,7 +200,7 @@ const init = async () => {
     router.ws('/', async(req, res) => {
         const ws = await res.accept();
         let id = connections.length;
-        let connection = {ws: ws};
+        let connection = {ws: ws, requireStatusOf: []};
         Object.defineProperty(connection, 'id', {
             set: (val) => {
                 id = val;
@@ -199,16 +212,47 @@ const init = async () => {
         }); //@ts-ignore
         connections.push(connection);
         ws.onmessage = (event) => {
-            if(event.data.slice(0, 'humanData-'.length) == 'humanData-') {
-                let targetId = Number(event.data.slice('humanData-'.length));
-                if(!isNaN(targetId)) {
-                    ws.send(`humanData-${JSON.stringify(simulation.getHumanData(targetId))}`);
+            let indexOfDash = event.data.indexOf('-');
+            if(indexOfDash >= 0) {
+                let tag = event.data.slice(0, indexOfDash);
+                let rest = event.data.slice(indexOfDash + 1);
+                switch(tag) {
+                    case 'humanData': {
+                        let targetId = Number(rest);
+                        if(!isNaN(targetId)) {
+                            ws.send(`humanData-${JSON.stringify(simulation.getHumanData(targetId))}`);
+                        }
+                        break;
+                    }
+                    case 'humanStatus': {
+                        let targetId = Number(rest);
+                        if(!isNaN(targetId)) {
+                            if(!connection.requireStatusOf.includes(targetId)) {
+                                connection.requireStatusOf.push(targetId);
+                            }
+                            ws.send(`humanStatus-${JSON.stringify(simulation.getHumanStatus(targetId))}`);
+                        }
+                        break;
+                    }
+                    case 'humanStatusRevoke': {
+                        let targetId = Number(rest);
+                        if(!isNaN(targetId)) {
+                            let indexOf = connection.requireStatusOf.indexOf(targetId);
+                            if(indexOf >= 0) {
+                                connection.requireStatusOf = connection.requireStatusOf.slice(0, indexOf).concat(connection.requireStatusOf.slice(indexOf+1));
+                            }
+                        }
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
                 }
             }
         }
         ws.send(`tickData-${JSON.stringify(simulation.tick)}`);
         ws.onclose = () => {
-            /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number}>} */
+            /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf:Array<Number>}>} */
             let newConnections = [];
             let newIndex = 0;
             connections.forEach((_con) => {
@@ -265,13 +309,22 @@ const init = async () => {
             }
             console.log(`\n`);
             console.log(msg);
-            connections.forEach((con) => {
+            for(let con of connections) {
                 try {
                     con.ws.send(`tickData-${JSON.stringify(tickData)}`);
                 } catch(err) {
                     console.error(err);
                 }
-            });
+                if(con.requireStatusOf.length > 0) {
+                    for(let humanId of con.requireStatusOf) {
+                        try {
+                            con.ws.send(`humanStatus-${JSON.stringify(simulation.getHumanStatus(humanId))}`);
+                        } catch(err) {
+                            console.error(err);
+                        }
+                    }
+                }
+            }
             res(true);
         });
     });
