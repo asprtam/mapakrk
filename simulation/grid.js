@@ -1,26 +1,11 @@
 
+import { Path } from "./path.js";
 //@ts-ignore
 import pkg from "easystarjs";
 const Easystar = pkg.js;
 /**
  * @typedef {{x: Number, y:Number}} pos
  */
-
-
-class Path {
-    /** @type {Array<pos>} */
-    plots;
-    /** @type {Number} */
-    distance = 0;
-    /**
-     * 
-     * @param {Array<pos>} plots 
-     * @param {Boolean} emergencyMode 
-     */
-    constructor(plots, emergencyMode=false) {
-        this.plots = plots;
-    }
-}
 
 class Grid {
     /** @type {Number} */
@@ -201,7 +186,11 @@ class Grid {
             easystar.enableDiagonals();
             easystar.findPath(from.y, from.x, to.y, to.x, (path) => {
                 if(path) {
-                    res(new Path(path));
+                    if(path.length >= 2) {
+                        res(new Path(path));
+                    } else {
+                        res(new Path(JSON.parse(JSON.stringify([from, to])), true));
+                    }
                 } else {
                     res(new Path(JSON.parse(JSON.stringify([from, to])), true));
                 }
