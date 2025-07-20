@@ -1,6 +1,6 @@
 class SimulationGlobals {
     /** @type {Number} */
-    static tickTime = 1000;
+    static tickTime = 100;
     /** @type {Number} */
     static fps = 20;
     /** @type {Number} */

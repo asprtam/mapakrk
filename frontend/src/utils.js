@@ -1,4 +1,5 @@
 
+import {HTMLToJSON} from "html-to-json-parser";
 /** @type {Array<string>} */
 const HTML_TAGS_ARR = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'blockquote', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hgroup', 'hr', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'menu', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 's', 'samp', 'script', 'search', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'svg', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var', 'video', 'wbr'];
 
@@ -184,6 +185,27 @@ class Utils {
             let tempCompStyle = window.getComputedStyle(element);
             return tempCompStyle.getPropertyValue(valueName)
         };
+    }
+
+    /**
+     * Zwraca daną wartość css, rozpatrując tylko właściwości wpisane inline
+     * @param {String} attrString 
+     * @returns {{[id:string]: string}}
+     */
+    static getCssValuesFromString = (attrString) => {
+        let attrs = {};
+        if(attrString) {
+            const atrrArr = attrString.split(';');
+            atrrArr.forEach((atrrData) => {
+                if(atrrData.length > 0) {
+                    let attrName = atrrData.slice(0, atrrData.indexOf(':')).replaceAll(/\s/gmi, '');
+                    let attrValue = atrrData.slice(atrrData.indexOf(':') + 1).replaceAll('!important', '').replaceAll(/(\s*$)|(^\s*)/gmi, '');
+                    attrs[attrName] = attrValue;
+                }
+            });
+        }
+        //@ts-ignore
+        return attrs;
     }
     /**
      * Zwraca daną wartość css, rozpatrując tylko właściwości wpisane inline
@@ -433,7 +455,9 @@ class Utils {
                     }
                 }
             });
-            element.setAttribute('style', cssString);
+            if(cssString.trim() !== '') {
+                element.setAttribute('style', cssString);
+            }
         }
         if (content) {
             if (typeof content == 'string') {
@@ -640,9 +664,153 @@ class Utils {
         });
     }
 
+    /** 
+     * @template {String} T
+     * @typedef {Array<T>} HACK_ARR_STRING
+     */
+
+    /**
+     * @template {keyof HTML_TAGS} T
+     * @typedef {Object} jsonHTML
+     * @property {T} type
+     * @property {{[id:String]:String}} [attributes]
+     * @property {Array<jsonHTML<keyof HTML_TAGS>|String>} [content]
+     */
+
+    /**
+     * @overload
+     * @param {jsonHTML<keyof HTML_TAGS>} jsonHTML
+     * @param {Array<String>} [refs=[]]
+     * @param {Array<String>} [collectAttributes=false]
+     * @returns {{element: HTML_TAGS[keyof HTML_TAGS], refs: {[id: String]:HTML_TAGS[keyof HTML_TAGS]}, collected: {[id: String]: Array<HTML_TAGS[keyof HTML_TAGS]>}}}
+     */
+    /**
+     * @template {Array<String>} T
+     * @param {jsonHTML<keyof HTML_TAGS>} jsonHTML
+     * @param {Array<T>} [refs=[]]
+     * @param {false} [collectAttributes=false]
+     * @returns {{element: HTML_TAGS[keyof HTML_TAGS], refs: {[key in T]:HTML_TAGS[keyof HTML_TAGS]}}}
+     */
+    //@ts-ignore
+    static jsonToHTML = (jsonHTML, refs=[], collectAttributes=false) => {
+        let _refs = {};
+        let _collected = {};
+        /** 
+         * @template {keyof HTML_TAGS} T
+         * @param {{type: T, attributes?: {[id:String]:String}, content?: Array<jsonHTML<keyof HTML_TAGS>|String>}} src
+         * @param {HTMLElement|undefined} [appendTo]
+         * @returns {HTML_TAGS[T]}
+         */
+        const parseOne = (src, appendTo=undefined) => {
+            /** @type {Array<String>} */
+            let classes = [];
+            /** @type {CSS_VALUES} */
+            let css = {};
+            /** @type {HTML_ATTRS} */
+            let attributes = {};
+            if(src?.attributes?.class) {
+                src.attributes.class.split(' ').forEach((el) => {
+                    if(!classes.includes(el) && el !== '') {
+                        classes.push(el);
+                    }
+                });
+            }
+            if(src?.attributes?.style) {
+                css = this.getCssValuesFromString(src.attributes.style);
+            }
+            if(src.attributes) {
+                Object.keys(src.attributes).forEach((key) => {
+                    if(!['class', 'style', 'ref'].includes(key)) {
+                        attributes[key] = src.attributes[key];
+                    }
+                });
+            }
+            let element = Utils.createHTMLElement(src.type, classes, {attibutes: attributes, css: css});
+            if(src.content) {
+                for(let entry of src.content) {
+                    switch(typeof entry) {
+                        case "string":
+                        case "number":
+                        case "bigint":
+                        case "boolean":
+                        case "undefined": {
+                            if(`${entry}`.trim() !== '') {
+                                element.innerText += `${entry}`;
+                            }
+                            break;
+                        }
+                        case "symbol": {
+                            break;
+                        }
+                        case "object":
+                        case "function": { //@ts-ignore
+                            parseOne(src.content, element);
+                            break;
+                        }
+                    }
+                }
+            }
+            if(src?.attributes?.ref) { //@ts-ignore
+                if(refs.includes(src.attributes.ref.trim())) {
+                    _refs[src.attributes.ref.trim()] = element;
+                }
+            }
+            if(collectAttributes) { //@ts-ignore
+                collectAttributes.forEach(/** @param {String} attributeName */(attributeName) => {
+                    if(Object.keys(attributes).includes(attributeName.trim())) {
+                        if(Object.keys(_collected).includes(attributeName.trim())) {
+                            _collected[attributeName.trim()].push(element);
+                        } else {
+                            _collected[attributeName.trim()] = [element];
+                        }
+                    }
+                });
+            }
+            if(appendTo) {
+                appendTo.appendChild(element);
+            }
+            return element;
+        }
+
+        let element = parseOne(jsonHTML);
+        if(collectAttributes) { //@ts-ignore
+            return {element: element, refs: _refs, collected: _collected};
+        } else { //@ts-ignore
+            return {element: element, refs: _refs};
+        }
+    }
+
+    /**
+     * @overload
+     * @param {String} outerHTML
+     * @param {Array<String>} [refs=[]]
+     * @param {Array<String>} [collectAttributes]
+     * @returns {Promise<{element: HTML_TAGS[keyof HTML_TAGS], refs: {[id:String]: HTML_TAGS[keyof HTML_TAGS]}, collected: {[id:String]: HTML_TAGS[keyof HTML_TAGS]}}>}
+     */
+    /**
+     * @template {String} T
+     * @param {String} outerHTML
+     * @param {HACK_ARR_STRING<T>} [refs=[]]
+     * @param {false} [collectAttributes]
+     * @returns {Promise<{element: HTML_TAGS[keyof HTML_TAGS], refs: {[key in HACK_ARR_STRING<T>]: HTML_TAGS[keyof HTML_TAGS]}}>}
+     */
+    //@ts-ignore
+    static createHTML = (outerHTML, refs=[], collectAttributes=false) => {
+        return new Promise((res, rej) => {
+            HTMLToJSON(outerHTML).then((result) => {
+                if(collectAttributes) {
+                    res(Utils.jsonToHTML(result, refs, collectAttributes));
+                } else {
+                    res(Utils.jsonToHTML(result, refs));
+                }
+            }, (e) => {
+                rej(e);
+            });
+        });
+    }
+
 
     constructor() {
-
     }
 }
 

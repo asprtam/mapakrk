@@ -23,7 +23,7 @@ const Easystar = pkg.js;
  * @property {Number} id
  * @property {HUMAN_ACTION} action
  * @property {pos} pos
- * @property {Array<pos>} crossedPoints
+ * @property {pos} renderedPos
  * @property {HUMAN_TARGET_TYPE} targetType
  * @property {Number|null} target
  */
@@ -64,6 +64,9 @@ class Simulation {
     isRunning = false;
     /** @type {Number} */
     #tickId = 0;
+    get tickId () {
+        return this.#tickId;
+    }
     /** @type {LogWrite} */
     log;
 
@@ -76,7 +79,7 @@ class Simulation {
         /** @type {TICK_DATA} */
         let infoToReturn = {id: this.#tickId + 0, humanPos: []};
         this.humans.forEach((human) => {
-            infoToReturn.humanPos.push({id: human.id, pos: human.pos, action: human.action, crossedPoints: human.currentTickVisitedPoints, targetType: human.targetType, target: human.target});
+            infoToReturn.humanPos.push({id: human.id, pos: human.pos, action: human.action, renderedPos: human.renderedPos, targetType: human.targetType, target: human.target});
         });
         return infoToReturn;
     }
@@ -190,8 +193,16 @@ class Simulation {
             const startTime = performance.now();
             /** @type {Array<Promise>} */
             const promiseArr = [];
-            for (let i = 0; i < this.humans.length; i++) {
-                promiseArr.push(this.humans[i].tick());
+            if(this.#tickId%10 == 0) {
+                for(let i = 0;i < this.humans.length;i++) {
+                    promiseArr.push(this.humans[i].tick());
+                }
+            } else {
+                for(let human of this.humans) {
+                    if(human.action == 'walking') {
+                        promiseArr.push(human.walkProgress());
+                    }
+                }
             }
             await Promise.all(promiseArr);
             let calculationTime = Math.ceil(performance.now() - startTime);

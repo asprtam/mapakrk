@@ -47,6 +47,8 @@ class DisplayedHumanStatusWindow {
     /** @type {HTMLElement} */
     basicInfoName;
     /** @type {HTMLElement} */
+    basicInfoAction;
+    /** @type {HTMLElement} */
     basicInfoSubCont;
     /** @type {{age: INFO_VALUES_AGE, gender: INFO_VALUES}} */ //@ts-ignore
     basicInfoValues = {
@@ -55,17 +57,90 @@ class DisplayedHumanStatusWindow {
             name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.infoNames.age}:`),
             value: Utils.createHTMLElement('span', ['value']),
             suffix: Utils.createHTMLElement('span', ['suffix'])
+        },
+        gender: {
+            cont: Utils.createHTMLElement('div', ['valueCont', 'gender']),
+            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.infoNames.gender}:`),
+            value: Utils.createHTMLElement('div', ['genderIcon'])
         }
     };
     /** @type {HTMLElement} */
-    attributesCont;
+    attributesCont = Utils.createHTMLElement('div', ['attributes'], {}, `<h2>${localisation.attributes}</h2>`);
+    /** @type {{[key in keyof HUMAN_ATTRIBUTES]: INFO_VALUES}} */ //@ts-ignore
+    attributesValues = {};
+    /** @type {HTMLElement} */
+    statusesCont = Utils.createHTMLElement('div', ['statuses'], {}, `<h2>${localisation.statuses}</h2>`);
+    /** @type {{[key in keyof HUMAN_STATUSES]: INFO_VALUES}} */ //@ts-ignore
+    statusesValues = {};
     /** @type {Boolean} */
     pinPermanently = false;
+
+    updateAction = () => {
+        switch(this.human.action) {
+            case "in home": {
+                if(!this.basicInfoAction.classList.contains('inHome')) {
+                    this.basicInfoAction.classList.add('inHome');
+                }
+                ['walking', 'meeting', 'inHospitality'].forEach((className) => {
+                    if(this.basicInfoAction.classList.contains(className)) {
+                        this.basicInfoAction.classList.remove(className);
+                    }
+                });
+                this.basicInfoAction.innerHTML = `w <span class="location">domu</span>`;
+                break;
+            }
+            case "walking": {
+                if(!this.basicInfoAction.classList.contains('walking')) {
+                    this.basicInfoAction.classList.add('walking');
+                }
+                ['inHome', 'meeting', 'inHospitality'].forEach((className) => {
+                    if(this.basicInfoAction.classList.contains(className)) {
+                        this.basicInfoAction.classList.remove(className);
+                    }
+                });
+                if(this.human.targetType == 'home') {
+                    this.basicInfoAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                } else {
+                    this.basicInfoAction.innerHTML = `idzie do <span class="location">${this.human.target}</span>`;
+                }
+                break;
+            }
+            case "meeting": {
+                if(!this.basicInfoAction.classList.contains('meeting')) {
+                    this.basicInfoAction.classList.add('meeting');
+                }
+                ['walking', 'inHome', 'inHospitality'].forEach((className) => {
+                    if(this.basicInfoAction.classList.contains(className)) {
+                        this.basicInfoAction.classList.remove(className);
+                    }
+                });
+                this.basicInfoAction.innerHTML = 'spotyka się';
+                break;
+            }
+            case "in hospitality": {
+                if(!this.basicInfoAction.classList.contains('inHospitality')) {
+                    this.basicInfoAction.classList.add('inHospitality');
+                }
+                ['walking', 'inHome', 'meeting'].forEach((className) => {
+                    if(this.basicInfoAction.classList.contains(className)) {
+                        this.basicInfoAction.classList.remove(className);
+                    }
+                });
+                this.basicInfoAction.innerHTML = `w <span class="location">${this.human.target}</span>`;
+                break;
+            }
+        }
+    }
 
     /**
      * @param {HUMAN_STATUS_SOCKET_MESSAGE} data 
      */
     updateStatuses = (data) => {
+        Object.keys(data.status).forEach((statusName) => {
+            if(this.statusesValues[statusName]) {
+                this.statusesValues[statusName].value.innerHTML = `${Math.round(data.status[statusName])}`;
+            }
+        });
     }
 
     /**
@@ -78,6 +153,7 @@ class DisplayedHumanStatusWindow {
         this.basicInfoCont = Utils.createAndAppendHTMLElement(this.windowContent, 'div', ['basicInfo']);
         this.basicInfoName = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'h1');
         this.basicInfoName.innerHTML = `${this.human.name} ${this.human.lastName}`;
+        this.basicInfoAction = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['action']);
         this.basicInfoSubCont = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['subCont']);
 
         this.basicInfoValues.age.value.innerHTML = `${this.human.age}`;
@@ -88,9 +164,46 @@ class DisplayedHumanStatusWindow {
         }
         this.basicInfoSubCont.appendChild(this.basicInfoValues.age.cont);
         this.basicInfoValues.age.cont.appendChild(this.basicInfoValues.age.name);
+        this.basicInfoSubCont.appendChild(this.basicInfoValues.gender.cont);
+        this.basicInfoValues.gender.cont.append(this.basicInfoValues.gender.name);
+        this.basicInfoValues.gender.value.classList.add(`${this.human.gender}`);
+        switch(this.human.gender) {
+            case "male": {
+                this.basicInfoValues.gender.value.innerHTML = '♂';
+                break;
+            }
+            case "female": {
+                this.basicInfoValues.gender.value.innerHTML = '♀';
+                break;
+            }
+            case "other": {
+                this.basicInfoValues.gender.value.innerHTML = '⚧';
+                break;
+            }
+        }
+        this.basicInfoValues.gender.cont.append(this.basicInfoValues.gender.value);
         const ageH3 = Utils.createAndAppendHTMLElement(this.basicInfoValues.age.cont, 'h3');
         ageH3.appendChild(this.basicInfoValues.age.value);
         ageH3.appendChild(this.basicInfoValues.age.suffix);
+
+        attriburesList.forEach((attributeName) => {
+            let obj = {};
+            obj.cont = Utils.createAndAppendHTMLElement(this.attributesCont, 'div', ['valueCont', `${attributeName}`]);
+            obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h2', ['name'], {}, `${localisation.attributeNames[attributeName]}:`);
+            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['attribute'], {}, `${this.human.attributes[attributeName]}`);
+            this.attributesValues[attributeName] = obj;
+        });
+
+        statusList.forEach((statusName) => {
+            let obj = {};
+            obj.cont = Utils.createAndAppendHTMLElement(this.statusesCont, 'div', ['valueCont', `${statusName}`]);
+            obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h2', ['name'], {}, `${localisation.statusNames[statusName]}:`);
+            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['status']);
+            this.statusesValues[statusName] = obj;
+        });
+
+        this.windowContent.appendChild(this.attributesCont);
+        this.windowContent.appendChild(this.statusesCont);
 
         this.windowEl = new DisplayWindow(this.windowContent, {
             className: ['humanStatus', 'open'], 
@@ -103,6 +216,7 @@ class DisplayedHumanStatusWindow {
         });
         this.windowEl.onClose = () => {
             return new Promise((res) => {
+                this.human.parent.removeInfoWindow(this.windowEl);
                 this.human.statusWindow = null;
                 this.human.parent.socket.send(`humanStatusRevoke-${this.human.id}`);
                 if(!this.pinPermanently) {
@@ -112,11 +226,17 @@ class DisplayedHumanStatusWindow {
             });
         }
         this.human.parent.appCont.append(this.windowEl.window);
+        this.human.parent.addInfoWindow(this.windowEl);
+        this.updateAction();
         let waitTime = Utils.getTransitionTime(this.windowEl.window);
         setTimeout(() => {
             if(this.windowEl.window.classList.contains('open')) {
                 this.windowEl.window.classList.remove('open');
             }
+            this.human.parent.focusInfoWindow(this.windowEl);
+            this.windowEl.window.addEventListener('pointerdown', () => {
+                this.human.parent.focusInfoWindow(this.windowEl);
+            });
         }, waitTime);
     }
 }
@@ -136,14 +256,20 @@ class DisplayedHuman {
     lastPos = {x: 0, y: 0};
     /** @type {{x: Number, y: Number}} */
     renderedPos = {x: 0, y: 0};
-    /** @type {Array<{x: Number, y: Number}>} */
-    crossedPoints = [{x: 0, y: 0}];
+    /** @type {{x: Number, y: Number}} */
+
     /** @type {HUMAN_ACTION} */
     action;
     /** @type {HUMAN_TARGET_TYPE} */
     #targetType = 'home';
+    get targetType() {
+        return this.#targetType;
+    }
     /** @type {Number|Null} */
     #target = null;
+    get target() {
+        return this.#target;
+    }
     /** @type {String} */
     #name;
     get name() {
@@ -231,6 +357,8 @@ class DisplayedHuman {
     #hoverToolTipAction;
     /** @type {Boolean} */
     #hoverToolTipClosing = false;
+    /** @type {String} */
+    #currentTooltipUniqueId = '';
 
     /** @type {Boolean} */
     #pinned = false;
@@ -340,6 +468,9 @@ class DisplayedHuman {
                 }
             }
         }
+        if(this.statusWindow) {
+            this.statusWindow.updateAction();
+        }
     }
 
     /** @param {Boolean} [forceInstant=false] */
@@ -363,6 +494,8 @@ class DisplayedHuman {
                     this.#hoverToolTip.classList.add('close');
                 }
                 waitTime = Utils.getTransitionTime(this.#hoverToolTip);
+            } else {
+
             }
             this.#tooltipTimerDeletion = setTimeout(() => {
                 if(this.#hoverToolTipName) {
@@ -378,9 +511,29 @@ class DisplayedHuman {
                     this.#hoverToolTip = undefined;
                 }
                 this.#hoverToolTipClosing = false;
+                this.#currentTooltipUniqueId = '';
                 this.startDeleteDataTimer();
             }, waitTime);
         }
+        const hideFuncRest = () => {
+            /** @type {Array<HTMLElement>} */
+            let hoverToolTips = Array.from(document.querySelectorAll(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"]`));
+            hoverToolTips.forEach((el) => {
+                let unqId = el.getAttribute('data-id');
+                if(unqId) {
+                    if(unqId !== this.#currentTooltipUniqueId) {
+                        el.remove();
+                    } else {
+                        if(this.#hoverToolTip == undefined || this.#hoverToolTip == null) {
+                            this.#hoverToolTip = el;
+                        }
+                    }
+                } else {
+                    el.remove();
+                }
+            });
+        }
+        hideFuncRest();
         if(forceInstant) {
             if(!this.#hoverToolTipClosing) {
                 hideFunc();
@@ -402,27 +555,95 @@ class DisplayedHuman {
             this.#tooltipTimerDeletion = null;
         }
         if(this.#hoverToolTip == undefined || this.#hoverToolTip == null) {
-            if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
-                if(typeof this.#temp.data == 'undefined') {
-                    this.#temp.data = await this.parent.getHumanData(this.id);
+            /** @type {Array<HTMLElement>} */
+            let hoverToolTips = Array.from(document.querySelectorAll(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"]`));
+            if(hoverToolTips.length > 0) {
+                this.#hoverToolTip = hoverToolTips[hoverToolTips.length - 1];
+                this.#currentTooltipUniqueId = this.#hoverToolTip.getAttribute('data-id');
+                if(!this.#currentTooltipUniqueId) {
+                    this.#currentTooltipUniqueId = Utils.makeId(10);
+                    this.#hoverToolTip.setAttribute('data-id', this.#currentTooltipUniqueId);
+                } else if(this.#currentTooltipUniqueId.trim() == '') {
+                    this.#currentTooltipUniqueId = Utils.makeId(10);
+                    this.#hoverToolTip.setAttribute('data-id', this.#currentTooltipUniqueId);
                 }
-                this.#name = `${this.#temp.data.info.name}`;
-                this.#lastName = `${this.#temp.data.info.lastname}`;
-                this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
-                this.#age = this.#temp.data.info.age + 0;
-                this.#gender = `${this.#temp.data.info.gender}`;
+                hoverToolTips = hoverToolTips.slice(0, -1);
+                hoverToolTips.forEach((el) => {
+                    el.remove();
+                });
+                if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
+                    if(typeof this.#temp.data == 'undefined') {
+                        this.#temp.data = await this.parent.getHumanData(this.id);
+                    }
+                    this.#name = `${this.#temp.data.info.name}`;
+                    this.#lastName = `${this.#temp.data.info.lastname}`;
+                    this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
+                    this.#age = this.#temp.data.info.age + 0;
+                    this.#gender = `${this.#temp.data.info.gender}`;
+                }
+                if(this.#pinned) {
+                    if(!this.#hoverToolTip.classList.contains('pinned')) {
+                        this.#hoverToolTip.classList.add('pinned');
+                    }
+                } else {
+                    if(!this.#hoverToolTip.classList.contains('pinned')) {
+                        this.#hoverToolTip.classList.remove('pinned');
+                    }
+                }
+                /** @type {HTMLElement} */
+                let hoverToolTipInner = document.querySelector(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"] .content`);
+                if(hoverToolTipInner == null || hoverToolTipInner == undefined) {
+                    hoverToolTipInner = Utils.createAndAppendHTMLElement(this.#hoverToolTip, 'div', ['content']);
+                    this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `<span class="firstname">${this.#name}</span> <span class="lastname">${this.#lastName}</span>`);
+                    this.#hoverToolTipAction = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['action']);
+                    this.updateTooltipAction();
+                } else {
+                    this.#hoverToolTipName = document.querySelector(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"] .content .name`);
+                    if(this.#hoverToolTipName == null || this.#hoverToolTipName == undefined) {
+                        this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `<span class="firstname">${this.#name}</span> <span class="lastname">${this.#lastName}</span>`);
+                    }
+                    this.#hoverToolTipAction = document.querySelector(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"] .content .name`);
+                    if(this.#hoverToolTipAction == null || this.#hoverToolTipAction == undefined) {
+                        this.#hoverToolTipAction = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['action']);
+                    }
+                    this.updateTooltipAction();
+                }
+            } else {
+                if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
+                    if(typeof this.#temp.data == 'undefined') {
+                        this.#temp.data = await this.parent.getHumanData(this.id);
+                    }
+                    this.#name = `${this.#temp.data.info.name}`;
+                    this.#lastName = `${this.#temp.data.info.lastname}`;
+                    this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
+                    this.#age = this.#temp.data.info.age + 0;
+                    this.#gender = `${this.#temp.data.info.gender}`;
+                }
+                const classArr = ['tooltip'];
+                if(this.#pinned) {
+                    classArr.push('pinned');
+                }
+                this.#currentTooltipUniqueId = Utils.makeId(10);
+                this.#hoverToolTip = Utils.createHTMLElement('div', classArr, {attibutes: {'id': `tooltipHuman-${this.id}`, 'data-id': this.#currentTooltipUniqueId}}, '<div class="face"><div class="bg"></div><div class="arrow"></div></div>');
+                const hoverToolTipInner = Utils.createAndAppendHTMLElement(this.#hoverToolTip, 'div', ['content']);
+                this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `<span class="firstname">${this.#name}</span> <span class="lastname">${this.#lastName}</span>`);
+                this.#hoverToolTipAction = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['action']);
+                this.updateTooltipAction();
+                this.parent.tooltipsCont.appendChild(this.#hoverToolTip);
             }
-            const classArr = ['tooltip'];
-            if(this.#pinned) {
-                classArr.push('pinned');
-            }
-            this.#hoverToolTip = Utils.createHTMLElement('div', classArr, {attibutes: {'id': `tooltipHuman-${this.id}`}}, '<div class="face"><div class="bg"></div><div class="arrow"></div></div>');
-            const hoverToolTipInner = Utils.createAndAppendHTMLElement(this.#hoverToolTip, 'div', ['content']);
-            this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `<span class="firstname">${this.#name}</span> <span class="lastname">${this.#lastName}</span>`);
-            this.#hoverToolTipAction = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['action']);
-            this.updateTooltipAction();
-            this.parent.tooltipsCont.appendChild(this.#hoverToolTip);
         } else {
+            /** @type {Array<HTMLElement>} */
+            let hoverToolTips = Array.from(document.querySelectorAll(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"]`));
+            hoverToolTips.forEach((el) => {
+                let unqId = el.getAttribute('data-id');
+                if(unqId) {
+                    if(unqId !== this.#currentTooltipUniqueId) {
+                        el.remove();
+                    }
+                } else {
+                    el.remove();
+                }
+            });
             if(this.#hoverToolTip.classList.contains('close')) {
                 this.#hoverToolTip.classList.remove('close');
             }
@@ -450,12 +671,10 @@ class DisplayedHuman {
 
     /** @param {Boolean} [forceInstant=false] */
     unHover = (forceInstant=false) => {
-        if(this.#hovered) {
-            if(this.#pinned) {
-                this.#hovered = false;
-            } else {
-                this.hideToolTip(forceInstant);
-            }
+        if(this.#pinned) {
+            this.#hovered = false;
+        } else {
+            this.hideToolTip(forceInstant);
         }
     }
 
@@ -466,43 +685,55 @@ class DisplayedHuman {
      * @returns {{x: Number, y: Number}}
      */
     getBetweenPoint = (point0, point1, factor) => {
-        if(point0.x == point1.x) {
-            let desiredDistance = (Math.max(point0.y, point1.y) - Math.min(point0.y, point1.y)) * factor;
-            if(point0.y < point1.y) {
-                return {x: point0.x, y: point0.y + desiredDistance};
-            } else {
-                return {x: point0.x, y: point0.y - desiredDistance};
+        switch(factor) {
+            case 0: {
+                return point0;
+                break;
             }
-        } else if(point0.y == point1.y) {
-            let desiredDistance = (Math.max(point0.x, point1.x) - Math.min(point0.x, point1.x)) * factor;
-            if(point0.x < point1.x) {
-                return {x: point0.x + desiredDistance, y: point0.y};
-            } else {
-                return {x: point0.x - desiredDistance, y: point0.y};
+            case 1: {
+                return point1;
+                break;
             }
-        } else {
-            let returnPoint = {x: point0.x, y: point1.y};
-            let distance = Math.sqrt(Math.pow(point0.x - point1.x, 2) + Math.pow(point0.y - point1.y, 2));
-            let desiredDistance = distance*factor;
+            default: {
+                if(point0.x == point1.x) {
+                    let desiredDistance = (Math.max(point0.y, point1.y) - Math.min(point0.y, point1.y)) * factor;
+                    if(point0.y < point1.y) {
+                        return {x: point0.x, y: point0.y + desiredDistance};
+                    } else {
+                        return {x: point0.x, y: point0.y - desiredDistance};
+                    }
+                } else if(point0.y == point1.y) {
+                    let desiredDistance = (Math.max(point0.x, point1.x) - Math.min(point0.x, point1.x)) * factor;
+                    if(point0.x < point1.x) {
+                        return {x: point0.x + desiredDistance, y: point0.y};
+                    } else {
+                        return {x: point0.x - desiredDistance, y: point0.y};
+                    }
+                } else {
+                    let returnPoint = {x: point0.x, y: point1.y};
+                    let distance = Math.sqrt(Math.pow(point0.x - point1.x, 2) + Math.pow(point0.y - point1.y, 2));
+                    let desiredDistance = distance * factor;
 
-            if(point0.x < point1.x) {
-                returnPoint.x = point0.x + desiredDistance;
-            } else {
-                returnPoint.x = point0.x - desiredDistance;
-            }
+                    if(point0.x < point1.x) {
+                        returnPoint.x = point0.x + desiredDistance;
+                    } else {
+                        returnPoint.x = point0.x - desiredDistance;
+                    }
 
-            if(point0.y < point1.y) {
-                returnPoint.y = point0.y + desiredDistance;
-            } else {
-                returnPoint.y = point0.y - desiredDistance;
+                    if(point0.y < point1.y) {
+                        returnPoint.y = point0.y + desiredDistance;
+                    } else {
+                        returnPoint.y = point0.y - desiredDistance;
+                    }
+                    return returnPoint;
+                }
+                break;
             }
-
-            return returnPoint;
         }
     }
 
     /** @param {{x: Number, y: Number}} pos */
-    draw = (pos=this.pos, log=false) => {
+    drawPos = (pos=this.pos, log=false) => {
         let startX = Math.round(pos.x*this.parent.mapScalingFactor) + (this.parent.mapScalingFactor/2);
         let startY = Math.round(pos.y*this.parent.mapScalingFactor) + (this.parent.mapScalingFactor/2);
         this.renderedPos = {x: startX, y: startY};
@@ -514,53 +745,14 @@ class DisplayedHuman {
         this.updateTooltipPos();
         if(this.#pinned) {
             this.parent.spriteHuman.draw(this.parent.pinnedHumansCanvasCTX, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, colors.color9.light['color9-light-30']);
-            // this.parent.pinnedHumansCanvasCTX.beginPath();
-            // this.parent.pinnedHumansCanvasCTX.arc(startX, startY, (this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor, 0, 2*Math.PI);
-            // this.parent.pinnedHumansCanvasCTX.fillStyle = colors.color9.light['color9-light-30'];
-            // this.parent.pinnedHumansCanvasCTX.fill();
-            // this.parent.pinnedHumansCanvasCTX.closePath();
         } else {
             this.parent.spriteHuman.draw(this.parent.humansCanvasCTX, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, '#fff');
-            // this.parent.humansCanvasCTX.beginPath();
-            // this.parent.humansCanvasCTX.arc(startX, startY, (this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor, 0, 2*Math.PI);
-            // this.parent.humansCanvasCTX.fillStyle = colors.color9.light['color9-light-30'];
-            // this.parent.humansCanvasCTX.fill();
-            // this.parent.humansCanvasCTX.closePath();
         }
     }
 
-    /** 
-     * @param {Number} part
-     * @param {Number} total
-     * @param {Array<{x: Number, y: Number}>} [crossedPoints]
-     * @param {Number} [tickId]
-     */
-    drawPos = (part, total, crossedPoints=this.crossedPoints, tickId=0) => {
-        // console.log(`part ${part}, total ${total},`, crossedPoints, `tickId: ${tickId}, humanId: ${this.id}`);
-        if(crossedPoints.length == 1) {
-            // console.log('crossedPoints.length == 1', crossedPoints[0], 0, tickId, this.id);
-            this.draw(crossedPoints[0]);
-        } else if(crossedPoints.length == total) {
-            // console.log('crossedPoints.length == total', crossedPoints[part], 0, tickId, this.id);
-            this.draw(crossedPoints[part]);
-        } else {
-            let percent = part/(total-1);
-            let closestPrevPoint = Math.floor(percent * (crossedPoints.length - 1));
-            let closestNextPoint = Math.ceil(percent * (crossedPoints.length - 1));
-            if(closestNextPoint == closestPrevPoint) {
-                // console.log('else nofactor', crossedPoints[closestPrevPoint], crossedPoints[closestNextPoint], 0, tickId, this.id);
-                this.draw(crossedPoints[closestPrevPoint]);
-            } else {
-                let factor = (percent * (crossedPoints.length - 1))%1;
-                let beetwenPoint = this.getBetweenPoint(crossedPoints[closestPrevPoint], crossedPoints[closestNextPoint], factor);
-                if(crossedPoints[closestPrevPoint].x !== crossedPoints[closestNextPoint].x && crossedPoints[closestPrevPoint].y !== crossedPoints[closestNextPoint].y) {
-                    // console.log('else factor', beetwenPoint, crossedPoints[closestPrevPoint], crossedPoints[closestNextPoint], this.id, factor);
-                    this.draw(beetwenPoint, true);
-                } else {
-                    this.draw(beetwenPoint);
-                }
-            }
-        }
+    /** @param {Number} factor */
+    draw = (factor) => {
+        this.drawPos(this.getBetweenPoint(this.lastPos, this.pos, factor));
     }
 
     /**
@@ -571,15 +763,9 @@ class DisplayedHuman {
             this.lastPos = {x: this.pos.x+0, y: this.pos.y+0};
             this.pos = data.pos;
             this.action = data.action;
-            this.crossedPoints = data.crossedPoints;
             this.#target = data.target;
             this.#targetType = data.targetType;
             this.updateTooltipAction();
-            if(this.crossedPoints.length == 0) {
-                this.crossedPoints = [this.pos];
-            } else if(this.crossedPoints[this.crossedPoints.length - 1].x !== this.pos.x && this.crossedPoints[this.crossedPoints.length - 1].y !== this.pos.y) {
-                this.crossedPoints.push(this.pos);
-            }
         }
     }
     /**
@@ -594,7 +780,7 @@ class DisplayedHuman {
         this.pos = pos;
         this.lastPos = {x: pos.x + 0, y: pos.y + 0};
         this.action = action;
-        this.draw();
+        this.drawPos();
     }
 }
 

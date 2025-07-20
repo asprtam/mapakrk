@@ -187,7 +187,7 @@ class Grid {
             easystar.findPath(from.y, from.x, to.y, to.x, (path) => {
                 if(path) {
                     if(path.length >= 2) {
-                        res(new Path(path));
+                        res(new Path(path.map((pos) => {return {x: pos.y, y: pos.x}})));
                     } else {
                         res(new Path(JSON.parse(JSON.stringify([from, to])), true));
                     }

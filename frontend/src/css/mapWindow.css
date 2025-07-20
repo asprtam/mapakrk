@@ -42,6 +42,10 @@
     z-index: 4;
 }
 
+.window.map-window .contentHolder .map.content .screen.fake.hoverHuman {
+    cursor: pointer;
+}
+
 .window.map-window .contentHolder .map.content .screen.fake .tooltips {
     z-index: 2;
     position: absolute;

@@ -891,7 +891,10 @@ const OTHER_NAMES = [
     'Maria',
     'Iwo',
     'Nico',
-    'Robin'
+    'Robin',
+    'Alin',
+    'Dust',
+    'Sok'
 ];
 
 export {LASTNAMES, MALE_NAMES, FEMALE_NAMES, OTHER_NAMES};

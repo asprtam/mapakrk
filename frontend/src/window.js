@@ -71,6 +71,22 @@ class DisplayWindow {
     get window () {
         return this.#window;
     }
+    #focused = false;
+    get focused() {
+        return this.#focused;
+    }
+    set focused(val) {
+        if(val) {
+            if(!this.#window.classList.contains('focused')) {
+                this.#window.classList.add('focused');
+            }
+        } else {
+            if(this.#window.classList.contains('focused')) {
+                this.#window.classList.remove('focused');
+            }
+        }
+        this.#focused = val;
+    }
     /** @type {HTMLElement} */
     #container;
     /** @type {HTMLElement} */
@@ -883,6 +899,9 @@ class DisplayWindow {
     };
     /** @type {String} */
     #id;
+    get id() {
+        return this.#id;
+    }
     /** @type {String} */
     #name = '';
     /** @type {String} */
@@ -1424,6 +1443,7 @@ class DisplayWindow {
             this.content = Utils.createAndAppendHTMLElement(this.#contentHolder, content.type, classNames, content.params, content.content);
         }
         this.#footer = Utils.createAndAppendHTMLElement(this.#container, 'footer');
+        this.focused = true;
     }
 }
 

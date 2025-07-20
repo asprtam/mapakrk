@@ -2,6 +2,7 @@ import { Simulation } from "./simulation.js";
 import { SimulationGlobals } from "./simulationGlobals.js";
 import { Utils } from "./utils.js";
 import { LASTNAMES, MALE_NAMES, FEMALE_NAMES, OTHER_NAMES } from "./names.js";
+import {Path} from "./path.js";
 
 /**
  * @typedef {{x: Number, y:Number}} pos
@@ -143,6 +144,8 @@ class Human {
     }
     /** @type {pos} */
     pos;
+    /** @type {pos} */
+    renderedPos;
     /** @type {Number|Null} */
     currentPlotId = null;
     /** @type {Number|null} */
@@ -151,8 +154,10 @@ class Human {
     targetType = 'home';
     /** @type {pos|null} */
     walkingTo = null;
-    /** @type {Array<pos>|null} */
+    /** @type {Path|null} */
     pathToWalkOn = null;
+    /** @type {Number} */
+    crossedDistance = 0;
     /** @type {Array<pos>} */
     currentTickVisitedPoints = [];
     /** @type {HUMAN_FRIENDS_LIST} */
@@ -316,25 +321,15 @@ class Human {
         return this.simulation.plots[this.homeId];
     }
 
-    /** 
+    /**
      * @param {pos} from
      * @param {pos} to
-     * @returns {Promise<Array<pos>>}
+     * @returns {Promise<Path>}
      */
     getPath = (from, to) => {
         return new Promise((res) => {
-            this.simulation.findPaths(from, to).then((foundPaths) => {
-                this.simulation.logWrite(`foundPaths ${this.info.name} ${this.info.lastname}`, foundPaths);
-                if (foundPaths.paths.length > 0) {
-                    let randomPath = foundPaths.paths[Utils.getRandomWithProbability(foundPaths.probability)];
-                    if(randomPath.length > 0) {
-                        res(randomPath.slice(1));
-                    } else {
-                        res([to]);
-                    }
-                } else {
-                    res([to]);
-                }
+            this.simulation.grid.findPath(from, to).then((path) => {
+                res(path);
             });
         });
     }
@@ -342,27 +337,14 @@ class Human {
     /** @returns {Promise<Boolean>} */
     walkProgress = () => {
         return new Promise((res) => {
-            let crossedPlots = this.walkTickRange * this.simulation.currentSpeed;
-            if(this.pathToWalkOn.length <= crossedPlots) {
-                this.currentTickVisitedPoints = JSON.parse(JSON.stringify(this.pathToWalkOn));
-                this.pathToWalkOn = null;
-                this.simulation.logWrite(`walk progress ${this.info.name} ${this.info.lastname}`, this.currentTickVisitedPoints);
-                this.pos = this.currentTickVisitedPoints[this.currentTickVisitedPoints.length - 1];
-                while(this.currentTickVisitedPoints.length < crossedPlots) {
-                    this.currentTickVisitedPoints.push({x: this.pos.x, y: this.pos.y});
-                }
+            this.crossedDistance += this.walkTickRange;
+            if(this.crossedDistance >= this.pathToWalkOn.distance) {
                 this.onWalkEnd();
                 this.onWalkEnd = () => {};
             } else {
-                this.currentTickVisitedPoints = this.pathToWalkOn.slice(0, crossedPlots);
-                this.pathToWalkOn = this.pathToWalkOn.slice(crossedPlots);
-                this.pos = this.currentTickVisitedPoints[this.currentTickVisitedPoints.length - 1];
-                this.simulation.logWrite(`walk progress ${this.info.name} ${this.info.lastname}`, this.currentTickVisitedPoints);
-                if(this.pathToWalkOn.length == 0) {
-                    this.pathToWalkOn = null;
-                    this.onWalkEnd();
-                    this.onWalkEnd = () => {};
-                }
+                let {point, rendered} = this.pathToWalkOn.getPositionOfDistance(this.crossedDistance);
+                this.renderedPos = rendered;
+                this.pos = JSON.parse(JSON.stringify(this.pathToWalkOn.plots[point]));
             }
             res(true);
         });
@@ -371,7 +353,7 @@ class Human {
     /** @returns {Promise<Boolean>} */
     decideNext = () => {
         return new Promise(async (res) => {
-            switch (this.action) {
+            switch(this.action) {
                 case "in home": {
                     let nextAction = Utils.getRandomWithProbability({'stay home': 100 - this.status.boredom, 'leave home': this.status.boredom});
                     if(nextAction == 'stay home') {
@@ -388,34 +370,44 @@ class Human {
                         let targetHospitality = this.getPreferredHospitality();
                         this.target = targetHospitality.id;
                         this.walkingTo = targetHospitality.pos;
+                        this.crossedDistance = 0;
                         this.pathToWalkOn = await this.getPath(this.pos, this.walkingTo);
                         this.action = 'walking';
                         this.currentPlotId = null;
                         this.onWalkEnd = () => {
                             this.action = 'in hospitality';
-                            this.simulation.plots[this.target+0].addVisitor(this.id);
+                            this.simulation.plots[this.target + 0].addVisitor(this.id);
+                            this.pos = JSON.parse(JSON.stringify(this.simulation.plots[this.target + 0].pos));
+                            this.renderedPos = JSON.parse(JSON.stringify(this.simulation.plots[this.target + 0].pos));
                             this.currentPlotId = this.target + 0;
+                            this.crossedDistance = 0;
+                            this.pathToWalkOn = null;
                         }
                     }
                     res(true);
                     break;
                 }
                 case "in hospitality": {
-                    let nextAction = Utils.getRandomWithProbability({ 'change': this.status.boredom, 'stay': 100 - this.status.boredom });
+                    let nextAction = Utils.getRandomWithProbability({'change': this.status.boredom, 'stay': 100 - this.status.boredom});
                     if(nextAction == 'change') {
-                        this.simulation.plots[this.target+0].removeVisitor(this.id);
+                        this.simulation.plots[this.target + 0].removeVisitor(this.id);
                         const goHome = async () => {
                             this.targetType = 'home';
                             this.target = this.homeId;
                             this.status.boredom = 1;
                             this.walkingTo = this.home.pos;
+                            this.crossedDistance = 0;
                             this.pathToWalkOn = await this.getPath(this.pos, this.walkingTo);
                             this.action = 'walking';
                             this.currentPlotId = null;
                             this.onWalkEnd = () => {
                                 this.action = 'in home';
                                 this.simulation.plots[this.homeId].addVisitor(this.id);
+                                this.pos = JSON.parse(JSON.stringify(this.simulation.plots[this.target + 0].pos));
+                                this.renderedPos = JSON.parse(JSON.stringify(this.simulation.plots[this.target + 0].pos));
                                 this.currentPlotId = this.homeId + 0;
+                                this.crossedDistance = 0;
+                                this.pathToWalkOn = null;
                             }
                             res(true);
                         }
@@ -424,7 +416,7 @@ class Human {
                         if(goHomeOrNew == 'go home') {
                             goHome();
                         } else {
-                            let targetHospitality = this.getPreferredHospitality([this.target+0], true);
+                            let targetHospitality = this.getPreferredHospitality([this.target + 0], true);
                             if(targetHospitality === null) {
                                 goHome();
                             } else {
@@ -435,13 +427,18 @@ class Human {
                                 this.targetType = 'hospitality';
                                 this.target = targetHospitality.id;
                                 this.walkingTo = targetHospitality.pos;
+                                this.crossedDistance = 0;
                                 this.pathToWalkOn = await this.getPath(this.pos, this.walkingTo);
                                 this.action = 'walking';
                                 this.currentPlotId = null;
                                 this.onWalkEnd = () => {
                                     this.action = 'in hospitality';
-                                    this.simulation.plots[this.target+0].addVisitor(this.id);
+                                    this.simulation.plots[this.target + 0].addVisitor(this.id);
+                                    this.pos = JSON.parse(JSON.stringify(this.simulation.plots[this.target + 0].pos));
+                                    this.renderedPos = JSON.parse(JSON.stringify(this.simulation.plots[this.target + 0].pos));
                                     this.currentPlotId = this.target + 0;
+                                    this.crossedDistance = 0;
+                                    this.pathToWalkOn = null;
                                 }
                                 res(true);
                             }
@@ -560,10 +557,32 @@ class Human {
     }
     /** @returns {HUMAN_INFO} */
     getRandomInfo = () => {
+        /**
+         * @returns {Number}
+         */
+        const getAge = () => {
+            switch(Utils.getRandomWithProbability({'16-20': 10, '20-30': 50, '30-40': 25, '40-50': 10, '60-70': 5})) {
+                case "16-20": {
+                    return Utils.randomInRange(16, 20)
+                }
+                case "20-30": {
+                    return Utils.randomInRange(20, 30);
+                }
+                case "30-40": {
+                    return Utils.randomInRange(30, 40);
+                }
+                case "40-50": {
+                    return Utils.randomInRange(40, 50);
+                }
+                case "60-70": {
+                    return Utils.randomInRange(60, 70);
+                }
+            }
+        }
         /** @type {HUMAN_INFO} */ //@ts-ignore
         let info = {
-            age: Utils.randomInRange(16, 65),
-            gender: Utils.getRandomWithProbability({'male': 48, 'female': 48, 'other': 4}),
+            age: getAge(),
+            gender: Utils.getRandomWithProbability({'male': 48, 'female': 48, 'other': 64}),
             customGenderName: null
         };
         switch(info.gender) {
@@ -674,6 +693,7 @@ class Human {
         }
 
         this.pos = { x: this.home.pos.x + 0, y: this.home.pos.y + 0 };
+        this.renderedPos = { x: this.home.pos.x + 0, y: this.home.pos.y + 0 };
         this.targetType = 'home';
         this.target = this.homeId;
         this.currentPlotId = this.homeId + 0;
