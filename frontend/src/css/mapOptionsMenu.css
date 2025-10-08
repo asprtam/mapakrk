@@ -1,0 +1,145 @@
+.window.map-window .contentHolder .map.content .optionsCont {
+    z-index:  15;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 20px;
+    height: 20px;
+}
+
+.optionsCont .btn-cont {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+
+.optionsCont .btn-cont button:not(.disabled) {
+    cursor: pointer;
+}
+
+.optionsCont .btn-cont button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0xp;
+    background: url("/options.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.optionsCont .optionsList {
+    position: absolute;
+    right: 0px;
+    top: calc(100% + 5px);
+    width: 150px;
+    --transitionTime: 0.15s;
+    height: 0px;
+    user-select: none;
+    transition: height var(--transitionTime) ease-in-out;
+}
+
+.optionsCont .optionsList .optionsList-cont {
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    transition: padding var(--transitionTime) ease-in-out;
+}
+
+.optionsCont .optionsList.closed,
+.optionsCont .optionsList.closing {
+    height: 0px;
+}
+
+.optionsCont .optionsList.closed .optionsList-cont,
+.optionsCont .optionsList.closing .optionsList-cont {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.optionsCont .optionsList.opened,
+.optionsCont .optionsList.opening {
+    height: var(--targetHeight);
+}
+
+.optionsCont .optionsList.init {
+    transition: none !important;
+    opacity: 0 !important;
+    height: fit-content !important;
+}
+
+.optionsCont .optionsList.init .optionsList-cont {
+
+}
+
+.optionsCont .optionsList.noTransition, .optionsCont .optionsList.noTransition .optionsList-cont {
+    transition: none !important;
+}
+
+.optionsCont .optionsList:not(.opened) {
+    overflow: hidden;
+}
+
+.optionsList-cont {
+    padding: 4px 0;
+    position: relative;
+    background: var(--color1-light-80);
+    box-shadow: inset 6px 6px 6px -6px rgba(0, 0, 0, 0.5);
+    border: 1.5px var(--color4-dark-50) solid;
+}
+
+.optionsList-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.optionsList-menu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.optionsList-menu li {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 6px;
+    background: transparent;
+    position: relative;
+    transition: background 0.15s ease-in-out;
+}
+
+.optionsList-menu li.enabled::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: #000;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+    --mask:url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 700'%3E%3Cpolygon points='683.28 0 316.72 483.28 100 266.72 0 366.72 333.28 700 800 100 683.28 0'/%3E%3C/svg%3E");
+    mask-image: var(--mask);
+    mask-size: 100% 100%;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: var(--mask);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.optionsList-menu li:hover {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.optionsList-menu li p {
+    font-size: 15px;
+    line-height: 21px;
+}

@@ -157,7 +157,8 @@ class LogWrite {
     constructor(save) {
         this.#save = save;
         const {time, date} = this.#getTimeDate();
-        this.fileName = `${date.replaceAll('.', '-')}_${time.replaceAll(':', '-')}.txt`;
+        console.log(time, date);
+        this.fileName = `${date.replaceAll(/[\.\/]/gmi, '-')}_${time.replaceAll(':', '-')}.txt`;
         if(this.#save) {
             if (!fs.existsSync('./logs')) {
                 fs.mkdirSync('./logs');

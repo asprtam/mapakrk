@@ -1,5 +1,7 @@
 .window.map-window .contentHolder .map.content .screen.fake .tooltips {
     --sizeHalfWidth: calc(var(--humanPixelWidth) / 2);
+    /* --sizeHalfPlot: calc(var(--plotPixelWidth) / 2); */
+    --sizeHalfPlot: 0px;
     --arrowSize: 10px;
 }
 
@@ -14,6 +16,41 @@
     }
 }
 
+@keyframes tooltip_open_reversed {
+    0% {
+        opacity: 0;
+        transform: translate(calc(-100% - var(--sizeHalfWidth)), -50%) scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(calc(-100% - var(--sizeHalfWidth)), -50%);
+    }
+}
+
+@keyframes tooltip_open_plot {
+    0% {
+        opacity: 0;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), -100%) scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), -100%);
+    }
+}
+
+@keyframes tooltip_open_plot_reversed {
+    0% {
+        opacity: 0;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), 0%) scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), 0%);
+    }
+}
+
 .tooltips .tooltip {
     position: absolute;
     box-sizing: border-box;
@@ -22,11 +59,40 @@
     padding-top: 5px;
     padding-bottom: 7px;
     transform-origin: left center;
-    transform: translate(var(--sizeHalfWidth), -50%);
+    transform: translate(var(--sizeHalfPlot), -50%);
     animation-name: tooltip_open;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards;
     animation-duration: 0.2s;
+}
+
+.tooltips .tooltip.reversed {
+    transform: translate(calc(-100% - var(--sizeHalfWidth)), -50%);
+    padding-right: calc(10px + var(--arrowSize));
+    padding-left: 10px;
+    transform-origin: right center;
+    animation-name: tooltip_open_reversed;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+}
+
+.tooltips .tooltip.plot {
+    transform: translate(calc(-50% - var(--sizeHalfPlot)), -100%);
+    padding-left: 10px;
+    padding-bottom: calc(7px + var(--arrowSize));
+    animation-name: tooltip_open_plot;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    transform-origin: center bottom;
+}
+
+.tooltips .tooltip.plot.reversed {
+    padding-bottom: 7px;
+    padding-top: calc(7px + var(--arrowSize));
+    animation-name: tooltip_open_plot_reversed;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    transform-origin: center top;
+    transform: translate(calc(-50% - var(--sizeHalfPlot)), 0%);
 }
 
 @keyframes tooltip_close {
@@ -40,9 +106,64 @@
     }
 }
 
+@keyframes tooltip_close_reversed {
+    0% {
+        opacity: 1;
+        transform: translate(calc(-100% - var(--sizeHalfWidth)), -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-100% - var(--sizeHalfWidth)), -50%) scale(0);
+    }
+}
+
+@keyframes tooltip_close_plot {
+    0% {
+        opacity: 1;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), -100%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), -100%) scale(0);
+    }
+}
+
+@keyframes tooltip_close_plot_reversed {
+    0% {
+        opacity: 1;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), 0%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% - var(--sizeHalfPlot)), 0%) scale(0);
+    }
+}
+
 
 .tooltips .tooltip.close {
     animation-name: tooltip_close;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+}
+
+.tooltips .tooltip.close.reversed {
+    animation-name: tooltip_close_reversed;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+}
+
+.tooltips .tooltip.plot.close {
+    animation-name: tooltip_close_plot;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+}
+
+.tooltips .tooltip.plot.close.reversed {
+    animation-name: tooltip_close_plot_reversed;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-duration: 0.2s;
@@ -70,6 +191,25 @@
     border: var(--borderSize) solid var(--color3-light-10);
 }
 
+.tooltips .tooltip.reversed .face .bg {
+    left: unset;
+    right: var(--arrowSize);
+}
+
+.tooltips .tooltip.plot .face .bg {
+    width: 100%;
+    height: calc(100% - var(--arrowSize));
+    left: 0px;
+    border: var(--borderSize) solid var(--color6-light-10);
+}
+
+.tooltips .tooltip.plot.reversed .face .bg {
+    top: unset;
+    left: 0px;
+    bottom: 0px;
+    right: unset;
+}
+
 .tooltips .tooltip .face .arrow {
     width: calc(var(--arrowSize) * 1.41);
     height: calc(var(--arrowSize) * 1.41);
@@ -78,6 +218,26 @@
     position: absolute;
     z-index: 2;
     transform: translate(0, -50%);
+}
+
+.tooltips .tooltip.reversed .face .arrow {
+    left: unset;
+    right: calc(var(--arrowSize) * 0.4);
+}
+
+.tooltips .tooltip.plot .face .arrow {
+    transform: translate(-50%, 0);
+    top: unset;
+    left: 50%;
+    right: unset;
+    bottom: calc(var(--arrowSize) * 0.4);
+}
+
+.tooltips .tooltip.plot.reversed .face .arrow {
+    bottom: unset;
+    right: unset;
+    left: 50%;
+    top: calc(var(--arrowSize) * 0.4);
 }
 
 .tooltips .tooltip .face .arrow::before {
@@ -92,6 +252,20 @@
     border-top: var(--borderSize) solid var(--color3-light-10);
     background: #000;
     transform: rotateZ(-45deg);
+}
+
+.tooltips .tooltip.reversed .face .arrow::before {
+    transform: rotateZ(135deg)
+}
+
+.tooltips .tooltip.plot .face .arrow::before {
+    border-left: var(--borderSize) solid var(--color6-light-10);
+    border-top: var(--borderSize) solid var(--color6-light-10);
+    transform: rotateZ(-135deg);
+}
+
+.tooltips .tooltip.plot.reversed .face .arrow::before {
+    transform: rotateZ(45deg);
 }
 
 /* .tooltips .tooltip.tooltip::after {
@@ -138,6 +312,10 @@
     line-height: 0.85em;
     word-break: keep-all;
     white-space: nowrap;
+}
+
+.tooltip.plot .content p {
+    color: var(--color6-light-10);
 }
 
 .tooltip .content p span {

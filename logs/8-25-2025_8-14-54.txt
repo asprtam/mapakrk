@@ -1,0 +1,10880 @@
+Start: 8:14:54, 8/25/2025
+8:14:56 "Last tick (0) calculation time 3ms"
+
+8:14:56 "Last tick (1) calculation time 1ms"
+
+8:14:56 "Last tick (2) calculation time 1ms"
+
+8:14:56 "Last tick (3) calculation time 1ms"
+
+8:14:56 "Last tick (4) calculation time 1ms"
+
+8:14:57 "Last tick (5) calculation time 1ms"
+
+8:14:57 "Last tick (6) calculation time 1ms"
+
+8:14:57 "Last tick (7) calculation time 1ms"
+
+8:14:57 "Last tick (8) calculation time 1ms"
+
+8:14:57 "Last tick (9) calculation time 1ms"
+
+8:14:57 "Last tick (10) calculation time 1ms"
+
+8:14:57 "Last tick (11) calculation time 1ms"
+
+8:14:57 "Last tick (12) calculation time 1ms"
+
+8:14:57 "Last tick (13) calculation time 1ms"
+
+8:14:57 "Last tick (14) calculation time 1ms"
+
+8:14:58 "Last tick (15) calculation time 1ms"
+
+8:14:58 "Last tick (16) calculation time 1ms"
+
+8:14:58 "Last tick (17) calculation time 1ms"
+
+8:14:58 "Last tick (18) calculation time 1ms"
+
+8:14:58 "Last tick (19) calculation time 1ms"
+
+8:14:58 "Last tick (20) calculation time 1ms"
+
+8:14:58 "Last tick (21) calculation time 1ms"
+
+8:14:58 "Last tick (22) calculation time 1ms"
+
+8:14:58 "Last tick (23) calculation time 1ms"
+
+8:14:59 "Last tick (24) calculation time 1ms"
+
+8:14:59 "Last tick (25) calculation time 1ms"
+
+8:14:59 "Last tick (26) calculation time 1ms"
+
+8:14:59 "Last tick (27) calculation time 1ms"
+
+8:14:59 "Last tick (28) calculation time 1ms"
+
+8:14:59 "Last tick (29) calculation time 1ms"
+
+8:14:59 "Last tick (30) calculation time 1ms"
+
+8:14:59 "Last tick (31) calculation time 1ms"
+
+8:14:59 "Last tick (32) calculation time 1ms"
+
+8:14:59 "Last tick (33) calculation time 1ms"
+
+8:15:00 "Last tick (34) calculation time 1ms"
+
+8:15:00 "Last tick (35) calculation time 1ms"
+
+8:15:00 "Last tick (36) calculation time 1ms"
+
+8:15:00 "Last tick (37) calculation time 1ms"
+
+8:15:00 "Last tick (38) calculation time 1ms"
+
+8:15:00 "Last tick (39) calculation time 1ms"
+
+8:15:00 "Last tick (40) calculation time 1ms"
+
+8:15:00 "Last tick (41) calculation time 1ms"
+
+8:15:00 "Last tick (42) calculation time 1ms"
+
+8:15:00 "Last tick (43) calculation time 1ms"
+
+8:15:01 "Last tick (44) calculation time 1ms"
+
+8:15:01 "Last tick (45) calculation time 1ms"
+
+8:15:01 "Last tick (46) calculation time 1ms"
+
+8:15:01 "Last tick (47) calculation time 1ms"
+
+8:15:01 "Last tick (48) calculation time 1ms"
+
+8:15:01 "Last tick (49) calculation time 1ms"
+
+8:15:01 "Last tick (50) calculation time 1ms"
+
+8:15:01 "Last tick (51) calculation time 1ms"
+
+8:15:01 "Last tick (52) calculation time 1ms"
+
+8:15:01 "Last tick (53) calculation time 1ms"
+
+8:15:02 "Last tick (54) calculation time 1ms"
+
+8:15:02 "Last tick (55) calculation time 1ms"
+
+8:15:02 "Last tick (56) calculation time 1ms"
+
+8:15:02 "Last tick (57) calculation time 1ms"
+
+8:15:02 "Last tick (58) calculation time 1ms"
+
+8:15:02 "Last tick (59) calculation time 1ms"
+
+8:15:02 "Last tick (60) calculation time 1ms"
+
+8:15:02 "Last tick (61) calculation time 1ms"
+
+8:15:02 "Last tick (62) calculation time 1ms"
+
+8:15:02 "Last tick (63) calculation time 1ms"
+
+8:15:03 "Last tick (64) calculation time 1ms"
+
+8:15:03 "Last tick (65) calculation time 1ms"
+
+8:15:03 "Last tick (66) calculation time 1ms"
+
+8:15:03 "Last tick (67) calculation time 1ms"
+
+8:15:03 "Last tick (68) calculation time 1ms"
+
+8:15:03 "Last tick (69) calculation time 1ms"
+
+8:15:03 "Last tick (70) calculation time 1ms"
+
+8:15:03 "Last tick (71) calculation time 1ms"
+
+8:15:03 "Last tick (72) calculation time 1ms"
+
+8:15:03 "Last tick (73) calculation time 1ms"
+
+8:15:04 "Last tick (74) calculation time 1ms"
+
+8:15:04 "Last tick (75) calculation time 1ms"
+
+8:15:04 "Last tick (76) calculation time 1ms"
+
+8:15:04 "Last tick (77) calculation time 1ms"
+
+8:15:04 "Last tick (78) calculation time 1ms"
+
+8:15:04 "Last tick (79) calculation time 1ms"
+
+8:15:04 "Last tick (80) calculation time 1ms"
+
+8:15:04 "Last tick (81) calculation time 1ms"
+
+8:15:04 "Last tick (82) calculation time 1ms"
+
+8:15:04 "Last tick (83) calculation time 1ms"
+
+8:15:05 "Last tick (84) calculation time 1ms"
+
+8:15:05 "Last tick (85) calculation time 1ms"
+
+8:15:05 "Last tick (86) calculation time 1ms"
+
+8:15:05 "Last tick (87) calculation time 1ms"
+
+8:15:05 "Last tick (88) calculation time 1ms"
+
+8:15:05 "Last tick (89) calculation time 1ms"
+
+8:15:05 "Last tick (90) calculation time 1ms"
+
+8:15:05 "Last tick (91) calculation time 1ms"
+
+8:15:05 "Last tick (92) calculation time 1ms"
+
+8:15:05 "Last tick (93) calculation time 1ms"
+
+8:15:06 "Last tick (94) calculation time 1ms"
+
+8:15:06 "Last tick (95) calculation time 1ms"
+
+8:15:06 "Last tick (96) calculation time 1ms"
+
+8:15:06 "Last tick (97) calculation time 1ms"
+
+8:15:06 "Last tick (98) calculation time 1ms"
+
+8:15:06 "Last tick (99) calculation time 1ms"
+
+8:15:06 "Last tick (100) calculation time 1ms"
+
+8:15:06 "Last tick (101) calculation time 1ms"
+
+8:15:06 "Last tick (102) calculation time 1ms"
+
+8:15:07 "Last tick (103) calculation time 1ms"
+
+8:15:07 "Last tick (104) calculation time 1ms"
+
+8:15:07 "Last tick (105) calculation time 1ms"
+
+8:15:07 "Last tick (106) calculation time 1ms"
+
+8:15:07 "Last tick (107) calculation time 1ms"
+
+8:15:07 "Last tick (108) calculation time 1ms"
+
+8:15:07 "Last tick (109) calculation time 1ms"
+
+8:15:07 "Last tick (110) calculation time 58ms"
+
+8:15:07 "Last tick (111) calculation time 1ms"
+
+8:15:07 "Last tick (112) calculation time 1ms"
+
+8:15:08 "Last tick (113) calculation time 1ms"
+
+8:15:08 "Last tick (114) calculation time 1ms"
+
+8:15:08 "Last tick (115) calculation time 1ms"
+
+8:15:08 "Last tick (116) calculation time 1ms"
+
+8:15:08 "Last tick (117) calculation time 1ms"
+
+8:15:08 "Last tick (118) calculation time 1ms"
+
+8:15:08 "Last tick (119) calculation time 1ms"
+
+8:15:08 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:08 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:08 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:08 "Last tick (120) calculation time 89ms"
+
+8:15:08 "Last tick (121) calculation time 1ms"
+
+8:15:08 "Last tick (122) calculation time 1ms"
+
+8:15:09 "Last tick (123) calculation time 1ms"
+
+8:15:09 "Last tick (124) calculation time 1ms"
+
+8:15:09 "Last tick (125) calculation time 1ms"
+
+8:15:09 "Last tick (126) calculation time 1ms"
+
+8:15:09 "Last tick (127) calculation time 1ms"
+
+8:15:09 "Last tick (128) calculation time 1ms"
+
+8:15:09 "Last tick (129) calculation time 1ms"
+
+8:15:09 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:09 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:09 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:09 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:09 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:09 "Last tick (130) calculation time 3ms"
+
+8:15:09 "Last tick (131) calculation time 1ms"
+
+8:15:09 "Last tick (132) calculation time 1ms"
+
+8:15:10 "Last tick (133) calculation time 1ms"
+
+8:15:10 "Last tick (134) calculation time 1ms"
+
+8:15:10 "Last tick (135) calculation time 1ms"
+
+8:15:10 "Last tick (136) calculation time 1ms"
+
+8:15:10 "Last tick (137) calculation time 1ms"
+
+8:15:10 "Last tick (138) calculation time 1ms"
+
+8:15:10 "Last tick (139) calculation time 1ms"
+
+8:15:10 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:10 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:10 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:10 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:10 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:10 "Last tick (140) calculation time 4ms"
+
+8:15:10 "Last tick (141) calculation time 1ms"
+
+8:15:10 "Last tick (142) calculation time 1ms"
+
+8:15:11 "Last tick (143) calculation time 1ms"
+
+8:15:11 "Last tick (144) calculation time 1ms"
+
+8:15:11 "Last tick (145) calculation time 1ms"
+
+8:15:11 "Last tick (146) calculation time 1ms"
+
+8:15:11 "Last tick (147) calculation time 1ms"
+
+8:15:11 "Last tick (148) calculation time 1ms"
+
+8:15:11 "Last tick (149) calculation time 7ms"
+
+8:15:11 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:11 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:11 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:11 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:11 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:11 "Last tick (150) calculation time 23ms"
+
+8:15:11 "Last tick (151) calculation time 1ms"
+
+8:15:12 "Last tick (152) calculation time 1ms"
+
+8:15:12 "Last tick (153) calculation time 1ms"
+
+8:15:12 "Last tick (154) calculation time 1ms"
+
+8:15:12 "Last tick (155) calculation time 1ms"
+
+8:15:12 "Last tick (156) calculation time 1ms"
+
+8:15:12 "Last tick (157) calculation time 1ms"
+
+8:15:12 "Last tick (158) calculation time 1ms"
+
+8:15:12 "Last tick (159) calculation time 1ms"
+
+8:15:12 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:12 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:12 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:12 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:12 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:12 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:12 "Last tick (160) calculation time 3ms"
+
+8:15:12 "Last tick (161) calculation time 1ms"
+
+8:15:13 "Last tick (162) calculation time 1ms"
+
+8:15:13 "Last tick (163) calculation time 1ms"
+
+8:15:13 "Last tick (164) calculation time 1ms"
+
+8:15:13 "Last tick (165) calculation time 1ms"
+
+8:15:13 "Last tick (166) calculation time 1ms"
+
+8:15:13 "Last tick (167) calculation time 1ms"
+
+8:15:13 "Last tick (168) calculation time 1ms"
+
+8:15:13 "Last tick (169) calculation time 1ms"
+
+8:15:13 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:13 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:13 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:13 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:13 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:13 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:13 "Last tick (170) calculation time 83ms"
+
+8:15:13 "Last tick (171) calculation time 1ms"
+
+8:15:14 "Last tick (172) calculation time 1ms"
+
+8:15:14 "Last tick (173) calculation time 1ms"
+
+8:15:14 "Last tick (174) calculation time 1ms"
+
+8:15:14 "Last tick (175) calculation time 1ms"
+
+8:15:14 "Last tick (176) calculation time 1ms"
+
+8:15:14 "Last tick (177) calculation time 1ms"
+
+8:15:14 "Last tick (178) calculation time 1ms"
+
+8:15:14 "Last tick (179) calculation time 1ms"
+
+8:15:14 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:14 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:14 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:14 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:14 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:14 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:14 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:14 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:14 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:14 "Last tick (180) calculation time 23ms"
+
+8:15:14 "Last tick (181) calculation time 1ms"
+
+8:15:15 "Last tick (182) calculation time 1ms"
+
+8:15:15 "Last tick (183) calculation time 1ms"
+
+8:15:15 "Last tick (184) calculation time 1ms"
+
+8:15:15 "Last tick (185) calculation time 1ms"
+
+8:15:15 "Last tick (186) calculation time 1ms"
+
+8:15:15 "Last tick (187) calculation time 1ms"
+
+8:15:15 "Last tick (188) calculation time 1ms"
+
+8:15:15 "Last tick (189) calculation time 3ms"
+
+8:15:15 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:15 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:15 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:15 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:15 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:15 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:15 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:15 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:15 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:15 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:15 "Last tick (190) calculation time 14ms"
+
+8:15:15 "Last tick (191) calculation time 1ms"
+
+8:15:16 "Last tick (192) calculation time 1ms"
+
+8:15:16 "Last tick (193) calculation time 1ms"
+
+8:15:16 "Last tick (194) calculation time 1ms"
+
+8:15:16 "Last tick (195) calculation time 1ms"
+
+8:15:16 "Last tick (196) calculation time 1ms"
+
+8:15:16 "Last tick (197) calculation time 1ms"
+
+8:15:16 "Last tick (198) calculation time 1ms"
+
+8:15:16 "Last tick (199) calculation time 3ms"
+
+8:15:16 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:16 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:16 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:16 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:16 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:16 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:16 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:16 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:16 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:16 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:16 "Last tick (200) calculation time 31ms"
+
+8:15:16 "Last tick (201) calculation time 2ms"
+
+8:15:17 "Last tick (202) calculation time 1ms"
+
+8:15:17 "Last tick (203) calculation time 1ms"
+
+8:15:17 "Last tick (204) calculation time 1ms"
+
+8:15:17 "Last tick (205) calculation time 1ms"
+
+8:15:17 "Last tick (206) calculation time 1ms"
+
+8:15:17 "Last tick (207) calculation time 1ms"
+
+8:15:17 "Last tick (208) calculation time 1ms"
+
+8:15:17 "Last tick (209) calculation time 1ms"
+
+8:15:17 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:17 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:17 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:17 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:17 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:17 {
+ "lose": 37,
+ "keep": 74
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:17 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:17 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:17 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:17 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:17 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:17 "Last tick (210) calculation time 45ms"
+
+8:15:17 "Last tick (211) calculation time 1ms"
+
+8:15:18 "Last tick (212) calculation time 1ms"
+
+8:15:18 "Last tick (213) calculation time 1ms"
+
+8:15:18 "Last tick (214) calculation time 1ms"
+
+8:15:18 "Last tick (215) calculation time 1ms"
+
+8:15:18 "Last tick (216) calculation time 1ms"
+
+8:15:18 "Last tick (217) calculation time 1ms"
+
+8:15:18 "Last tick (218) calculation time 1ms"
+
+8:15:18 "Last tick (219) calculation time 1ms"
+
+8:15:18 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:18 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:18 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:18 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:18 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:18 {
+ "lose": 37,
+ "keep": 74
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:18 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:18 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:18 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:18 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:18 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:18 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:18 "Last tick (220) calculation time 31ms"
+
+8:15:18 "Last tick (221) calculation time 2ms"
+
+8:15:19 "Last tick (222) calculation time 1ms"
+
+8:15:19 "Last tick (223) calculation time 1ms"
+
+8:15:19 "Last tick (224) calculation time 1ms"
+
+8:15:19 "Last tick (225) calculation time 2ms"
+
+8:15:19 "Last tick (226) calculation time 1ms"
+
+8:15:19 "Last tick (227) calculation time 1ms"
+
+8:15:19 "Last tick (228) calculation time 2ms"
+
+8:15:19 "Last tick (229) calculation time 1ms"
+
+8:15:19 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:19 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:19 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:19 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:19 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:19 {
+ "lose": 37,
+ "keep": 74
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:19 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:19 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:19 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:19 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:19 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:19 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:19 "Last tick (230) calculation time 15ms"
+
+8:15:19 "Last tick (231) calculation time 1ms"
+
+8:15:20 "Last tick (232) calculation time 1ms"
+
+8:15:20 "Last tick (233) calculation time 1ms"
+
+8:15:20 "Last tick (234) calculation time 1ms"
+
+8:15:20 "Last tick (235) calculation time 1ms"
+
+8:15:20 "Last tick (236) calculation time 1ms"
+
+8:15:20 "Last tick (237) calculation time 1ms"
+
+8:15:20 "Last tick (238) calculation time 1ms"
+
+8:15:20 "Last tick (239) calculation time 9ms"
+
+8:15:20 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:20 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:20 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:20 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:20 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:20 {
+ "lose": 37,
+ "keep": 74
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:20 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:20 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:20 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:20 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:20 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:20 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:20 "Last tick (240) calculation time 11ms"
+
+8:15:20 "Last tick (241) calculation time 1ms"
+
+8:15:21 "Last tick (242) calculation time 1ms"
+
+8:15:21 "Last tick (243) calculation time 1ms"
+
+8:15:21 "Last tick (244) calculation time 1ms"
+
+8:15:21 "Last tick (245) calculation time 1ms"
+
+8:15:21 "Last tick (246) calculation time 1ms"
+
+8:15:21 "Last tick (247) calculation time 2ms"
+
+8:15:21 "Last tick (248) calculation time 1ms"
+
+8:15:21 "Last tick (249) calculation time 1ms"
+
+8:15:21 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:21 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:21 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:21 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:21 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:21 {
+ "lose": 37,
+ "keep": 74
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:21 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:21 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:21 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:21 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:21 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:21 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:21 "Last tick (250) calculation time 18ms"
+
+8:15:22 "Last tick (251) calculation time 1ms"
+
+8:15:22 "Last tick (252) calculation time 1ms"
+
+8:15:22 "Last tick (253) calculation time 1ms"
+
+8:15:22 "Last tick (254) calculation time 1ms"
+
+8:15:22 "Last tick (255) calculation time 1ms"
+
+8:15:22 "Last tick (256) calculation time 1ms"
+
+8:15:22 "Last tick (257) calculation time 1ms"
+
+8:15:22 "Last tick (258) calculation time 1ms"
+
+8:15:22 "Last tick (259) calculation time 1ms"
+
+8:15:22 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:22 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:22 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:22 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:22 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:22 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:22 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:22 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:22 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:22 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:22 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:22 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:22 "Last tick (260) calculation time 4ms"
+
+8:15:23 "Last tick (261) calculation time 1ms"
+
+8:15:23 "Last tick (262) calculation time 1ms"
+
+8:15:23 "Last tick (263) calculation time 1ms"
+
+8:15:23 "Last tick (264) calculation time 1ms"
+
+8:15:23 "Last tick (265) calculation time 1ms"
+
+8:15:23 "Last tick (266) calculation time 1ms"
+
+8:15:23 "Last tick (267) calculation time 1ms"
+
+8:15:23 "Last tick (268) calculation time 1ms"
+
+8:15:23 "Last tick (269) calculation time 1ms"
+
+8:15:23 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:23 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:23 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:23 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:23 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:23 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:23 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:23 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:23 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:23 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:23 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:23 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:23 "Last tick (270) calculation time 46ms"
+
+8:15:24 "Last tick (271) calculation time 1ms"
+
+8:15:24 "Last tick (272) calculation time 1ms"
+
+8:15:24 "Last tick (273) calculation time 1ms"
+
+8:15:24 "Last tick (274) calculation time 1ms"
+
+8:15:24 "Last tick (275) calculation time 2ms"
+
+8:15:24 "Last tick (276) calculation time 1ms"
+
+8:15:24 "Last tick (277) calculation time 2ms"
+
+8:15:24 "Last tick (278) calculation time 1ms"
+
+8:15:24 "Last tick (279) calculation time 1ms"
+
+8:15:24 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:24 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:24 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:24 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:24 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:24 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:24 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:24 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:24 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:24 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:24 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:24 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:24 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:24 "Last tick (280) calculation time 17ms"
+
+8:15:25 "Last tick (281) calculation time 2ms"
+
+8:15:25 "Last tick (282) calculation time 1ms"
+
+8:15:25 "Last tick (283) calculation time 1ms"
+
+8:15:25 "Last tick (284) calculation time 1ms"
+
+8:15:25 "Last tick (285) calculation time 1ms"
+
+8:15:25 "Last tick (286) calculation time 1ms"
+
+8:15:25 "Last tick (287) calculation time 1ms"
+
+8:15:25 "Last tick (288) calculation time 1ms"
+
+8:15:25 "Last tick (289) calculation time 1ms"
+
+8:15:25 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:25 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:25 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:25 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:25 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:26 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:26 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:26 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:26 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:26 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:26 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:26 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:26 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:26 "Last tick (290) calculation time 74ms"
+
+8:15:26 "Last tick (291) calculation time 1ms"
+
+8:15:26 "Last tick (292) calculation time 1ms"
+
+8:15:26 "Last tick (293) calculation time 1ms"
+
+8:15:26 "Last tick (294) calculation time 1ms"
+
+8:15:26 "Last tick (295) calculation time 1ms"
+
+8:15:26 "Last tick (296) calculation time 1ms"
+
+8:15:26 "Last tick (297) calculation time 1ms"
+
+8:15:26 "Last tick (298) calculation time 1ms"
+
+8:15:26 "Last tick (299) calculation time 1ms"
+
+8:15:26 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:26 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:26 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:26 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:27 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:27 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:27 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:27 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:27 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:27 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:27 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:27 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:27 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:27 "Last tick (300) calculation time 77ms"
+
+8:15:27 "Last tick (301) calculation time 1ms"
+
+8:15:27 "Last tick (302) calculation time 1ms"
+
+8:15:27 "Last tick (303) calculation time 1ms"
+
+8:15:27 "Last tick (304) calculation time 1ms"
+
+8:15:27 "Last tick (305) calculation time 1ms"
+
+8:15:27 "Last tick (306) calculation time 1ms"
+
+8:15:27 "Last tick (307) calculation time 1ms"
+
+8:15:27 "Last tick (308) calculation time 1ms"
+
+8:15:27 "Last tick (309) calculation time 1ms"
+
+8:15:28 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:28 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:28 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:28 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:28 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:28 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:28 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:28 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:28 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:28 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:28 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:28 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:28 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:28 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:28 "Last tick (310) calculation time 41ms"
+
+8:15:28 "Last tick (311) calculation time 1ms"
+
+8:15:28 "Last tick (312) calculation time 1ms"
+
+8:15:28 "Last tick (313) calculation time 1ms"
+
+8:15:28 "Last tick (314) calculation time 1ms"
+
+8:15:28 "Last tick (315) calculation time 1ms"
+
+8:15:28 "Last tick (316) calculation time 1ms"
+
+8:15:28 "Last tick (317) calculation time 1ms"
+
+8:15:28 "Last tick (318) calculation time 1ms"
+
+8:15:28 "Last tick (319) calculation time 1ms"
+
+8:15:29 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:29 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:29 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:29 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:29 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:29 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:29 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:29 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:29 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:29 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:29 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:29 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:29 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:29 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:29 "Last tick (320) calculation time 82ms"
+
+8:15:29 "Last tick (321) calculation time 1ms"
+
+8:15:29 "Last tick (322) calculation time 2ms"
+
+8:15:29 "Last tick (323) calculation time 1ms"
+
+8:15:29 "Last tick (324) calculation time 1ms"
+
+8:15:29 "Last tick (325) calculation time 1ms"
+
+8:15:29 "Last tick (326) calculation time 1ms"
+
+8:15:29 "Last tick (327) calculation time 1ms"
+
+8:15:29 "Last tick (328) calculation time 1ms"
+
+8:15:29 "Last tick (329) calculation time 1ms"
+
+8:15:30 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:30 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:30 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:30 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:30 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:30 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:30 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:30 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:30 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:30 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:30 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:30 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:30 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:30 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:30 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:30 "Last tick (330) calculation time 75ms"
+
+8:15:30 "Last tick (331) calculation time 1ms"
+
+8:15:30 "Last tick (332) calculation time 1ms"
+
+8:15:30 "Last tick (333) calculation time 1ms"
+
+8:15:30 "Last tick (334) calculation time 1ms"
+
+8:15:30 "Last tick (335) calculation time 1ms"
+
+8:15:30 "Last tick (336) calculation time 1ms"
+
+8:15:30 "Last tick (337) calculation time 1ms"
+
+8:15:30 "Last tick (338) calculation time 1ms"
+
+8:15:30 "Last tick (339) calculation time 1ms"
+
+8:15:31 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:31 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:31 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:31 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:31 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:31 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:31 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:31 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:31 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:31 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:31 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:31 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:31 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:31 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:31 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:31 "Last tick (340) calculation time 25ms"
+
+8:15:31 "Last tick (341) calculation time 1ms"
+
+8:15:31 "Last tick (342) calculation time 1ms"
+
+8:15:31 "Last tick (343) calculation time 1ms"
+
+8:15:31 "Last tick (344) calculation time 1ms"
+
+8:15:31 "Last tick (345) calculation time 1ms"
+
+8:15:31 "Last tick (346) calculation time 1ms"
+
+8:15:31 "Last tick (347) calculation time 1ms"
+
+8:15:31 "Last tick (348) calculation time 2ms"
+
+8:15:31 "Last tick (349) calculation time 1ms"
+
+8:15:32 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:32 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:32 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:32 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:32 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:32 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:32 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:32 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:32 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:32 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:32 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:32 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:32 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:32 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:32 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:32 "Last tick (350) calculation time 42ms"
+
+8:15:32 "Last tick (351) calculation time 1ms"
+
+8:15:32 "Last tick (352) calculation time 2ms"
+
+8:15:32 "Last tick (353) calculation time 1ms"
+
+8:15:32 "Last tick (354) calculation time 1ms"
+
+8:15:32 "Last tick (355) calculation time 1ms"
+
+8:15:32 "Last tick (356) calculation time 1ms"
+
+8:15:32 "Last tick (357) calculation time 1ms"
+
+8:15:32 "Last tick (358) calculation time 1ms"
+
+8:15:32 "Last tick (359) calculation time 1ms"
+
+8:15:33 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:33 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:33 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:33 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:33 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:33 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:33 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:33 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:33 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:33 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:33 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:33 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:33 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:33 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:33 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:33 "Last tick (360) calculation time 28ms"
+
+8:15:33 "Last tick (361) calculation time 1ms"
+
+8:15:33 "Last tick (362) calculation time 2ms"
+
+8:15:33 "Last tick (363) calculation time 1ms"
+
+8:15:33 "Last tick (364) calculation time 1ms"
+
+8:15:33 "Last tick (365) calculation time 1ms"
+
+8:15:33 "Last tick (366) calculation time 9ms"
+
+8:15:33 "Last tick (367) calculation time 1ms"
+
+8:15:33 "Last tick (368) calculation time 1ms"
+
+8:15:33 "Last tick (369) calculation time 1ms"
+
+8:15:34 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:34 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:34 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:34 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:34 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:34 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:34 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:34 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:34 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:34 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:34 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:34 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:34 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:34 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:34 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:34 "Last tick (370) calculation time 24ms"
+
+8:15:34 "Last tick (371) calculation time 1ms"
+
+8:15:34 "Last tick (372) calculation time 1ms"
+
+8:15:34 "Last tick (373) calculation time 1ms"
+
+8:15:34 "Last tick (374) calculation time 1ms"
+
+8:15:34 "Last tick (375) calculation time 1ms"
+
+8:15:34 "Last tick (376) calculation time 1ms"
+
+8:15:34 "Last tick (377) calculation time 9ms"
+
+8:15:34 "Last tick (378) calculation time 1ms"
+
+8:15:35 "Last tick (379) calculation time 1ms"
+
+8:15:35 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:35 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:35 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:35 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:35 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:35 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:35 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:35 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:35 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:35 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:35 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:35 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:35 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:35 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:35 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:35 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:35 "Last tick (380) calculation time 12ms"
+
+8:15:35 "Last tick (381) calculation time 1ms"
+
+8:15:35 "Last tick (382) calculation time 2ms"
+
+8:15:35 "Last tick (383) calculation time 1ms"
+
+8:15:35 "Last tick (384) calculation time 1ms"
+
+8:15:35 "Last tick (385) calculation time 1ms"
+
+8:15:35 "Last tick (386) calculation time 1ms"
+
+8:15:35 "Last tick (387) calculation time 1ms"
+
+8:15:35 "Last tick (388) calculation time 1ms"
+
+8:15:36 "Last tick (389) calculation time 1ms"
+
+8:15:36 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:36 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:36 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:36 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:36 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:36 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:36 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:36 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:36 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:36 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:36 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:36 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:36 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:36 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:36 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:36 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:36 "Last tick (390) calculation time 23ms"
+
+8:15:36 "Last tick (391) calculation time 2ms"
+
+8:15:36 "Last tick (392) calculation time 1ms"
+
+8:15:36 "Last tick (393) calculation time 1ms"
+
+8:15:36 "Last tick (394) calculation time 1ms"
+
+8:15:36 "Last tick (395) calculation time 2ms"
+
+8:15:36 "Last tick (396) calculation time 1ms"
+
+8:15:36 "Last tick (397) calculation time 1ms"
+
+8:15:36 "Last tick (398) calculation time 1ms"
+
+8:15:37 "Last tick (399) calculation time 1ms"
+
+8:15:37 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:37 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:37 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:37 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:37 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:37 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:37 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:37 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:37 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:37 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:37 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:37 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:37 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:37 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:37 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:37 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:37 "Last tick (400) calculation time 21ms"
+
+8:15:37 "Last tick (401) calculation time 1ms"
+
+8:15:37 "Last tick (402) calculation time 1ms"
+
+8:15:37 "Last tick (403) calculation time 1ms"
+
+8:15:37 "Last tick (404) calculation time 1ms"
+
+8:15:37 "Last tick (405) calculation time 4ms"
+
+8:15:37 "Last tick (406) calculation time 1ms"
+
+8:15:37 "Last tick (407) calculation time 2ms"
+
+8:15:37 "Last tick (408) calculation time 1ms"
+
+8:15:38 "Last tick (409) calculation time 1ms"
+
+8:15:38 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:38 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:38 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:38 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:38 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:38 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:38 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:38 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:38 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:38 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:38 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:38 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:38 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:38 {
+ "lose": 23,
+ "keep": 136
+}, {
+ "age": 17,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Rybak"
+}
+
+8:15:38 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:38 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:38 "Last tick (410) calculation time 155ms"
+
+8:15:38 "Last tick (411) calculation time 1ms"
+
+8:15:38 "Last tick (412) calculation time 1ms"
+
+8:15:38 "Last tick (413) calculation time 1ms"
+
+8:15:38 "Last tick (414) calculation time 1ms"
+
+8:15:38 "Last tick (415) calculation time 1ms"
+
+8:15:38 "Last tick (416) calculation time 4ms"
+
+8:15:38 "Last tick (417) calculation time 2ms"
+
+8:15:39 "Last tick (418) calculation time 1ms"
+
+8:15:39 "Last tick (419) calculation time 2ms"
+
+8:15:39 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:39 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:39 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:39 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:39 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:39 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:39 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:39 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:39 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:39 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:39 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:39 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:39 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:39 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:39 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:39 "Last tick (420) calculation time 70ms"
+
+8:15:39 "Last tick (421) calculation time 1ms"
+
+8:15:39 "Last tick (422) calculation time 1ms"
+
+8:15:39 "Last tick (423) calculation time 1ms"
+
+8:15:39 "Last tick (424) calculation time 1ms"
+
+8:15:39 "Last tick (425) calculation time 1ms"
+
+8:15:39 "Last tick (426) calculation time 1ms"
+
+8:15:39 "Last tick (427) calculation time 1ms"
+
+8:15:40 "Last tick (428) calculation time 1ms"
+
+8:15:40 "Last tick (429) calculation time 1ms"
+
+8:15:40 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:40 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:40 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:40 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:40 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:40 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:40 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:40 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:40 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:40 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:40 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:40 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:40 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:40 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:40 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:40 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:40 "Last tick (430) calculation time 38ms"
+
+8:15:40 "Last tick (431) calculation time 1ms"
+
+8:15:40 "Last tick (432) calculation time 1ms"
+
+8:15:40 "Last tick (433) calculation time 1ms"
+
+8:15:40 "Last tick (434) calculation time 1ms"
+
+8:15:40 "Last tick (435) calculation time 1ms"
+
+8:15:40 "Last tick (436) calculation time 1ms"
+
+8:15:41 "Last tick (437) calculation time 1ms"
+
+8:15:41 "Last tick (438) calculation time 2ms"
+
+8:15:41 "Last tick (439) calculation time 1ms"
+
+8:15:41 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:41 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:41 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:41 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:41 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:41 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:41 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:41 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:41 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:41 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:41 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:41 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:41 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:41 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:41 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:41 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:41 "Last tick (440) calculation time 13ms"
+
+8:15:41 "Last tick (441) calculation time 1ms"
+
+8:15:41 "Last tick (442) calculation time 1ms"
+
+8:15:41 "Last tick (443) calculation time 1ms"
+
+8:15:41 "Last tick (444) calculation time 1ms"
+
+8:15:41 "Last tick (445) calculation time 1ms"
+
+8:15:41 "Last tick (446) calculation time 1ms"
+
+8:15:42 "Last tick (447) calculation time 3ms"
+
+8:15:42 "Last tick (448) calculation time 1ms"
+
+8:15:42 "Last tick (449) calculation time 1ms"
+
+8:15:42 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:42 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:42 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:42 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:42 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:42 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:42 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:42 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:42 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:42 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:42 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:42 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:42 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:42 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:42 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:42 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:42 "Last tick (450) calculation time 35ms"
+
+8:15:42 "Last tick (451) calculation time 1ms"
+
+8:15:42 "Last tick (452) calculation time 1ms"
+
+8:15:42 "Last tick (453) calculation time 2ms"
+
+8:15:42 "Last tick (454) calculation time 4ms"
+
+8:15:42 "Last tick (455) calculation time 1ms"
+
+8:15:42 "Last tick (456) calculation time 1ms"
+
+8:15:43 "Last tick (457) calculation time 1ms"
+
+8:15:43 "Last tick (458) calculation time 1ms"
+
+8:15:43 "Last tick (459) calculation time 1ms"
+
+8:15:43 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:43 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:43 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:43 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:43 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:43 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:43 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:43 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:43 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:43 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:43 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:43 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:43 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:43 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:43 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:43 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:43 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:43 "Last tick (460) calculation time 38ms"
+
+8:15:43 "Last tick (461) calculation time 1ms"
+
+8:15:43 "Last tick (462) calculation time 2ms"
+
+8:15:43 "Last tick (463) calculation time 1ms"
+
+8:15:43 "Last tick (464) calculation time 1ms"
+
+8:15:43 "Last tick (465) calculation time 1ms"
+
+8:15:43 "Last tick (466) calculation time 1ms"
+
+8:15:44 "Last tick (467) calculation time 1ms"
+
+8:15:44 "Last tick (468) calculation time 2ms"
+
+8:15:44 "Last tick (469) calculation time 1ms"
+
+8:15:44 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:44 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:44 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:44 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:44 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:44 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:44 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:44 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:44 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:44 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:44 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:44 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:44 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:44 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:44 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:44 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:44 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:44 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:44 "Last tick (470) calculation time 28ms"
+
+8:15:44 "Last tick (471) calculation time 1ms"
+
+8:15:44 "Last tick (472) calculation time 1ms"
+
+8:15:44 "Last tick (473) calculation time 1ms"
+
+8:15:44 "Last tick (474) calculation time 1ms"
+
+8:15:44 "Last tick (475) calculation time 1ms"
+
+8:15:44 "Last tick (476) calculation time 2ms"
+
+8:15:45 "Last tick (477) calculation time 1ms"
+
+8:15:45 "Last tick (478) calculation time 1ms"
+
+8:15:45 "Last tick (479) calculation time 1ms"
+
+8:15:45 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:45 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:45 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:45 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:45 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:45 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:45 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:45 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:45 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:45 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:45 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:45 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:45 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:45 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:45 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:45 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:45 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:45 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:45 "Last tick (480) calculation time 55ms"
+
+8:15:45 "Last tick (481) calculation time 1ms"
+
+8:15:45 "Last tick (482) calculation time 1ms"
+
+8:15:45 "Last tick (483) calculation time 1ms"
+
+8:15:45 "Last tick (484) calculation time 1ms"
+
+8:15:45 "Last tick (485) calculation time 1ms"
+
+8:15:45 "Last tick (486) calculation time 1ms"
+
+8:15:46 "Last tick (487) calculation time 1ms"
+
+8:15:46 "Last tick (488) calculation time 6ms"
+
+8:15:46 "Last tick (489) calculation time 1ms"
+
+8:15:46 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:46 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:46 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:46 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:46 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:46 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:46 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:46 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:46 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:46 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:46 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:46 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:46 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:46 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:46 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:46 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:46 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:46 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:46 "Last tick (490) calculation time 108ms"
+
+8:15:46 "Last tick (491) calculation time 1ms"
+
+8:15:46 "Last tick (492) calculation time 1ms"
+
+8:15:46 "Last tick (493) calculation time 1ms"
+
+8:15:46 "Last tick (494) calculation time 1ms"
+
+8:15:46 "Last tick (495) calculation time 1ms"
+
+8:15:46 "Last tick (496) calculation time 1ms"
+
+8:15:47 "Last tick (497) calculation time 1ms"
+
+8:15:47 "Last tick (498) calculation time 1ms"
+
+8:15:47 "Last tick (499) calculation time 1ms"
+
+8:15:47 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:47 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:47 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:47 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:47 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:47 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:47 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:47 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:47 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:47 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:47 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:47 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:47 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:47 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:47 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:47 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:47 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:47 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:47 "Last tick (500) calculation time 65ms"
+
+8:15:47 "Last tick (501) calculation time 1ms"
+
+8:15:47 "Last tick (502) calculation time 1ms"
+
+8:15:47 "Last tick (503) calculation time 1ms"
+
+8:15:47 "Last tick (504) calculation time 1ms"
+
+8:15:47 "Last tick (505) calculation time 1ms"
+
+8:15:48 "Last tick (506) calculation time 1ms"
+
+8:15:48 "Last tick (507) calculation time 1ms"
+
+8:15:48 "Last tick (508) calculation time 1ms"
+
+8:15:48 "Last tick (509) calculation time 1ms"
+
+8:15:48 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:48 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:48 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:48 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:48 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:48 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:48 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:48 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:48 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:48 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:48 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:48 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:48 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:48 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:48 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:48 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:48 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:48 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:48 "Last tick (510) calculation time 125ms"
+
+8:15:48 "Last tick (511) calculation time 2ms"
+
+8:15:48 "Last tick (512) calculation time 1ms"
+
+8:15:48 "Last tick (513) calculation time 1ms"
+
+8:15:48 "Last tick (514) calculation time 1ms"
+
+8:15:48 "Last tick (515) calculation time 1ms"
+
+8:15:49 "Last tick (516) calculation time 1ms"
+
+8:15:49 "Last tick (517) calculation time 1ms"
+
+8:15:49 "Last tick (518) calculation time 1ms"
+
+8:15:49 "Last tick (519) calculation time 2ms"
+
+8:15:49 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:49 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:49 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:49 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:49 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:49 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:49 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:49 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:49 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:49 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:49 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:49 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:49 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:49 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:49 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:49 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:49 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:49 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:49 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:49 "Last tick (520) calculation time 65ms"
+
+8:15:49 "Last tick (521) calculation time 1ms"
+
+8:15:49 "Last tick (522) calculation time 1ms"
+
+8:15:49 "Last tick (523) calculation time 1ms"
+
+8:15:49 "Last tick (524) calculation time 1ms"
+
+8:15:49 "Last tick (525) calculation time 1ms"
+
+8:15:50 "Last tick (526) calculation time 1ms"
+
+8:15:50 "Last tick (527) calculation time 1ms"
+
+8:15:50 "Last tick (528) calculation time 1ms"
+
+8:15:50 "Last tick (529) calculation time 1ms"
+
+8:15:50 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:50 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:50 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:50 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:50 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:50 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:50 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:50 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:50 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:50 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:50 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:50 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:50 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:50 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:50 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:50 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:50 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:50 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:50 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:50 "Last tick (530) calculation time 32ms"
+
+8:15:50 "Last tick (531) calculation time 1ms"
+
+8:15:50 "Last tick (532) calculation time 1ms"
+
+8:15:50 "Last tick (533) calculation time 1ms"
+
+8:15:50 "Last tick (534) calculation time 1ms"
+
+8:15:50 "Last tick (535) calculation time 2ms"
+
+8:15:51 "Last tick (536) calculation time 1ms"
+
+8:15:51 "Last tick (537) calculation time 1ms"
+
+8:15:51 "Last tick (538) calculation time 1ms"
+
+8:15:51 "Last tick (539) calculation time 1ms"
+
+8:15:51 {
+ "lose": 25,
+ "keep": 131
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:51 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:51 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:51 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:51 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:51 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:51 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:51 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:51 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:51 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:51 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:51 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:51 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:51 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:51 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:51 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:51 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:51 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:51 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:51 "Last tick (540) calculation time 67ms"
+
+8:15:51 "Last tick (541) calculation time 1ms"
+
+8:15:51 "Last tick (542) calculation time 2ms"
+
+8:15:51 "Last tick (543) calculation time 1ms"
+
+8:15:51 "Last tick (544) calculation time 3ms"
+
+8:15:51 "Last tick (545) calculation time 1ms"
+
+8:15:52 "Last tick (546) calculation time 1ms"
+
+8:15:52 "Last tick (547) calculation time 2ms"
+
+8:15:52 "Last tick (548) calculation time 1ms"
+
+8:15:52 "Last tick (549) calculation time 1ms"
+
+8:15:52 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:52 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:52 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:52 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:52 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:52 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:52 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:52 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:52 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:52 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:52 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:52 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:52 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:52 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:52 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:52 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:52 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:52 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:52 "Last tick (550) calculation time 42ms"
+
+8:15:52 "Last tick (551) calculation time 1ms"
+
+8:15:52 "Last tick (552) calculation time 1ms"
+
+8:15:52 "Last tick (553) calculation time 1ms"
+
+8:15:52 "Last tick (554) calculation time 1ms"
+
+8:15:52 "Last tick (555) calculation time 1ms"
+
+8:15:53 "Last tick (556) calculation time 1ms"
+
+8:15:53 "Last tick (557) calculation time 1ms"
+
+8:15:53 "Last tick (558) calculation time 1ms"
+
+8:15:53 "Last tick (559) calculation time 1ms"
+
+8:15:53 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:53 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:53 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:53 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:53 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:53 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:53 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:53 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:53 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:53 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:53 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:53 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:53 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:53 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:53 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:53 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:53 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:53 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:53 "Last tick (560) calculation time 97ms"
+
+8:15:53 "Last tick (561) calculation time 1ms"
+
+8:15:53 "Last tick (562) calculation time 1ms"
+
+8:15:53 "Last tick (563) calculation time 1ms"
+
+8:15:53 "Last tick (564) calculation time 1ms"
+
+8:15:54 "Last tick (565) calculation time 1ms"
+
+8:15:54 "Last tick (566) calculation time 1ms"
+
+8:15:54 "Last tick (567) calculation time 1ms"
+
+8:15:54 "Last tick (568) calculation time 1ms"
+
+8:15:54 "Last tick (569) calculation time 1ms"
+
+8:15:54 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:54 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:54 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:54 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:54 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:54 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:54 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:54 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:54 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:54 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:54 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:54 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:54 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:54 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:54 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:54 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:54 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:54 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:54 "Last tick (570) calculation time 58ms"
+
+8:15:54 "Last tick (571) calculation time 1ms"
+
+8:15:54 "Last tick (572) calculation time 1ms"
+
+8:15:54 "Last tick (573) calculation time 1ms"
+
+8:15:54 "Last tick (574) calculation time 2ms"
+
+8:15:55 "Last tick (575) calculation time 1ms"
+
+8:15:55 "Last tick (576) calculation time 2ms"
+
+8:15:55 "Last tick (577) calculation time 1ms"
+
+8:15:55 "Last tick (578) calculation time 2ms"
+
+8:15:55 "Last tick (579) calculation time 1ms"
+
+8:15:55 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:55 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:55 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:55 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:55 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:55 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:55 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:55 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:55 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:55 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:55 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:55 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:55 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:55 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:55 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:55 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:55 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:55 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:55 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:55 "Last tick (580) calculation time 39ms"
+
+8:15:55 "Last tick (581) calculation time 1ms"
+
+8:15:55 "Last tick (582) calculation time 1ms"
+
+8:15:55 "Last tick (583) calculation time 1ms"
+
+8:15:55 "Last tick (584) calculation time 1ms"
+
+8:15:56 "Last tick (585) calculation time 1ms"
+
+8:15:56 "Last tick (586) calculation time 1ms"
+
+8:15:56 "Last tick (587) calculation time 1ms"
+
+8:15:56 "Last tick (588) calculation time 1ms"
+
+8:15:56 "Last tick (589) calculation time 1ms"
+
+8:15:56 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:56 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:56 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:56 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:56 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:56 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:56 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:56 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:56 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:56 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:56 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:56 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:56 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:56 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:56 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:56 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:56 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:56 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:56 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:56 "Last tick (590) calculation time 6ms"
+
+8:15:56 "Last tick (591) calculation time 2ms"
+
+8:15:56 "Last tick (592) calculation time 1ms"
+
+8:15:56 "Last tick (593) calculation time 1ms"
+
+8:15:56 "Last tick (594) calculation time 1ms"
+
+8:15:57 "Last tick (595) calculation time 1ms"
+
+8:15:57 "Last tick (596) calculation time 2ms"
+
+8:15:57 "Last tick (597) calculation time 1ms"
+
+8:15:57 "Last tick (598) calculation time 1ms"
+
+8:15:57 "Last tick (599) calculation time 1ms"
+
+8:15:57 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:57 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:57 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:57 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:57 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:57 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:57 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:57 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:57 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:57 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:57 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:57 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:57 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:57 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:57 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:57 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:57 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:57 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:57 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:57 "Last tick (600) calculation time 43ms"
+
+8:15:57 "Last tick (601) calculation time 2ms"
+
+8:15:57 "Last tick (602) calculation time 1ms"
+
+8:15:57 "Last tick (603) calculation time 1ms"
+
+8:15:57 "Last tick (604) calculation time 1ms"
+
+8:15:58 "Last tick (605) calculation time 1ms"
+
+8:15:58 "Last tick (606) calculation time 1ms"
+
+8:15:58 "Last tick (607) calculation time 1ms"
+
+8:15:58 "Last tick (608) calculation time 1ms"
+
+8:15:58 "Last tick (609) calculation time 1ms"
+
+8:15:58 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:58 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:58 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:58 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:58 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:58 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:58 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:58 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:58 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:58 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:58 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:58 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:58 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:58 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:58 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:58 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:58 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:58 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:58 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:58 "Last tick (610) calculation time 42ms"
+
+8:15:58 "Last tick (611) calculation time 1ms"
+
+8:15:58 "Last tick (612) calculation time 1ms"
+
+8:15:58 "Last tick (613) calculation time 2ms"
+
+8:15:58 "Last tick (614) calculation time 1ms"
+
+8:15:59 "Last tick (615) calculation time 1ms"
+
+8:15:59 "Last tick (616) calculation time 1ms"
+
+8:15:59 "Last tick (617) calculation time 3ms"
+
+8:15:59 "Last tick (618) calculation time 1ms"
+
+8:15:59 "Last tick (619) calculation time 2ms"
+
+8:15:59 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:15:59 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:15:59 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:15:59 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:15:59 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:15:59 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:15:59 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:15:59 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:15:59 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:15:59 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:15:59 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:15:59 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:15:59 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:15:59 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:15:59 {
+ "lose": 23,
+ "keep": 124
+}, {
+ "age": 20,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Erwin",
+ "lastname": "Miedź"
+}
+
+8:15:59 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:15:59 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:15:59 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:15:59 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:15:59 "Last tick (620) calculation time 56ms"
+
+8:15:59 "Last tick (621) calculation time 1ms"
+
+8:15:59 "Last tick (622) calculation time 1ms"
+
+8:15:59 "Last tick (623) calculation time 1ms"
+
+8:16:00 "Last tick (624) calculation time 1ms"
+
+8:16:00 "Last tick (625) calculation time 1ms"
+
+8:16:00 "Last tick (626) calculation time 2ms"
+
+8:16:00 "Last tick (627) calculation time 1ms"
+
+8:16:00 "Last tick (628) calculation time 1ms"
+
+8:16:00 "Last tick (629) calculation time 1ms"
+
+8:16:00 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:16:00 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:16:00 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:16:00 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:16:00 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:16:00 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:16:00 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:16:00 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:16:00 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:16:00 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:16:00 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:16:00 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:16:00 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:16:00 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:16:00 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:16:00 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:16:00 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:16:00 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:16:00 "Last tick (630) calculation time 100ms"
+
+8:16:00 "Last tick (631) calculation time 7ms"
+
+8:16:00 "Last tick (632) calculation time 1ms"
+
+8:16:00 "Last tick (633) calculation time 1ms"
+
+8:16:01 "Last tick (634) calculation time 1ms"
+
+8:16:01 "Last tick (635) calculation time 2ms"
+
+8:16:01 "Last tick (636) calculation time 1ms"
+
+8:16:01 "Last tick (637) calculation time 1ms"
+
+8:16:01 "Last tick (638) calculation time 2ms"
+
+8:16:01 "Last tick (639) calculation time 3ms"
+
+8:16:01 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:16:01 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:16:01 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:16:01 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:16:01 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:16:01 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:16:01 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:16:01 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:16:01 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:16:01 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:16:01 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:16:01 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:16:01 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:16:01 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:16:01 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:16:01 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:16:01 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:16:01 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:16:01 "Last tick (640) calculation time 23ms"
+
+8:16:01 "Last tick (641) calculation time 1ms"
+
+8:16:01 "Last tick (642) calculation time 1ms"
+
+8:16:01 "Last tick (643) calculation time 2ms"
+
+8:16:02 "Last tick (644) calculation time 2ms"
+
+8:16:02 "Last tick (645) calculation time 1ms"
+
+8:16:02 "Last tick (646) calculation time 1ms"
+
+8:16:02 "Last tick (647) calculation time 1ms"
+
+8:16:02 "Last tick (648) calculation time 1ms"
+
+8:16:02 "Last tick (649) calculation time 2ms"
+
+8:16:02 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:16:02 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:16:02 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:16:02 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:16:02 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:16:02 {
+ "lose": 30,
+ "keep": 106
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Słońce"
+}
+
+8:16:02 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:16:02 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:16:02 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:16:02 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:16:02 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:16:02 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:16:02 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:16:02 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:16:02 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:16:02 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:16:02 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:16:02 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:16:02 "Last tick (650) calculation time 30ms"
+
+8:16:02 "Last tick (651) calculation time 1ms"
+
+8:16:02 "Last tick (652) calculation time 1ms"
+
+8:16:02 "Last tick (653) calculation time 1ms"
+
+8:16:03 "Last tick (654) calculation time 1ms"
+
+8:16:03 "Last tick (655) calculation time 2ms"
+
+8:16:03 "Last tick (656) calculation time 2ms"
+
+8:16:03 "Last tick (657) calculation time 1ms"
+
+8:16:03 "Last tick (658) calculation time 1ms"
+
+8:16:03 "Last tick (659) calculation time 1ms"
+
+8:16:03 {
+ "lose": 26,
+ "keep": 130
+}, {
+ "age": 20,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Tymon",
+ "genderPronoun": "male",
+ "lastname": "Szymański"
+}
+
+8:16:03 {
+ "lose": 38,
+ "keep": 65
+}, {
+ "age": 27,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Albert",
+ "genderPronoun": "male",
+ "lastname": "Borowski"
+}
+
+8:16:03 {
+ "lose": 21,
+ "keep": 142
+}, {
+ "age": 16,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Nico",
+ "lastname": "Okońskie"
+}
+
+8:16:03 {
+ "lose": 22,
+ "keep": 141
+}, {
+ "age": 26,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Andrzejewskie"
+}
+
+8:16:03 {
+ "lose": 21,
+ "keep": 129
+}, {
+ "age": 40,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Elwira",
+ "genderPronoun": "female",
+ "lastname": "Majewski"
+}
+
+8:16:03 {
+ "lose": 18,
+ "keep": 154
+}, {
+ "age": 27,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Robin",
+ "lastname": "Gwiazda"
+}
+
+8:16:03 {
+ "lose": 15,
+ "keep": 169
+}, {
+ "age": 33,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Justyn",
+ "lastname": "Skrzypczak"
+}
+
+8:16:03 {
+ "lose": 15,
+ "keep": 177
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Przemysł",
+ "genderPronoun": "male",
+ "lastname": "Wróbel"
+}
+
+8:16:03 {
+ "lose": 40,
+ "keep": 71
+}, {
+ "age": 29,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Kacper",
+ "genderPronoun": "male",
+ "lastname": "Grabowski"
+}
+
+8:16:03 {
+ "lose": 40,
+ "keep": 64
+}, {
+ "age": 36,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Klotylda",
+ "genderPronoun": "female",
+ "lastname": "Noga"
+}
+
+8:16:03 {
+ "lose": 35,
+ "keep": 75
+}, {
+ "age": 23,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alin",
+ "lastname": "Szulc"
+}
+
+8:16:03 {
+ "lose": 33,
+ "keep": 92
+}, {
+ "age": 30,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Ryszard",
+ "lastname": "Olejniczak"
+}
+
+8:16:03 {
+ "lose": 14,
+ "keep": 176
+}, {
+ "age": 62,
+ "gender": "female",
+ "customGenderName": null,
+ "name": "Letycja",
+ "genderPronoun": "female",
+ "lastname": "Zajączek"
+}
+
+8:16:03 {
+ "lose": 35,
+ "keep": 85
+}, {
+ "age": 60,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "other",
+ "name": "Alex",
+ "lastname": "Rzeka"
+}
+
+8:16:03 {
+ "lose": 35,
+ "keep": 86
+}, {
+ "age": 18,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "male",
+ "name": "Romuald",
+ "lastname": "Okoń"
+}
+
+8:16:03 {
+ "lose": 21,
+ "keep": 160
+}, {
+ "age": 25,
+ "gender": "male",
+ "customGenderName": null,
+ "name": "Bolek",
+ "genderPronoun": "male",
+ "lastname": "Czarnecki"
+}
+
+8:16:03 {
+ "lose": 35,
+ "keep": 99
+}, {
+ "age": 22,
+ "gender": "other",
+ "customGenderName": null,
+ "genderPronoun": "female",
+ "name": "Anka",
+ "lastname": "Mazurek"
+}
+
+8:16:03 "Last tick (660) calculation time 22ms"
+
+8:16:03 "Last tick (661) calculation time 1ms"
+
+8:16:03 "Last tick (662) calculation time 1ms"
+
+8:16:03 "Last tick (663) calculation time 1ms"
+
+8:16:04 "Last tick (664) calculation time 4ms"
+
+8:16:04 "Last tick (665) calculation time 1ms"
+
+8:16:04 "Last tick (666) calculation time 1ms"
+
+8:16:04 "Last tick (667) calculation time 1ms"
+
+8:16:04 "Last tick (668) calculation time 1ms"
+
+8:16:04 "Last tick (669) calculation time 2ms"

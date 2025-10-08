@@ -43,8 +43,27 @@
     min-height: fit-content;
 }
 
-.window>.container::before,
-.window>.container::after {
+.window>.deco {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+}
+
+.window > .container > footer,
+.window>.deco {
+    user-select: none;
+    touch-action: none;
+    pointer-events: none;
+}
+
+.window>.deco::before,
+.window>.deco::after {
     z-index: 3;
     content: '';
     user-select: none;
@@ -58,13 +77,13 @@
     top: -2px;
 }
 
-.window>.container::before {
+.window>.deco::before {
     left: -2px;
     border-left: 3px #000 solid;
     border-top-left-radius: 10px;
     border-top: 3px #000 solid;
 }
-.window>.container::after {
+.window>.deco::after {
     right: -2px;
     border-right: 3px #000 solid;
     border-top-right-radius: 10px;
@@ -78,7 +97,7 @@
     padding-left: 2px;
     padding-right: 2px;
     padding-bottom: 2px;
-    overflow: hidden;
+    
     display: flex;
     flex-direction: column;
 }
@@ -299,6 +318,17 @@
 }
 
 .window > .container > footer {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.window > .container > footer::before {
+    content: '';
     position: absolute;
     width: 100%;
     height: 3px;
@@ -399,5 +429,5 @@
     left: 2px;
     height: calc(100% - 32px);
     z-index: 2;
-    background: var(--color4-light-90);
+    background: var(--color1-light-70);
 }

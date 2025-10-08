@@ -26,6 +26,7 @@ import { Utils } from "./utils.js";
  * @property {String} [type]
  * @property {String} [desc]
  * @property {String} [icon]
+ * @property {Boolean} [startFullscreen]
  * @property {DisplayWindow_behaviourConfigOptional} [behaviour]
  * @property {{width?: Number, height?: Number}} [size]
  * @property {{x?: Number, y?: Number}} [pos]
@@ -109,6 +110,8 @@ class DisplayWindow {
     #contentHolder;
     /** @type {{x: Number, y: Number}} */
     #mouseEventPos = {x: 0, y: 0};
+    /** @type {HTMLElement} */
+    #deco;
     /** 
      * @typedef {Object} resizeFuncs
      * @property {(e:MouseEvent) => void} down
@@ -1106,6 +1109,9 @@ class DisplayWindow {
     set onClose(val) { //@ts-ignore
         this.#userFuncs.onClose = val;
     }
+    close = () => {
+        this.#buttonsFuncs.handleClick_close();
+    }
     /**
      * 
      * @param {{x: Number, y:Number}} pos 
@@ -1265,6 +1271,7 @@ class DisplayWindow {
             }
         }
         this.#window = Utils.createHTMLElement('section', windowClassNames, {attibutes: {'id': this.#id}, css: {"position": "absolute", "left": `${this.pos.x}px`, "top": `${this.pos.y}px`, "width": `${this.size.width}px`, "height": `${this.size.height}px`}});
+        this.#deco = Utils.createAndAppendHTMLElement(this.#window, 'div', ['deco']);
         this.#container = Utils.createAndAppendHTMLElement(this.#window, 'div', ['container']);
         this.#resizeContainer = Utils.createAndAppendHTMLElement(this.#window, 'div', ['resizers'])
         this.#header = Utils.createAndAppendHTMLElement(this.#container, 'header');
@@ -1444,6 +1451,9 @@ class DisplayWindow {
         }
         this.#footer = Utils.createAndAppendHTMLElement(this.#container, 'footer');
         this.focused = true;
+        if(config.startFullscreen) {
+            this.isFullscreen = true;
+        }
     }
 }
 

@@ -1,0 +1,3222 @@
+Start: 10:18:02, 10/6/2025
+10:18:05 "Last tick (0) calculation time 5ms"
+
+10:18:05 "Last tick (1) calculation time 1ms"
+
+10:18:05 "Last tick (2) calculation time 1ms"
+
+10:18:05 "Last tick (3) calculation time 1ms"
+
+10:18:06 "Last tick (4) calculation time 1ms"
+
+10:18:06 "Last tick (5) calculation time 1ms"
+
+10:18:06 "Last tick (6) calculation time 1ms"
+
+10:18:06 "Last tick (7) calculation time 1ms"
+
+10:18:06 "Last tick (8) calculation time 1ms"
+
+10:18:06 "Last tick (9) calculation time 1ms"
+
+10:18:06 "Last tick (10) calculation time 1ms"
+
+10:18:06 "Last tick (11) calculation time 1ms"
+
+10:18:07 "Last tick (12) calculation time 1ms"
+
+10:18:07 "Last tick (13) calculation time 1ms"
+
+10:18:07 "Last tick (14) calculation time 1ms"
+
+10:18:07 "Last tick (15) calculation time 1ms"
+
+10:18:07 "Last tick (16) calculation time 1ms"
+
+10:18:07 "Last tick (17) calculation time 1ms"
+
+10:18:07 "Last tick (18) calculation time 1ms"
+
+10:18:07 "Last tick (19) calculation time 1ms"
+
+10:18:08 "Last tick (20) calculation time 1ms"
+
+10:18:08 "Last tick (21) calculation time 1ms"
+
+10:18:08 "Last tick (22) calculation time 1ms"
+
+10:18:08 "Last tick (23) calculation time 1ms"
+
+10:18:08 "Last tick (24) calculation time 1ms"
+
+10:18:08 "Last tick (25) calculation time 1ms"
+
+10:18:08 "Last tick (26) calculation time 1ms"
+
+10:18:08 "Last tick (27) calculation time 1ms"
+
+10:18:08 "Last tick (28) calculation time 1ms"
+
+10:18:09 "Last tick (29) calculation time 1ms"
+
+10:18:09 "Last tick (30) calculation time 1ms"
+
+10:18:09 "Last tick (31) calculation time 1ms"
+
+10:18:09 "Last tick (32) calculation time 1ms"
+
+10:18:09 "Last tick (33) calculation time 1ms"
+
+10:18:09 "Last tick (34) calculation time 1ms"
+
+10:18:09 "Last tick (35) calculation time 1ms"
+
+10:18:09 "Last tick (36) calculation time 1ms"
+
+10:18:10 "Last tick (37) calculation time 1ms"
+
+10:18:10 "Last tick (38) calculation time 1ms"
+
+10:18:10 "Last tick (39) calculation time 1ms"
+
+10:18:10 "Last tick (40) calculation time 1ms"
+
+10:18:10 "Last tick (41) calculation time 1ms"
+
+10:18:10 "Last tick (42) calculation time 1ms"
+
+10:18:10 "Last tick (43) calculation time 1ms"
+
+10:18:10 "Last tick (44) calculation time 1ms"
+
+10:18:10 "Last tick (45) calculation time 1ms"
+
+10:18:11 "Last tick (46) calculation time 1ms"
+
+10:18:11 "Last tick (47) calculation time 1ms"
+
+10:18:11 "Last tick (48) calculation time 1ms"
+
+10:18:11 "Last tick (49) calculation time 1ms"
+
+10:18:11 "Last tick (50) calculation time 1ms"
+
+10:18:11 "Last tick (51) calculation time 1ms"
+
+10:18:11 "Last tick (52) calculation time 1ms"
+
+10:18:11 "Last tick (53) calculation time 1ms"
+
+10:18:11 "Last tick (54) calculation time 1ms"
+
+10:18:11 "Last tick (55) calculation time 1ms"
+
+10:18:12 "Last tick (56) calculation time 1ms"
+
+10:18:12 "Last tick (57) calculation time 1ms"
+
+10:18:12 "Last tick (58) calculation time 1ms"
+
+10:18:12 "Last tick (59) calculation time 1ms"
+
+10:18:12 "Last tick (60) calculation time 1ms"
+
+10:18:12 "Last tick (61) calculation time 1ms"
+
+10:18:12 "Last tick (62) calculation time 1ms"
+
+10:18:12 "Last tick (63) calculation time 1ms"
+
+10:18:12 "Last tick (64) calculation time 1ms"
+
+10:18:13 "Last tick (65) calculation time 1ms"
+
+10:18:13 "Last tick (66) calculation time 1ms"
+
+10:18:13 "Last tick (67) calculation time 1ms"
+
+10:18:13 "Last tick (68) calculation time 1ms"
+
+10:18:13 "Last tick (69) calculation time 1ms"
+
+10:18:13 "Last tick (70) calculation time 1ms"
+
+10:18:13 "Last tick (71) calculation time 1ms"
+
+10:18:13 "Last tick (72) calculation time 1ms"
+
+10:18:13 "Last tick (73) calculation time 1ms"
+
+10:18:13 "Last tick (74) calculation time 1ms"
+
+10:18:14 "Last tick (75) calculation time 1ms"
+
+10:18:14 "Last tick (76) calculation time 1ms"
+
+10:18:14 "Last tick (77) calculation time 1ms"
+
+10:18:14 "Last tick (78) calculation time 1ms"
+
+10:18:14 "Last tick (79) calculation time 1ms"
+
+10:18:14 "Last tick (80) calculation time 1ms"
+
+10:18:14 "Last tick (81) calculation time 1ms"
+
+10:18:14 "Last tick (82) calculation time 1ms"
+
+10:18:14 "Last tick (83) calculation time 1ms"
+
+10:18:14 "Last tick (84) calculation time 1ms"
+
+10:18:15 "Last tick (85) calculation time 1ms"
+
+10:18:15 "Last tick (86) calculation time 1ms"
+
+10:18:15 "Last tick (87) calculation time 1ms"
+
+10:18:15 "Last tick (88) calculation time 1ms"
+
+10:18:15 "Last tick (89) calculation time 1ms"
+
+10:18:15 "Last tick (90) calculation time 1ms"
+
+10:18:15 "Last tick (91) calculation time 1ms"
+
+10:18:15 "Last tick (92) calculation time 1ms"
+
+10:18:15 "Last tick (93) calculation time 1ms"
+
+10:18:15 "Last tick (94) calculation time 1ms"
+
+10:18:16 "Last tick (95) calculation time 1ms"
+
+10:18:16 "Last tick (96) calculation time 1ms"
+
+10:18:16 "Last tick (97) calculation time 1ms"
+
+10:18:16 "Last tick (98) calculation time 1ms"
+
+10:18:16 "Last tick (99) calculation time 1ms"
+
+10:18:16 "Last tick (100) calculation time 1ms"
+
+10:18:16 "Last tick (101) calculation time 1ms"
+
+10:18:16 "Last tick (102) calculation time 1ms"
+
+10:18:16 "Last tick (103) calculation time 1ms"
+
+10:18:16 "Last tick (104) calculation time 1ms"
+
+10:18:17 "Last tick (105) calculation time 1ms"
+
+10:18:17 "Last tick (106) calculation time 1ms"
+
+10:18:17 "Last tick (107) calculation time 1ms"
+
+10:18:17 "Last tick (108) calculation time 1ms"
+
+10:18:17 "Last tick (109) calculation time 1ms"
+
+10:18:17 "Last tick (110) calculation time 66ms"
+
+10:18:17 "Last tick (111) calculation time 4ms"
+
+10:18:17 "Last tick (112) calculation time 39ms"
+
+10:18:17 "Last tick (113) calculation time 2ms"
+
+10:18:18 "Last tick (114) calculation time 1ms"
+
+10:18:18 "Last tick (115) calculation time 1ms"
+
+10:18:18 "Last tick (116) calculation time 1ms"
+
+10:18:18 "Last tick (117) calculation time 1ms"
+
+10:18:18 "Last tick (118) calculation time 1ms"
+
+10:18:18 "Last tick (119) calculation time 1ms"
+
+10:18:18 "Last tick (120) calculation time 54ms"
+
+10:18:18 "Last tick (121) calculation time 2ms"
+
+10:18:18 "Last tick (122) calculation time 3ms"
+
+10:18:18 "Last tick (123) calculation time 6ms"
+
+10:18:19 "Last tick (124) calculation time 1ms"
+
+10:18:19 "Last tick (125) calculation time 1ms"
+
+10:18:19 "Last tick (126) calculation time 1ms"
+
+10:18:19 "Last tick (127) calculation time 1ms"
+
+10:18:19 "Last tick (128) calculation time 1ms"
+
+10:18:19 "Last tick (129) calculation time 1ms"
+
+10:18:19 "Last tick (130) calculation time 2ms"
+
+10:18:19 "Last tick (131) calculation time 1ms"
+
+10:18:19 "Last tick (132) calculation time 1ms"
+
+10:18:19 "Last tick (133) calculation time 1ms"
+
+10:18:20 "Last tick (134) calculation time 1ms"
+
+10:18:20 "Last tick (135) calculation time 1ms"
+
+10:18:20 "Last tick (136) calculation time 1ms"
+
+10:18:20 "Last tick (137) calculation time 1ms"
+
+10:18:20 "Last tick (138) calculation time 1ms"
+
+10:18:20 "Last tick (139) calculation time 1ms"
+
+10:18:20 "Last tick (140) calculation time 63ms"
+
+10:18:20 "Last tick (141) calculation time 1ms"
+
+10:18:20 "Last tick (142) calculation time 1ms"
+
+10:18:20 "Last tick (143) calculation time 1ms"
+
+10:18:21 "Last tick (144) calculation time 1ms"
+
+10:18:21 "Last tick (145) calculation time 1ms"
+
+10:18:21 "Last tick (146) calculation time 1ms"
+
+10:18:21 "Last tick (147) calculation time 1ms"
+
+10:18:21 "Last tick (148) calculation time 1ms"
+
+10:18:21 "Last tick (149) calculation time 1ms"
+
+10:18:21 "Last tick (150) calculation time 42ms"
+
+10:18:21 "Last tick (151) calculation time 1ms"
+
+10:18:21 "Last tick (152) calculation time 1ms"
+
+10:18:21 "Last tick (153) calculation time 1ms"
+
+10:18:22 "Last tick (154) calculation time 1ms"
+
+10:18:22 "Last tick (155) calculation time 8ms"
+
+10:18:22 "Last tick (156) calculation time 1ms"
+
+10:18:22 "Last tick (157) calculation time 1ms"
+
+10:18:22 "Last tick (158) calculation time 1ms"
+
+10:18:22 "Last tick (159) calculation time 1ms"
+
+10:18:22 "Last tick (160) calculation time 17ms"
+
+10:18:22 "Last tick (161) calculation time 1ms"
+
+10:18:22 "Last tick (162) calculation time 1ms"
+
+10:18:23 "Last tick (163) calculation time 1ms"
+
+10:18:23 "Last tick (164) calculation time 1ms"
+
+10:18:23 "Last tick (165) calculation time 1ms"
+
+10:18:23 "Last tick (166) calculation time 1ms"
+
+10:18:23 "Last tick (167) calculation time 1ms"
+
+10:18:23 "Last tick (168) calculation time 1ms"
+
+10:18:23 "Last tick (169) calculation time 1ms"
+
+10:18:23 "Last tick (170) calculation time 12ms"
+
+10:18:23 "Last tick (171) calculation time 1ms"
+
+10:18:23 "Last tick (172) calculation time 1ms"
+
+10:18:24 "Last tick (173) calculation time 1ms"
+
+10:18:24 "Last tick (174) calculation time 1ms"
+
+10:18:24 "Last tick (175) calculation time 1ms"
+
+10:18:24 "Last tick (176) calculation time 1ms"
+
+10:18:24 "Last tick (177) calculation time 1ms"
+
+10:18:24 "Last tick (178) calculation time 1ms"
+
+10:18:24 "Last tick (179) calculation time 1ms"
+
+10:18:24 "Last tick (180) calculation time 10ms"
+
+10:18:24 "Last tick (181) calculation time 1ms"
+
+10:18:24 "Last tick (182) calculation time 1ms"
+
+10:18:25 "Last tick (183) calculation time 1ms"
+
+10:18:25 "Last tick (184) calculation time 1ms"
+
+10:18:25 "Last tick (185) calculation time 1ms"
+
+10:18:25 "Last tick (186) calculation time 1ms"
+
+10:18:25 "Last tick (187) calculation time 1ms"
+
+10:18:25 "Last tick (188) calculation time 1ms"
+
+10:18:25 "Last tick (189) calculation time 1ms"
+
+10:18:25 "Last tick (190) calculation time 29ms"
+
+10:18:25 "Last tick (191) calculation time 1ms"
+
+10:18:25 "Last tick (192) calculation time 1ms"
+
+10:18:26 "Last tick (193) calculation time 1ms"
+
+10:18:26 "Last tick (194) calculation time 1ms"
+
+10:18:26 "Last tick (195) calculation time 1ms"
+
+10:18:26 "Last tick (196) calculation time 4ms"
+
+10:18:26 "Last tick (197) calculation time 1ms"
+
+10:18:26 "Last tick (198) calculation time 1ms"
+
+10:18:26 "Last tick (199) calculation time 1ms"
+
+10:18:26 "Last tick (200) calculation time 1ms"
+
+10:18:26 "Last tick (201) calculation time 1ms"
+
+10:18:26 "Last tick (202) calculation time 1ms"
+
+10:18:27 "Last tick (203) calculation time 1ms"
+
+10:18:27 "Last tick (204) calculation time 1ms"
+
+10:18:27 "Last tick (205) calculation time 1ms"
+
+10:18:27 "Last tick (206) calculation time 1ms"
+
+10:18:27 "Last tick (207) calculation time 12ms"
+
+10:18:27 "Last tick (208) calculation time 1ms"
+
+10:18:27 "Last tick (209) calculation time 1ms"
+
+10:18:27 "Last tick (210) calculation time 14ms"
+
+10:18:27 "Last tick (211) calculation time 1ms"
+
+10:18:28 "Last tick (212) calculation time 1ms"
+
+10:18:28 "Last tick (213) calculation time 1ms"
+
+10:18:28 "Last tick (214) calculation time 1ms"
+
+10:18:28 "Last tick (215) calculation time 1ms"
+
+10:18:28 "Last tick (216) calculation time 1ms"
+
+10:18:28 "Last tick (217) calculation time 1ms"
+
+10:18:28 "Last tick (218) calculation time 1ms"
+
+10:18:28 "Last tick (219) calculation time 1ms"
+
+10:18:28 "Last tick (220) calculation time 1ms"
+
+10:18:28 "Last tick (221) calculation time 1ms"
+
+10:18:29 "Last tick (222) calculation time 2ms"
+
+10:18:29 "Last tick (223) calculation time 1ms"
+
+10:18:29 "Last tick (224) calculation time 2ms"
+
+10:18:29 "Last tick (225) calculation time 1ms"
+
+10:18:29 "Last tick (226) calculation time 4ms"
+
+10:18:29 "Last tick (227) calculation time 1ms"
+
+10:18:29 "Last tick (228) calculation time 1ms"
+
+10:18:29 "Last tick (229) calculation time 1ms"
+
+10:18:29 "Last tick (230) calculation time 26ms"
+
+10:18:29 "Last tick (231) calculation time 4ms"
+
+10:18:30 "Last tick (232) calculation time 1ms"
+
+10:18:30 "Last tick (233) calculation time 1ms"
+
+10:18:30 "Last tick (234) calculation time 1ms"
+
+10:18:30 "Last tick (235) calculation time 1ms"
+
+10:18:30 "Last tick (236) calculation time 1ms"
+
+10:18:30 "Last tick (237) calculation time 1ms"
+
+10:18:30 "Last tick (238) calculation time 1ms"
+
+10:18:30 "Last tick (239) calculation time 1ms"
+
+10:18:30 "Last tick (240) calculation time 8ms"
+
+10:18:30 "Last tick (241) calculation time 1ms"
+
+10:18:31 "Last tick (242) calculation time 1ms"
+
+10:18:31 "Last tick (243) calculation time 1ms"
+
+10:18:31 "Last tick (244) calculation time 1ms"
+
+10:18:31 "Last tick (245) calculation time 1ms"
+
+10:18:31 "Last tick (246) calculation time 1ms"
+
+10:18:31 "Last tick (247) calculation time 1ms"
+
+10:18:31 "Last tick (248) calculation time 1ms"
+
+10:18:31 "Last tick (249) calculation time 1ms"
+
+10:18:31 "Last tick (250) calculation time 7ms"
+
+10:18:31 "Last tick (251) calculation time 1ms"
+
+10:18:32 "Last tick (252) calculation time 1ms"
+
+10:18:32 "Last tick (253) calculation time 1ms"
+
+10:18:32 "Last tick (254) calculation time 2ms"
+
+10:18:32 "Last tick (255) calculation time 2ms"
+
+10:18:32 "Last tick (256) calculation time 1ms"
+
+10:18:32 "Last tick (257) calculation time 1ms"
+
+10:18:32 "Last tick (258) calculation time 1ms"
+
+10:18:32 "Last tick (259) calculation time 1ms"
+
+10:18:32 "Last tick (260) calculation time 6ms"
+
+10:18:32 "Last tick (261) calculation time 1ms"
+
+10:18:33 "Last tick (262) calculation time 1ms"
+
+10:18:33 "Last tick (263) calculation time 1ms"
+
+10:18:33 "Last tick (264) calculation time 1ms"
+
+10:18:33 "Last tick (265) calculation time 1ms"
+
+10:18:33 "Last tick (266) calculation time 1ms"
+
+10:18:33 "Last tick (267) calculation time 1ms"
+
+10:18:33 "Last tick (268) calculation time 1ms"
+
+10:18:33 "Last tick (269) calculation time 1ms"
+
+10:18:33 "Last tick (270) calculation time 1ms"
+
+10:18:33 "Last tick (271) calculation time 1ms"
+
+10:18:34 "Last tick (272) calculation time 1ms"
+
+10:18:34 "Last tick (273) calculation time 1ms"
+
+10:18:34 "Last tick (274) calculation time 1ms"
+
+10:18:34 "Last tick (275) calculation time 2ms"
+
+10:18:34 "Last tick (276) calculation time 1ms"
+
+10:18:34 "Last tick (277) calculation time 1ms"
+
+10:18:34 "Last tick (278) calculation time 1ms"
+
+10:18:34 "Last tick (279) calculation time 1ms"
+
+10:18:34 "Last tick (280) calculation time 1ms"
+
+10:18:34 "Last tick (281) calculation time 1ms"
+
+10:18:35 "Last tick (282) calculation time 1ms"
+
+10:18:35 "Last tick (283) calculation time 1ms"
+
+10:18:35 "Last tick (284) calculation time 1ms"
+
+10:18:35 "Last tick (285) calculation time 1ms"
+
+10:18:35 "Last tick (286) calculation time 1ms"
+
+10:18:35 "Last tick (287) calculation time 1ms"
+
+10:18:35 "Last tick (288) calculation time 1ms"
+
+10:18:35 "Last tick (289) calculation time 7ms"
+
+10:18:35 "Last tick (290) calculation time 1ms"
+
+10:18:36 "Last tick (291) calculation time 1ms"
+
+10:18:36 "Last tick (292) calculation time 1ms"
+
+10:18:36 "Last tick (293) calculation time 1ms"
+
+10:18:36 "Last tick (294) calculation time 15ms"
+
+10:18:36 "Last tick (295) calculation time 1ms"
+
+10:18:36 "Last tick (296) calculation time 1ms"
+
+10:18:36 "Last tick (297) calculation time 1ms"
+
+10:18:36 "Last tick (298) calculation time 3ms"
+
+10:18:36 "Last tick (299) calculation time 1ms"
+
+10:18:36 "Last tick (300) calculation time 6ms"
+
+10:18:37 "Last tick (301) calculation time 1ms"
+
+10:18:37 "Last tick (302) calculation time 1ms"
+
+10:18:37 "Last tick (303) calculation time 1ms"
+
+10:18:37 "Last tick (304) calculation time 1ms"
+
+10:18:37 "Last tick (305) calculation time 1ms"
+
+10:18:37 "Last tick (306) calculation time 6ms"
+
+10:18:37 "Last tick (307) calculation time 1ms"
+
+10:18:37 "Last tick (308) calculation time 1ms"
+
+10:18:37 "Last tick (309) calculation time 1ms"
+
+10:18:37 "Last tick (310) calculation time 8ms"
+
+10:18:38 "Last tick (311) calculation time 1ms"
+
+10:18:38 "Last tick (312) calculation time 1ms"
+
+10:18:38 "Last tick (313) calculation time 1ms"
+
+10:18:38 "Last tick (314) calculation time 1ms"
+
+10:18:38 "Last tick (315) calculation time 1ms"
+
+10:18:38 "Last tick (316) calculation time 1ms"
+
+10:18:38 "Last tick (317) calculation time 1ms"
+
+10:18:38 "Last tick (318) calculation time 1ms"
+
+10:18:38 "Last tick (319) calculation time 1ms"
+
+10:18:38 "Last tick (320) calculation time 8ms"
+
+10:18:39 "Last tick (321) calculation time 1ms"
+
+10:18:39 "Last tick (322) calculation time 10ms"
+
+10:18:39 "Last tick (323) calculation time 1ms"
+
+10:18:39 "Last tick (324) calculation time 1ms"
+
+10:18:39 "Last tick (325) calculation time 1ms"
+
+10:18:39 "Last tick (326) calculation time 1ms"
+
+10:18:39 "Last tick (327) calculation time 1ms"
+
+10:18:39 "Last tick (328) calculation time 1ms"
+
+10:18:39 "Last tick (329) calculation time 1ms"
+
+10:18:39 "Last tick (330) calculation time 1ms"
+
+10:18:40 "Last tick (331) calculation time 1ms"
+
+10:18:40 "Last tick (332) calculation time 1ms"
+
+10:18:40 "Last tick (333) calculation time 1ms"
+
+10:18:40 "Last tick (334) calculation time 1ms"
+
+10:18:40 "Last tick (335) calculation time 1ms"
+
+10:18:40 "Last tick (336) calculation time 1ms"
+
+10:18:40 "Last tick (337) calculation time 3ms"
+
+10:18:40 "Last tick (338) calculation time 1ms"
+
+10:18:40 "Last tick (339) calculation time 1ms"
+
+10:18:41 "Last tick (340) calculation time 26ms"
+
+10:18:41 "Last tick (341) calculation time 1ms"
+
+10:18:41 "Last tick (342) calculation time 1ms"
+
+10:18:41 "Last tick (343) calculation time 1ms"
+
+10:18:41 "Last tick (344) calculation time 1ms"
+
+10:18:41 "Last tick (345) calculation time 1ms"
+
+10:18:41 "Last tick (346) calculation time 1ms"
+
+10:18:41 "Last tick (347) calculation time 1ms"
+
+10:18:41 "Last tick (348) calculation time 3ms"
+
+10:18:41 "Last tick (349) calculation time 2ms"
+
+10:18:42 "Last tick (350) calculation time 2ms"
+
+10:18:42 "Last tick (351) calculation time 1ms"
+
+10:18:42 "Last tick (352) calculation time 1ms"
+
+10:18:42 "Last tick (353) calculation time 1ms"
+
+10:18:42 "Last tick (354) calculation time 1ms"
+
+10:18:42 "Last tick (355) calculation time 1ms"
+
+10:18:42 "Last tick (356) calculation time 1ms"
+
+10:18:42 "Last tick (357) calculation time 1ms"
+
+10:18:42 "Last tick (358) calculation time 6ms"
+
+10:18:42 "Last tick (359) calculation time 2ms"
+
+10:18:43 "Last tick (360) calculation time 1ms"
+
+10:18:43 "Last tick (361) calculation time 1ms"
+
+10:18:43 "Last tick (362) calculation time 2ms"
+
+10:18:43 "Last tick (363) calculation time 1ms"
+
+10:18:43 "Last tick (364) calculation time 2ms"
+
+10:18:43 "Last tick (365) calculation time 1ms"
+
+10:18:43 "Last tick (366) calculation time 1ms"
+
+10:18:43 "Last tick (367) calculation time 1ms"
+
+10:18:43 "Last tick (368) calculation time 1ms"
+
+10:18:44 "Last tick (369) calculation time 1ms"
+
+10:18:44 "Last tick (370) calculation time 1ms"
+
+10:18:44 "Last tick (371) calculation time 1ms"
+
+10:18:44 "Last tick (372) calculation time 1ms"
+
+10:18:44 "Last tick (373) calculation time 3ms"
+
+10:18:44 "Last tick (374) calculation time 1ms"
+
+10:18:44 "Last tick (375) calculation time 1ms"
+
+10:18:44 "Last tick (376) calculation time 1ms"
+
+10:18:44 "Last tick (377) calculation time 1ms"
+
+10:18:44 "Last tick (378) calculation time 1ms"
+
+10:18:45 "Last tick (379) calculation time 1ms"
+
+10:18:45 "Last tick (380) calculation time 1ms"
+
+10:18:45 "Last tick (381) calculation time 1ms"
+
+10:18:45 "Last tick (382) calculation time 1ms"
+
+10:18:45 "Last tick (383) calculation time 1ms"
+
+10:18:45 "Last tick (384) calculation time 1ms"
+
+10:18:45 "Last tick (385) calculation time 1ms"
+
+10:18:45 "Last tick (386) calculation time 1ms"
+
+10:18:45 "Last tick (387) calculation time 11ms"
+
+10:18:45 "Last tick (388) calculation time 2ms"
+
+10:18:46 "Last tick (389) calculation time 1ms"
+
+10:18:46 "Last tick (390) calculation time 1ms"
+
+10:18:46 "Last tick (391) calculation time 1ms"
+
+10:18:46 "Last tick (392) calculation time 1ms"
+
+10:18:46 "Last tick (393) calculation time 1ms"
+
+10:18:46 "Last tick (394) calculation time 1ms"
+
+10:18:46 "Last tick (395) calculation time 1ms"
+
+10:18:46 "Last tick (396) calculation time 1ms"
+
+10:18:46 "Last tick (397) calculation time 1ms"
+
+10:18:47 "Last tick (398) calculation time 4ms"
+
+10:18:47 "Last tick (399) calculation time 1ms"
+
+10:18:47 "Last tick (400) calculation time 22ms"
+
+10:18:47 "Last tick (401) calculation time 1ms"
+
+10:18:47 "Last tick (402) calculation time 1ms"
+
+10:18:47 "Last tick (403) calculation time 1ms"
+
+10:18:47 "Last tick (404) calculation time 1ms"
+
+10:18:47 "Last tick (405) calculation time 1ms"
+
+10:18:47 "Last tick (406) calculation time 1ms"
+
+10:18:47 "Last tick (407) calculation time 1ms"
+
+10:18:48 "Last tick (408) calculation time 7ms"
+
+10:18:48 "Last tick (409) calculation time 1ms"
+
+10:18:48 "Last tick (410) calculation time 1ms"
+
+10:18:48 "Last tick (411) calculation time 1ms"
+
+10:18:48 "Last tick (412) calculation time 1ms"
+
+10:18:48 "Last tick (413) calculation time 1ms"
+
+10:18:48 "Last tick (414) calculation time 1ms"
+
+10:18:48 "Last tick (415) calculation time 1ms"
+
+10:18:48 "Last tick (416) calculation time 1ms"
+
+10:18:48 "Last tick (417) calculation time 1ms"
+
+10:18:49 "Last tick (418) calculation time 1ms"
+
+10:18:49 "Last tick (419) calculation time 1ms"
+
+10:18:49 "Last tick (420) calculation time 1ms"
+
+10:18:49 "Last tick (421) calculation time 1ms"
+
+10:18:49 "Last tick (422) calculation time 1ms"
+
+10:18:49 "Last tick (423) calculation time 1ms"
+
+10:18:49 "Last tick (424) calculation time 1ms"
+
+10:18:49 "Last tick (425) calculation time 1ms"
+
+10:18:49 "Last tick (426) calculation time 1ms"
+
+10:18:50 "Last tick (427) calculation time 5ms"
+
+10:18:50 "Last tick (428) calculation time 1ms"
+
+10:18:50 "Last tick (429) calculation time 1ms"
+
+10:18:50 "Last tick (430) calculation time 8ms"
+
+10:18:50 "Last tick (431) calculation time 1ms"
+
+10:18:50 "Last tick (432) calculation time 1ms"
+
+10:18:50 "Last tick (433) calculation time 1ms"
+
+10:18:50 "Last tick (434) calculation time 1ms"
+
+10:18:50 "Last tick (435) calculation time 1ms"
+
+10:18:50 "Last tick (436) calculation time 2ms"
+
+10:18:51 "Last tick (437) calculation time 2ms"
+
+10:18:51 "Last tick (438) calculation time 1ms"
+
+10:18:51 "Last tick (439) calculation time 1ms"
+
+10:18:51 "Last tick (440) calculation time 2ms"
+
+10:18:51 "Last tick (441) calculation time 1ms"
+
+10:18:51 "Last tick (442) calculation time 1ms"
+
+10:18:51 "Last tick (443) calculation time 1ms"
+
+10:18:51 "Last tick (444) calculation time 1ms"
+
+10:18:51 "Last tick (445) calculation time 1ms"
+
+10:18:51 "Last tick (446) calculation time 1ms"
+
+10:18:52 "Last tick (447) calculation time 1ms"
+
+10:18:52 "Last tick (448) calculation time 2ms"
+
+10:18:52 "Last tick (449) calculation time 1ms"
+
+10:18:52 "Last tick (450) calculation time 9ms"
+
+10:18:52 "Last tick (451) calculation time 1ms"
+
+10:18:52 "Last tick (452) calculation time 1ms"
+
+10:18:52 "Last tick (453) calculation time 1ms"
+
+10:18:52 "Last tick (454) calculation time 1ms"
+
+10:18:52 "Last tick (455) calculation time 1ms"
+
+10:18:52 "Last tick (456) calculation time 8ms"
+
+10:18:53 "Last tick (457) calculation time 1ms"
+
+10:18:53 "Last tick (458) calculation time 1ms"
+
+10:18:53 "Last tick (459) calculation time 1ms"
+
+10:18:53 "Last tick (460) calculation time 53ms"
+
+10:18:53 "Last tick (461) calculation time 1ms"
+
+10:18:53 "Last tick (462) calculation time 1ms"
+
+10:18:53 "Last tick (463) calculation time 1ms"
+
+10:18:53 "Last tick (464) calculation time 8ms"
+
+10:18:53 "Last tick (465) calculation time 1ms"
+
+10:18:53 "Last tick (466) calculation time 1ms"
+
+10:18:54 "Last tick (467) calculation time 5ms"
+
+10:18:54 "Last tick (468) calculation time 1ms"
+
+10:18:54 "Last tick (469) calculation time 1ms"
+
+10:18:54 "Last tick (470) calculation time 23ms"
+
+10:18:54 "Last tick (471) calculation time 1ms"
+
+10:18:54 "Last tick (472) calculation time 1ms"
+
+10:18:54 "Last tick (473) calculation time 1ms"
+
+10:18:54 "Last tick (474) calculation time 1ms"
+
+10:18:54 "Last tick (475) calculation time 1ms"
+
+10:18:55 "Last tick (476) calculation time 1ms"
+
+10:18:55 "Last tick (477) calculation time 1ms"
+
+10:18:55 "Last tick (478) calculation time 1ms"
+
+10:18:55 "Last tick (479) calculation time 1ms"
+
+10:18:55 "Last tick (480) calculation time 35ms"
+
+10:18:55 "Last tick (481) calculation time 1ms"
+
+10:18:55 "Last tick (482) calculation time 1ms"
+
+10:18:55 "Last tick (483) calculation time 1ms"
+
+10:18:55 "Last tick (484) calculation time 1ms"
+
+10:18:55 "Last tick (485) calculation time 1ms"
+
+10:18:56 "Last tick (486) calculation time 1ms"
+
+10:18:56 "Last tick (487) calculation time 1ms"
+
+10:18:56 "Last tick (488) calculation time 1ms"
+
+10:18:56 "Last tick (489) calculation time 1ms"
+
+10:18:56 "Last tick (490) calculation time 7ms"
+
+10:18:56 "Last tick (491) calculation time 5ms"
+
+10:18:56 "Last tick (492) calculation time 1ms"
+
+10:18:56 "Last tick (493) calculation time 1ms"
+
+10:18:56 "Last tick (494) calculation time 1ms"
+
+10:18:56 "Last tick (495) calculation time 1ms"
+
+10:18:57 "Last tick (496) calculation time 1ms"
+
+10:18:57 "Last tick (497) calculation time 1ms"
+
+10:18:57 "Last tick (498) calculation time 2ms"
+
+10:18:57 "Last tick (499) calculation time 1ms"
+
+10:18:57 "Last tick (500) calculation time 1ms"
+
+10:18:57 "Last tick (501) calculation time 1ms"
+
+10:18:57 "Last tick (502) calculation time 1ms"
+
+10:18:57 "Last tick (503) calculation time 1ms"
+
+10:18:57 "Last tick (504) calculation time 20ms"
+
+10:18:58 "Last tick (505) calculation time 1ms"
+
+10:18:58 "Last tick (506) calculation time 2ms"
+
+10:18:58 "Last tick (507) calculation time 1ms"
+
+10:18:58 "Last tick (508) calculation time 1ms"
+
+10:18:58 "Last tick (509) calculation time 1ms"
+
+10:18:58 "Last tick (510) calculation time 2ms"
+
+10:18:58 "Last tick (511) calculation time 1ms"
+
+10:18:58 "Last tick (512) calculation time 1ms"
+
+10:18:58 "Last tick (513) calculation time 1ms"
+
+10:18:58 "Last tick (514) calculation time 1ms"
+
+10:18:59 "Last tick (515) calculation time 1ms"
+
+10:18:59 "Last tick (516) calculation time 1ms"
+
+10:18:59 "Last tick (517) calculation time 1ms"
+
+10:18:59 "Last tick (518) calculation time 1ms"
+
+10:18:59 "Last tick (519) calculation time 1ms"
+
+10:18:59 "Last tick (520) calculation time 1ms"
+
+10:18:59 "Last tick (521) calculation time 1ms"
+
+10:18:59 "Last tick (522) calculation time 1ms"
+
+10:18:59 "Last tick (523) calculation time 2ms"
+
+10:18:59 "Last tick (524) calculation time 1ms"
+
+10:19:00 "Last tick (525) calculation time 1ms"
+
+10:19:00 "Last tick (526) calculation time 1ms"
+
+10:19:00 "Last tick (527) calculation time 4ms"
+
+10:19:00 "Last tick (528) calculation time 1ms"
+
+10:19:00 "Last tick (529) calculation time 1ms"
+
+10:19:00 "undefined", {}
+
+10:19:00 "Last tick (530) calculation time 2ms"
+
+10:19:00 "Last tick (531) calculation time 1ms"
+
+10:19:00 "Last tick (532) calculation time 1ms"
+
+10:19:00 "Last tick (533) calculation time 1ms"
+
+10:19:00 "Last tick (534) calculation time 1ms"
+
+10:19:01 "Last tick (535) calculation time 1ms"
+
+10:19:01 "Last tick (536) calculation time 1ms"
+
+10:19:01 "Last tick (537) calculation time 1ms"
+
+10:19:01 "Last tick (538) calculation time 1ms"
+
+10:19:01 "Last tick (539) calculation time 1ms"
+
+10:19:01 "Last tick (540) calculation time 6ms"
+
+10:19:01 "Last tick (541) calculation time 1ms"
+
+10:19:01 "Last tick (542) calculation time 1ms"
+
+10:19:01 "Last tick (543) calculation time 1ms"
+
+10:19:01 "Last tick (544) calculation time 1ms"
+
+10:19:02 "Last tick (545) calculation time 1ms"
+
+10:19:02 "Last tick (546) calculation time 1ms"
+
+10:19:02 "Last tick (547) calculation time 1ms"
+
+10:19:02 "Last tick (548) calculation time 1ms"
+
+10:19:02 "Last tick (549) calculation time 1ms"
+
+10:19:02 "Last tick (550) calculation time 1ms"
+
+10:19:02 "Last tick (551) calculation time 7ms"
+
+10:19:02 "Last tick (552) calculation time 1ms"
+
+10:19:02 "Last tick (553) calculation time 1ms"
+
+10:19:02 "Last tick (554) calculation time 1ms"
+
+10:19:03 "Last tick (555) calculation time 1ms"
+
+10:19:03 "Last tick (556) calculation time 1ms"
+
+10:19:03 "undefined", {}
+
+10:19:03 "Last tick (557) calculation time 1ms"
+
+10:19:03 "Last tick (558) calculation time 2ms"
+
+10:19:03 "Last tick (559) calculation time 1ms"
+
+10:19:03 "Last tick (560) calculation time 1ms"
+
+10:19:03 "Last tick (561) calculation time 1ms"
+
+10:19:03 "Last tick (562) calculation time 1ms"
+
+10:19:03 "Last tick (563) calculation time 1ms"
+
+10:19:04 "Last tick (564) calculation time 1ms"
+
+10:19:04 "Last tick (565) calculation time 1ms"
+
+10:19:04 "Last tick (566) calculation time 2ms"
+
+10:19:04 "Last tick (567) calculation time 1ms"
+
+10:19:04 "Last tick (568) calculation time 1ms"
+
+10:19:04 "Last tick (569) calculation time 2ms"
+
+10:19:04 "Last tick (570) calculation time 8ms"
+
+10:19:04 "Last tick (571) calculation time 1ms"
+
+10:19:04 "Last tick (572) calculation time 1ms"
+
+10:19:04 "Last tick (573) calculation time 1ms"
+
+10:19:05 "Last tick (574) calculation time 6ms"
+
+10:19:05 "Last tick (575) calculation time 1ms"
+
+10:19:05 "Last tick (576) calculation time 1ms"
+
+10:19:05 "Last tick (577) calculation time 1ms"
+
+10:19:05 "Last tick (578) calculation time 1ms"
+
+10:19:05 "Last tick (579) calculation time 1ms"
+
+10:19:05 "Last tick (580) calculation time 15ms"
+
+10:19:05 "Last tick (581) calculation time 1ms"
+
+10:19:05 "Last tick (582) calculation time 1ms"
+
+10:19:05 "Last tick (583) calculation time 1ms"
+
+10:19:06 "Last tick (584) calculation time 1ms"
+
+10:19:06 "Last tick (585) calculation time 1ms"
+
+10:19:06 "Last tick (586) calculation time 1ms"
+
+10:19:06 "Last tick (587) calculation time 4ms"
+
+10:19:06 "Last tick (588) calculation time 3ms"
+
+10:19:06 "Last tick (589) calculation time 1ms"
+
+10:19:06 "Last tick (590) calculation time 11ms"
+
+10:19:06 "Last tick (591) calculation time 1ms"
+
+10:19:06 "Last tick (592) calculation time 1ms"
+
+10:19:06 "Last tick (593) calculation time 1ms"
+
+10:19:07 "Last tick (594) calculation time 1ms"
+
+10:19:07 "Last tick (595) calculation time 1ms"
+
+10:19:07 "Last tick (596) calculation time 1ms"
+
+10:19:07 "Last tick (597) calculation time 1ms"
+
+10:19:07 "Last tick (598) calculation time 1ms"
+
+10:19:07 "Last tick (599) calculation time 1ms"
+
+10:19:07 "Last tick (600) calculation time 16ms"
+
+10:19:07 "Last tick (601) calculation time 1ms"
+
+10:19:07 "undefined", {}
+
+10:19:07 "Last tick (602) calculation time 1ms"
+
+10:19:07 "Last tick (603) calculation time 1ms"
+
+10:19:08 "Last tick (604) calculation time 1ms"
+
+10:19:08 "Last tick (605) calculation time 1ms"
+
+10:19:08 "Last tick (606) calculation time 1ms"
+
+10:19:08 "Last tick (607) calculation time 1ms"
+
+10:19:08 "Last tick (608) calculation time 1ms"
+
+10:19:08 "Last tick (609) calculation time 2ms"
+
+10:19:08 "Last tick (610) calculation time 3ms"
+
+10:19:08 "Last tick (611) calculation time 1ms"
+
+10:19:08 "Last tick (612) calculation time 1ms"
+
+10:19:08 "Last tick (613) calculation time 1ms"
+
+10:19:09 "Last tick (614) calculation time 1ms"
+
+10:19:09 "Last tick (615) calculation time 1ms"
+
+10:19:09 "Last tick (616) calculation time 1ms"
+
+10:19:09 "Last tick (617) calculation time 1ms"
+
+10:19:09 "Last tick (618) calculation time 2ms"
+
+10:19:09 "Last tick (619) calculation time 1ms"
+
+10:19:09 "Last tick (620) calculation time 1ms"
+
+10:19:09 "Last tick (621) calculation time 1ms"
+
+10:19:09 "Last tick (622) calculation time 1ms"
+
+10:19:10 "Last tick (623) calculation time 1ms"
+
+10:19:10 "Last tick (624) calculation time 1ms"
+
+10:19:10 "Last tick (625) calculation time 1ms"
+
+10:19:10 "Last tick (626) calculation time 1ms"
+
+10:19:10 "Last tick (627) calculation time 19ms"
+
+10:19:10 "Last tick (628) calculation time 1ms"
+
+10:19:10 "Last tick (629) calculation time 1ms"
+
+10:19:10 "Last tick (630) calculation time 17ms"
+
+10:19:10 "Last tick (631) calculation time 1ms"
+
+10:19:10 "Last tick (632) calculation time 1ms"
+
+10:19:11 "Last tick (633) calculation time 1ms"
+
+10:19:11 "Last tick (634) calculation time 1ms"
+
+10:19:11 "Last tick (635) calculation time 1ms"
+
+10:19:11 "Last tick (636) calculation time 1ms"
+
+10:19:11 "Last tick (637) calculation time 1ms"
+
+10:19:11 "Last tick (638) calculation time 1ms"
+
+10:19:11 "Last tick (639) calculation time 1ms"
+
+10:19:11 "Last tick (640) calculation time 2ms"
+
+10:19:11 "Last tick (641) calculation time 1ms"
+
+10:19:11 "Last tick (642) calculation time 1ms"
+
+10:19:12 "Last tick (643) calculation time 1ms"
+
+10:19:12 "Last tick (644) calculation time 2ms"
+
+10:19:12 "Last tick (645) calculation time 1ms"
+
+10:19:12 "Last tick (646) calculation time 1ms"
+
+10:19:12 "Last tick (647) calculation time 1ms"
+
+10:19:12 "Last tick (648) calculation time 4ms"
+
+10:19:12 "Last tick (649) calculation time 1ms"
+
+10:19:12 "Last tick (650) calculation time 1ms"
+
+10:19:12 "Last tick (651) calculation time 1ms"
+
+10:19:12 "Last tick (652) calculation time 1ms"
+
+10:19:13 "Last tick (653) calculation time 1ms"
+
+10:19:13 "Last tick (654) calculation time 1ms"
+
+10:19:13 "Last tick (655) calculation time 1ms"
+
+10:19:13 "Last tick (656) calculation time 1ms"
+
+10:19:13 "Last tick (657) calculation time 1ms"
+
+10:19:13 "Last tick (658) calculation time 1ms"
+
+10:19:13 "Last tick (659) calculation time 1ms"
+
+10:19:13 "Last tick (660) calculation time 20ms"
+
+10:19:13 "Last tick (661) calculation time 1ms"
+
+10:19:13 "Last tick (662) calculation time 1ms"
+
+10:19:14 "Last tick (663) calculation time 1ms"
+
+10:19:14 "Last tick (664) calculation time 1ms"
+
+10:19:14 "Last tick (665) calculation time 1ms"
+
+10:19:14 "Last tick (666) calculation time 1ms"
+
+10:19:14 "Last tick (667) calculation time 1ms"
+
+10:19:14 "Last tick (668) calculation time 1ms"
+
+10:19:14 "Last tick (669) calculation time 1ms"
+
+10:19:14 "Last tick (670) calculation time 1ms"
+
+10:19:14 "Last tick (671) calculation time 1ms"
+
+10:19:15 "Last tick (672) calculation time 1ms"
+
+10:19:15 "Last tick (673) calculation time 1ms"
+
+10:19:15 "Last tick (674) calculation time 1ms"
+
+10:19:15 "Last tick (675) calculation time 1ms"
+
+10:19:15 "Last tick (676) calculation time 1ms"
+
+10:19:15 "Last tick (677) calculation time 1ms"
+
+10:19:15 "Last tick (678) calculation time 1ms"
+
+10:19:15 "Last tick (679) calculation time 1ms"
+
+10:19:15 "Last tick (680) calculation time 15ms"
+
+10:19:15 "Last tick (681) calculation time 1ms"
+
+10:19:16 "Last tick (682) calculation time 1ms"
+
+10:19:16 "Last tick (683) calculation time 1ms"
+
+10:19:16 "Last tick (684) calculation time 1ms"
+
+10:19:16 "Last tick (685) calculation time 1ms"
+
+10:19:16 "Last tick (686) calculation time 1ms"
+
+10:19:16 "Last tick (687) calculation time 1ms"
+
+10:19:16 "Last tick (688) calculation time 1ms"
+
+10:19:16 "Last tick (689) calculation time 1ms"
+
+10:19:16 "Last tick (690) calculation time 1ms"
+
+10:19:16 "Last tick (691) calculation time 1ms"
+
+10:19:17 "Last tick (692) calculation time 1ms"
+
+10:19:17 "Last tick (693) calculation time 1ms"
+
+10:19:17 "Last tick (694) calculation time 1ms"
+
+10:19:17 "Last tick (695) calculation time 1ms"
+
+10:19:17 "Last tick (696) calculation time 1ms"
+
+10:19:17 "Last tick (697) calculation time 1ms"
+
+10:19:17 "Last tick (698) calculation time 1ms"
+
+10:19:17 "Last tick (699) calculation time 1ms"
+
+10:19:17 "Last tick (700) calculation time 1ms"
+
+10:19:17 "Last tick (701) calculation time 1ms"
+
+10:19:18 "Last tick (702) calculation time 1ms"
+
+10:19:18 "Last tick (703) calculation time 1ms"
+
+10:19:18 "Last tick (704) calculation time 1ms"
+
+10:19:18 "Last tick (705) calculation time 1ms"
+
+10:19:18 "Last tick (706) calculation time 1ms"
+
+10:19:18 "Last tick (707) calculation time 1ms"
+
+10:19:18 "Last tick (708) calculation time 1ms"
+
+10:19:18 "Last tick (709) calculation time 1ms"
+
+10:19:18 "Last tick (710) calculation time 1ms"
+
+10:19:18 "Last tick (711) calculation time 1ms"
+
+10:19:19 "Last tick (712) calculation time 1ms"
+
+10:19:19 "Last tick (713) calculation time 1ms"
+
+10:19:19 "Last tick (714) calculation time 1ms"
+
+10:19:19 "Last tick (715) calculation time 1ms"
+
+10:19:19 "Last tick (716) calculation time 1ms"
+
+10:19:19 "Last tick (717) calculation time 1ms"
+
+10:19:19 "Last tick (718) calculation time 1ms"
+
+10:19:19 "Last tick (719) calculation time 1ms"
+
+10:19:19 "Last tick (720) calculation time 1ms"
+
+10:19:19 "Last tick (721) calculation time 1ms"
+
+10:19:20 "Last tick (722) calculation time 1ms"
+
+10:19:20 "Last tick (723) calculation time 1ms"
+
+10:19:20 "Last tick (724) calculation time 1ms"
+
+10:19:20 "Last tick (725) calculation time 1ms"
+
+10:19:20 "Last tick (726) calculation time 1ms"
+
+10:19:20 "Last tick (727) calculation time 1ms"
+
+10:19:20 "Last tick (728) calculation time 1ms"
+
+10:19:20 "Last tick (729) calculation time 1ms"
+
+10:19:20 "Last tick (730) calculation time 1ms"
+
+10:19:20 "Last tick (731) calculation time 1ms"
+
+10:19:21 "Last tick (732) calculation time 1ms"
+
+10:19:21 "Last tick (733) calculation time 1ms"
+
+10:19:21 "Last tick (734) calculation time 1ms"
+
+10:19:21 "Last tick (735) calculation time 1ms"
+
+10:19:21 "Last tick (736) calculation time 1ms"
+
+10:19:21 "Last tick (737) calculation time 1ms"
+
+10:19:21 "Last tick (738) calculation time 1ms"
+
+10:19:21 "Last tick (739) calculation time 1ms"
+
+10:19:21 "Last tick (740) calculation time 1ms"
+
+10:19:21 "Last tick (741) calculation time 1ms"
+
+10:19:22 "Last tick (742) calculation time 1ms"
+
+10:19:22 "Last tick (743) calculation time 1ms"
+
+10:19:22 "Last tick (744) calculation time 1ms"
+
+10:19:22 "Last tick (745) calculation time 1ms"
+
+10:19:22 "Last tick (746) calculation time 1ms"
+
+10:19:22 "Last tick (747) calculation time 1ms"
+
+10:19:22 "Last tick (748) calculation time 1ms"
+
+10:19:22 "Last tick (749) calculation time 1ms"
+
+10:19:22 "Last tick (750) calculation time 43ms"
+
+10:19:22 "Last tick (751) calculation time 1ms"
+
+10:19:23 "Last tick (752) calculation time 1ms"
+
+10:19:23 "Last tick (753) calculation time 1ms"
+
+10:19:23 "Last tick (754) calculation time 1ms"
+
+10:19:23 "Last tick (755) calculation time 1ms"
+
+10:19:23 "Last tick (756) calculation time 1ms"
+
+10:19:23 "Last tick (757) calculation time 1ms"
+
+10:19:23 "Last tick (758) calculation time 1ms"
+
+10:19:23 "Last tick (759) calculation time 1ms"
+
+10:19:23 "Last tick (760) calculation time 7ms"
+
+10:19:23 "Last tick (761) calculation time 1ms"
+
+10:19:24 "Last tick (762) calculation time 1ms"
+
+10:19:24 "Last tick (763) calculation time 1ms"
+
+10:19:24 "Last tick (764) calculation time 1ms"
+
+10:19:24 "Last tick (765) calculation time 1ms"
+
+10:19:24 "Last tick (766) calculation time 1ms"
+
+10:19:24 "Last tick (767) calculation time 1ms"
+
+10:19:24 "Last tick (768) calculation time 1ms"
+
+10:19:24 "Last tick (769) calculation time 1ms"
+
+10:19:24 "Last tick (770) calculation time 1ms"
+
+10:19:24 "Last tick (771) calculation time 1ms"
+
+10:19:25 "Last tick (772) calculation time 1ms"
+
+10:19:25 "Last tick (773) calculation time 1ms"
+
+10:19:25 "Last tick (774) calculation time 1ms"
+
+10:19:25 "Last tick (775) calculation time 1ms"
+
+10:19:25 "Last tick (776) calculation time 1ms"
+
+10:19:25 "Last tick (777) calculation time 1ms"
+
+10:19:25 "Last tick (778) calculation time 1ms"
+
+10:19:25 "Last tick (779) calculation time 1ms"
+
+10:19:25 "Last tick (780) calculation time 3ms"
+
+10:19:25 "Last tick (781) calculation time 1ms"
+
+10:19:26 "Last tick (782) calculation time 1ms"
+
+10:19:26 "Last tick (783) calculation time 1ms"
+
+10:19:26 "Last tick (784) calculation time 1ms"
+
+10:19:26 "Last tick (785) calculation time 1ms"
+
+10:19:26 "Last tick (786) calculation time 1ms"
+
+10:19:26 "Last tick (787) calculation time 1ms"
+
+10:19:26 "Last tick (788) calculation time 1ms"
+
+10:19:26 "Last tick (789) calculation time 1ms"
+
+10:19:26 "Last tick (790) calculation time 1ms"
+
+10:19:26 "Last tick (791) calculation time 1ms"
+
+10:19:27 "Last tick (792) calculation time 1ms"
+
+10:19:27 "Last tick (793) calculation time 1ms"
+
+10:19:27 "Last tick (794) calculation time 1ms"
+
+10:19:27 "Last tick (795) calculation time 1ms"
+
+10:19:27 "Last tick (796) calculation time 1ms"
+
+10:19:27 "Last tick (797) calculation time 1ms"
+
+10:19:27 "Last tick (798) calculation time 1ms"
+
+10:19:27 "Last tick (799) calculation time 1ms"
+
+10:19:27 "Last tick (800) calculation time 1ms"
+
+10:19:27 "Last tick (801) calculation time 1ms"
+
+10:19:28 "Last tick (802) calculation time 1ms"
+
+10:19:28 "Last tick (803) calculation time 1ms"
+
+10:19:28 "Last tick (804) calculation time 1ms"
+
+10:19:28 "Last tick (805) calculation time 1ms"
+
+10:19:28 "Last tick (806) calculation time 1ms"
+
+10:19:28 "Last tick (807) calculation time 1ms"
+
+10:19:28 "Last tick (808) calculation time 1ms"
+
+10:19:28 "Last tick (809) calculation time 1ms"
+
+10:19:28 "Last tick (810) calculation time 2ms"
+
+10:19:28 "Last tick (811) calculation time 1ms"
+
+10:19:29 "Last tick (812) calculation time 1ms"
+
+10:19:29 "Last tick (813) calculation time 1ms"
+
+10:19:29 "Last tick (814) calculation time 1ms"
+
+10:19:29 "Last tick (815) calculation time 1ms"
+
+10:19:29 "Last tick (816) calculation time 1ms"
+
+10:19:29 "Last tick (817) calculation time 1ms"
+
+10:19:29 "Last tick (818) calculation time 1ms"
+
+10:19:29 "Last tick (819) calculation time 1ms"
+
+10:19:29 "Last tick (820) calculation time 1ms"
+
+10:19:30 "Last tick (821) calculation time 1ms"
+
+10:19:30 "Last tick (822) calculation time 1ms"
+
+10:19:30 "Last tick (823) calculation time 1ms"
+
+10:19:30 "Last tick (824) calculation time 1ms"
+
+10:19:30 "Last tick (825) calculation time 1ms"
+
+10:19:30 "Last tick (826) calculation time 1ms"
+
+10:19:30 "Last tick (827) calculation time 1ms"
+
+10:19:30 "Last tick (828) calculation time 1ms"
+
+10:19:30 "Last tick (829) calculation time 1ms"
+
+10:19:30 "Last tick (830) calculation time 1ms"
+
+10:19:31 "Last tick (831) calculation time 1ms"
+
+10:19:31 "Last tick (832) calculation time 1ms"
+
+10:19:31 "Last tick (833) calculation time 1ms"
+
+10:19:31 "Last tick (834) calculation time 1ms"
+
+10:19:31 "Last tick (835) calculation time 1ms"
+
+10:19:31 "Last tick (836) calculation time 1ms"
+
+10:19:31 "Last tick (837) calculation time 1ms"
+
+10:19:31 "Last tick (838) calculation time 1ms"
+
+10:19:31 "Last tick (839) calculation time 2ms"
+
+10:19:31 "Last tick (840) calculation time 2ms"
+
+10:19:32 "Last tick (841) calculation time 1ms"
+
+10:19:32 "Last tick (842) calculation time 2ms"
+
+10:19:32 "Last tick (843) calculation time 1ms"
+
+10:19:32 "Last tick (844) calculation time 1ms"
+
+10:19:32 "Last tick (845) calculation time 1ms"
+
+10:19:32 "Last tick (846) calculation time 1ms"
+
+10:19:32 "Last tick (847) calculation time 2ms"
+
+10:19:32 "Last tick (848) calculation time 1ms"
+
+10:19:32 "Last tick (849) calculation time 1ms"
+
+10:19:32 "Last tick (850) calculation time 8ms"
+
+10:19:33 "Last tick (851) calculation time 1ms"
+
+10:19:33 "Last tick (852) calculation time 2ms"
+
+10:19:33 "Last tick (853) calculation time 1ms"
+
+10:19:33 "Last tick (854) calculation time 1ms"
+
+10:19:33 "Last tick (855) calculation time 1ms"
+
+10:19:33 "Last tick (856) calculation time 1ms"
+
+10:19:33 "undefined", {}
+
+10:19:33 "Last tick (857) calculation time 1ms"
+
+10:19:33 "Last tick (858) calculation time 1ms"
+
+10:19:33 "Last tick (859) calculation time 1ms"
+
+10:19:34 "Last tick (860) calculation time 13ms"
+
+10:19:34 "Last tick (861) calculation time 1ms"
+
+10:19:34 "Last tick (862) calculation time 1ms"
+
+10:19:34 "Last tick (863) calculation time 1ms"
+
+10:19:34 "Last tick (864) calculation time 1ms"
+
+10:19:34 "Last tick (865) calculation time 1ms"
+
+10:19:34 "Last tick (866) calculation time 1ms"
+
+10:19:34 "Last tick (867) calculation time 1ms"
+
+10:19:34 "Last tick (868) calculation time 2ms"
+
+10:19:34 "Last tick (869) calculation time 1ms"
+
+10:19:35 "Last tick (870) calculation time 10ms"
+
+10:19:35 "Last tick (871) calculation time 1ms"
+
+10:19:35 "Last tick (872) calculation time 1ms"
+
+10:19:35 "Last tick (873) calculation time 1ms"
+
+10:19:35 "Last tick (874) calculation time 1ms"
+
+10:19:35 "Last tick (875) calculation time 1ms"
+
+10:19:35 "Last tick (876) calculation time 1ms"
+
+10:19:35 "Last tick (877) calculation time 1ms"
+
+10:19:35 "Last tick (878) calculation time 1ms"
+
+10:19:35 "Last tick (879) calculation time 1ms"
+
+10:19:36 "Last tick (880) calculation time 11ms"
+
+10:19:36 "Last tick (881) calculation time 1ms"
+
+10:19:36 "Last tick (882) calculation time 1ms"
+
+10:19:36 "Last tick (883) calculation time 1ms"
+
+10:19:36 "Last tick (884) calculation time 1ms"
+
+10:19:36 "Last tick (885) calculation time 1ms"
+
+10:19:36 "Last tick (886) calculation time 1ms"
+
+10:19:36 "Last tick (887) calculation time 1ms"
+
+10:19:36 "Last tick (888) calculation time 1ms"
+
+10:19:36 "Last tick (889) calculation time 1ms"
+
+10:19:37 "Last tick (890) calculation time 1ms"
+
+10:19:37 "Last tick (891) calculation time 1ms"
+
+10:19:37 "Last tick (892) calculation time 1ms"
+
+10:19:37 "Last tick (893) calculation time 1ms"
+
+10:19:37 "Last tick (894) calculation time 1ms"
+
+10:19:37 "Last tick (895) calculation time 1ms"
+
+10:19:37 "Last tick (896) calculation time 1ms"
+
+10:19:37 "Last tick (897) calculation time 1ms"
+
+10:19:37 "Last tick (898) calculation time 1ms"
+
+10:19:37 "Last tick (899) calculation time 1ms"
+
+10:19:38 "Last tick (900) calculation time 10ms"
+
+10:19:38 "Last tick (901) calculation time 1ms"
+
+10:19:38 "Last tick (902) calculation time 1ms"
+
+10:19:38 "Last tick (903) calculation time 1ms"
+
+10:19:38 "Last tick (904) calculation time 1ms"
+
+10:19:38 "Last tick (905) calculation time 1ms"
+
+10:19:38 "Last tick (906) calculation time 1ms"
+
+10:19:38 "Last tick (907) calculation time 1ms"
+
+10:19:38 "Last tick (908) calculation time 1ms"
+
+10:19:38 "Last tick (909) calculation time 1ms"
+
+10:19:39 "Last tick (910) calculation time 1ms"
+
+10:19:39 "Last tick (911) calculation time 1ms"
+
+10:19:39 "Last tick (912) calculation time 1ms"
+
+10:19:39 "Last tick (913) calculation time 1ms"
+
+10:19:39 "Last tick (914) calculation time 1ms"
+
+10:19:39 "Last tick (915) calculation time 1ms"
+
+10:19:39 "Last tick (916) calculation time 1ms"
+
+10:19:39 "Last tick (917) calculation time 1ms"
+
+10:19:39 "Last tick (918) calculation time 1ms"
+
+10:19:39 "Last tick (919) calculation time 1ms"
+
+10:19:40 "Last tick (920) calculation time 12ms"
+
+10:19:40 "Last tick (921) calculation time 1ms"
+
+10:19:40 "Last tick (922) calculation time 1ms"
+
+10:19:40 "Last tick (923) calculation time 1ms"
+
+10:19:40 "Last tick (924) calculation time 1ms"
+
+10:19:40 "Last tick (925) calculation time 1ms"
+
+10:19:40 "Last tick (926) calculation time 1ms"
+
+10:19:40 "Last tick (927) calculation time 1ms"
+
+10:19:40 "Last tick (928) calculation time 1ms"
+
+10:19:40 "Last tick (929) calculation time 1ms"
+
+10:19:41 "Last tick (930) calculation time 1ms"
+
+10:19:41 "Last tick (931) calculation time 1ms"
+
+10:19:41 "Last tick (932) calculation time 1ms"
+
+10:19:41 "Last tick (933) calculation time 1ms"
+
+10:19:41 "Last tick (934) calculation time 1ms"
+
+10:19:41 "Last tick (935) calculation time 1ms"
+
+10:19:41 "Last tick (936) calculation time 1ms"
+
+10:19:41 "Last tick (937) calculation time 1ms"
+
+10:19:41 "Last tick (938) calculation time 1ms"
+
+10:19:41 "Last tick (939) calculation time 1ms"
+
+10:19:42 "Last tick (940) calculation time 11ms"
+
+10:19:42 "Last tick (941) calculation time 1ms"
+
+10:19:42 "Last tick (942) calculation time 1ms"
+
+10:19:42 "Last tick (943) calculation time 1ms"
+
+10:19:42 "Last tick (944) calculation time 1ms"
+
+10:19:42 "Last tick (945) calculation time 1ms"
+
+10:19:42 "Last tick (946) calculation time 1ms"
+
+10:19:42 "Last tick (947) calculation time 1ms"
+
+10:19:42 "Last tick (948) calculation time 1ms"
+
+10:19:42 "Last tick (949) calculation time 1ms"
+
+10:19:43 "Last tick (950) calculation time 1ms"
+
+10:19:43 "Last tick (951) calculation time 1ms"
+
+10:19:43 "Last tick (952) calculation time 1ms"
+
+10:19:43 "Last tick (953) calculation time 1ms"
+
+10:19:43 "Last tick (954) calculation time 1ms"
+
+10:19:43 "Last tick (955) calculation time 1ms"
+
+10:19:43 "Last tick (956) calculation time 1ms"
+
+10:19:43 "Last tick (957) calculation time 1ms"
+
+10:19:43 "Last tick (958) calculation time 1ms"
+
+10:19:43 "Last tick (959) calculation time 1ms"
+
+10:19:44 "Last tick (960) calculation time 18ms"
+
+10:19:44 "Last tick (961) calculation time 1ms"
+
+10:19:44 "Last tick (962) calculation time 1ms"
+
+10:19:44 "Last tick (963) calculation time 1ms"
+
+10:19:44 "Last tick (964) calculation time 1ms"
+
+10:19:44 "Last tick (965) calculation time 1ms"
+
+10:19:44 "undefined", {}
+
+10:19:44 "Last tick (966) calculation time 1ms"
+
+10:19:44 "Last tick (967) calculation time 1ms"
+
+10:19:44 "Last tick (968) calculation time 1ms"
+
+10:19:44 "Last tick (969) calculation time 1ms"
+
+10:19:45 "Last tick (970) calculation time 1ms"
+
+10:19:45 "Last tick (971) calculation time 1ms"
+
+10:19:45 "Last tick (972) calculation time 1ms"
+
+10:19:45 "Last tick (973) calculation time 1ms"
+
+10:19:45 "Last tick (974) calculation time 1ms"
+
+10:19:45 "Last tick (975) calculation time 1ms"
+
+10:19:45 "Last tick (976) calculation time 1ms"
+
+10:19:45 "Last tick (977) calculation time 1ms"
+
+10:19:45 "Last tick (978) calculation time 1ms"
+
+10:19:46 "Last tick (979) calculation time 1ms"
+
+10:19:46 "Last tick (980) calculation time 7ms"
+
+10:19:46 "Last tick (981) calculation time 1ms"
+
+10:19:46 "Last tick (982) calculation time 1ms"
+
+10:19:46 "Last tick (983) calculation time 1ms"
+
+10:19:46 "Last tick (984) calculation time 1ms"
+
+10:19:46 "Last tick (985) calculation time 1ms"
+
+10:19:46 "Last tick (986) calculation time 1ms"
+
+10:19:46 "Last tick (987) calculation time 1ms"
+
+10:19:46 "Last tick (988) calculation time 1ms"
+
+10:19:47 "Last tick (989) calculation time 1ms"
+
+10:19:47 "Last tick (990) calculation time 1ms"
+
+10:19:47 "Last tick (991) calculation time 1ms"
+
+10:19:47 "Last tick (992) calculation time 1ms"
+
+10:19:47 "Last tick (993) calculation time 1ms"
+
+10:19:47 "Last tick (994) calculation time 1ms"
+
+10:19:47 "Last tick (995) calculation time 1ms"
+
+10:19:47 "Last tick (996) calculation time 1ms"
+
+10:19:47 "Last tick (997) calculation time 1ms"
+
+10:19:47 "Last tick (998) calculation time 1ms"
+
+10:19:48 "Last tick (999) calculation time 1ms"
+
+10:19:48 "Last tick (1000) calculation time 8ms"
+
+10:19:48 "Last tick (1001) calculation time 1ms"
+
+10:19:48 "Last tick (1002) calculation time 1ms"
+
+10:19:48 "Last tick (1003) calculation time 1ms"
+
+10:19:48 "Last tick (1004) calculation time 1ms"
+
+10:19:48 "Last tick (1005) calculation time 1ms"
+
+10:19:48 "Last tick (1006) calculation time 1ms"
+
+10:19:48 "Last tick (1007) calculation time 1ms"
+
+10:19:48 "Last tick (1008) calculation time 1ms"
+
+10:19:49 "Last tick (1009) calculation time 1ms"
+
+10:19:49 "Last tick (1010) calculation time 17ms"
+
+10:19:49 "Last tick (1011) calculation time 1ms"
+
+10:19:49 "Last tick (1012) calculation time 1ms"
+
+10:19:49 "Last tick (1013) calculation time 1ms"
+
+10:19:49 "Last tick (1014) calculation time 1ms"
+
+10:19:49 "Last tick (1015) calculation time 1ms"
+
+10:19:49 "Last tick (1016) calculation time 1ms"
+
+10:19:49 "Last tick (1017) calculation time 1ms"
+
+10:19:49 "Last tick (1018) calculation time 1ms"
+
+10:19:50 "Last tick (1019) calculation time 1ms"
+
+10:19:50 "Last tick (1020) calculation time 1ms"
+
+10:19:50 "Last tick (1021) calculation time 1ms"
+
+10:19:50 "Last tick (1022) calculation time 1ms"
+
+10:19:50 "Last tick (1023) calculation time 1ms"
+
+10:19:50 "Last tick (1024) calculation time 1ms"
+
+10:19:50 "Last tick (1025) calculation time 1ms"
+
+10:19:50 "Last tick (1026) calculation time 1ms"
+
+10:19:50 "Last tick (1027) calculation time 1ms"
+
+10:19:50 "Last tick (1028) calculation time 1ms"
+
+10:19:51 "Last tick (1029) calculation time 1ms"
+
+10:19:51 "Last tick (1030) calculation time 18ms"
+
+10:19:51 "Last tick (1031) calculation time 1ms"
+
+10:19:51 "Last tick (1032) calculation time 1ms"
+
+10:19:51 "Last tick (1033) calculation time 1ms"
+
+10:19:51 "Last tick (1034) calculation time 5ms"
+
+10:19:51 "Last tick (1035) calculation time 1ms"
+
+10:19:51 "Last tick (1036) calculation time 1ms"
+
+10:19:51 "Last tick (1037) calculation time 1ms"
+
+10:19:51 "Last tick (1038) calculation time 1ms"
+
+10:19:52 "Last tick (1039) calculation time 1ms"
+
+10:19:52 "Last tick (1040) calculation time 2ms"
+
+10:19:52 "undefined", {}
+
+10:19:52 "Last tick (1041) calculation time 1ms"
+
+10:19:52 "Last tick (1042) calculation time 1ms"
+
+10:19:52 "Last tick (1043) calculation time 1ms"
+
+10:19:52 "Last tick (1044) calculation time 1ms"
+
+10:19:52 "Last tick (1045) calculation time 1ms"
+
+10:19:52 "Last tick (1046) calculation time 1ms"
+
+10:19:52 "Last tick (1047) calculation time 1ms"
+
+10:19:52 "Last tick (1048) calculation time 1ms"
+
+10:19:53 "Last tick (1049) calculation time 1ms"
+
+10:19:53 "Last tick (1050) calculation time 1ms"
+
+10:19:53 "Last tick (1051) calculation time 1ms"
+
+10:19:53 "Last tick (1052) calculation time 1ms"
+
+10:19:53 "Last tick (1053) calculation time 1ms"
+
+10:19:53 "Last tick (1054) calculation time 13ms"
+
+10:19:53 "Last tick (1055) calculation time 1ms"
+
+10:19:53 "Last tick (1056) calculation time 1ms"
+
+10:19:53 "Last tick (1057) calculation time 1ms"
+
+10:19:53 "Last tick (1058) calculation time 1ms"
+
+10:19:54 "Last tick (1059) calculation time 1ms"
+
+10:19:54 "Last tick (1060) calculation time 2ms"
+
+10:19:54 "Last tick (1061) calculation time 1ms"
+
+10:19:54 "Last tick (1062) calculation time 1ms"
+
+10:19:54 "Last tick (1063) calculation time 1ms"
+
+10:19:54 "Last tick (1064) calculation time 1ms"
+
+10:19:54 "Last tick (1065) calculation time 1ms"
+
+10:19:54 "Last tick (1066) calculation time 1ms"
+
+10:19:54 "Last tick (1067) calculation time 1ms"
+
+10:19:54 "Last tick (1068) calculation time 1ms"
+
+10:19:55 "Last tick (1069) calculation time 1ms"
+
+10:19:55 "Last tick (1070) calculation time 1ms"
+
+10:19:55 "Last tick (1071) calculation time 1ms"
+
+10:19:55 "Last tick (1072) calculation time 1ms"
+
+10:19:55 "Last tick (1073) calculation time 1ms"
+
+10:19:55 "Last tick (1074) calculation time 3ms"
+
+10:19:55 "Last tick (1075) calculation time 2ms"
+
+10:19:55 "Last tick (1076) calculation time 1ms"
+
+10:19:55 "Last tick (1077) calculation time 1ms"
+
+10:19:55 "Last tick (1078) calculation time 3ms"
+
+10:19:56 "Last tick (1079) calculation time 1ms"
+
+10:19:56 "Last tick (1080) calculation time 77ms"
+
+10:19:56 "Last tick (1081) calculation time 1ms"
+
+10:19:56 "Last tick (1082) calculation time 1ms"
+
+10:19:56 "Last tick (1083) calculation time 1ms"
+
+10:19:56 "Last tick (1084) calculation time 1ms"
+
+10:19:56 "Last tick (1085) calculation time 1ms"
+
+10:19:56 "Last tick (1086) calculation time 1ms"
+
+10:19:56 "Last tick (1087) calculation time 1ms"
+
+10:19:56 "Last tick (1088) calculation time 2ms"
+
+10:19:57 "Last tick (1089) calculation time 2ms"
+
+10:19:57 "Last tick (1090) calculation time 31ms"
+
+10:19:57 "Last tick (1091) calculation time 3ms"
+
+10:19:57 "Last tick (1092) calculation time 2ms"
+
+10:19:57 "Last tick (1093) calculation time 1ms"
+
+10:19:57 "Last tick (1094) calculation time 1ms"
+
+10:19:57 "Last tick (1095) calculation time 1ms"
+
+10:19:57 "Last tick (1096) calculation time 1ms"
+
+10:19:57 "Last tick (1097) calculation time 1ms"
+
+10:19:58 "Last tick (1098) calculation time 1ms"
+
+10:19:58 "Last tick (1099) calculation time 2ms"
+
+10:19:58 "Last tick (1100) calculation time 3ms"
+
+10:19:58 "Last tick (1101) calculation time 1ms"
+
+10:19:58 "Last tick (1102) calculation time 1ms"
+
+10:19:58 "Last tick (1103) calculation time 1ms"
+
+10:19:58 "Last tick (1104) calculation time 1ms"
+
+10:19:58 "Last tick (1105) calculation time 1ms"
+
+10:19:58 "Last tick (1106) calculation time 1ms"
+
+10:19:58 "Last tick (1107) calculation time 1ms"
+
+10:19:59 "Last tick (1108) calculation time 1ms"
+
+10:19:59 "Last tick (1109) calculation time 1ms"
+
+10:19:59 "Last tick (1110) calculation time 11ms"
+
+10:19:59 "Last tick (1111) calculation time 1ms"
+
+10:19:59 "Last tick (1112) calculation time 1ms"
+
+10:19:59 "Last tick (1113) calculation time 1ms"
+
+10:19:59 "Last tick (1114) calculation time 1ms"
+
+10:19:59 "Last tick (1115) calculation time 1ms"
+
+10:19:59 "Last tick (1116) calculation time 1ms"
+
+10:19:59 "Last tick (1117) calculation time 1ms"
+
+10:20:00 "Last tick (1118) calculation time 1ms"
+
+10:20:00 "Last tick (1119) calculation time 1ms"
+
+10:20:00 "Last tick (1120) calculation time 1ms"
+
+10:20:00 "Last tick (1121) calculation time 1ms"
+
+10:20:00 "Last tick (1122) calculation time 1ms"
+
+10:20:00 "Last tick (1123) calculation time 1ms"
+
+10:20:00 "Last tick (1124) calculation time 2ms"
+
+10:20:00 "Last tick (1125) calculation time 1ms"
+
+10:20:00 "Last tick (1126) calculation time 2ms"
+
+10:20:00 "Last tick (1127) calculation time 1ms"
+
+10:20:01 "Last tick (1128) calculation time 1ms"
+
+10:20:01 "Last tick (1129) calculation time 5ms"
+
+10:20:01 "Last tick (1130) calculation time 41ms"
+
+10:20:01 "Last tick (1131) calculation time 1ms"
+
+10:20:01 "Last tick (1132) calculation time 1ms"
+
+10:20:01 "Last tick (1133) calculation time 2ms"
+
+10:20:01 "Last tick (1134) calculation time 2ms"
+
+10:20:01 "Last tick (1135) calculation time 1ms"
+
+10:20:01 "Last tick (1136) calculation time 1ms"
+
+10:20:01 "Last tick (1137) calculation time 1ms"
+
+10:20:02 "Last tick (1138) calculation time 1ms"
+
+10:20:02 "Last tick (1139) calculation time 1ms"
+
+10:20:02 "Last tick (1140) calculation time 1ms"
+
+10:20:02 "Last tick (1141) calculation time 1ms"
+
+10:20:02 "Last tick (1142) calculation time 1ms"
+
+10:20:02 "Last tick (1143) calculation time 1ms"
+
+10:20:02 "Last tick (1144) calculation time 1ms"
+
+10:20:02 "Last tick (1145) calculation time 1ms"
+
+10:20:02 "Last tick (1146) calculation time 1ms"
+
+10:20:02 "Last tick (1147) calculation time 1ms"
+
+10:20:03 "Last tick (1148) calculation time 1ms"
+
+10:20:03 "Last tick (1149) calculation time 1ms"
+
+10:20:03 "Last tick (1150) calculation time 1ms"
+
+10:20:03 "Last tick (1151) calculation time 1ms"
+
+10:20:03 "Last tick (1152) calculation time 1ms"
+
+10:20:03 "Last tick (1153) calculation time 1ms"
+
+10:20:03 "Last tick (1154) calculation time 1ms"
+
+10:20:03 "Last tick (1155) calculation time 1ms"
+
+10:20:03 "Last tick (1156) calculation time 1ms"
+
+10:20:03 "Last tick (1157) calculation time 1ms"
+
+10:20:04 "Last tick (1158) calculation time 1ms"
+
+10:20:04 "Last tick (1159) calculation time 1ms"
+
+10:20:04 "Last tick (1160) calculation time 34ms"
+
+10:20:04 "Last tick (1161) calculation time 1ms"
+
+10:20:04 "Last tick (1162) calculation time 1ms"
+
+10:20:04 "Last tick (1163) calculation time 1ms"
+
+10:20:04 "Last tick (1164) calculation time 1ms"
+
+10:20:04 "Last tick (1165) calculation time 1ms"
+
+10:20:04 "Last tick (1166) calculation time 1ms"
+
+10:20:04 "Last tick (1167) calculation time 1ms"
+
+10:20:05 "Last tick (1168) calculation time 1ms"
+
+10:20:05 "Last tick (1169) calculation time 1ms"
+
+10:20:05 "Last tick (1170) calculation time 2ms"
+
+10:20:05 "Last tick (1171) calculation time 3ms"
+
+10:20:05 "Last tick (1172) calculation time 1ms"
+
+10:20:05 "Last tick (1173) calculation time 1ms"
+
+10:20:05 "Last tick (1174) calculation time 1ms"
+
+10:20:05 "Last tick (1175) calculation time 1ms"
+
+10:20:05 "Last tick (1176) calculation time 1ms"
+
+10:20:05 "Last tick (1177) calculation time 2ms"
+
+10:20:06 "Last tick (1178) calculation time 1ms"
+
+10:20:06 "Last tick (1179) calculation time 1ms"
+
+10:20:06 "Last tick (1180) calculation time 20ms"
+
+10:20:06 "Last tick (1181) calculation time 1ms"
+
+10:20:06 "Last tick (1182) calculation time 1ms"
+
+10:20:06 "Last tick (1183) calculation time 1ms"
+
+10:20:06 "Last tick (1184) calculation time 1ms"
+
+10:20:06 "Last tick (1185) calculation time 1ms"
+
+10:20:06 "Last tick (1186) calculation time 1ms"
+
+10:20:06 "Last tick (1187) calculation time 1ms"
+
+10:20:07 "Last tick (1188) calculation time 1ms"
+
+10:20:07 "Last tick (1189) calculation time 1ms"
+
+10:20:07 "Last tick (1190) calculation time 1ms"
+
+10:20:07 "Last tick (1191) calculation time 1ms"
+
+10:20:07 "Last tick (1192) calculation time 1ms"
+
+10:20:07 "Last tick (1193) calculation time 1ms"
+
+10:20:07 "Last tick (1194) calculation time 1ms"
+
+10:20:07 "Last tick (1195) calculation time 1ms"
+
+10:20:07 "Last tick (1196) calculation time 1ms"
+
+10:20:07 "Last tick (1197) calculation time 1ms"
+
+10:20:08 "Last tick (1198) calculation time 1ms"
+
+10:20:08 "Last tick (1199) calculation time 1ms"
+
+10:20:08 "Last tick (1200) calculation time 10ms"
+
+10:20:08 "Last tick (1201) calculation time 2ms"
+
+10:20:08 "Last tick (1202) calculation time 2ms"
+
+10:20:08 "Last tick (1203) calculation time 2ms"
+
+10:20:08 "Last tick (1204) calculation time 1ms"
+
+10:20:08 "Last tick (1205) calculation time 1ms"
+
+10:20:08 "Last tick (1206) calculation time 3ms"
+
+10:20:09 "Last tick (1207) calculation time 2ms"
+
+10:20:09 "Last tick (1208) calculation time 1ms"
+
+10:20:09 "Last tick (1209) calculation time 1ms"
+
+10:20:09 "Last tick (1210) calculation time 14ms"
+
+10:20:09 "Last tick (1211) calculation time 1ms"
+
+10:20:09 "Last tick (1212) calculation time 1ms"
+
+10:20:09 "Last tick (1213) calculation time 1ms"
+
+10:20:09 "Last tick (1214) calculation time 1ms"
+
+10:20:09 "Last tick (1215) calculation time 1ms"
+
+10:20:09 "Last tick (1216) calculation time 1ms"
+
+10:20:10 "Last tick (1217) calculation time 1ms"
+
+10:20:10 "Last tick (1218) calculation time 1ms"
+
+10:20:10 "Last tick (1219) calculation time 2ms"
+
+10:20:10 "Last tick (1220) calculation time 2ms"
+
+10:20:10 "Last tick (1221) calculation time 2ms"
+
+10:20:10 "Last tick (1222) calculation time 2ms"
+
+10:20:10 "Last tick (1223) calculation time 2ms"
+
+10:20:10 "Last tick (1224) calculation time 2ms"
+
+10:20:10 "Last tick (1225) calculation time 2ms"
+
+10:20:10 "Last tick (1226) calculation time 1ms"
+
+10:20:11 "Last tick (1227) calculation time 1ms"
+
+10:20:11 "Last tick (1228) calculation time 1ms"
+
+10:20:11 "Last tick (1229) calculation time 1ms"
+
+10:20:11 "Last tick (1230) calculation time 1ms"
+
+10:20:11 "Last tick (1231) calculation time 1ms"
+
+10:20:11 "Last tick (1232) calculation time 1ms"
+
+10:20:11 "Last tick (1233) calculation time 1ms"
+
+10:20:11 "Last tick (1234) calculation time 1ms"
+
+10:20:11 "Last tick (1235) calculation time 1ms"
+
+10:20:11 "Last tick (1236) calculation time 1ms"
+
+10:20:12 "Last tick (1237) calculation time 1ms"
+
+10:20:12 "Last tick (1238) calculation time 1ms"
+
+10:20:12 "Last tick (1239) calculation time 1ms"
+
+10:20:12 "Last tick (1240) calculation time 1ms"
+
+10:20:12 "Last tick (1241) calculation time 1ms"
+
+10:20:12 "Last tick (1242) calculation time 1ms"
+
+10:20:12 "Last tick (1243) calculation time 1ms"
+
+10:20:12 "Last tick (1244) calculation time 1ms"
+
+10:20:12 "Last tick (1245) calculation time 1ms"
+
+10:20:12 "Last tick (1246) calculation time 1ms"
+
+10:20:13 "Last tick (1247) calculation time 1ms"
+
+10:20:13 "Last tick (1248) calculation time 1ms"
+
+10:20:13 "Last tick (1249) calculation time 1ms"
+
+10:20:13 "Last tick (1250) calculation time 2ms"
+
+10:20:13 "Last tick (1251) calculation time 1ms"
+
+10:20:13 "Last tick (1252) calculation time 1ms"
+
+10:20:13 "Last tick (1253) calculation time 1ms"
+
+10:20:13 "Last tick (1254) calculation time 1ms"
+
+10:20:13 "Last tick (1255) calculation time 1ms"
+
+10:20:13 "Last tick (1256) calculation time 1ms"
+
+10:20:14 "Last tick (1257) calculation time 1ms"
+
+10:20:14 "Last tick (1258) calculation time 1ms"
+
+10:20:14 "Last tick (1259) calculation time 1ms"
+
+10:20:14 "Last tick (1260) calculation time 1ms"
+
+10:20:14 "Last tick (1261) calculation time 6ms"
+
+10:20:14 "Last tick (1262) calculation time 1ms"
+
+10:20:14 "Last tick (1263) calculation time 1ms"
+
+10:20:14 "Last tick (1264) calculation time 1ms"
+
+10:20:14 "Last tick (1265) calculation time 1ms"
+
+10:20:14 "Last tick (1266) calculation time 1ms"
+
+10:20:15 "Last tick (1267) calculation time 1ms"
+
+10:20:15 "Last tick (1268) calculation time 1ms"
+
+10:20:15 "Last tick (1269) calculation time 1ms"
+
+10:20:15 "Last tick (1270) calculation time 21ms"
+
+10:20:15 "Last tick (1271) calculation time 1ms"
+
+10:20:15 "Last tick (1272) calculation time 1ms"
+
+10:20:15 "Last tick (1273) calculation time 1ms"
+
+10:20:15 "Last tick (1274) calculation time 1ms"
+
+10:20:15 "Last tick (1275) calculation time 1ms"
+
+10:20:15 "Last tick (1276) calculation time 1ms"
+
+10:20:16 "Last tick (1277) calculation time 1ms"
+
+10:20:16 "Last tick (1278) calculation time 1ms"
+
+10:20:16 "Last tick (1279) calculation time 1ms"
+
+10:20:16 "Last tick (1280) calculation time 1ms"
+
+10:20:16 "Last tick (1281) calculation time 1ms"
+
+10:20:16 "Last tick (1282) calculation time 1ms"
+
+10:20:16 "Last tick (1283) calculation time 1ms"
+
+10:20:16 "Last tick (1284) calculation time 1ms"
+
+10:20:16 "Last tick (1285) calculation time 1ms"
+
+10:20:16 "Last tick (1286) calculation time 1ms"
+
+10:20:17 "Last tick (1287) calculation time 1ms"
+
+10:20:17 "Last tick (1288) calculation time 1ms"
+
+10:20:17 "Last tick (1289) calculation time 1ms"
+
+10:20:17 "Last tick (1290) calculation time 1ms"
+
+10:20:17 "Last tick (1291) calculation time 1ms"
+
+10:20:17 "Last tick (1292) calculation time 1ms"
+
+10:20:17 "Last tick (1293) calculation time 1ms"
+
+10:20:17 "Last tick (1294) calculation time 1ms"
+
+10:20:17 "Last tick (1295) calculation time 1ms"
+
+10:20:17 "Last tick (1296) calculation time 1ms"
+
+10:20:18 "Last tick (1297) calculation time 1ms"
+
+10:20:18 "Last tick (1298) calculation time 1ms"
+
+10:20:18 "Last tick (1299) calculation time 1ms"
+
+10:20:18 "Last tick (1300) calculation time 1ms"
+
+10:20:18 "Last tick (1301) calculation time 1ms"
+
+10:20:18 "Last tick (1302) calculation time 1ms"
+
+10:20:18 "Last tick (1303) calculation time 1ms"
+
+10:20:18 "Last tick (1304) calculation time 1ms"
+
+10:20:18 "Last tick (1305) calculation time 1ms"
+
+10:20:18 "Last tick (1306) calculation time 1ms"
+
+10:20:19 "Last tick (1307) calculation time 1ms"
+
+10:20:19 "Last tick (1308) calculation time 1ms"
+
+10:20:19 "Last tick (1309) calculation time 1ms"
+
+10:20:19 "Last tick (1310) calculation time 9ms"
+
+10:20:19 "Last tick (1311) calculation time 1ms"
+
+10:20:19 "Last tick (1312) calculation time 1ms"
+
+10:20:19 "Last tick (1313) calculation time 1ms"
+
+10:20:19 "Last tick (1314) calculation time 1ms"
+
+10:20:19 "Last tick (1315) calculation time 1ms"
+
+10:20:19 "Last tick (1316) calculation time 1ms"
+
+10:20:20 "Last tick (1317) calculation time 1ms"
+
+10:20:20 "Last tick (1318) calculation time 1ms"
+
+10:20:20 "Last tick (1319) calculation time 1ms"
+
+10:20:20 "Last tick (1320) calculation time 8ms"
+
+10:20:20 "Last tick (1321) calculation time 1ms"
+
+10:20:20 "Last tick (1322) calculation time 1ms"
+
+10:20:20 "Last tick (1323) calculation time 1ms"
+
+10:20:20 "Last tick (1324) calculation time 1ms"
+
+10:20:20 "Last tick (1325) calculation time 1ms"
+
+10:20:21 "Last tick (1326) calculation time 1ms"
+
+10:20:21 "Last tick (1327) calculation time 1ms"
+
+10:20:21 "Last tick (1328) calculation time 1ms"
+
+10:20:21 "Last tick (1329) calculation time 1ms"
+
+10:20:21 "Last tick (1330) calculation time 1ms"
+
+10:20:21 "Last tick (1331) calculation time 1ms"
+
+10:20:21 "Last tick (1332) calculation time 1ms"
+
+10:20:21 "Last tick (1333) calculation time 1ms"
+
+10:20:21 "Last tick (1334) calculation time 1ms"
+
+10:20:21 "Last tick (1335) calculation time 1ms"
+
+10:20:22 "Last tick (1336) calculation time 1ms"
+
+10:20:22 "Last tick (1337) calculation time 1ms"
+
+10:20:22 "Last tick (1338) calculation time 1ms"
+
+10:20:22 "Last tick (1339) calculation time 1ms"
+
+10:20:22 "Last tick (1340) calculation time 19ms"
+
+10:20:22 "Last tick (1341) calculation time 1ms"
+
+10:20:22 "Last tick (1342) calculation time 1ms"
+
+10:20:22 "Last tick (1343) calculation time 1ms"
+
+10:20:22 "Last tick (1344) calculation time 1ms"
+
+10:20:22 "Last tick (1345) calculation time 1ms"
+
+10:20:23 "Last tick (1346) calculation time 1ms"
+
+10:20:23 "Last tick (1347) calculation time 1ms"
+
+10:20:23 "Last tick (1348) calculation time 1ms"
+
+10:20:23 "Last tick (1349) calculation time 1ms"
+
+10:20:23 "Last tick (1350) calculation time 1ms"
+
+10:20:23 "Last tick (1351) calculation time 1ms"
+
+10:20:23 "Last tick (1352) calculation time 1ms"
+
+10:20:23 "Last tick (1353) calculation time 1ms"
+
+10:20:23 "Last tick (1354) calculation time 1ms"
+
+10:20:23 "Last tick (1355) calculation time 1ms"
+
+10:20:24 "Last tick (1356) calculation time 1ms"
+
+10:20:24 "Last tick (1357) calculation time 1ms"
+
+10:20:24 "Last tick (1358) calculation time 1ms"
+
+10:20:24 "Last tick (1359) calculation time 1ms"
+
+10:20:24 "Last tick (1360) calculation time 1ms"
+
+10:20:24 "Last tick (1361) calculation time 1ms"
+
+10:20:24 "Last tick (1362) calculation time 1ms"
+
+10:20:24 "Last tick (1363) calculation time 1ms"
+
+10:20:24 "Last tick (1364) calculation time 1ms"
+
+10:20:24 "Last tick (1365) calculation time 1ms"
+
+10:20:25 "Last tick (1366) calculation time 1ms"
+
+10:20:25 "Last tick (1367) calculation time 1ms"
+
+10:20:25 "Last tick (1368) calculation time 1ms"
+
+10:20:25 "Last tick (1369) calculation time 1ms"
+
+10:20:25 "Last tick (1370) calculation time 1ms"
+
+10:20:25 "Last tick (1371) calculation time 1ms"
+
+10:20:25 "Last tick (1372) calculation time 1ms"
+
+10:20:25 "Last tick (1373) calculation time 1ms"
+
+10:20:25 "Last tick (1374) calculation time 1ms"
+
+10:20:25 "Last tick (1375) calculation time 1ms"
+
+10:20:26 "Last tick (1376) calculation time 1ms"
+
+10:20:26 "Last tick (1377) calculation time 1ms"
+
+10:20:26 "Last tick (1378) calculation time 1ms"
+
+10:20:26 "Last tick (1379) calculation time 1ms"
+
+10:20:26 "Last tick (1380) calculation time 8ms"
+
+10:20:26 "Last tick (1381) calculation time 1ms"
+
+10:20:26 "Last tick (1382) calculation time 1ms"
+
+10:20:26 "Last tick (1383) calculation time 1ms"
+
+10:20:26 "Last tick (1384) calculation time 1ms"
+
+10:20:26 "Last tick (1385) calculation time 1ms"
+
+10:20:27 "Last tick (1386) calculation time 1ms"
+
+10:20:27 "Last tick (1387) calculation time 1ms"
+
+10:20:27 "Last tick (1388) calculation time 1ms"
+
+10:20:27 "Last tick (1389) calculation time 1ms"
+
+10:20:27 "Last tick (1390) calculation time 6ms"
+
+10:20:27 "Last tick (1391) calculation time 1ms"
+
+10:20:27 "Last tick (1392) calculation time 1ms"
+
+10:20:27 "Last tick (1393) calculation time 1ms"
+
+10:20:27 "Last tick (1394) calculation time 1ms"
+
+10:20:27 "Last tick (1395) calculation time 1ms"
+
+10:20:28 "Last tick (1396) calculation time 1ms"
+
+10:20:28 "Last tick (1397) calculation time 1ms"
+
+10:20:28 "Last tick (1398) calculation time 1ms"
+
+10:20:28 "Last tick (1399) calculation time 1ms"
+
+10:20:28 "Last tick (1400) calculation time 1ms"
+
+10:20:28 "Last tick (1401) calculation time 1ms"
+
+10:20:28 "Last tick (1402) calculation time 1ms"
+
+10:20:28 "Last tick (1403) calculation time 1ms"
+
+10:20:28 "Last tick (1404) calculation time 1ms"
+
+10:20:28 "Last tick (1405) calculation time 1ms"
+
+10:20:29 "Last tick (1406) calculation time 1ms"
+
+10:20:29 "Last tick (1407) calculation time 1ms"
+
+10:20:29 "Last tick (1408) calculation time 1ms"
+
+10:20:29 "undefined", {}
+
+10:20:29 "Last tick (1409) calculation time 2ms"
+
+10:20:29 "Last tick (1410) calculation time 1ms"
+
+10:20:29 "Last tick (1411) calculation time 1ms"
+
+10:20:29 "Last tick (1412) calculation time 1ms"
+
+10:20:29 "Last tick (1413) calculation time 1ms"
+
+10:20:29 "Last tick (1414) calculation time 1ms"
+
+10:20:29 "Last tick (1415) calculation time 1ms"
+
+10:20:30 "Last tick (1416) calculation time 1ms"
+
+10:20:30 "Last tick (1417) calculation time 1ms"
+
+10:20:30 "Last tick (1418) calculation time 1ms"
+
+10:20:30 "Last tick (1419) calculation time 1ms"
+
+10:20:30 "Last tick (1420) calculation time 1ms"
+
+10:20:30 "Last tick (1421) calculation time 1ms"
+
+10:20:30 "Last tick (1422) calculation time 1ms"
+
+10:20:30 "Last tick (1423) calculation time 1ms"
+
+10:20:30 "Last tick (1424) calculation time 1ms"
+
+10:20:30 "Last tick (1425) calculation time 1ms"
+
+10:20:31 "Last tick (1426) calculation time 1ms"
+
+10:20:31 "Last tick (1427) calculation time 1ms"
+
+10:20:31 "Last tick (1428) calculation time 1ms"
+
+10:20:31 "Last tick (1429) calculation time 1ms"
+
+10:20:31 "Last tick (1430) calculation time 37ms"
+
+10:20:31 "Last tick (1431) calculation time 1ms"
+
+10:20:31 "Last tick (1432) calculation time 1ms"
+
+10:20:31 "Last tick (1433) calculation time 1ms"
+
+10:20:31 "Last tick (1434) calculation time 1ms"
+
+10:20:31 "Last tick (1435) calculation time 1ms"
+
+10:20:32 "Last tick (1436) calculation time 1ms"
+
+10:20:32 "Last tick (1437) calculation time 1ms"
+
+10:20:32 "Last tick (1438) calculation time 1ms"
+
+10:20:32 "Last tick (1439) calculation time 1ms"
+
+10:20:32 "Last tick (1440) calculation time 1ms"
+
+10:20:32 "Last tick (1441) calculation time 1ms"
+
+10:20:32 "Last tick (1442) calculation time 1ms"
+
+10:20:32 "Last tick (1443) calculation time 1ms"
+
+10:20:32 "Last tick (1444) calculation time 1ms"
+
+10:20:32 "Last tick (1445) calculation time 1ms"
+
+10:20:33 "Last tick (1446) calculation time 1ms"
+
+10:20:33 "Last tick (1447) calculation time 1ms"
+
+10:20:33 "Last tick (1448) calculation time 1ms"
+
+10:20:33 "Last tick (1449) calculation time 1ms"
+
+10:20:33 "Last tick (1450) calculation time 22ms"
+
+10:20:33 "Last tick (1451) calculation time 1ms"
+
+10:20:33 "Last tick (1452) calculation time 1ms"
+
+10:20:33 "Last tick (1453) calculation time 1ms"
+
+10:20:33 "Last tick (1454) calculation time 1ms"
+
+10:20:33 "Last tick (1455) calculation time 1ms"
+
+10:20:34 "Last tick (1456) calculation time 1ms"
+
+10:20:34 "Last tick (1457) calculation time 1ms"
+
+10:20:34 "Last tick (1458) calculation time 1ms"
+
+10:20:34 "Last tick (1459) calculation time 1ms"
+
+10:20:34 "Last tick (1460) calculation time 49ms"
+
+10:20:34 "Last tick (1461) calculation time 1ms"
+
+10:20:34 "Last tick (1462) calculation time 1ms"
+
+10:20:34 "Last tick (1463) calculation time 1ms"
+
+10:20:34 "Last tick (1464) calculation time 1ms"
+
+10:20:34 "Last tick (1465) calculation time 1ms"
+
+10:20:35 "Last tick (1466) calculation time 1ms"
+
+10:20:35 "Last tick (1467) calculation time 1ms"
+
+10:20:35 "Last tick (1468) calculation time 1ms"
+
+10:20:35 "Last tick (1469) calculation time 1ms"
+
+10:20:35 "Last tick (1470) calculation time 2ms"
+
+10:20:35 "Last tick (1471) calculation time 4ms"
+
+10:20:35 "Last tick (1472) calculation time 1ms"
+
+10:20:35 "Last tick (1473) calculation time 1ms"
+
+10:20:35 "Last tick (1474) calculation time 1ms"
+
+10:20:36 "Last tick (1475) calculation time 2ms"
+
+10:20:36 "Last tick (1476) calculation time 1ms"
+
+10:20:36 "Last tick (1477) calculation time 3ms"
+
+10:20:36 "Last tick (1478) calculation time 1ms"
+
+10:20:36 "Last tick (1479) calculation time 1ms"
+
+10:20:36 "Last tick (1480) calculation time 42ms"
+
+10:20:36 "Last tick (1481) calculation time 1ms"
+
+10:20:36 "Last tick (1482) calculation time 1ms"
+
+10:20:36 "Last tick (1483) calculation time 1ms"
+
+10:20:37 "Last tick (1484) calculation time 1ms"
+
+10:20:37 "Last tick (1485) calculation time 1ms"
+
+10:20:37 "Last tick (1486) calculation time 1ms"
+
+10:20:37 "Last tick (1487) calculation time 1ms"
+
+10:20:37 "Last tick (1488) calculation time 1ms"
+
+10:20:37 "Last tick (1489) calculation time 1ms"
+
+10:20:37 "Last tick (1490) calculation time 25ms"
+
+10:20:37 "Last tick (1491) calculation time 1ms"
+
+10:20:37 "Last tick (1492) calculation time 1ms"
+
+10:20:37 "Last tick (1493) calculation time 1ms"
+
+10:20:38 "Last tick (1494) calculation time 1ms"
+
+10:20:38 "Last tick (1495) calculation time 1ms"
+
+10:20:38 "Last tick (1496) calculation time 1ms"
+
+10:20:38 "Last tick (1497) calculation time 1ms"
+
+10:20:38 "Last tick (1498) calculation time 1ms"
+
+10:20:38 "Last tick (1499) calculation time 1ms"
+
+10:20:38 "Last tick (1500) calculation time 13ms"
+
+10:20:38 "Last tick (1501) calculation time 1ms"
+
+10:20:38 "Last tick (1502) calculation time 1ms"
+
+10:20:38 "Last tick (1503) calculation time 1ms"
+
+10:20:39 "Last tick (1504) calculation time 1ms"
+
+10:20:39 "Last tick (1505) calculation time 1ms"
+
+10:20:39 "Last tick (1506) calculation time 1ms"
+
+10:20:39 "Last tick (1507) calculation time 1ms"
+
+10:20:39 "Last tick (1508) calculation time 1ms"
+
+10:20:39 "Last tick (1509) calculation time 1ms"
+
+10:20:39 "Last tick (1510) calculation time 1ms"
+
+10:20:39 "Last tick (1511) calculation time 1ms"
+
+10:20:39 "Last tick (1512) calculation time 1ms"
+
+10:20:39 "Last tick (1513) calculation time 1ms"
+
+10:20:40 "Last tick (1514) calculation time 1ms"
+
+10:20:40 "Last tick (1515) calculation time 5ms"
+
+10:20:40 "Last tick (1516) calculation time 1ms"
+
+10:20:40 "Last tick (1517) calculation time 1ms"
+
+10:20:40 "Last tick (1518) calculation time 1ms"
+
+10:20:40 "Last tick (1519) calculation time 1ms"
+
+10:20:40 "Last tick (1520) calculation time 24ms"
+
+10:20:40 "Last tick (1521) calculation time 1ms"
+
+10:20:40 "Last tick (1522) calculation time 1ms"
+
+10:20:41 "Last tick (1523) calculation time 1ms"
+
+10:20:41 "Last tick (1524) calculation time 1ms"
+
+10:20:41 "Last tick (1525) calculation time 1ms"
+
+10:20:41 "Last tick (1526) calculation time 1ms"
+
+10:20:41 "Last tick (1527) calculation time 1ms"
+
+10:20:41 "Last tick (1528) calculation time 1ms"
+
+10:20:41 "Last tick (1529) calculation time 1ms"
+
+10:20:41 "Last tick (1530) calculation time 1ms"
+
+10:20:41 "Last tick (1531) calculation time 1ms"
+
+10:20:41 "Last tick (1532) calculation time 1ms"
+
+10:20:42 "Last tick (1533) calculation time 1ms"
+
+10:20:42 "Last tick (1534) calculation time 1ms"
+
+10:20:42 "Last tick (1535) calculation time 1ms"
+
+10:20:42 "Last tick (1536) calculation time 1ms"
+
+10:20:42 "Last tick (1537) calculation time 1ms"
+
+10:20:42 "Last tick (1538) calculation time 1ms"
+
+10:20:42 "Last tick (1539) calculation time 1ms"
+
+10:20:42 "Last tick (1540) calculation time 1ms"
+
+10:20:42 "Last tick (1541) calculation time 3ms"
+
+10:20:43 "Last tick (1542) calculation time 1ms"
+
+10:20:43 "Last tick (1543) calculation time 1ms"
+
+10:20:43 "Last tick (1544) calculation time 1ms"
+
+10:20:43 "Last tick (1545) calculation time 1ms"
+
+10:20:43 "Last tick (1546) calculation time 1ms"
+
+10:20:43 "Last tick (1547) calculation time 1ms"
+
+10:20:43 "Last tick (1548) calculation time 1ms"
+
+10:20:43 "Last tick (1549) calculation time 1ms"
+
+10:20:43 "Last tick (1550) calculation time 11ms"
+
+10:20:43 "Last tick (1551) calculation time 1ms"
+
+10:20:44 "Last tick (1552) calculation time 1ms"
+
+10:20:44 "Last tick (1553) calculation time 1ms"
+
+10:20:44 "Last tick (1554) calculation time 1ms"
+
+10:20:44 "Last tick (1555) calculation time 1ms"
+
+10:20:44 "Last tick (1556) calculation time 1ms"
+
+10:20:44 "Last tick (1557) calculation time 1ms"
+
+10:20:44 "Last tick (1558) calculation time 1ms"
+
+10:20:44 "Last tick (1559) calculation time 1ms"
+
+10:20:44 "Last tick (1560) calculation time 2ms"
+
+10:20:45 "Last tick (1561) calculation time 1ms"
+
+10:20:45 "Last tick (1562) calculation time 1ms"
+
+10:20:45 "Last tick (1563) calculation time 1ms"
+
+10:20:45 "Last tick (1564) calculation time 2ms"
+
+10:20:45 "Last tick (1565) calculation time 1ms"
+
+10:20:45 "Last tick (1566) calculation time 1ms"
+
+10:20:45 "Last tick (1567) calculation time 1ms"
+
+10:20:45 "Last tick (1568) calculation time 1ms"
+
+10:20:45 "Last tick (1569) calculation time 1ms"
+
+10:20:45 "Last tick (1570) calculation time 1ms"
+
+10:20:46 "Last tick (1571) calculation time 1ms"
+
+10:20:46 "Last tick (1572) calculation time 1ms"
+
+10:20:46 "Last tick (1573) calculation time 1ms"
+
+10:20:46 "Last tick (1574) calculation time 1ms"
+
+10:20:46 "Last tick (1575) calculation time 3ms"
+
+10:20:46 "Last tick (1576) calculation time 1ms"
+
+10:20:46 "Last tick (1577) calculation time 1ms"
+
+10:20:46 "Last tick (1578) calculation time 3ms"
+
+10:20:46 "Last tick (1579) calculation time 1ms"
+
+10:20:47 "Last tick (1580) calculation time 40ms"
+
+10:20:47 "Last tick (1581) calculation time 1ms"
+
+10:20:47 "Last tick (1582) calculation time 1ms"
+
+10:20:47 "Last tick (1583) calculation time 1ms"
+
+10:20:47 "Last tick (1584) calculation time 1ms"
+
+10:20:47 "Last tick (1585) calculation time 1ms"
+
+10:20:47 "Last tick (1586) calculation time 1ms"
+
+10:20:47 "Last tick (1587) calculation time 1ms"
+
+10:20:47 "Last tick (1588) calculation time 1ms"
+
+10:20:47 "Last tick (1589) calculation time 1ms"
+
+10:20:47 "Last tick (1590) calculation time 1ms"
+
+10:20:48 "Last tick (1591) calculation time 2ms"
+
+10:20:48 "Last tick (1592) calculation time 1ms"
+
+10:20:48 "Last tick (1593) calculation time 1ms"
+
+10:20:48 "Last tick (1594) calculation time 1ms"
+
+10:20:48 "Last tick (1595) calculation time 1ms"
+
+10:20:48 "Last tick (1596) calculation time 1ms"
+
+10:20:48 "Last tick (1597) calculation time 1ms"
+
+10:20:48 "Last tick (1598) calculation time 1ms"
+
+10:20:48 "Last tick (1599) calculation time 1ms"
+
+10:20:49 "Last tick (1600) calculation time 26ms"
+
+10:20:49 "Last tick (1601) calculation time 3ms"
+
+10:20:49 "Last tick (1602) calculation time 1ms"
+
+10:20:49 "Last tick (1603) calculation time 1ms"

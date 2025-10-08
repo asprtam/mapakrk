@@ -278,8 +278,12 @@ class Utils {
             if (!isNaN(Number(tempCompStyle.getPropertyValue('animation-delay').replaceAll(/[^123456789\-\.\,]/gmi, '')))) {
                 animationTime += Number(tempCompStyle.getPropertyValue('animation-delay').replaceAll(/[^123456789\-\.\,]/gmi, '')) * 1000;
             }
-            if (time < Math.max(transitionTime, animationTime)) {
-                time = Math.max(transitionTime, animationTime);
+            let variableTime = 0;
+            if(!isNaN(Number(tempCompStyle.getPropertyValue('--transitionTime').replaceAll(/[^123456789\-\.\,]/gmi, '')))) {
+                variableTime += Number(tempCompStyle.getPropertyValue('--transitionTime').replaceAll(/[^123456789\-\.\,]/gmi, '')) * 1000;
+            }
+            if(time < Math.max(transitionTime, animationTime, variableTime)) {
+                time = Math.max(transitionTime, animationTime, variableTime);
             }
         }
         if(Array.isArray(elements)) {

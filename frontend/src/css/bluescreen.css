@@ -1,0 +1,22 @@
+.app.bluescreen {
+    background: darkblue !important;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.app.bluescreen .bluescreen-msg, .app.bluescreen .bluescreen-msg * {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.app.bluescreen .bluescreen-msg {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.app.bluescreen .bluescreen-msg .main-msg {
+    font-size: 20px;
+    font-weight: 600;
+}

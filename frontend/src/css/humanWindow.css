@@ -10,23 +10,24 @@
     content: '⚧';
 } */
 
-.window.humanStatus {
+.window.humanStatus, .window.plotStatus {
     z-index: 2;
 }
 
-.window.humanStatus.focused {
+.window.humanStatus.focused, .window.plotStatus.focused {
     z-index: 3;
 }
 
-.window.humanStatus .valueCont {
+.window.humanStatus .valueCont, .window.plotStatus .valueCont {
     display: flex;
     column-gap: 5px;
 }
 
-.window.humanStatus .content {
+.window.humanStatus .content, .window.plotStatus .content {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+    overflow: hidden;
 }
 
 @keyframes windowHuman_open {
@@ -44,7 +45,7 @@
     }
 }
 
-.window.humanStatus.open {
+.window.humanStatus.open, .window.magnifyingGlass.open, .window.plotStatus.open {
     transform: scale(0);
     opacity: 0;
     animation-name: windowHuman_open;
@@ -64,10 +65,150 @@
     }
 }
 
-.window.humanStatus.closing {
+.window.humanStatus.closing, .window.magnifyingGlass.closing, .window.plotStatus.closing {
     animation-name: windowHuman_close;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-duration: 0.2s;
     transform-origin: center bottom;
+}
+
+.window.humanStatus .content, .window.plotStatus .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    row-gap: 20px;
+}
+
+.window.humanStatus .content .basicInfo, .window.plotStatus .content .basicInfo {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.window.humanStatus .content .basicInfo h1, .window.plotStatus .content .basicInfo h1 {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.window:is(.humanStatus, .plotStatus) .content .basicInfo .action {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.window:is(.humanStatus, .plotStatus) .content .basicInfo .action .location {
+    font-size: 14px;
+}
+
+.window:is(.humanStatus, .plotStatus) .content .basicInfo .action .location .location-adress {
+    font-size: 12px !important;
+}
+
+.window:is(.humanStatus, .plotStatus) .content .basicInfo .action.clickable .location,
+.window:is(.humanStatus, .plotStatus) .content .basicInfo .action.clickable .location .location-adress {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.window:is(.humanStatus) .content .extendedInfo {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests) {
+    box-sizing: border-box;
+    position: relative;
+    padding: 10px;
+    padding-top: 14px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests)::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    box-sizing: border-box;
+    border: 1px var(--color1) solid;
+    border-radius: 3px;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    box-shadow: inset 1px 1px 5px -1px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    pointer-events: none;
+    touch-action: none;
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests) h2 {
+    color: var(--color9-dark-50);
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 0px 5px;
+    font-size: 18px;
+    line-height: 18px;
+    background: var(--color1-light-70);
+    position: absolute;
+    left: 10px;
+    top: -0.5px;
+    transform: translateY(-50%);
+    z-index: 4;
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status) {
+    text-indent: -99999px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status) {
+    position: relative;
+    width: 100px;
+    height: 13px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color1-light-90) 60%, #ccc 50%);
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status)::before {
+    position: absolute;
+    content: '';
+    position: absolute;
+    height: 100%;
+    left: 0px;
+    top:0px;    
+    width: var(--percent);
+    background: linear-gradient(90deg, var(--color8) 0%, var(--color8-light-50) 100%);
+}
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status)::after {
+    border: 1px var(--color1-dark-70) solid;
+    box-shadow: inset 1px 1px 3px -1px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    content: '';
+    left: 0px;
+    top: 0px;
+    border-radius: 3px;
 }

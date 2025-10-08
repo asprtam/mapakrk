@@ -17,6 +17,7 @@ const Easystar = pkg.js;
 /** @typedef {import("./entites").HUMAN_STATUSES} HUMAN_STATUSES */
 /** @typedef {import("./entites").HUMAN_FRIEND_DATA} HUMAN_FRIEND_DATA */
 /** @typedef {import("./entites").HUMAN_FRIENDS_LIST} HUMAN_FRIENDS_LIST */
+/** @typedef {import("../data/intrests.js").INTREST_TAG} INTREST_TAG */
 
 /**
  * @typedef {Object} TICK_HUMAN_DATA
@@ -32,6 +33,7 @@ const Easystar = pkg.js;
  * @typedef {Object} TICK_DATA
  * @property {Number} id
  * @property {Array<TICK_HUMAN_DATA>} humanPos
+ * @property {Boolean} plotsChanged
  */
 
 /**
@@ -43,6 +45,7 @@ const Easystar = pkg.js;
  * @property {Number} id
  * @property {HUMAN_STATUSES} status
  * @property {HUMAN_FRIENDS_LIST} friends
+ * @property {Array<INTREST_TAG>} intrests
  */
 
 class Simulation {
@@ -64,20 +67,28 @@ class Simulation {
     isRunning = false;
     /** @type {Number} */
     #tickId = 0;
+    /** @type {Array<Number>} */
+    humanTickLookupTable = [];
     get tickId () {
         return this.#tickId;
     }
     /** @type {LogWrite} */
     log;
 
+    /** @param {String} str */
+    onLogWrite = (str) => {
+
+    }
+
     logWrite = (...args) => {
         this.log.write(...args);
+        this.onLogWrite(JSON.stringify([...args]));
     }
     
     /** @type {TICK_DATA} */
     get tick() {
         /** @type {TICK_DATA} */
-        let infoToReturn = {id: this.#tickId + 0, humanPos: []};
+        let infoToReturn = {id: this.#tickId + 0, humanPos: [], plotsChanged: false};
         this.humans.forEach((human) => {
             infoToReturn.humanPos.push({id: human.id, pos: human.pos, action: human.action, renderedPos: human.renderedPos, targetType: human.targetType, target: human.target});
         });
@@ -101,9 +112,9 @@ class Simulation {
      */
     getHumanData = (id) => {
         if(this.humans[id]) {
-            return {id: id, info: this.humans[id].info, attributes: this.humans[id].attributes};
+            return {id: id, info: this.humans[id].info, attributes: this.humans[id].attributes, intrests: this.humans[id].intrests};
         } else {
-            return {id: id, info: {name: '', lastname: '', age: 0, gender: 'other', genderPronoun: 'other', customGenderName: null}, attributes: {social: 0, physical: 0, intelligence: 0}};
+            return {id: id, info: {name: '', lastname: '', age: 0, gender: 'other', genderPronoun: 'other', customGenderName: null}, attributes: {social: 0, physical: 0, intelligence: 0}, intrests: []};
         }
     }
     /**
@@ -112,14 +123,26 @@ class Simulation {
      */
     getHumanStatus = (id) => {
         if(this.humans[id]) {
-            return {id: id, status: this.humans[id].status, friends: this.humans[id].friends};
+            return {id: id, status: this.humans[id].status, friends: this.humans[id].friends, intrests: this.humans[id].intrests};
         } else {
             /** @type {HUMAN_STATUSES} */ //@ts-ignore
             let emptyStatusesObj = {};
             Human.statusList.forEach((key) => {
                 emptyStatusesObj[key] = 1;
             });
-            return {id: id, status: emptyStatusesObj, friends: []};
+            return {id: id, status: emptyStatusesObj, friends: [], intrests: []};
+        }
+    }
+
+    /**
+     * @param {Number} id 
+     * @returns {import("./entites").PLOT_STATUS}
+     */
+    getPlotStatus = (id) => {
+        if(this.plots[id]) {
+            return this.plots[id].getPlotStatus();
+        } else {
+            return { id: 0, visitors: [] };
         }
     }
 
@@ -191,17 +214,16 @@ class Simulation {
     #tick = async () => {
         if(this.isRunning) {
             const startTime = performance.now();
+            this.humanTickLookupTable = [];
             /** @type {Array<Promise>} */
             const promiseArr = [];
             if(this.#tickId%10 == 0) {
                 for(let i = 0;i < this.humans.length;i++) {
-                    promiseArr.push(this.humans[i].tick());
+                    promiseArr.push(this.humans[i].tickDecisionMaking());
                 }
             } else {
-                for(let human of this.humans) {
-                    if(human.action == 'walking') {
-                        promiseArr.push(human.walkProgress());
-                    }
+                for(let i = 0;i < this.humans.length;i++) {
+                    promiseArr.push(this.humans[i].tick());
                 }
             }
             await Promise.all(promiseArr);
@@ -268,7 +290,7 @@ class Simulation {
         this.grid = grid;
         this.log = log;
         for(let i = 0; i<startHospitalities; i++) {
-            new Hospitality(this, Utils.getRandomArrayElement(this.grid.getBoundaryPoints()));
+            new Hospitality(this, this.grid.getRandomAvailableSlot());
         }
         for(let i = 0; i<startHumans; i++) {
             new Human(this);

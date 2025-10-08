@@ -9,6 +9,8 @@
 /** @typedef {import("../../simulation/entites").HUMAN_FRIEND_DATA} HUMAN_FRIEND_DATA */
 /** @typedef {import("../../simulation/entites").HUMAN_FRIENDS_LIST} HUMAN_FRIENDS_LIST */
 /** @typedef {import("../../index").SPRITE} SPRITE */
+/** @typedef {import("../../data/intrests").INTREST_CATEGORY_NAME} INTREST_CATEGORY_NAME */
+/** @typedef {import("../../data/intrests").INTREST_TAG} INTREST_TAG */
 /** @typedef {import("./app").App} App */
 import { colors } from "./colors";
 import { Utils } from "./utils";
@@ -18,7 +20,7 @@ import { localisation } from "./localisation";
 /** @type {Array<keyof HUMAN_ATTRIBUTES>} */
 const attriburesList = ['physical', 'social', 'intelligence'];
 /** @type {Array<keyof HUMAN_STATUSES>} */
-const statusList = ['boredom'];
+const statusList = ['boredom', 'fatigue'];
 
 /**
  * @typedef {Object} INFO_VALUES
@@ -54,16 +56,20 @@ class DisplayedHumanStatusWindow {
     basicInfoValues = {
         age: {
             cont: Utils.createHTMLElement('div', ['valueCont', 'age']),
-            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.infoNames.age}:`),
+            name: Utils.createHTMLElement('h3', ['name'], {}, `${localisation.infoNames.age}:`),
             value: Utils.createHTMLElement('span', ['value']),
             suffix: Utils.createHTMLElement('span', ['suffix'])
         },
         gender: {
             cont: Utils.createHTMLElement('div', ['valueCont', 'gender']),
-            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.infoNames.gender}:`),
+            name: Utils.createHTMLElement('h3', ['name'], {}, `${localisation.infoNames.gender}:`),
             value: Utils.createHTMLElement('div', ['genderIcon'])
         }
     };
+    extendedInfoCont = Utils.createHTMLElement('div');
+    intrestsCont = Utils.createHTMLElement('div');
+    /** @type {{[id: String]: HTMLElement}} */
+    intrestsValues = {};
     /** @type {HTMLElement} */
     attributesCont = Utils.createHTMLElement('div', ['attributes'], {}, `<h2>${localisation.attributes}</h2>`);
     /** @type {{[key in keyof HUMAN_ATTRIBUTES]: INFO_VALUES}} */ //@ts-ignore
@@ -74,6 +80,14 @@ class DisplayedHumanStatusWindow {
     statusesValues = {};
     /** @type {Boolean} */
     pinPermanently = false;
+    targetHasClickEvent = false;
+    onClickAction = () => {
+        if(this.human.action == 'walking' || this.human.action == 'in hospitality') {
+            if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
+                this.human.parent.plots[this.human.target].handleClick();
+            }
+        }
+    }
 
     updateAction = () => {
         switch(this.human.action) {
@@ -86,7 +100,22 @@ class DisplayedHumanStatusWindow {
                         this.basicInfoAction.classList.remove(className);
                     }
                 });
-                this.basicInfoAction.innerHTML = `w <span class="location">domu</span>`;
+                if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
+                    if(this.basicInfoAction.innerHTML !== `w <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
+                        this.basicInfoAction.innerHTML = `w <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`
+                    }
+                } else {
+                    if(this.basicInfoAction.innerHTML !== `w <span class="location">domu</span>`) {
+                        this.basicInfoAction.innerHTML = `w <span class="location">domu</span>`;
+                    }
+                }
+                if(this.basicInfoAction.classList.contains('clickable')) {
+                    this.basicInfoAction.classList.remove('clickable');
+                }
+                if(this.targetHasClickEvent) {
+                    this.targetHasClickEvent = false;
+                    this.basicInfoAction.removeEventListener('click', this.onClickAction);
+                }
                 break;
             }
             case "walking": {
@@ -99,9 +128,39 @@ class DisplayedHumanStatusWindow {
                     }
                 });
                 if(this.human.targetType == 'home') {
-                    this.basicInfoAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                    if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
+                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
+                            this.basicInfoAction.innerHTML = `idzie do <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`;
+                        }
+                    } else {
+                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">domu</span>`) {
+                            this.basicInfoAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                        }
+                    }
+                    if(this.basicInfoAction.classList.contains('clickable')) {
+                        this.basicInfoAction.classList.remove('clickable');
+                    }
+                    if(this.targetHasClickEvent) {
+                        this.targetHasClickEvent = false;
+                        this.basicInfoAction.removeEventListener('click', this.onClickAction);
+                    }
                 } else {
-                    this.basicInfoAction.innerHTML = `idzie do <span class="location">${this.human.target}</span>`;
+                    if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
+                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
+                            this.basicInfoAction.innerHTML = `idzie do <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`;
+                        }
+                    } else {
+                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">${this.human.target}</span>`) {
+                            this.basicInfoAction.innerHTML = `idzie do <span class="location">${this.human.target}</span>`;
+                        }
+                    }
+                    if(!this.basicInfoAction.classList.contains('clickable')) {
+                        this.basicInfoAction.classList.add('clickable');
+                    }
+                    if(!this.targetHasClickEvent) {
+                        this.targetHasClickEvent = true;
+                        this.basicInfoAction.addEventListener('click', this.onClickAction);
+                    }
                 }
                 break;
             }
@@ -114,7 +173,16 @@ class DisplayedHumanStatusWindow {
                         this.basicInfoAction.classList.remove(className);
                     }
                 });
-                this.basicInfoAction.innerHTML = 'spotyka się';
+                if(this.basicInfoAction.innerHTML !== 'spotyka się') {
+                    this.basicInfoAction.innerHTML = 'spotyka się';
+                }
+                if(this.basicInfoAction.classList.contains('clickable')) {
+                    this.basicInfoAction.classList.remove('clickable');
+                }
+                if(this.targetHasClickEvent) {
+                    this.targetHasClickEvent = false;
+                    this.basicInfoAction.removeEventListener('click', this.onClickAction);
+                }
                 break;
             }
             case "in hospitality": {
@@ -126,7 +194,22 @@ class DisplayedHumanStatusWindow {
                         this.basicInfoAction.classList.remove(className);
                     }
                 });
-                this.basicInfoAction.innerHTML = `w <span class="location">${this.human.target}</span>`;
+                if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
+                    if(this.basicInfoAction.innerHTML !== `w <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
+                        this.basicInfoAction.innerHTML = `w <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`;
+                    }
+                } else {
+                    if(this.basicInfoAction.innerHTML !== `w <span class="location">${this.human.target}</span>`) {
+                        this.basicInfoAction.innerHTML = `w <span class="location">${this.human.target}</span>`;
+                    }
+                }
+                if(!this.basicInfoAction.classList.contains('clickable')) {
+                    this.basicInfoAction.classList.add('clickable');
+                }
+                if(!this.targetHasClickEvent) {
+                    this.targetHasClickEvent = true;
+                    this.basicInfoAction.addEventListener('click', this.onClickAction);
+                }
                 break;
             }
         }
@@ -138,9 +221,23 @@ class DisplayedHumanStatusWindow {
     updateStatuses = (data) => {
         Object.keys(data.status).forEach((statusName) => {
             if(this.statusesValues[statusName]) {
-                this.statusesValues[statusName].value.innerHTML = `${Math.round(data.status[statusName])}`;
+                this.statusesValues[statusName].value.style.setProperty('--percent', `${Math.floor(data.status[statusName]/10)}%`);
+                this.statusesValues[statusName].value.innerHTML = `${Math.floor(data.status[statusName]/10)}`;
             }
         });
+        if(data.intrests) {
+            for(let key of Object.keys(this.intrestsValues)) { //@ts-ignore
+                if(!data.intrests.includes(key)) {
+                    this.intrestsValues[key].remove();
+                    delete this.intrestsValues[key];
+                }
+            }
+            for(let intrestTag of data.intrests) {
+                if(typeof this.intrestsValues[intrestTag] == 'undefined') {
+                    this.intrestsValues[intrestTag] = Utils.createAndAppendHTMLElement(this.intrestsCont, 'div', ['intrest', intrestTag], {}, `${this.human.parent.intrestsData.intrests[intrestTag].name}`);
+                }
+            }
+        }
     }
 
     /**
@@ -189,21 +286,25 @@ class DisplayedHumanStatusWindow {
         attriburesList.forEach((attributeName) => {
             let obj = {};
             obj.cont = Utils.createAndAppendHTMLElement(this.attributesCont, 'div', ['valueCont', `${attributeName}`]);
-            obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h2', ['name'], {}, `${localisation.attributeNames[attributeName]}:`);
-            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['attribute'], {}, `${this.human.attributes[attributeName]}`);
+            obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['name'], {}, `${localisation.attributeNames[attributeName]}:`);
+            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h4', ['attribute'], {css: {'--percent': `${this.human.attributes[attributeName]}%`}}, `${this.human.attributes[attributeName]}`);
             this.attributesValues[attributeName] = obj;
         });
 
         statusList.forEach((statusName) => {
             let obj = {};
             obj.cont = Utils.createAndAppendHTMLElement(this.statusesCont, 'div', ['valueCont', `${statusName}`]);
-            obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h2', ['name'], {}, `${localisation.statusNames[statusName]}:`);
-            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['status']);
+            obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['name'], {}, `${localisation.statusNames[statusName]}:`);
+            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h4', ['status']);
             this.statusesValues[statusName] = obj;
         });
 
-        this.windowContent.appendChild(this.attributesCont);
-        this.windowContent.appendChild(this.statusesCont);
+        this.extendedInfoCont = Utils.createAndAppendHTMLElement(this.windowContent, 'div', ['extendedInfo']);
+        this.extendedInfoCont.appendChild(this.attributesCont);
+        this.extendedInfoCont.appendChild(this.statusesCont);
+        const intrestCont = Utils.createAndAppendHTMLElement(this.extendedInfoCont, 'div', ['intrests']);
+        Utils.createAndAppendHTMLElement(intrestCont, 'h2', [], {}, localisation.intrests);
+        this.intrestsCont = Utils.createAndAppendHTMLElement(intrestCont, 'div', ['intrestsList']);
 
         this.windowEl = new DisplayWindow(this.windowContent, {
             className: ['humanStatus', 'open'], 
@@ -301,10 +402,12 @@ class DisplayedHuman {
     statusWindow = null;
 
     handleClick = () => {
-        if(this.statusWindow === null) {
-            this.parent.socket.send(`humanStatus-${this.id}`);
-            this.statusWindow = new DisplayedHumanStatusWindow(this);
-        }
+        this.getData().then(() => {
+            if(this.statusWindow === null) {
+                this.parent.socket.send(`humanStatus-${this.id}`);
+                this.statusWindow = new DisplayedHumanStatusWindow(this);
+            }
+        });
     }
 
     /**
@@ -404,9 +507,17 @@ class DisplayedHuman {
 
     updateTooltipPos = () => {
         if(this.#hoverToolTip) {
-            // this.#hoverToolTip.style.setProperty('left', `${this.renderedPos.x}px`);
-            // this.#hoverToolTip.style.setProperty('top', `${this.renderedPos.y}px`);
-            this.#hoverToolTip.style.setProperty('left', `${(this.renderedPos.x * (this.parent.currentMapDisplayScale / 1000)) + this.parent.mapCut.x}px`);
+            let left = (this.renderedPos.x * (this.parent.currentMapDisplayScale / 1000)) + this.parent.mapCut.x;
+            if(left + this.#hoverToolTip.offsetWidth >= this.parent.tooltipsCont.offsetWidth) {
+                if(!this.#hoverToolTip.classList.contains('reversed')) {
+                    this.#hoverToolTip.classList.add('reversed');
+                }
+            } else {
+                if(this.#hoverToolTip.classList.contains('reversed')) {
+                    this.#hoverToolTip.classList.remove('reversed');
+                }
+            }
+            this.#hoverToolTip.style.setProperty('left', `${left}px`);
             this.#hoverToolTip.style.setProperty('top', `${(this.renderedPos.y * (this.parent.currentMapDisplayScale / 1000)) + this.parent.mapCut.y}px`);
         }
     }
@@ -423,6 +534,11 @@ class DisplayedHuman {
                             this.#hoverToolTipAction.classList.remove(className);
                         }
                     });
+                    // if(typeof this.#target == 'number' && this.parent.plots[this.#target]) {
+                    //     this.#hoverToolTipAction.innerHTML = `w <span class="location">domu <span="location-adress">(${this.parent.plots[this.#target].adress})</span></span>`;
+                    // } else {
+                    //     this.#hoverToolTipAction.innerHTML = `w <span class="location">domu</span>`;
+                    // }
                     this.#hoverToolTipAction.innerHTML = `w <span class="location">domu</span>`;
                     break;
                 }
@@ -436,9 +552,18 @@ class DisplayedHuman {
                         }
                     });
                     if(this.#targetType == 'home') {
+                        // if(typeof this.#target == 'number' && this.parent.plots[this.#target]) {
+                        //     this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu <span="location-adress">(${this.parent.plots[this.#target].adress})</span></span>`;
+                        // } else {
+                        //     this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                        // }
                         this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu</span>`;
                     } else {
-                        this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">${this.#target}</span>`;
+                        if(typeof this.#target == 'number' && this.parent.plots[this.#target]) {
+                            this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">${this.parent.plots[this.#target].name}</span>`;
+                        } else {
+                            this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">${this.#target}</span>`;
+                        }
                     }
                     break;
                 }
@@ -463,7 +588,11 @@ class DisplayedHuman {
                             this.#hoverToolTipAction.classList.remove(className);
                         }
                     });
-                    this.#hoverToolTipAction.innerHTML = `w <span class="location">${this.#target}</span>`;
+                    if(typeof this.target == 'number' && this.parent.plots[this.#target]) {
+                        this.#hoverToolTipAction.innerHTML = `w <span class="location">${this.parent.plots[this.#target].name}</span>`;
+                    } else {
+                        this.#hoverToolTipAction.innerHTML = `w <span class="location">${this.#target}</span>`;
+                    }
                     break;
                 }
             }
@@ -475,46 +604,6 @@ class DisplayedHuman {
 
     /** @param {Boolean} [forceInstant=false] */
     hideToolTip = (forceInstant=false) => {
-        if(this.#tooltipTimerClass) {
-            clearTimeout(this.#tooltipTimerClass);
-            this.#tooltipTimerClass = null;
-        }
-        if(!this.#hoverToolTipClosing) {
-            if(this.#tooltipTimerDeletion) {
-                clearTimeout(this.#tooltipTimerDeletion);
-                this.#tooltipTimerDeletion = null;
-            }
-        }
-        const hideFunc = () => {
-            this.#hovered = false;
-            this.#hoverToolTipClosing = true;
-            let waitTime = 0;
-            if(this.#hoverToolTip) {
-                if(!this.#hoverToolTip.classList.contains('close')) {
-                    this.#hoverToolTip.classList.add('close');
-                }
-                waitTime = Utils.getTransitionTime(this.#hoverToolTip);
-            } else {
-
-            }
-            this.#tooltipTimerDeletion = setTimeout(() => {
-                if(this.#hoverToolTipName) {
-                    this.#hoverToolTipName.remove();
-                    this.#hoverToolTipName = undefined;
-                }
-                if(this.#hoverToolTipAction) {
-                    this.#hoverToolTipAction.remove();
-                    this.#hoverToolTipAction = undefined;
-                }
-                if(this.#hoverToolTip) {
-                    this.#hoverToolTip.remove();
-                    this.#hoverToolTip = undefined;
-                }
-                this.#hoverToolTipClosing = false;
-                this.#currentTooltipUniqueId = '';
-                this.startDeleteDataTimer();
-            }, waitTime);
-        }
         const hideFuncRest = () => {
             /** @type {Array<HTMLElement>} */
             let hoverToolTips = Array.from(document.querySelectorAll(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"]`));
@@ -532,17 +621,48 @@ class DisplayedHuman {
                     el.remove();
                 }
             });
-        }
+        };
         hideFuncRest();
-        if(forceInstant) {
-            if(!this.#hoverToolTipClosing) {
-                hideFunc();
+
+        if(!this.#tooltipTimerDeletion) {
+            let waitTime = 0;
+            if(this.#hoverToolTip) {
+                if(!this.#hoverToolTip.classList.contains('close')) {
+                    this.#hoverToolTip.classList.add('close');
+                }
+                waitTime = Utils.getTransitionTime(this.#hoverToolTip);
             }
-        } else {
-            this.#tooltipTimerClass = setTimeout(() => {
-                hideFunc();
-            }, this.tooltipTimeout);
+            this.#tooltipTimerDeletion = setTimeout(() => {
+                if(this.#hoverToolTipName) {
+                    this.#hoverToolTipName.remove();
+                    this.#hoverToolTipName = undefined;
+                }
+                if(this.#hoverToolTip) {
+                    this.#hoverToolTip.remove();
+                    this.#hoverToolTip = undefined;
+                }
+                this.#tooltipTimerDeletion = undefined;
+                this.#hoverToolTipClosing = false;
+                this.#currentTooltipUniqueId = '';
+                hideFuncRest();
+            }, waitTime);
         }
+    }
+
+    getData = () => {
+        return new Promise(async (res) => {
+            if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
+                if(typeof this.#temp.data == 'undefined') {
+                    this.#temp.data = await this.parent.getHumanData(this.id);
+                }
+                this.#name = `${this.#temp.data.info.name}`;
+                this.#lastName = `${this.#temp.data.info.lastname}`;
+                this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
+                this.#age = this.#temp.data.info.age + 0;
+                this.#gender = `${this.#temp.data.info.gender}`;
+            }
+            res(true);
+        });
     }
 
     showToolTip = async () => {
@@ -559,6 +679,9 @@ class DisplayedHuman {
             let hoverToolTips = Array.from(document.querySelectorAll(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipHuman-${this.id}"]`));
             if(hoverToolTips.length > 0) {
                 this.#hoverToolTip = hoverToolTips[hoverToolTips.length - 1];
+                if(this.#hoverToolTip.classList.contains('close')) {
+                    this.#hoverToolTip.classList.remove('close');
+                }
                 this.#currentTooltipUniqueId = this.#hoverToolTip.getAttribute('data-id');
                 if(!this.#currentTooltipUniqueId) {
                     this.#currentTooltipUniqueId = Utils.makeId(10);
@@ -571,16 +694,7 @@ class DisplayedHuman {
                 hoverToolTips.forEach((el) => {
                     el.remove();
                 });
-                if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
-                    if(typeof this.#temp.data == 'undefined') {
-                        this.#temp.data = await this.parent.getHumanData(this.id);
-                    }
-                    this.#name = `${this.#temp.data.info.name}`;
-                    this.#lastName = `${this.#temp.data.info.lastname}`;
-                    this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
-                    this.#age = this.#temp.data.info.age + 0;
-                    this.#gender = `${this.#temp.data.info.gender}`;
-                }
+                await this.getData();
                 if(this.#pinned) {
                     if(!this.#hoverToolTip.classList.contains('pinned')) {
                         this.#hoverToolTip.classList.add('pinned');
@@ -609,16 +723,7 @@ class DisplayedHuman {
                     this.updateTooltipAction();
                 }
             } else {
-                if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
-                    if(typeof this.#temp.data == 'undefined') {
-                        this.#temp.data = await this.parent.getHumanData(this.id);
-                    }
-                    this.#name = `${this.#temp.data.info.name}`;
-                    this.#lastName = `${this.#temp.data.info.lastname}`;
-                    this.#attributes = JSON.parse(JSON.stringify(this.#temp.data.attributes));
-                    this.#age = this.#temp.data.info.age + 0;
-                    this.#gender = `${this.#temp.data.info.gender}`;
-                }
+                await this.getData();
                 const classArr = ['tooltip'];
                 if(this.#pinned) {
                     classArr.push('pinned');
@@ -659,9 +764,9 @@ class DisplayedHuman {
             this.updateTooltipAction();
         }
         this.updateTooltipPos();
-        if(!this.#pinned) {
-            this.hideToolTip();
-        }
+        // if(!this.#pinned) {
+        //     this.hideToolTip();
+        // }
     }
 
     hover = () => {
@@ -743,10 +848,22 @@ class DisplayedHuman {
         }
         // let shiftX = this.parent.humanDisplayWidth * this.parent.mapScalingFactor;
         this.updateTooltipPos();
-        if(this.#pinned) {
-            this.parent.spriteHuman.draw(this.parent.pinnedHumansCanvasCTX, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, colors.color9.light['color9-light-30']);
-        } else {
-            this.parent.spriteHuman.draw(this.parent.humansCanvasCTX, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth/2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, '#fff');
+        if((this.action !== 'in home' && this.action !== 'in hospitality') || this.parent.viewOptions.humansInPlots) {
+            if(this.#pinned) {
+                this.parent.spriteHuman.draw(this.parent.pinnedHumansCanvasCTX, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, colors.color9.light['color9-light-30']);
+                if(this.parent.magnifyingGlass) {
+                    if(this.parent.magnifyingGlass.enabled) {
+                        this.parent.spriteHuman.draw(this.parent.magnifyingGlass.pinnedHumansCanvasCtx, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, colors.color9.light['color9-light-30']);
+                    }
+                }
+            } else {
+                this.parent.spriteHuman.draw(this.parent.humansCanvasCTX, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, '#fff');
+                if(this.parent.magnifyingGlass) {
+                    if(this.parent.magnifyingGlass.enabled) {
+                        this.parent.spriteHuman.draw(this.parent.magnifyingGlass.humansCanvasCtx, {x: this.renderedPos.x - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor), y: this.renderedPos.y - ((this.parent.humanDisplayWidth / 2) * this.parent.mapScalingFactor)}, this.parent.mapScalingFactor, this.parent.requiredFactor, '#fff');
+                    }
+                }
+            }
         }
     }
 
@@ -772,7 +889,7 @@ class DisplayedHuman {
      * @param {App} parent 
      * @param {Number} id 
      * @param {{x: Number, y: Number}} pos
-     * @param {'in home'|'walking'|'meeting'|'in hospitality'} action
+     * @param {'in home'|'walking'|'meeting'|'in hospitality'|'working'} action
      */
     constructor(parent, id, pos, action) {
         this.parent = parent;

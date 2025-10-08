@@ -8,13 +8,17 @@ class SimulationGlobals {
     /** @type {Number} */
     static mapScalingFactor = 16;
     /** @type {Number} */
-    static startHumans = 10;
+    static startHumans = 50;
     /** @type {Number} */
     static requiredFactor = 8;
     /** @type {Number} */
-    static startHospitalities = 20;
+    static startHospitalities = 10;
     /** @type {Number} */
-    static boredomRatio = 20;
+    static boredomRatio = 40;
+    /** @type {Number} */
+    static intrestPreferenceGain = 100;
+    /** @type {Number} */
+    static intrestCategoryPreferenceGain = 50;
 
     constructor() {
 

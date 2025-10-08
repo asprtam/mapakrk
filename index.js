@@ -1,4 +1,5 @@
 import Files from "files";
+import fs from "fs";
 import sharp from "sharp";
 import { readdir, readFile } from 'node:fs/promises';
 import { Color } from "./simulation/utils.js";
@@ -7,6 +8,28 @@ import { Grid } from "./simulation/grid.js";
 import { Simulation } from "./simulation/simulation.js";
 import { SimulationGlobals } from "./simulation/simulationGlobals.js";
 import { LogWrite } from "./logWrite.js";
+import { streets } from "./data/streets.js";
+import { intrests, intrestCategories } from "./data/intrests.js";
+import https from "https";
+
+/**
+ * @param {import('express').Request} req 
+ * @param {import('express').Response} res 
+ */
+const setOrigins = (req, res) => {
+    const allowedOrigins = ['https://goblin.international', 'http://goblin.international', 'https://goblin.international:443', 'http://goblin.international:80', 'https://goblin.international:10443', 'http://goblin.international:8080', 'http://goblin.international:5173', 'http://goblin.international:5174', 'https://goblin.international:5174'];
+    if(allowedOrigins.includes(req.get('origin'))) {
+        res.set({
+            'Access-Control-Allow-Origin': req.get('origin')
+        });
+    }
+}
+
+const credentials = {
+    key: fs.readFileSync('/etc/letsencrypt/live/goblin.international-0001/privkey.pem', 'utf8'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/goblin.international-0001/cert.pem', 'utf8'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/goblin.international-0001/chain.pem', 'utf8')
+}
 
 /** @returns {{saveLogs: Boolean, generateColors: Boolean, clearConsole: Boolean}} */
 const getCommandLineParams = () => {
@@ -154,30 +177,158 @@ const copyGlobals = () => {
     });
 }
 
+/**
+ * @typedef {Object} RAW_MAP_PIXEL
+ * @property {Boolean} w - walkable
+ * @property {"W"|"N"|"B"|"S"} t - type "W" - water, "N" - nature, "B" - building, "S" - street
+ * @property {Number|undefined} [s] - id of street if exists
+ */
+
+/**
+ * @typedef {Array<Array<RAW_MAP_PIXEL>>} RAW_MAP
+ */
+
+/** @typedef {Array<Array<1|0>>} WALKABILITY_ARR */
 
 const port = 3000;
+const portHttps = 3001;
 
 const init = async () => {
-    /** @returns {Promise<Array<Array<Number>>>} */
-    const getRawMap = () => {
-        return new Promise(async (res) => {
-            const { data, info } = await sharp('./src1.png').toColourspace('b-w').raw().toBuffer({ resolveWithObject: true });
-            if (info.width && info.height) {
-                /** @type {Array<Number>} */
-                const RAW = Array.from(data);
-
-                res(new Array(info.width).fill(null).map((el, colId) => {
-                    return new Array(info.height).fill(0).map((_el, rowId) => {
-                        if (RAW[colId + rowId*info.width]) {
-                            return 0;
-                        } else {
-                            return 1;
+    /** 
+     * @param {String} path
+     * @returns {Promise<Array<Array<String>>>}
+     */
+    const getColorsOfImage = (path) => {
+        return new Promise(async (res, rej) => {
+            const { data, info } = await sharp(path).raw().toBuffer({ resolveWithObject: true });
+            if(info.width && info.height) {
+                const RAW = new Array(info.width).fill([]).map((el) => { return []; });
+                    
+                let channel = 0;
+                let colId = 0;
+                let rowId = 0;
+                let currentElement = '#';
+                for(let pData of Array.from(data)) {
+                    let currString = pData.toString(16);
+                    if(currString.length < 2) {
+                        currString = `0${currString}`;
+                    }
+                    currentElement += currString;
+                    channel++;
+                    if(channel >= 3) {
+                        RAW[colId][rowId] = `${currentElement}`;
+                        channel = 0;
+                        currentElement = '#';
+                        colId++;
+                        if(colId >= info.width) {
+                            colId = 0;
+                            rowId++;
                         }
-                    });
-                }));
+                    }
+                }
+
+                res(RAW);
+            } else {
+                rej('error reading file');
             }
         });
     }
+
+    /** @returns {Promise<RAW_MAP>} */
+    const getRawMap = () => {
+        return new Promise(async (res) => {
+            const results = await Promise.all([getColorsOfImage('./data/outlines.png'), getColorsOfImage('./data/streets.png')]);
+            
+            /**
+             * 
+             * @param {RAW_MAP_PIXEL} obj 
+             * @param {Number} colId 
+             * @param {Number} rowId 
+             */
+            const getStreetForBuilding = (obj, colId, rowId) => {
+                /** @type {{[id: String]: Number}} */
+                let counts = {};
+                [
+                    { rowId: rowId - 1, colId: colId - 1},
+                    { rowId: rowId - 1, colId: colId },
+                    { rowId: rowId - 1, colId: colId + 1 },
+                    { rowId: rowId + 1, colId: colId - 1 },
+                    { rowId: rowId + 1, colId: colId },
+                    { rowId: rowId + 1, colId: colId - 1 },
+                    { rowId: rowId, colId: colId - 1 },
+                    { rowId: rowId, colId: colId + 1 }
+                ].forEach((sibling) => {
+                    if(sibling.colId >= 0 && sibling.colId < results[1].length && sibling.rowId >= 0 && sibling.rowId < results[1][0].length) {
+                        if(Object.keys(streets).includes(results[1][sibling.colId][sibling.rowId])) {
+                            if(streets[results[1][sibling.colId][sibling.rowId]].noBuildings !== true) {
+                                if(Object.keys(counts).includes(results[1][sibling.colId][sibling.rowId])) {
+                                    counts[results[1][sibling.colId][sibling.rowId]]++;
+                                } else {
+                                    counts[results[1][sibling.colId][sibling.rowId]] = 1;
+                                }
+                            }
+                        }
+                    }
+                });
+                if(Object.keys(counts).length > 0) {
+                    const keys = Object.keys(counts);
+                    let currentStreet = keys[0];
+                    let max = counts[keys[0]] + 0;
+                    for(let i = 1; i<keys.length; i++) {
+                        if(counts[keys[i]] > max) {
+                            currentStreet = keys[i];
+                            max = counts[keys[i]];
+                        }
+                    }
+                    obj.s = Object.keys(streets).indexOf(currentStreet);
+                }
+            }
+
+            /**
+             * @param {RAW_MAP_PIXEL} obj 
+             * @param {Number} colId 
+             * @param {Number} rowId 
+             */
+            const getStreetForWalkable = (obj, colId, rowId) => {
+                if(Object.keys(streets).includes(results[1][colId][rowId])) {
+                    obj.s = Object.keys(streets).indexOf(results[1][colId][rowId]);
+                }
+            }
+            
+            let RAW_MAP = results[0].map((row, colId) => {
+                return row.map((colorHex, rowId) => {
+                    /** @type {RAW_MAP_PIXEL} */
+                    let obj = { w: true, t: "S" };
+                    switch(colorHex) {
+                        case '#000000': {
+                            obj = { w: false, t: "B" };
+                            getStreetForBuilding(obj, colId, rowId);
+                            break;
+                        }
+                        case '#0000ff': {
+                            obj = { w: false, t: "W" };
+                            break;
+                        }
+                        case '#00ff00': {
+                            obj = { w: true, t: "N" };
+                            getStreetForWalkable(obj, colId, rowId);
+                            break;
+                        }
+                        default: {
+                            getStreetForWalkable(obj, colId, rowId);
+                            break;
+                        }
+                    }
+
+                    return obj;
+                });
+            });
+
+            //@ts-ignore
+            res(RAW_MAP);
+        });
+    }
+
     
     const RAW_MAP = await getRawMap();
     if(generateColors) { 
@@ -192,7 +343,7 @@ const init = async () => {
 
     const app = new WebSocketExpress();
     const router = new Router();
-    /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf: Array<Number>}>} */
+    /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf: Array<Number>, requireStatusOfPlots: Array<Number>}>} */
     let connections = [];
 
     // app.use(bodyParser.text());
@@ -200,7 +351,7 @@ const init = async () => {
     router.ws('/', async(req, res) => {
         const ws = await res.accept();
         let id = connections.length;
-        let connection = {ws: ws, requireStatusOf: []};
+        let connection = {ws: ws, requireStatusOf: [], requireStatusOfPlots: []};
         Object.defineProperty(connection, 'id', {
             set: (val) => {
                 id = val;
@@ -234,12 +385,34 @@ const init = async () => {
                         }
                         break;
                     }
+                    case 'plotStatus': {
+                        let targetId = Number(rest);
+                        if(!isNaN(targetId)) {
+                            if(simulation.plots[targetId]) {
+                                if(!connection.requireStatusOfPlots.includes(targetId)) {
+                                    connection.requireStatusOfPlots.push(targetId);
+                                }
+                                ws.send(`humanStatus-${JSON.stringify(simulation.getPlotStatus(targetId))}`);
+                            }
+                        }
+                        break;
+                    }
                     case 'humanStatusRevoke': {
                         let targetId = Number(rest);
                         if(!isNaN(targetId)) {
                             let indexOf = connection.requireStatusOf.indexOf(targetId);
                             if(indexOf >= 0) {
                                 connection.requireStatusOf = connection.requireStatusOf.slice(0, indexOf).concat(connection.requireStatusOf.slice(indexOf+1));
+                            }
+                        }
+                        break;
+                    }
+                    case 'plotStatusRevoke': {
+                        let targetId = Number(rest);
+                        if(!isNaN(targetId)) {
+                            let indexOf = connection.requireStatusOfPlots.indexOf(targetId);
+                            if(indexOf >= 0) {
+                                connection.requireStatusOfPlots = connection.requireStatusOfPlots.slice(0, indexOf).concat(connection.requireStatusOfPlots.slice(indexOf + 1));
                             }
                         }
                         break;
@@ -252,7 +425,7 @@ const init = async () => {
         }
         ws.send(`tickData-${JSON.stringify(simulation.tick)}`);
         ws.onclose = () => {
-            /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf:Array<Number>}>} */
+            /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf:Array<Number>, requireStatusOfPlots:Array<Number>}>} */
             let newConnections = [];
             let newIndex = 0;
             connections.forEach((_con) => {
@@ -272,9 +445,7 @@ const init = async () => {
         if(lastIndexOf > 0) {
             name = name.slice(0, lastIndexOf);
         }
-        res.set({
-            'Access-Control-Allow-Origin': '*'
-        });
+        setOrigins(req, res);
         if(Object.keys(sprites).includes(name)) {
             res.json(sprites[name]);
         } else {
@@ -282,33 +453,58 @@ const init = async () => {
         }
     });
 
+    router.get('/intrests', async (req, res) => {
+        setOrigins(req, res);
+        res.json({intrests: intrests.list, categories: intrestCategories.list});
+    });
+
     router.get('/mapSize', async (req, res) => {
-        res.set({
-            'Access-Control-Allow-Origin': '*'
-        });
+        setOrigins(req, res);
         res.json({width: RAW_MAP.length, height: RAW_MAP[0].length});
     });
 
     router.get('/rawMap', async (req, res) => {
-        res.set({
-            'Access-Control-Allow-Origin': '*'
-        });
+        setOrigins(req, res);
         res.json(RAW_MAP);
     });
 
+    router.get('/plots', async (req, res) => {
+        setOrigins(req, res);
+        const plots = simulation.plots.map((plot) => {
+            if(plot.isHospitality) { //@ts-ignore
+                return {id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality, welcomeIntrestsTags: plot.welcomeIntrestsTags, welcomeIntrestCategories: plot.welcomeIntrestCategories, unwelcomeIntrestsTags: plot.unwelcomeIntrestsTags, unwelcomeIntrestCategories: plot.unwelcomeIntrestCategories };
+            } else {
+                return {id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality}
+            }
+        });
+        res.json(plots);
+    });
+
     app.use(router);
+    const httpsServer = https.createServer(credentials);
+    app.attach(httpsServer)
+    httpsServer.listen(portHttps);
     const server = app.createServer();
-    console.log(`Listening on port ${port}...`);
     server.listen(port);
+
+    simulation.onLogWrite = (str) => {
+        for(let con of connections) {
+            try {
+                con.ws.send(`log-${str}`);
+            } catch(err) {
+                console.error(err);
+            }
+        }
+    }
 
     simulation.onNewTick = ((tickData, msg) => {
         return new Promise((res) => {
             if(clearConsole) {
                 console.clear();
                 console.log(`Listening on port ${port}...`);
+                console.log(`\n`);
+                console.log(msg);
             }
-            console.log(`\n`);
-            console.log(msg);
             for(let con of connections) {
                 try {
                     con.ws.send(`tickData-${JSON.stringify(tickData)}`);
@@ -319,6 +515,15 @@ const init = async () => {
                     for(let humanId of con.requireStatusOf) {
                         try {
                             con.ws.send(`humanStatus-${JSON.stringify(simulation.getHumanStatus(humanId))}`);
+                        } catch(err) {
+                            console.error(err);
+                        }
+                    }
+                }
+                if(con.requireStatusOfPlots.length > 0) {
+                    for(let plotId of con.requireStatusOfPlots) {
+                        try {
+                            con.ws.send(`plotStatus-${JSON.stringify(simulation.getPlotStatus(plotId))}`);
                         } catch(err) {
                             console.error(err);
                         }

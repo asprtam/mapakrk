@@ -7,7 +7,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
 .window.map-window .contentHolder .map.content .screen {
@@ -16,6 +15,7 @@
     top: 0px;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .window.map-window .contentHolder .map.content {
@@ -30,19 +30,24 @@
     z-index: 1;
 }
 
-.window.map-window .contentHolder .map.content .screen.humans {
+.window.map-window .contentHolder .map.content .screen.plots {
     z-index: 2;
 }
 
-.window.map-window .contentHolder .map.content .screen.humans.pinned {
+.window.map-window .contentHolder .map.content .screen.humans {
     z-index: 3;
 }
 
-.window.map-window .contentHolder .map.content .screen.fake {
+.window.map-window .contentHolder .map.content .screen.humans.pinned {
     z-index: 4;
 }
 
-.window.map-window .contentHolder .map.content .screen.fake.hoverHuman {
+.window.map-window .contentHolder .map.content .screen.fake {
+    z-index: 5;
+}
+
+.window.map-window .contentHolder .map.content .screen.fake.hoverHuman,
+.window.map-window .contentHolder .map.content .screen.fake.hoverPlot {
     cursor: pointer;
 }
 
@@ -76,6 +81,90 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    --percent: 0%;
+    --percentText: '0%';
+    --thumbSize: 15px;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls :is(.bar, .thumb) {
+    user-select: none;
+    pointer-events: none;
+    touch-action: none;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls :is(.bar .bar-inner, .thumb .thumb-inner) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    box-sizing: border-box;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls .bar {
+    z-index: 1;
+    width: 8px;
+    border-radius: 99999px;
+    background: var(--color4-light-50);
+    border: 1.5px var(--color4-dark-50) solid;
+    height: calc(100% - var(--thumbSize));
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--thumbSize) / 2);
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls .bar .bar-inner {
+    bottom: 0px;
+    height: var(--percent);
+    border-radius: 9999px;
+    box-shadow: inset -1px -1px 3px 0px rgba(0, 0, 0, 1), inset 1px 1px 5px 0px rgba(255, 255, 255, 1);
+    background: var(--color12);
+    /* background: linear-gradient(90deg, var(--color12-light-50) 0%, var(--color12) 50%, var(--color12-light-10) 60%, var(--color12-dark-50) 100%) !important; */
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls:not(.disabled) {
+    cursor: pointer !important;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls .thumb {
+    z-index: 2;
+    width: var(--thumbSize);
+    height: var(--thumbSize);
+    left: 50%;
+    bottom: var(--percent);
+    transform: translate(-50%, var(--percent));
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls .thumb .thumb-inner {
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: var(--color12-light-10);
+    border: 1.5px var(--color4-dark-50) solid;
+    box-shadow: inset -1px -1px 3px 0px rgba(0, 0, 0, 1), inset 1px 1px 5px 0px rgba(255, 255, 255, 1);
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls .thumb::before {
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: var(--percentText);
+    background: var(--color4-light-50);
+    border: 1.5px var(--color4-dark-50) solid;
+    color:#000;
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.2s ease-in-out 0.2s;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls.zooming .thumb::before, .window.map-window .contentHolder .map.content .zoom-controls:hover .thumb::before {
+    opacity: 1;
+    transform: translate(-100%, -50%);
+    transition-delay: 0s;
 }
 
 .window.map-window .contentHolder .map.content .zoom-controls .zoom-input {
@@ -86,6 +175,12 @@
     width: 200px;
     height: 10px;
     transform: rotateZ(-90deg) translate(-100%, 0%);
+    z-index: 3;
+    opacity: 0;
+}
+
+.window.map-window .contentHolder .map.content .zoom-controls:not(.disabled) .zoom-input {
+    cursor: pointer;
 }
 
 .window.map-window .contentHolder .map.content .screen.humans canvas,
@@ -100,4 +195,53 @@
     left: 50%;
     top: 50%;
     transform: translate(var(--currentMapOffsetX), var(--currentMapOffsetY)) scale(var(--currentMapScale));
+}
+
+.window.map-window .contentHolder .map.content .controls {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    z-index: 10;
+}
+
+.window.map-window .contentHolder .map.content .controls .control {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.window.map-window .contentHolder .map.content .controls .control .tooltip {
+    position: absolute;
+    user-select: none;
+    touch-action: none;
+    font-size: 13px;
+    line-height: 13px;
+    padding: 2px 5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #000000d0;
+    color: #fff;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.window.map-window .contentHolder .map.content .controls .control:hover .tooltip {
+    opacity: 1;
+}
+
+.window.map-window .contentHolder .map.content .controls .control::before {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+.window.map-window .contentHolder .map.content .controls .control.magnifyingGlass::before {
+    background-image: url('/glassIcon.webp');
+    background-size: 100% 100%;
 }

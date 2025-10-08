@@ -1,10 +1,24 @@
 
 import { Path } from "./path.js";
+import { streets, streetsArr } from "../data/streets.js";
 //@ts-ignore
 import pkg from "easystarjs";
+import {Utils} from "./utils.js";
 const Easystar = pkg.js;
 /**
  * @typedef {{x: Number, y:Number}} pos
+ */
+/** @typedef {import("../index.js").RAW_MAP} RAW_MAP */
+/** @typedef {import("../index.js").RAW_MAP_PIXEL} RAW_MAP_PIXEL */
+/** @typedef {import("../index.js").WALKABILITY_ARR} WALKABILITY_ARR */
+
+/**
+ * @typedef {Object} PLOT_SLOT
+ * @property {Number} id
+ * @property {pos} pos - pozycja x y
+ * @property {String} streetName - nazwa
+ * @property {Number} number - numer na ulicy
+ * @property {"H"|"M"} [claimed] - zajęte prez "H" - hospitality, nie moze byc nic innego, "M" - zajęte przez dom, może być tu też kolejny dom
  */
 
 class Grid {
@@ -16,102 +30,56 @@ class Grid {
     get height() {
         return this.raw[0].length;
     }
-    /** @type {Array<Array<Number>>} */
+    /** @type {WALKABILITY_ARR} */
     raw = [[]];
+    /** @type {RAW_MAP} */
+    mapData = [[]];
+    /** @type {Array<PLOT_SLOT>} */
+    slots = [];
 
     /**
-     * @param {(point:Number, pos?:pos) => void} callback
+     * @returns {PLOT_SLOT}
+     */
+    getRandomAvailableSlot = () => {
+        let random = Utils.getRandomArrayElement(this.slots);
+        if(random.claimed == 'H') {
+            return this.getRandomAvailableSlot();
+        } else {
+            return random;
+        }
+    }
+
+    /**
+     * @param {Number} id
+     * @param {"H"|"M"} claimType
+     */
+    claimSlot = (id, claimType) => {
+        if(this.slots[id]) {
+            this.slots[id].claimed = claimType;
+        }
+    }
+
+    /**
+     * @param {pos} pos 
+     * @returns {RAW_MAP_PIXEL|Null}
+     */
+    getPointByPos = (pos) => {
+        if(this.mapData[pos.x]) {
+            if(this.mapData[pos.x][pos.y]) {
+                return this.mapData[pos.x][pos.y];
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param {(point: RAW_MAP_PIXEL, pos?:pos) => void} callback
      */
     forEachPoint = (callback) => {
-        this.raw.forEach((column, column_id) => {
+        this.mapData.forEach((column, column_id) => {
             column.forEach((point, row_id) => {
                 callback(point, {x: column_id, y: row_id});
             });
-        });
-    }
-
-    /**
-     * 
-     * @param {pos} pos 
-     * @param {Boolean} [allowDiagonal=true] 
-     * @returns {Array<pos>}
-     */
-    getPointSiblings = (pos, allowDiagonal = true) => {
-        /** @type {Array<pos>} */
-        const returnArr = [];
-
-        [{ x: pos.x - 1, y: pos.y }, { x: pos.x + 1, y: pos.y }, { x: pos.x, y: pos.y - 1 }, { x: pos.x, y: pos.y + 1 }].forEach((_pos) => {
-            if (_pos.x >= 0 && _pos.x < this.width && _pos.y >= 0 && _pos.y < this.height) {
-                returnArr.push(_pos);
-            }
-        });
-        if (allowDiagonal) {
-            [{ x: pos.x - 1, y: pos.y - 1 }, { x: pos.x + 1, y: pos.y - 1 }, { x: pos.x - 1, y: pos.y + 1 }, { x: pos.x + 1, y: pos.y + 1 }].forEach((_pos) => {
-                if (_pos.x >= 0 && _pos.x < this.width && _pos.y >= 0 && _pos.y < this.height) {
-                    returnArr.push(_pos);
-                }
-            });
-        }
-
-        return returnArr;
-    }
-
-    /**
-     * @param {pos} pos
-     * @param {(point:Number, pos?:pos) => void} callback
-     * @param {Boolean} [allowDiagonal=true] 
-     */
-    forPointSiblings = (pos, callback, allowDiagonal=true) => {
-        this.getPointSiblings(pos, allowDiagonal).forEach((pos) => {
-            if(pos.x >= 0 && pos.x < this.width && pos.y >= 0 && pos.y < this.height) {
-                callback(this.raw[pos.x][pos.y], pos);
-            }
-        });
-    }
-
-    /** @returns {Array<pos>} */
-    getWalkablePoints = () => {
-        /** @type {Array<pos>} */
-        let returnArr = [];
-        this.forEachPoint((point, pos) => {
-            if(point == 0) {
-                returnArr.push(pos);
-            }
-        });
-        return returnArr;
-    }
-
-    /**
-     * @param {(point:Number, pos?:pos) => void} callback
-     */
-    forEachWalkablePoint = (callback) => {
-        this.forEachPoint((point, pos) => {
-            if(point == 0) {
-                callback(point, pos);
-            }
-        });
-    }
-
-    /** @returns {Array<pos>} */
-    getBlockedPoints = () => {
-        /** @type {Array<pos>} */
-        let returnArr = [];
-        this.forEachPoint((point, pos) => {
-            if(point == 1) {
-                returnArr.push(pos);
-            }
-        });
-        return returnArr;
-    }
-
-    /**
-     * @param {(point:Number, pos?:pos) => void} callback
-     */
-    forEachBlockedPoint = (callback) => {
-        this.forEachPoint((point, pos) => {
-            if (point) {
-                callback(point, pos);
-            }
         });
     }
 
@@ -120,53 +88,11 @@ class Grid {
         /** @type {Array<pos>} */
         let returnArr = [];
         this.forEachPoint((point, pos) => {
-            if (point) {
-                let found = false;
-                this.forPointSiblings(pos, (_point) => {
-                    if (_point == 0) {
-                        found = true;
-                    }
-                });
-                if (found) {
-                    returnArr.push(pos);
-                }
+            if(!point.w && typeof point.s == "number") {
+                returnArr.push(pos);
             }
         });
         return returnArr;
-    }
-
-    /** 
-     * @param {pos} pos
-     * @returns {Array<pos>}
-     */
-    getWalkableSiblings = (pos) => {
-        /** @type {Array<pos>} */
-        const returnArr = [];
-        this.forPointSiblings(pos, (point, _pos) => {
-            if(point == 0) {
-                returnArr.push(_pos);
-            }
-        }, true);
-        return returnArr;
-    }
-
-    /**
-     * @param {(point:Number, pos?:pos) => void} callback
-     */
-    forEachBoundaryPoint = (callback) => {
-        this.forEachPoint((point, pos) => {
-            if (point) {
-                let found = false;
-                this.forPointSiblings(pos, (_point) => {
-                    if (_point) {
-                        found = true;
-                    }
-                });
-                if(found) {
-                    callback(point, pos);
-                }
-            }
-        });
     }
 
     /** 
@@ -199,8 +125,59 @@ class Grid {
         });
     }
 
+    /** @returns {Array<PLOT_SLOT>} */
+    #getPlotSlots = () => {
+        /** @type {Array<PLOT_SLOT>} */
+        let returnArr = [];
+        /** @type {Array<Number>} */
+        let _streetsCount = [];
+        this.forEachPoint((point, pos) => {
+            if(!point.w && typeof point.s == "number") {
+                let _streetId = point.s + 0;
+                if(streetsArr[_streetId]) {
+                    let _pos = {x: pos.x + 0, y: pos.y + 0 };
+                    let _number = 1;
+                    if(typeof _streetsCount[_streetId] == "number") {
+                        _streetsCount[_streetId]++;
+                        _number = _streetsCount[_streetId] + 0;
+                    } else {
+                        _streetsCount[_streetId] = 1;
+                    }
+                    let obj = {
+                        id: returnArr.length,
+                        pos: _pos,
+                        number: _number,
+                    };
+                    Object.defineProperty(obj, 'streetName', {
+                        set: () => {},
+                        get: () => {
+                            return streetsArr[_streetId].name;
+                        },
+                        enumerable: true
+                    }); //@ts-ignore
+                    returnArr.push(obj);
+                }
+            }
+        });
+
+        return returnArr;
+    }
+
+    /**
+     * @param {RAW_MAP} raw 
+     */
     constructor(raw) {
-        this.raw = raw;
+        this.mapData = raw;
+        this.raw = raw.map((row) => {
+            return row.map((element) => {
+                if(element.w) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            });
+        });
+        this.slots = this.#getPlotSlots();
     }
 }
 

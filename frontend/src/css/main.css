@@ -7,7 +7,9 @@
 @import url('./mapWindow.css');
 @import url('./mapTooltips.css');
 @import url('./humanWindow.css');
+@import url('./magnifyingGlass.css');
 @import url('./bluescreen.css');
+@import url('./mapOptionsMenu.css');
 
 .app {
     position: absolute;
