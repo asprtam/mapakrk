@@ -15,6 +15,28 @@ import { Utils } from "./utils.js";
  * @typedef {Object} PLOT_STATUS
  * @property {Number} id
  * @property {Array<{name: String, id: Number}>} visitors
+ * @property {Boolean} isOpen
+ */
+
+/**
+ * @typedef {Object} PLOT_MANAGEMENT_TIME
+ * @property {Number} hour
+ * @property {Number} minute
+ */
+
+/**
+ * @typedef {Object} PLOT_OPEN_HOURS
+ * @property {PLOT_MANAGEMENT_TIME} open
+ * @property {PLOT_MANAGEMENT_TIME} close
+ */
+
+/**
+ * @typedef {Object} HOSPITALITY_SAVED_DATA
+ * @property {PLOT_OPEN_HOURS} [hours]
+ * @property {{[id: String]: Number}} [inheritedIntrestEvents]
+ * @property {pos} [pos]
+ * @property {Array<INTREST_TAG>} [connectedTopics]
+ * @property {String} [name]
  */
 
 class Plot {
@@ -59,7 +81,7 @@ class Plot {
     /** @returns {PLOT_STATUS} */
     getPlotStatus = () => {
         /** @type {PLOT_STATUS} */
-        let plotStatus = { id: this.id + 0, visitors: [] };
+        let plotStatus = { id: this.id + 0, visitors: [], isOpen: this.isOpen };
 
         this.currentVisitors.forEach((humanId) => {
             if(this.simulation.humans[humanId]) {
@@ -70,12 +92,28 @@ class Plot {
         return plotStatus;
     }
 
+    /** @type {Boolean} */
+    isOpen = true;
+
     /** @type {Simulation} */
     simulation;
     /** @type {pos} */
     pos;
     /** @type {Array<pos>} */
     squares = [];
+    /**
+     * @param {pos} pos 
+     * @returns {Boolean}
+     */
+    containsPos = (pos) => {
+        for(let square of this.squares) {
+            if(square.x == pos.x && square.y == pos.y) {
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
     /** @type {Number} */
     id;
     /** @type {Number} */
@@ -84,33 +122,46 @@ class Plot {
         return this.simulation.grid.slots[this.slotId];
     }
     /** @type {String} */
-    name;
+    name = '';
     /** @type {String} */
     adress;
     /** @type {false} */
     isHospitality = false;
 
+    /** @returns {Promise<Boolean>} */
+    managementTick = () => {
+        return new Promise((res) => {
+            res(true);
+        });
+    }
+
     /**
      * @param {Simulation} simulation
-     * @param {PLOT_SLOT} slot 
+     * @param {PLOT_SLOT|null} [slot]
+     * @param {Boolean} [dontClaim]
      */
-    constructor(simulation, slot) {
+    constructor(simulation, slot = null, dontClaim = false) {
         this.simulation = simulation;
-        this.pos = slot.pos;
-        this.squares = [slot.pos];
-        this.slotId = slot.id;
-        this.id = simulation.plots.push(this) - 1;
-        this.adress = `${slot.streetName} ${slot.number}`;
-        this.name = `${slot.streetName} ${slot.number}`;
+        if(slot == null && !dontClaim) {
+            slot = this.simulation.grid.getRandomAvailableSlot();
+        }
+        if(!dontClaim) {
+            this.pos = slot.pos;
+            this.squares = [slot.pos];
+            this.slotId = slot.id;
+            this.id = simulation.plots.push(this) - 1;
+            this.adress = `${slot.streetName} ${slot.number}`;
+            this.name = `${slot.streetName} ${slot.number}`;
+        }
     }
 }
 //@ts-ignore
 class Home extends Plot {
     /**
      * @param {Simulation} simulation
-     * @param {PLOT_SLOT} slot 
+     * @param {PLOT_SLOT|null} [slot] 
      */
-    constructor(simulation, slot) {
+    constructor(simulation, slot = null) {
         super(simulation, slot); 
         this.isHospitality = false;
         this.simulation.grid.claimSlot(slot.id, "M");
@@ -122,6 +173,12 @@ class Hospitality extends Plot {
     hospitalityId;
     /** @type {true} */ //@ts-ignore
     isHospitality = true;
+    /** @type {PLOT_OPEN_HOURS} */
+    openHours;
+    /** @type {{open: Number, close: Number}} */
+    get parsedOpenHours() {
+        return { open: this.openHours.open.hour + (this.openHours.open.minute / 60), close: this.openHours.close.hour + (this.openHours.close.minute / 60) }
+    }
 
     /** @param {Number} id */
     addWalker = (id) => {
@@ -142,10 +199,11 @@ class Hospitality extends Plot {
     /** @param {Number} id */
     addVisitor = (id) => {
         this.removeWalker(id);
+        this.meeting.onBeforeAddParticipant(id);
         if(!this.currentVisitors.includes(id)) {
             this.currentVisitors.push(id);
         }
-        this.meeting.onAddParticipant();
+        this.meeting.onAddParticipant(id);
     }
     /** @param {Number} id */
     removeVisitor = (id) => {
@@ -156,7 +214,32 @@ class Hospitality extends Plot {
         while(this.currentVisitors.includes(id)) {
             remove();
         }
-        this.meeting.onRemoveParticipant();
+        this.meeting.onRemoveParticipant(id);
+    }
+
+    /** @type {{[id: String]: Number}} */
+    inheritedIntrestEvents = {};
+
+    /**
+     * @returns {HOSPITALITY_SAVED_DATA}
+     */
+    getDataDump = () => {
+        if(this.name != this.adress) {
+            return {
+                hours: this.openHours,
+                inheritedIntrestEvents: this.inheritedIntrestEvents,
+                pos: this.pos,
+                connectedTopics: this.welcomeIntrestsTags,
+                name: this.name
+            }
+        } else {
+            return {
+                hours: this.openHours,
+                inheritedIntrestEvents: this.inheritedIntrestEvents,
+                pos: this.pos,
+                connectedTopics: this.welcomeIntrestsTags,
+            }
+        }
     }
 
     /** 
@@ -189,52 +272,175 @@ class Hospitality extends Plot {
     welcomeIntrestCategories = [];
     /** @type {Array<import("../data/intrests.js").INTREST_CATEGORY_NAME>} */
     unwelcomeIntrestCategories = [];
+
+    /** @returns {Boolean} */
+    checkIfOpen = () => {
+        if(this.openHours.close.hour == this.openHours.open.hour && this.openHours.close.minute == this.openHours.open.minute) {
+            return true;
+        } else {
+            let parsedCurrentHour = this.simulation.parsedCurrentHour + 0;
+            if(this.openHours.close.hour < this.openHours.open.hour || (this.openHours.close.hour == this.openHours.open.hour && this.openHours.close.minute < this.openHours.open.minute)) {
+                if(parsedCurrentHour >= this.parsedOpenHours.open || (parsedCurrentHour < this.parsedOpenHours.open && parsedCurrentHour < this.parsedOpenHours.close)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if(parsedCurrentHour >= this.parsedOpenHours.open && parsedCurrentHour < this.parsedOpenHours.close) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    /** @returns {Promise<Boolean>} */
+    onClose = () => {
+        return new Promise(async (res) => {
+            res(true);
+        });
+    }
+
+    /** @returns {Promise<Boolean>} */
+    onOpen = () => {
+        return new Promise(async (res) => {
+            res(true);
+        });
+    }
+
+    /** 
+     * @override
+     * @returns {Promise<Boolean>}
+     */
+    managementTick = () => {
+        return new Promise((res) => {
+            let isNowOpen = this.checkIfOpen();
+            if(!isNowOpen) {
+                if(isNowOpen != this.isOpen) {
+                    this.isOpen = isNowOpen;
+                    this.onClose().then(() => {
+                        res(true);
+                    });
+                } else {
+                    this.isOpen = isNowOpen;
+                    res(true);
+                }
+            } else {
+                if(isNowOpen != this.isOpen) {
+                    this.isOpen = isNowOpen;
+                    this.onOpen().then(() => {
+                        res(true);
+                    });
+                } else {
+                    this.isOpen = isNowOpen;
+                    res(true);
+                }
+            }
+        });
+    }
     
     /**
      * @param {Simulation} simulation
-     * @param {PLOT_SLOT} slot 
+     * @param {HOSPITALITY_SAVED_DATA|null} [savedData] 
      */
-    constructor(simulation, slot) {
-        super(simulation, slot);
+    constructor(simulation, savedData=null) {
+        super(simulation, null, true);
         this.isHospitality = true;
         this.hospitalityId = simulation.hospitalities.push(this) - 1;
-        this.simulation.grid.claimSlot(slot.id, "H");
-        let intrestCount = 0;
-        switch(Utils.getRandomWithProbability({'any': 1, 'none': 1})) {
-            case "any": {
-                intrestCount = Utils.randomInRange(1, 3);
-                break;
-            }
-            default: {
-                break;
-            }
-        }
-        if(intrestCount > 0) {
-            let firstIntrest = intrests.getRandomIntrest();
-            while(intrests.list[firstIntrest].categories.includes('artforms')) {
-                firstIntrest = intrests.getRandomIntrest();
-            }
-            this.welcomeIntrestsTags = [firstIntrest];
-            const loopFunc = () => {
-                let possibleIntrests = intrests.normalizeConnectedIntrests(intrests.getConnectedIntrestsFromTagArray(this.welcomeIntrestsTags, true, true), 1, true, 5);
-                this.welcomeIntrestsTags.forEach((tag) => {
-                    if(typeof possibleIntrests[tag] !== 'undefined') {
-                        delete possibleIntrests[tag];
-                    }
-                });
-                if(Object.keys(possibleIntrests).length > 0) {
-                    let randomIntrest = Utils.getRandomWithProbability(possibleIntrests);
-                    while(intrests.list[firstIntrest].categories.includes('artforms')) {
-                        randomIntrest = Utils.getRandomWithProbability(possibleIntrests);
-                    }
-                    this.welcomeIntrestsTags.push(randomIntrest);
+
+        const getRandomIntrests = () => {
+            let intrestCount = 0;
+            switch(Utils.getRandomWithProbability({ 'any': 1, 'none': 1 })) {
+                case "any": {
+                    intrestCount = Utils.randomInRange(1, 3);
+                    break;
+                }
+                default: {
+                    break;
                 }
             }
-            for(let i = 1; i>intrestCount; i++) {
-                loopFunc();
+            if(intrestCount > 0) {
+                let firstIntrest = intrests.getRandomIntrest();
+                while(intrests.list[firstIntrest].categories.includes('artforms')) {
+                    firstIntrest = intrests.getRandomIntrest();
+                }
+                this.welcomeIntrestsTags = [firstIntrest];
+                const loopFunc = () => {
+                    let possibleIntrests = intrests.normalizeConnectedIntrests(intrests.getConnectedIntrestsFromTagArray(this.welcomeIntrestsTags, true, true), 1, true, 5);
+                    this.welcomeIntrestsTags.forEach((tag) => {
+                        if(typeof possibleIntrests[tag] !== 'undefined') {
+                            delete possibleIntrests[tag];
+                        }
+                    });
+                    if(Object.keys(possibleIntrests).length > 0) {
+                        let randomIntrest = Utils.getRandomWithProbability(possibleIntrests);
+                        while(intrests.list[firstIntrest].categories.includes('artforms')) {
+                            randomIntrest = Utils.getRandomWithProbability(possibleIntrests);
+                        }
+                        this.welcomeIntrestsTags.push(randomIntrest);
+                    }
+                };
+                for(let i = 1; i > intrestCount; i++) {
+                    loopFunc();
+                }
+                this.welcomeIntrestCategories = this.getIntrestCategories(this.welcomeIntrestsTags);
             }
-            this.welcomeIntrestCategories = this.getIntrestCategories(this.welcomeIntrestsTags);
         }
+
+        const getDefaultHours = () => {
+            this.openHours = { open: { hour: 7, minute: 0 }, close: { hour: 23, minute: 0 } };
+        }
+
+        if(savedData) {
+            if(savedData.pos) {
+                let preexistingSlot = this.simulation.grid.getSlotByPos(savedData.pos);
+                if(preexistingSlot) {
+                    this.slotId = preexistingSlot.id;
+                } else {
+                    this.slotId = this.simulation.grid.getRandomAvailableSlot().id;
+                }
+            } else {
+                this.slotId = this.simulation.grid.getRandomAvailableSlot().id;
+            }
+            if(savedData.connectedTopics) {
+                this.welcomeIntrestsTags = savedData.connectedTopics;
+                this.unwelcomeIntrestCategories = this.getIntrestCategories(this.welcomeIntrestsTags);
+            } else {
+                getRandomIntrests();
+            }
+            if(savedData.inheritedIntrestEvents) {
+                this.inheritedIntrestEvents = savedData.inheritedIntrestEvents;
+            }
+            if(savedData.hours) {
+                this.openHours = savedData.hours;
+                this.openHours.open.hour = this.openHours.open.hour % 24;
+                this.openHours.close.hour = this.openHours.close.hour % 24;
+                this.openHours.open.minute = this.openHours.open.minute % 60;
+                this.openHours.close.minute = this.openHours.close.minute % 60;
+            } else {
+                getDefaultHours();
+            }
+            if(savedData.name) {
+                this.name = savedData.name;
+            }
+        } else {
+            this.slotId = this.simulation.grid.getRandomAvailableSlot().id;
+            getDefaultHours();
+            getRandomIntrests();
+        }
+
+        this.simulation.grid.claimSlot(this.slotId, "H");
+        this.pos = this.slot.pos;
+        this.squares = [this.slot.pos];
+        this.id = simulation.plots.push(this) - 1;
+        this.adress = `${this.slot.streetName} ${this.slot.number}`;
+        if(this.name.trim() == '') {
+            this.name = `${this.slot.streetName} ${this.slot.number}`;
+        }
+        
+        this.isOpen = this.checkIfOpen();
         this.meeting = new PlotBoundMeeting(simulation, this);
     }
 }

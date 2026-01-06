@@ -1,0 +1,2430 @@
+{
+	"tick": 100,
+	"tickIteration": 0,
+	"startDate": {
+		"hour": 2,
+		"day": 150,
+		"year": 2024
+	},
+	"humans": [
+		{
+			"id": 0,
+			"info": {
+				"age": 23,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Lesława",
+				"genderPronoun": "female",
+				"lastname": "Robakowska"
+			},
+			"birthDay": 257,
+			"attributes": {
+				"physical": 25,
+				"social": 35,
+				"intelligence": 35
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"fascism": 1,
+				"feminism": 1,
+				"incelism": 1,
+				"religionStudies": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 239,
+				"y": 140
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 239,
+					"y": 140
+				},
+				"target": 10,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 1,
+			"info": {
+				"age": 35,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Oliwia",
+				"genderPronoun": "female",
+				"lastname": "Wiatr"
+			},
+			"birthDay": 182,
+			"attributes": {
+				"physical": 30,
+				"social": 38,
+				"intelligence": 51
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"depressants": 1,
+				"graffiti": 1,
+				"photography": 1,
+				"techno": 1
+			},
+			"home": {
+				"x": 305,
+				"y": 203
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 305,
+					"y": 203
+				},
+				"target": 11,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 2,
+			"info": {
+				"age": 29,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Lilia",
+				"genderPronoun": "female",
+				"lastname": "Lewandowski"
+			},
+			"birthDay": 252,
+			"attributes": {
+				"physical": 43,
+				"social": 11,
+				"intelligence": 54
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"drawing": 1,
+				"film": 1,
+				"graffiti": 1,
+				"music": 1
+			},
+			"home": {
+				"x": 369,
+				"y": 223
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 369,
+					"y": 223
+				},
+				"target": 12,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 3,
+			"info": {
+				"age": 47,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Celina",
+				"genderPronoun": "female",
+				"lastname": "Lewandowski-Bąk"
+			},
+			"birthDay": 194,
+			"attributes": {
+				"physical": 13,
+				"social": 70,
+				"intelligence": 20
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"brainrot": 1,
+				"graffiti": 1,
+				"modernHistory": 1
+			},
+			"home": {
+				"x": 125,
+				"y": 81
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 125,
+					"y": 81
+				},
+				"target": 13,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 4,
+			"info": {
+				"age": 20,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Mieczysława",
+				"genderPronoun": "female",
+				"lastname": "Kropla"
+			},
+			"birthDay": 88,
+			"attributes": {
+				"physical": 80,
+				"social": 65,
+				"intelligence": 49
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"animalActivism": 1,
+				"fascism": 1,
+				"feminism": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 84,
+				"y": 113
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 84,
+					"y": 113
+				},
+				"target": 14,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 5,
+			"info": {
+				"age": 50,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Dymitr",
+				"genderPronoun": "male",
+				"lastname": "Las"
+			},
+			"birthDay": 157,
+			"attributes": {
+				"physical": 42,
+				"social": 43,
+				"intelligence": 7
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"drawing": 1,
+				"film": 1,
+				"photography": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 163,
+				"y": 160
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 163,
+					"y": 160
+				},
+				"target": 15,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 6,
+			"info": {
+				"age": 22,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Alex",
+				"lastname": "Kruk"
+			},
+			"birthDay": 112,
+			"attributes": {
+				"physical": 74,
+				"social": 45,
+				"intelligence": 71
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"brainrot": 1,
+				"graffiti": 1
+			},
+			"home": {
+				"x": 271,
+				"y": 179
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 271,
+					"y": 179
+				},
+				"target": 16,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 7,
+			"info": {
+				"age": 27,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Alina",
+				"genderPronoun": "female",
+				"lastname": "Orłowska"
+			},
+			"birthDay": 188,
+			"attributes": {
+				"physical": 27,
+				"social": 90,
+				"intelligence": 63
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"feminism": 1,
+				"medieval": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 273,
+				"y": 30
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 273,
+					"y": 30
+				},
+				"target": 17,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 8,
+			"info": {
+				"age": 31,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Iwo",
+				"lastname": "Piwowar"
+			},
+			"birthDay": 358,
+			"attributes": {
+				"physical": 72,
+				"social": 64,
+				"intelligence": 1
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"film": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 166,
+				"y": 93
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 166,
+					"y": 93
+				},
+				"target": 18,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 9,
+			"info": {
+				"age": 20,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Jan",
+				"genderPronoun": "male",
+				"lastname": "Zieliński"
+			},
+			"birthDay": 350,
+			"attributes": {
+				"physical": 57,
+				"social": 30,
+				"intelligence": 72
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"communism": 1,
+				"graffiti": 1
+			},
+			"home": {
+				"x": 296,
+				"y": 159
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 296,
+					"y": 159
+				},
+				"target": 19,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 10,
+			"info": {
+				"age": 23,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Gabriela",
+				"genderPronoun": "female",
+				"lastname": "Lis"
+			},
+			"birthDay": 246,
+			"attributes": {
+				"physical": 53,
+				"social": 46,
+				"intelligence": 18
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"eugenics": 1,
+				"music": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 171,
+				"y": 98
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 171,
+					"y": 98
+				},
+				"target": 20,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 11,
+			"info": {
+				"age": 35,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "male",
+				"name": "Borys",
+				"lastname": "Sawicki"
+			},
+			"birthDay": 111,
+			"attributes": {
+				"physical": 45,
+				"social": 27,
+				"intelligence": 39
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"digitalArt": 1,
+				"fascism": 1
+			},
+			"home": {
+				"x": 220,
+				"y": 88
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 220,
+					"y": 88
+				},
+				"target": 21,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 12,
+			"info": {
+				"age": 38,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Kalina",
+				"genderPronoun": "female",
+				"lastname": "Jabłońska"
+			},
+			"birthDay": 150,
+			"attributes": {
+				"physical": 96,
+				"social": 7,
+				"intelligence": 19
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"graffiti": 1,
+				"historyOfPoland": 1
+			},
+			"home": {
+				"x": 272,
+				"y": 67
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 272,
+					"y": 67
+				},
+				"target": 22,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 13,
+			"info": {
+				"age": 32,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Stanisław",
+				"genderPronoun": "male",
+				"lastname": "Sobczak"
+			},
+			"birthDay": 113,
+			"attributes": {
+				"physical": 61,
+				"social": 45,
+				"intelligence": 30
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"historyOfPoland": 1,
+				"memes": 1,
+				"modernHistory": 1,
+				"psychodelics": 1,
+				"religionStudies": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 94,
+				"y": 37
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 94,
+					"y": 37
+				},
+				"target": 23,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 14,
+			"info": {
+				"age": 38,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Kalina",
+				"genderPronoun": "female",
+				"lastname": "Gruchacz"
+			},
+			"birthDay": 270,
+			"attributes": {
+				"physical": 46,
+				"social": 3,
+				"intelligence": 90
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"graffiti": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 190,
+				"y": 60
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 190,
+					"y": 60
+				},
+				"target": 24,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 15,
+			"info": {
+				"age": 20,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Wielisław",
+				"genderPronoun": "male",
+				"lastname": "Łąka"
+			},
+			"birthDay": 283,
+			"attributes": {
+				"physical": 97,
+				"social": 81,
+				"intelligence": 76
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"fascism": 1,
+				"feminism": 1,
+				"libertarianism": 1,
+				"tradition": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 383,
+				"y": 12
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 383,
+					"y": 12
+				},
+				"target": 25,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 16,
+			"info": {
+				"age": 37,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Maria",
+				"lastname": "Jesień-Zawadzkie"
+			},
+			"birthDay": 281,
+			"attributes": {
+				"physical": 32,
+				"social": 2,
+				"intelligence": 97
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"religionStudies": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 133,
+				"y": 214
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 133,
+					"y": 214
+				},
+				"target": 26,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 17,
+			"info": {
+				"age": 35,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Teodozja",
+				"genderPronoun": "female",
+				"lastname": "Zima-Gajdacka"
+			},
+			"birthDay": 210,
+			"attributes": {
+				"physical": 72,
+				"social": 44,
+				"intelligence": 32
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"depressants": 1,
+				"hiphop": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 380,
+				"y": 56
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 380,
+					"y": 56
+				},
+				"target": 27,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 18,
+			"info": {
+				"age": 43,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Przemko",
+				"genderPronoun": "male",
+				"lastname": "Krawczyk"
+			},
+			"birthDay": 214,
+			"attributes": {
+				"physical": 55,
+				"social": 70,
+				"intelligence": 6
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"fascism": 1,
+				"medieval": 1,
+				"memes": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 74,
+				"y": 77
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 74,
+					"y": 77
+				},
+				"target": 28,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 19,
+			"info": {
+				"age": 43,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "female",
+				"name": "Ida",
+				"lastname": "Pietrycha"
+			},
+			"birthDay": 212,
+			"attributes": {
+				"physical": 61,
+				"social": 41,
+				"intelligence": 8
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"memes": 1,
+				"modernHistory": 1,
+				"tradition": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 33,
+				"y": 74
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 33,
+					"y": 74
+				},
+				"target": 29,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 20,
+			"info": {
+				"age": 48,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Ania",
+				"genderPronoun": "female",
+				"lastname": "Flet"
+			},
+			"birthDay": 270,
+			"attributes": {
+				"physical": 35,
+				"social": 79,
+				"intelligence": 46
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"stimulants": 1,
+				"techno": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 313,
+				"y": 189
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 313,
+					"y": 189
+				},
+				"target": 30,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 21,
+			"info": {
+				"age": 18,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Nico",
+				"lastname": "Pole"
+			},
+			"birthDay": 298,
+			"attributes": {
+				"physical": 2,
+				"social": 42,
+				"intelligence": 51
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"incelism": 1,
+				"music": 1,
+				"painting": 1
+			},
+			"home": {
+				"x": 127,
+				"y": 230
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 127,
+					"y": 230
+				},
+				"target": 31,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 22,
+			"info": {
+				"age": 40,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Maria",
+				"lastname": "Komin"
+			},
+			"birthDay": 296,
+			"attributes": {
+				"physical": 77,
+				"social": 48,
+				"intelligence": 64
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"brainrot": 1,
+				"fascism": 1,
+				"film": 1,
+				"medieval": 1,
+				"memes": 1,
+				"stimulants": 1
+			},
+			"home": {
+				"x": 135,
+				"y": 149
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 135,
+					"y": 149
+				},
+				"target": 32,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"autism",
+				"drugAddict",
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 23,
+			"info": {
+				"age": 19,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Alicja",
+				"genderPronoun": "female",
+				"lastname": "Czarnecka-Blask"
+			},
+			"birthDay": 361,
+			"attributes": {
+				"physical": 58,
+				"social": 72,
+				"intelligence": 85
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"eugenics": 1,
+				"graffiti": 1,
+				"incelism": 1,
+				"libertarianism": 1
+			},
+			"home": {
+				"x": 27,
+				"y": 74
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 27,
+					"y": 74
+				},
+				"target": 33,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 24,
+			"info": {
+				"age": 47,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Alin",
+				"lastname": "Tama"
+			},
+			"birthDay": 195,
+			"attributes": {
+				"physical": 6,
+				"social": 17,
+				"intelligence": 74
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"graffiti": 1,
+				"historyOfPoland": 1,
+				"lgbtActivism": 1,
+				"modernHistory": 1
+			},
+			"home": {
+				"x": 340,
+				"y": 168
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 340,
+					"y": 168
+				},
+				"target": 34,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 25,
+			"info": {
+				"age": 21,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Alex",
+				"lastname": "Wróbel"
+			},
+			"birthDay": 211,
+			"attributes": {
+				"physical": 14,
+				"social": 26,
+				"intelligence": 94
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"depressants": 1,
+				"feminism": 1,
+				"stimulants": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 136,
+				"y": 84
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 136,
+					"y": 84
+				},
+				"target": 35,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 26,
+			"info": {
+				"age": 24,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Brygida",
+				"genderPronoun": "female",
+				"lastname": "Piasek"
+			},
+			"birthDay": 110,
+			"attributes": {
+				"physical": 27,
+				"social": 73,
+				"intelligence": 81
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"brainrot": 1,
+				"digitalArt": 1,
+				"historyOfPoland": 1
+			},
+			"home": {
+				"x": 221,
+				"y": 126
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 221,
+					"y": 126
+				},
+				"target": 36,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 27,
+			"info": {
+				"age": 61,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Iwo",
+				"lastname": "Kamińskie"
+			},
+			"birthDay": 112,
+			"attributes": {
+				"physical": 15,
+				"social": 53,
+				"intelligence": 36
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"digitalArt": 1,
+				"film": 1,
+				"graffiti": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 266,
+				"y": 150
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 266,
+					"y": 150
+				},
+				"target": 37,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 28,
+			"info": {
+				"age": 47,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Adelajda",
+				"genderPronoun": "female",
+				"lastname": "Rybak"
+			},
+			"birthDay": 61,
+			"attributes": {
+				"physical": 3,
+				"social": 85,
+				"intelligence": 67
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"brainrot": 1,
+				"digitalArt": 1
+			},
+			"home": {
+				"x": 144,
+				"y": 143
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 144,
+					"y": 143
+				},
+				"target": 38,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 29,
+			"info": {
+				"age": 28,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Nico",
+				"lastname": "Szabla"
+			},
+			"birthDay": 32,
+			"attributes": {
+				"physical": 49,
+				"social": 61,
+				"intelligence": 12
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"music": 1,
+				"photography": 1,
+				"sculpture": 1,
+				"techno": 1
+			},
+			"home": {
+				"x": 162,
+				"y": 141
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 162,
+					"y": 141
+				},
+				"target": 39,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 30,
+			"info": {
+				"age": 31,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "male",
+				"name": "Lechosław",
+				"lastname": "Ziemiański"
+			},
+			"birthDay": 241,
+			"attributes": {
+				"physical": 44,
+				"social": 88,
+				"intelligence": 92
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"depressants": 1,
+				"painting": 1,
+				"photography": 1,
+				"stimulants": 1,
+				"techno": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 29,
+				"y": 6
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 29,
+					"y": 6
+				},
+				"target": 40,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 31,
+			"info": {
+				"age": 44,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Miłosz",
+				"genderPronoun": "male",
+				"lastname": "Sikorski"
+			},
+			"birthDay": 233,
+			"attributes": {
+				"physical": 55,
+				"social": 33,
+				"intelligence": 65
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"incelism": 1,
+				"music": 1,
+				"photography": 1
+			},
+			"home": {
+				"x": 183,
+				"y": 122
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 183,
+					"y": 122
+				},
+				"target": 41,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 32,
+			"info": {
+				"age": 26,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Maria",
+				"lastname": "Podkowa"
+			},
+			"birthDay": 283,
+			"attributes": {
+				"physical": 17,
+				"social": 99,
+				"intelligence": 80
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"brainrot": 1,
+				"painting": 1
+			},
+			"home": {
+				"x": 187,
+				"y": 130
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 187,
+					"y": 130
+				},
+				"target": 42,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 33,
+			"info": {
+				"age": 38,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Kosma",
+				"genderPronoun": "male",
+				"lastname": "Tomczak"
+			},
+			"birthDay": 149,
+			"attributes": {
+				"physical": 20,
+				"social": 8,
+				"intelligence": 83
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"communism": 1,
+				"digitalArt": 1,
+				"gaming": 1
+			},
+			"home": {
+				"x": 202,
+				"y": 130
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 202,
+					"y": 130
+				},
+				"target": 43,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"autism",
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 34,
+			"info": {
+				"age": 19,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "female",
+				"name": "Klara",
+				"lastname": "Szulc"
+			},
+			"birthDay": 115,
+			"attributes": {
+				"physical": 64,
+				"social": 22,
+				"intelligence": 59
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"music": 1,
+				"techno": 1
+			},
+			"home": {
+				"x": 183,
+				"y": 138
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 183,
+					"y": 138
+				},
+				"target": 44,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 35,
+			"info": {
+				"age": 20,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Przemko",
+				"genderPronoun": "male",
+				"lastname": "Pieczarski"
+			},
+			"birthDay": 67,
+			"attributes": {
+				"physical": 31,
+				"social": 48,
+				"intelligence": 75
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ancientHistory": 1,
+				"chanCulture": 1,
+				"climateActivism": 1,
+				"fascism": 1,
+				"stimulants": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 7,
+				"y": 209
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 7,
+					"y": 209
+				},
+				"target": 45,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 36,
+			"info": {
+				"age": 28,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Monika",
+				"genderPronoun": "female",
+				"lastname": "Borkowski"
+			},
+			"birthDay": 344,
+			"attributes": {
+				"physical": 71,
+				"social": 85,
+				"intelligence": 44
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"animalActivism": 1,
+				"graffiti": 1
+			},
+			"home": {
+				"x": 244,
+				"y": 170
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 244,
+					"y": 170
+				},
+				"target": 46,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 37,
+			"info": {
+				"age": 26,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Eligiusz",
+				"genderPronoun": "male",
+				"lastname": "Podkowa"
+			},
+			"birthDay": 52,
+			"attributes": {
+				"physical": 12,
+				"social": 64,
+				"intelligence": 21
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"climateActivism": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 154,
+				"y": 159
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 154,
+					"y": 159
+				},
+				"target": 47,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 38,
+			"info": {
+				"age": 30,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Adrianna",
+				"genderPronoun": "female",
+				"lastname": "Piwowar"
+			},
+			"birthDay": 7,
+			"attributes": {
+				"physical": 37,
+				"social": 65,
+				"intelligence": 66
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"incelism": 1,
+				"sculpture": 1,
+				"stimulants": 1
+			},
+			"home": {
+				"x": 185,
+				"y": 102
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 185,
+					"y": 102
+				},
+				"target": 48,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 39,
+			"info": {
+				"age": 35,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Michał",
+				"genderPronoun": "male",
+				"lastname": "Orzech"
+			},
+			"birthDay": 197,
+			"attributes": {
+				"physical": 42,
+				"social": 87,
+				"intelligence": 42
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"fascism": 1,
+				"traditionalValues": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 304,
+				"y": 113
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 304,
+					"y": 113
+				},
+				"target": 49,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 40,
+			"info": {
+				"age": 27,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "female",
+				"name": "Pati",
+				"lastname": "Orzech"
+			},
+			"birthDay": 350,
+			"attributes": {
+				"physical": 78,
+				"social": 29,
+				"intelligence": 83
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"fascism": 1,
+				"feminism": 1,
+				"medieval": 1,
+				"modernHistory": 1,
+				"tradition": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 121,
+				"y": 84
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 121,
+					"y": 84
+				},
+				"target": 50,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"autism",
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 41,
+			"info": {
+				"age": 28,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Teresa",
+				"genderPronoun": "female",
+				"lastname": "Kopyto"
+			},
+			"birthDay": 143,
+			"attributes": {
+				"physical": 22,
+				"social": 79,
+				"intelligence": 46
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"digitalArt": 1,
+				"drawing": 1,
+				"music": 1,
+				"photography": 1
+			},
+			"home": {
+				"x": 167,
+				"y": 150
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 167,
+					"y": 150
+				},
+				"target": 51,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 42,
+			"info": {
+				"age": 31,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Nico",
+				"lastname": "Dąb"
+			},
+			"birthDay": 7,
+			"attributes": {
+				"physical": 36,
+				"social": 63,
+				"intelligence": 77
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"chanCulture": 1,
+				"communism": 1,
+				"feminism": 1,
+				"graffiti": 1,
+				"hiphop": 1,
+				"memes": 1,
+				"psychodelics": 1
+			},
+			"home": {
+				"x": 345,
+				"y": 150
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 345,
+					"y": 150
+				},
+				"target": 52,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 43,
+			"info": {
+				"age": 37,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Nico",
+				"lastname": "Kamińskie"
+			},
+			"birthDay": 28,
+			"attributes": {
+				"physical": 41,
+				"social": 93,
+				"intelligence": 38
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"graffiti": 1,
+				"historyOfPoland": 1
+			},
+			"home": {
+				"x": 188,
+				"y": 110
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 188,
+					"y": 110
+				},
+				"target": 53,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 44,
+			"info": {
+				"age": 20,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Milka",
+				"genderPronoun": "female",
+				"lastname": "Komin"
+			},
+			"birthDay": 97,
+			"attributes": {
+				"physical": 35,
+				"social": 74,
+				"intelligence": 10
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"eugenics": 1,
+				"medieval": 1,
+				"religionStudies": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 32,
+				"y": 31
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 32,
+					"y": 31
+				},
+				"target": 54,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 45,
+			"info": {
+				"age": 70,
+				"gender": "male",
+				"customGenderName": null,
+				"name": "Alfred",
+				"genderPronoun": "male",
+				"lastname": "Rybak"
+			},
+			"birthDay": 82,
+			"attributes": {
+				"physical": 89,
+				"social": 1,
+				"intelligence": 23
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"digitalArt": 1
+			},
+			"home": {
+				"x": 157,
+				"y": 170
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 157,
+					"y": 170
+				},
+				"target": 55,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 46,
+			"info": {
+				"age": 61,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Magda",
+				"genderPronoun": "female",
+				"lastname": "Kowal"
+			},
+			"birthDay": 97,
+			"attributes": {
+				"physical": 28,
+				"social": 82,
+				"intelligence": 98
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"eugenics": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 269,
+				"y": 202
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 269,
+					"y": 202
+				},
+				"target": 56,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 47,
+			"info": {
+				"age": 16,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Nico",
+				"lastname": "Kamińskie"
+			},
+			"birthDay": 278,
+			"attributes": {
+				"physical": 90,
+				"social": 25,
+				"intelligence": 15
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"graffiti": 1,
+				"photography": 1
+			},
+			"home": {
+				"x": 326,
+				"y": 205
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 326,
+					"y": 205
+				},
+				"target": 57,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 48,
+			"info": {
+				"age": 26,
+				"gender": "female",
+				"customGenderName": null,
+				"name": "Ludwika",
+				"genderPronoun": "female",
+				"lastname": "Hetman"
+			},
+			"birthDay": 290,
+			"attributes": {
+				"physical": 46,
+				"social": 53,
+				"intelligence": 44
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"digitalArt": 1,
+				"drawing": 1
+			},
+			"home": {
+				"x": 190,
+				"y": 106
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 190,
+					"y": 106
+				},
+				"target": 58,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 49,
+			"info": {
+				"age": 29,
+				"gender": "other",
+				"customGenderName": null,
+				"genderPronoun": "other",
+				"name": "Maria",
+				"lastname": "Mąkowskie-Wróbel"
+			},
+			"birthDay": 95,
+			"attributes": {
+				"physical": 25,
+				"social": 44,
+				"intelligence": 47
+			},
+			"statuses": {
+				"boredom": 1,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"communism": 1,
+				"historyOfPoland": 1,
+				"music": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 128,
+				"y": 111
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 128,
+					"y": 111
+				},
+				"target": 59,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		}
+	],
+	"hospitalities": [
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 53,
+				"y": 102
+			},
+			"connectedTopics": [
+				"religionStudies"
+			]
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 272,
+				"y": 112
+			},
+			"connectedTopics": []
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 137,
+				"y": 29
+			},
+			"connectedTopics": [
+				"climateActivism"
+			]
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 140,
+				"y": 235
+			},
+			"connectedTopics": []
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 388,
+				"y": 165
+			},
+			"connectedTopics": [
+				"techno"
+			]
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 69,
+				"y": 152
+			},
+			"connectedTopics": []
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 388,
+				"y": 140
+			},
+			"connectedTopics": []
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 385,
+				"y": 156
+			},
+			"connectedTopics": [
+				"modernHistory"
+			]
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 356,
+				"y": 238
+			},
+			"connectedTopics": [
+				"techno"
+			]
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 23,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 183,
+				"y": 115
+			},
+			"connectedTopics": []
+		}
+	]
+}

@@ -27,6 +27,25 @@ class Sprite {
         });
     }
 
+    /**
+     * @param {CanvasRenderingContext2D} ctx 
+     * @param {{x: Number, y: Number}} pos 
+     * @param {Number} scalingFactor 
+     * @param {Number} requiredFactor 
+     * @param {SPRITE} sprite
+     */
+    static clear = (ctx, pos, scalingFactor, requiredFactor, sprite) => {
+        let _pos = pos;
+        let pixel = scalingFactor / requiredFactor;
+        sprite.data.forEach((column, column_id) => {
+            column.forEach((filled, row_id) => {
+                if(filled && (_pos.x) + (column_id * pixel) >= 0 && (_pos.y) + (row_id * pixel) >= 0) {
+                    ctx.clearRect((_pos.x) + (column_id * pixel), (_pos.y) + (row_id * pixel), pixel, pixel);
+                }
+            });
+        });
+    }
+
     get width () {
         return this.#sprite.size.width;
     }
@@ -81,6 +100,16 @@ class Sprite {
      */
     draw = (ctx, pos, scalingFactor, requiredFactor, color) => {
         Sprite.draw(ctx, pos, scalingFactor, requiredFactor, this.#sprite, color);
+    }
+
+    /**
+     * @param {CanvasRenderingContext2D} ctx
+     * @param {{x: Number, y: Number}} pos
+     * @param {Number} scalingFactor
+     * @param {Number} requiredFactor
+     */
+    clear = (ctx, pos, scalingFactor, requiredFactor) => {
+        Sprite.clear(ctx, pos, scalingFactor, requiredFactor, this.#sprite);
     }
 
     /**

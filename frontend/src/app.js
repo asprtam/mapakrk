@@ -7,6 +7,8 @@ import { DisplayedHuman } from "./human";
 import { Plot, Hospitality } from "./plot.js";
 import { MagnifyingGlass } from "./magnifyingGlass";
 import { ClickElewhereEvent } from "./clickElsewhere";
+import { TimeManager } from "./dateManager";
+import { ALLHumansWindow } from "./allHumansWindow";
 /** @typedef {import("../../simulation/utils").HTML_TAGS} HTML_TAGS */
 /** @typedef {keyof HTML_TAGS} HTML_TAG */
 /** @typedef {import("../../simulation/simulation").TICK_HUMAN_DATA} TICK_HUMAN_DATA */
@@ -23,6 +25,7 @@ import { ClickElewhereEvent } from "./clickElsewhere";
 /** @typedef {import("../../index").RAW_MAP_PIXEL} RAW_MAP_PIXEL */
 /** @typedef {import("../../simulation/grid").PLOT_SLOT} PLOT_SLOT */
 /** @typedef {import("../../simulation/entites").PLOT_STATUS} PLOT_STATUS */
+/** @typedef {import("../../index").SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE} SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE */
 
 class App {
     /** @type {{showPinnedOnly: Boolean}} */
@@ -125,7 +128,7 @@ class App {
     /** @type {*|null} */
     humansFetchTimer = null;
     /** @type {TICK_DATA} */
-    lastTick = {id: 0, humanPos: [], plotsChanged: false};
+    lastTick = {id: 0, iteration: 0, humanPos: [], plotsChanged: false, plots: []};
     /** @type {Number} */
     frameTime = 1000/SimulationGlobals.fps;
     /** @type {null|DRAWING_INSTANCE} */
@@ -168,6 +171,37 @@ class App {
     /** @type {{intrests: {[key in import("../../data/intrests").INTREST_TAG]: import("../../data/intrests").INTREST}, categories: {[key in import("../../data/intrests").INTREST_CATEGORY_NAME]: {name: String, connected: Array<import("../../data/intrests").INTREST_CATEGORY_NAME>, disconnected: Array<import("../../data/intrests").INTREST_CATEGORY_NAME>}}}} */ //@ts-ignore
     intrestsData = {intrests: {}, categories: {}};
     viewOptions = { glassOpened: false, plotsVisible: true, humansInPlots: false };
+    /** @type {TimeManager} */
+    timeManager;
+    timeDisplay = {
+        cont: Utils.createHTMLElement('div', ['timeDisplay']),
+        time: {
+            cont: Utils.createHTMLElement('div', ['time']),
+            hour: Utils.createHTMLElement('div', ['hour']),
+            hourP: Utils.createHTMLElement('p'),
+            separator: Utils.createHTMLElement('div', ['separator']),
+            separatorP: Utils.createHTMLElement('p', [], {}, ':'),
+            minute: Utils.createHTMLElement('div', ['minute']),
+            minuteP: Utils.createHTMLElement('p'),
+        },
+        date: {
+            cont: Utils.createHTMLElement('div', ['date']),
+            day: Utils.createHTMLElement('div', ['day']),
+            dayP: Utils.createHTMLElement('p'),
+            separatorDayMonth: Utils.createHTMLElement('div', ['separator']),
+            separatorDayMonthP: Utils.createHTMLElement('p', [], {}, '.'),
+            month: Utils.createHTMLElement('div', ['month']),
+            monthP: Utils.createHTMLElement('p'),
+            separatorMonthYear: Utils.createHTMLElement('div', ['separator']),
+            separatorMonthYearP: Utils.createHTMLElement('p', [], {}, '.'),
+            year: Utils.createHTMLElement('div', ['year']),
+            yearP: Utils.createHTMLElement('p'),
+        }
+    }
+    /** @type {{hour: Number, minute: Number, day: Number, year: Number, month: 1|2|3|4|5|6|7|8|9|10|11|12, dayOfMonth: Number}} */
+    lastDate;
+    /** @type {ALLHumansWindow} */
+    allHumans;
 
     /**
      * @param {DisplayWindow} displayWindow
@@ -427,7 +461,58 @@ class App {
      */
     onNewData = (lastTick) => {
         return new Promise(async (res) => {
-            // console.log(fetchTime, lastTick);
+            let currTime = this.timeManager.tickToTime(lastTick.id, lastTick.iteration, true);
+            if(this.lastDate.dayOfMonth !== currTime.dayOfMonth) {
+                this.lastDate.dayOfMonth = currTime.dayOfMonth;
+                if(this.lastDate.dayOfMonth < 10) {
+                    if(!this.timeDisplay.date.day.classList.contains('subTen')) {
+                        this.timeDisplay.date.day.classList.add('subTen');
+                    }
+                } else {
+                    if(this.timeDisplay.date.day.classList.contains('subTen')) {
+                        this.timeDisplay.date.day.classList.remove('subTen');
+                    }
+                }
+                this.timeDisplay.date.dayP.innerHTML = `${this.lastDate.dayOfMonth}`;
+            }
+            if(this.lastDate.month !== currTime.month) {
+                this.lastDate.month = currTime.month;
+                if(this.lastDate.month < 10) {
+                    this.timeDisplay.date.monthP.innerHTML = `0${this.lastDate.month}`;
+                } else {
+                    this.timeDisplay.date.monthP.innerHTML = `${this.lastDate.month}`;
+                }
+            }
+            if(this.lastDate.year !== currTime.year) {
+                this.lastDate.year = currTime.year;
+                this.timeDisplay.date.yearP.innerHTML = `${this.lastDate.year}`;
+            }
+            if(this.lastDate.minute !== currTime.minute) {
+                this.lastDate.minute = currTime.minute;
+                if(this.lastDate.minute < 10) {
+                    this.timeDisplay.time.minuteP.innerHTML = `0${this.lastDate.minute}`;
+                } else {
+                    this.timeDisplay.time.minuteP.innerHTML = `${this.lastDate.minute}`;
+                }
+            }
+            if(this.lastDate.hour !== currTime.hour) {
+                this.lastDate.hour = currTime.hour;
+                if(this.lastDate.hour < 10) {
+                    if(!this.timeDisplay.time.hour.classList.contains('subTen')) {
+                        this.timeDisplay.time.hour.classList.add('subTen')
+                    }
+                } else {
+                    if(this.timeDisplay.time.hour.classList.contains('subTen')) {
+                        this.timeDisplay.time.hour.classList.remove('subTen');
+                    }
+                }
+                this.timeDisplay.time.hourP.innerHTML = `${this.lastDate.hour}`;
+            }
+            lastTick.plots.forEach((plot) => {
+                if(this.plots[plot.id]) {
+                    this.plots[plot.id].update(plot);
+                }
+            });
             lastTick.humanPos.forEach(/** @param {TICK_HUMAN_DATA} set */ (set) => {
                 if(this.humans[set.id]) {
                     this.humans[set.id].update(set);
@@ -491,11 +576,34 @@ class App {
                 }
                 case 'log': {
                     try {
-                        console.log('serverLog -', JSON.parse(rest));
+                        let parsed = JSON.parse(rest);
+                        if(Array.isArray(parsed)) {
+                            console.log('serverLog -', ...parsed);
+                        } else {
+                            console.log('serverLog -', parsed);
+                        }
                     } catch(err) {
 
                     }
                     break;
+                }
+                case 'humanEvents': {
+                    /** @type {Array<SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE>} */
+                    let restArr = [];
+                    try {
+                        restArr = JSON.parse(rest);
+                        console.log(restArr);
+                        if(!Array.isArray(restArr)) {
+                            restArr = [];
+                        }
+                    } catch(err) {
+
+                    }
+                    restArr.forEach((r) => {
+                        if(this.humans[r.i]) {
+                            this.humans[r.i].updateEvents(r.e, r.l);
+                        }
+                    })
                 }
             }
         }
@@ -560,6 +668,7 @@ class App {
                 if(response.status == 200 && responseSpriteTile.status == 200 && responseSpriteNature.status == 200 && responseSpriteWater.status == 200) {
                     /** @type {RAW_MAP} */
                     const responseJson = await response.json();
+                    console.log(responseJson.length, responseJson[0].length);
                     /** @type {Array<{id: Number, pos: import("../../simulation/path").pos, squares: Array<import("../../simulation/path").pos>, name: String, adress: String, isHospitality: Boolean}>} */
                     const responseJsonPlots = await responsePlots.json();
                     /** @type {SPRITE} */
@@ -616,7 +725,7 @@ class App {
                                         } else {
                                             newPlot = new Plot(this, plotData);
                                         }
-                                        this.plots.push(newPlot);
+                                        let plotId = this.plots.push(newPlot) - 1;
                                         if(plotData.isHospitality) {
                                             if(Array.isArray(plotData.squares)) {
                                                 plotData.squares.forEach((pos) => {
@@ -624,9 +733,12 @@ class App {
                                                 });
                                             } else { //@ts-ignore
                                                 Sprite.draw(this.mapCanvasCTX, {x: plotData.squares.x * this.mapScalingFactor, y: plotData.squares.y * this.mapScalingFactor}, this.mapScalingFactor, this.requiredFactor, jsonSpriteTile, colors.color3.dark["color3-dark-90"]); //@ts-ignore
-                                            } 
-                                            this.spritePlot.draw(this.plotsCanvasCTX, {x: newPlot.renderedPos.x - ((this.plotDisplayWidth / 2) * this.mapScalingFactor), y: newPlot.renderedPos.y - ((this.plotDisplayHeight / 2) * this.mapScalingFactor)}, this.mapScalingFactor, this.requiredFactor, colors.color6.base);
-
+                                            }
+                                            if(this.plots[plotId].isOpen && this.plots[plotId].currentVisitorsCount > 0) {
+                                                this.spritePlot.draw(this.plotsCanvasCTX, { x: newPlot.renderedPos.x - ((this.plotDisplayWidth / 2) * this.mapScalingFactor), y: newPlot.renderedPos.y - ((this.plotDisplayHeight / 2) * this.mapScalingFactor) }, this.mapScalingFactor, this.requiredFactor, colors.color6.base);
+                                            } else {
+                                                this.spritePlot.draw(this.plotsCanvasCTX, { x: newPlot.renderedPos.x - ((this.plotDisplayWidth / 2) * this.mapScalingFactor), y: newPlot.renderedPos.y - ((this.plotDisplayHeight / 2) * this.mapScalingFactor) }, this.mapScalingFactor, this.requiredFactor, colors.color4.base);
+                                            }
                                         }
                                     });
                                     this.spriteTile = jsonSpriteTile;
@@ -666,13 +778,52 @@ class App {
         });
     }
 
+    /** @returns {Promise<TimeManager>} */
+    createTimeManager = () => {
+        return new Promise(async (res) => {
+            const response = await fetch(`${this.serverUrl}/startDate`);
+            const responseJson = await response.json();
+            res(new TimeManager(this, responseJson.startHour, responseJson.startDay, responseJson.startYear));
+        });
+    }
+
     init = () => {
         return new Promise((resolve, reject) => {
-            Promise.all([this.createMap(), this.getIntrestsData()]).then((res) => {
-                console.log(this.intrestsData);
-            //   resolve(true);
+            Promise.all([this.createMap(), this.getIntrestsData(), this.createTimeManager()]).then(([ mapResponse, intrestsResponse, timeManager ]) => {
+                this.timeManager = timeManager;
+                this.lastDate = timeManager.tickToTime(0, 0, true);
+                if(this.lastDate.hour < 10) {
+                    if(!this.timeDisplay.time.hour.classList.contains('subTen')) {
+                        this.timeDisplay.time.hour.classList.add('subTen');
+                    }
+                } else {
+                    if(this.timeDisplay.time.hour.classList.contains('subTen')) {
+                        this.timeDisplay.time.hour.classList.remove('subTen');
+                    }
+                }
+                if(this.lastDate.dayOfMonth < 10) {
+                    if(!this.timeDisplay.date.day.classList.contains('subTen')) {
+                        this.timeDisplay.date.day.classList.add('subTen');
+                    }
+                } else {
+                    if(this.timeDisplay.date.day.classList.contains('subTen')) {
+                        this.timeDisplay.date.day.classList.remove('subTen');
+                    }
+                }
+                if(this.lastDate.minute < 10) {
+                    this.timeDisplay.time.minuteP.innerHTML = `0${this.lastDate.minute}`;
+                } else {
+                    this.timeDisplay.time.minuteP.innerHTML = `${this.lastDate.minute}`;
+                }
+                if(this.lastDate.month < 10) {
+                    this.timeDisplay.date.monthP.innerHTML = `0${this.lastDate.month}`;
+                } else {
+                    this.timeDisplay.date.monthP.innerHTML = `${this.lastDate.month}`;
+                }
+                this.timeDisplay.time.hourP.innerHTML = `${this.lastDate.hour}`;
+                this.timeDisplay.date.dayP.innerHTML = `${this.lastDate.dayOfMonth}`;
+                this.timeDisplay.date.yearP.innerHTML = `${this.lastDate.year}`;
                 this.createHumansLayer().then((_res) => {
-                    // this.magnifyingGlass = new MagnifyingGlass(this);
                     resolve(_res);
                 }, (code) => {
                     setTimeout(() => {
@@ -1515,6 +1666,27 @@ class App {
             setTimeout(async () => {
                 const mapZoomControlCont = Utils.createAndAppendHTMLElement(this.mapWindowCont, 'div', ['zoom-controls'], {css: {'--percent': `0%`, '--percentText': `'0 %'`} }, '<div class="bar"><div class="bar-inner"></div></div><div class="thumb"><div class="thumb-inner"></div></div>');
 
+                const clock = Utils.createHTMLElement('div', ['clock']);
+                this.timeDisplay.time.hour.appendChild(this.timeDisplay.time.hourP);
+                this.timeDisplay.time.cont.appendChild(this.timeDisplay.time.hour);
+                this.timeDisplay.time.separator.appendChild(this.timeDisplay.time.separatorP);
+                this.timeDisplay.time.cont.appendChild(this.timeDisplay.time.separator);
+                this.timeDisplay.time.minute.appendChild(this.timeDisplay.time.minuteP);
+                this.timeDisplay.time.cont.appendChild(this.timeDisplay.time.minute);
+                this.timeDisplay.date.day.appendChild(this.timeDisplay.date.dayP);
+                this.timeDisplay.date.cont.appendChild(this.timeDisplay.date.day);
+                this.timeDisplay.date.separatorDayMonth.appendChild(this.timeDisplay.date.separatorDayMonthP);
+                this.timeDisplay.date.cont.appendChild(this.timeDisplay.date.separatorDayMonth);
+                this.timeDisplay.date.month.appendChild(this.timeDisplay.date.monthP);
+                this.timeDisplay.date.cont.appendChild(this.timeDisplay.date.month);
+                this.timeDisplay.date.separatorMonthYear.appendChild(this.timeDisplay.date.separatorMonthYearP);
+                this.timeDisplay.date.cont.appendChild(this.timeDisplay.date.separatorMonthYear);
+                this.timeDisplay.date.year.appendChild(this.timeDisplay.date.yearP);
+                this.timeDisplay.date.cont.appendChild(this.timeDisplay.date.year);
+                this.timeDisplay.cont.appendChild(this.timeDisplay.time.cont);
+                this.timeDisplay.cont.appendChild(this.timeDisplay.date.cont);
+                clock.appendChild(this.timeDisplay.cont);
+                this.mapWindowCont.appendChild(clock);
                 
                 this.optionsMenu = await this.#optionsMenu(this.mapWindowCont, {
                     magnifyingGlass: {
@@ -1543,7 +1715,11 @@ class App {
                                         plot.squares.forEach((pos) => {
                                             Sprite.draw(this.mapCanvasCTX, {x: pos.x * this.mapScalingFactor, y: pos.y * this.mapScalingFactor}, this.mapScalingFactor, this.requiredFactor, this.spriteTile, colors.color3.dark["color3-dark-90"]);
                                         });
-                                        this.spritePlot.draw(this.plotsCanvasCTX, {x: plot.renderedPos.x - ((this.plotDisplayWidth / 2) * this.mapScalingFactor), y: plot.renderedPos.y - ((this.plotDisplayHeight / 2) * this.mapScalingFactor)}, this.mapScalingFactor, this.requiredFactor, colors.color6.base);
+                                        if(plot.isOpen && plot.currentVisitorsCount > 0) {
+                                            this.spritePlot.draw(this.plotsCanvasCTX, { x: plot.renderedPos.x - ((this.plotDisplayWidth / 2) * this.mapScalingFactor), y: plot.renderedPos.y - ((this.plotDisplayHeight / 2) * this.mapScalingFactor) }, this.mapScalingFactor, this.requiredFactor, colors.color6.base);
+                                        } else {
+                                            this.spritePlot.draw(this.plotsCanvasCTX, { x: plot.renderedPos.x - ((this.plotDisplayWidth / 2) * this.mapScalingFactor), y: plot.renderedPos.y - ((this.plotDisplayHeight / 2) * this.mapScalingFactor) }, this.mapScalingFactor, this.requiredFactor, colors.color4.base);
+                                        }
                                     }
                                 });
                             } else {
@@ -1580,6 +1756,34 @@ class App {
                         name: "humansInPlots",
                         statusSetter: (val) => {
                             this.viewOptions.humansInPlots = val;
+                        }
+                    },
+                    allHumans: {
+                        displayName: "Wszyscy",
+                        statusGetter: () => {
+                            if(this.allHumans) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        },
+                        name: "allHumans",
+                        statusSetter: (val) => {
+                            if(val) {
+                                if(this.allHumans) {
+                                    
+                                } else {
+                                    this.allHumans = new ALLHumansWindow(this);
+                                    this.allHumans.init();
+                                }
+                            } else if(this.allHumans) {
+                                if(this.allHumans.windowEl) {
+                                    this.allHumans.windowEl.close();
+                                    this.allHumans = undefined;
+                                } else {
+                                    this.allHumans = undefined;
+                                }
+                            }
                         }
                     }
                 });

@@ -8,14 +8,16 @@
 /** @typedef {import("../../simulation/entites").HUMAN_STATUSES} HUMAN_STATUSES */
 /** @typedef {import("../../simulation/entites").HUMAN_FRIEND_DATA} HUMAN_FRIEND_DATA */
 /** @typedef {import("../../simulation/entites").HUMAN_FRIENDS_LIST} HUMAN_FRIENDS_LIST */
+/** @typedef {import("../../simulation/human").HUMAN_EVENT} HUMAN_EVENT */
 /** @typedef {import("../../index").SPRITE} SPRITE */
 /** @typedef {import("../../data/intrests").INTREST_CATEGORY_NAME} INTREST_CATEGORY_NAME */
 /** @typedef {import("../../data/intrests").INTREST_TAG} INTREST_TAG */
 /** @typedef {import("./app").App} App */
 import { colors } from "./colors";
-import { Utils } from "./utils";
+import { CustomScroll, Utils } from "./utils";
 import { DisplayWindow } from "./window";
-import { localisation } from "./localisation";
+import { localisation, localisationParse } from "./localisation";
+import {intrests} from "../../data/intrests";
 
 /** @type {Array<keyof HUMAN_ATTRIBUTES>} */
 const attriburesList = ['physical', 'social', 'intelligence'];
@@ -52,6 +54,10 @@ class DisplayedHumanStatusWindow {
     basicInfoAction;
     /** @type {HTMLElement} */
     basicInfoSubCont;
+    /** @type {HTMLElement} */
+    basicInfoSpecialTagsCont;
+    /** @type {{[id: String]: HTMLElement}} */
+    basicInfoSpecialTags = {};
     /** @type {{age: INFO_VALUES_AGE, gender: INFO_VALUES}} */ //@ts-ignore
     basicInfoValues = {
         age: {
@@ -78,9 +84,19 @@ class DisplayedHumanStatusWindow {
     statusesCont = Utils.createHTMLElement('div', ['statuses'], {}, `<h2>${localisation.statuses}</h2>`);
     /** @type {{[key in keyof HUMAN_STATUSES]: INFO_VALUES}} */ //@ts-ignore
     statusesValues = {};
+    /** @type {HTMLElement} */
+    eventsCont;
+    /** @type {Array<HTMLElement>} */
+    eventsElements = [];
+    /** @type {{[id:String]: {firstId: Number, lastId: Number, date: String, dateElement: HTMLElement, dateTxt: HTMLElement, countElement: HTMLElement, cont: HTMLElement, events: Array<HTMLElement>}}} */
+    eventsElementsByYear = {};
+    /** @type {{[id:String]: {firstId: Number, lastId: Number, date: String, dateElement: HTMLElement, dateTxt: HTMLElement, countElement: HTMLElement, cont: HTMLElement, events: Array<HTMLElement>}}} */
+    eventsElementsByDate = {};
     /** @type {Boolean} */
     pinPermanently = false;
     targetHasClickEvent = false;
+    /** @type {CustomScroll} */
+    customScroll;
     onClickAction = () => {
         if(this.human.action == 'walking' || this.human.action == 'in hospitality') {
             if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
@@ -101,12 +117,13 @@ class DisplayedHumanStatusWindow {
                     }
                 });
                 if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
-                    if(this.basicInfoAction.innerHTML !== `w <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
-                        this.basicInfoAction.innerHTML = `w <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`
+                    let parsedLoc = localisationParse(localisation.humanWindowAction_inHome, { adress: this.human.parent.plots[this.human.target].adress });
+                    if(this.basicInfoAction.innerHTML !== parsedLoc) {
+                        this.basicInfoAction.innerHTML = parsedLoc;
                     }
                 } else {
-                    if(this.basicInfoAction.innerHTML !== `w <span class="location">domu</span>`) {
-                        this.basicInfoAction.innerHTML = `w <span class="location">domu</span>`;
+                    if(this.basicInfoAction.innerHTML !== localisation.humanTooltipAction_inHome) {
+                        this.basicInfoAction.innerHTML = localisation.humanTooltipAction_inHome;
                     }
                 }
                 if(this.basicInfoAction.classList.contains('clickable')) {
@@ -129,12 +146,13 @@ class DisplayedHumanStatusWindow {
                 });
                 if(this.human.targetType == 'home') {
                     if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
-                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
-                            this.basicInfoAction.innerHTML = `idzie do <span class="location">domu <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`;
+                        let parsedLoc = localisationParse(localisation.humanWindowAction_GoingHome, { adress: this.human.parent.plots[this.human.target].adress });
+                        if(this.basicInfoAction.innerHTML !== parsedLoc) {
+                            this.basicInfoAction.innerHTML = parsedLoc;
                         }
                     } else {
-                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">domu</span>`) {
-                            this.basicInfoAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                        if(this.basicInfoAction.innerHTML !== localisation.humanTooltipAction_GoingHome) {
+                            this.basicInfoAction.innerHTML = localisation.humanTooltipAction_GoingHome;
                         }
                     }
                     if(this.basicInfoAction.classList.contains('clickable')) {
@@ -146,12 +164,14 @@ class DisplayedHumanStatusWindow {
                     }
                 } else {
                     if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
-                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
-                            this.basicInfoAction.innerHTML = `idzie do <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`;
+                        let parsedLoc = localisationParse(localisation.humanWindowAction_GoingHosp, { name: this.human.parent.plots[this.human.target].name, adress: this.human.parent.plots[this.human.target].adress });
+                        if(this.basicInfoAction.innerHTML !== parsedLoc) {
+                            this.basicInfoAction.innerHTML = parsedLoc;
                         }
                     } else {
-                        if(this.basicInfoAction.innerHTML !== `idzie do <span class="location">${this.human.target}</span>`) {
-                            this.basicInfoAction.innerHTML = `idzie do <span class="location">${this.human.target}</span>`;
+                        let parsedLoc = localisationParse(localisation.humanTooltipAction_GoingHosp, { name: `${this.human.target}` });
+                        if(this.basicInfoAction.innerHTML !== parsedLoc) {
+                            this.basicInfoAction.innerHTML = parsedLoc;
                         }
                     }
                     if(!this.basicInfoAction.classList.contains('clickable')) {
@@ -173,8 +193,8 @@ class DisplayedHumanStatusWindow {
                         this.basicInfoAction.classList.remove(className);
                     }
                 });
-                if(this.basicInfoAction.innerHTML !== 'spotyka się') {
-                    this.basicInfoAction.innerHTML = 'spotyka się';
+                if(this.basicInfoAction.innerHTML !== localisation.actions.meeting) {
+                    this.basicInfoAction.innerHTML = localisation.actions.meeting;
                 }
                 if(this.basicInfoAction.classList.contains('clickable')) {
                     this.basicInfoAction.classList.remove('clickable');
@@ -195,12 +215,14 @@ class DisplayedHumanStatusWindow {
                     }
                 });
                 if(typeof this.human.target == 'number' && this.human.parent.plots[this.human.target]) {
-                    if(this.basicInfoAction.innerHTML !== `w <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`) {
-                        this.basicInfoAction.innerHTML = `w <span class="location">${this.human.parent.plots[this.human.target].name} <span class="location-adress">(${this.human.parent.plots[this.human.target].adress})</span></span>`;
+                    let parsedLoc = localisationParse(localisation.humanWindowAction_inHosp, { name: this.human.parent.plots[this.human.target].name, adress: this.human.parent.plots[this.human.target].adress });
+                    if(this.basicInfoAction.innerHTML !== parsedLoc) {
+                        this.basicInfoAction.innerHTML = parsedLoc;
                     }
                 } else {
-                    if(this.basicInfoAction.innerHTML !== `w <span class="location">${this.human.target}</span>`) {
-                        this.basicInfoAction.innerHTML = `w <span class="location">${this.human.target}</span>`;
+                    let parsedLoc = localisationParse(localisation.humanTooltipAction_inHosp, { name: `${this.human.target}` });
+                    if(this.basicInfoAction.innerHTML !== parsedLoc) {
+                        this.basicInfoAction.innerHTML = parsedLoc;
                     }
                 }
                 if(!this.basicInfoAction.classList.contains('clickable')) {
@@ -222,7 +244,7 @@ class DisplayedHumanStatusWindow {
         Object.keys(data.status).forEach((statusName) => {
             if(this.statusesValues[statusName]) {
                 this.statusesValues[statusName].value.style.setProperty('--percent', `${Math.floor(data.status[statusName]/10)}%`);
-                this.statusesValues[statusName].value.innerHTML = `${Math.floor(data.status[statusName]/10)}`;
+                this.statusesValues[statusName].value.innerHTML = `<span class="indicator">${Math.floor(data.status[statusName]/10)}</span>`;
             }
         });
         if(data.intrests) {
@@ -238,6 +260,340 @@ class DisplayedHumanStatusWindow {
                 }
             }
         }
+        if(data.meeting) {
+            if(this.basicInfoSubActionHead.innerHTML !== localisation.humanExtraAction_talkingWith) {
+                this.basicInfoSubActionHead.innerHTML = localisation.humanExtraAction_talkingWith;
+            }
+            /** @type {Array<String>} */
+            let foundKeys = [];
+            data.meeting.participants.forEach((participantData) => {
+                if(!foundKeys.includes(`${participantData.id}`)) {
+                    foundKeys.push(`${participantData.id}`);
+                }
+                if(this.basicInfoSubActionParticipantsElements[`${participantData.id}`]) {
+                    if(participantData.id !== this.human.id) {
+                        if(!this.basicInfoSubActionParticipants.contains(this.basicInfoSubActionParticipantsElements[`${participantData.id}`])) {
+                            this.basicInfoSubActionParticipantsElements[`${participantData.id}`] = Utils.createAndAppendHTMLElement(this.basicInfoSubActionParticipants, 'li', ['clickable'], {}, `${participantData.name}`);
+                            this.basicInfoSubActionParticipantsElements[`${participantData.id}`].addEventListener('click', () => {
+                                if(this.human.parent.humans[participantData.id]) {
+                                    this.human.parent.humans[participantData.id].handleClick();
+                                }
+                            });
+                        }   
+                    }
+                } else {
+                    this.basicInfoSubActionParticipantsElements[`${participantData.id}`] = Utils.createAndAppendHTMLElement(this.basicInfoSubActionParticipants, 'li', ['clickable'], {}, `${participantData.name}`);
+                    this.basicInfoSubActionParticipantsElements[`${participantData.id}`].addEventListener('click', () => {
+                        if(this.human.parent.humans[participantData.id]) {
+                            this.human.parent.humans[participantData.id].handleClick();
+                        }
+                    });
+                }
+            });
+            Object.keys(this.basicInfoSubActionParticipantsElements).forEach((key) => {
+                if(!foundKeys.includes(key)) {
+                    this.basicInfoSubActionParticipantsElements[key].remove();
+                    delete this.basicInfoSubActionParticipantsElements[key];
+                } 
+            });
+            let parsedSubject = localisationParse(localisation.humanExtraAction_talkingAbout, { name: this.human.parent.intrestsData.intrests[data.meeting.topic].name })
+            if(this.basicInfoSubActionExtra.innerHTML !== parsedSubject) {
+                this.basicInfoSubActionExtra.innerHTML = parsedSubject;
+            }
+            if(this.basicInfoSubAction.classList.contains('hidden')) {
+                this.basicInfoSubAction.classList.remove('hidden');
+            }
+        } else {
+            if(this.basicInfoSubActionHead.innerHTML !== '') {
+                this.basicInfoSubActionHead.innerHTML = '';
+            }
+            if(this.basicInfoSubActionExtra.innerHTML !== '') {
+                this.basicInfoSubActionExtra.innerHTML = '';
+            }
+            if(this.basicInfoSubActionParticipants.innerHTML !== '') {
+                this.basicInfoSubActionParticipants.innerHTML = '';
+                this.basicInfoSubActionParticipantsElements = {};
+            }
+            if(!this.basicInfoSubAction.classList.contains('hidden')) {
+                this.basicInfoSubAction.classList.add('hidden');
+            }
+        }
+        if(data.specialTags) {
+            data.specialTags.forEach((tagName) => {
+                if(typeof this.basicInfoSpecialTags[tagName] == 'undefined') {
+                    this.basicInfoSpecialTags[tagName] = Utils.createAndAppendHTMLElement(this.basicInfoSpecialTagsCont, 'div', ['specialTag'], {}, tagName);
+                }
+            });
+            Object.keys(this.basicInfoSpecialTags).forEach((tagName) => { //@ts-ignore
+                if(!data.specialTags.includes(tagName)) {
+                    this.basicInfoSpecialTags[tagName].remove();
+                    delete this.basicInfoSpecialTags[tagName];
+                }
+            });
+        }
+        if(Object.keys(this.basicInfoSpecialTags).length > 0) {
+            if(this.basicInfoSpecialTagsCont.classList.contains('hidden')) {
+                this.basicInfoSpecialTagsCont.classList.remove('hidden');
+            }
+        } else {
+            if(!this.basicInfoSpecialTagsCont.classList.contains('hidden')) {
+                this.basicInfoSpecialTagsCont.classList.add('hidden');
+            }
+        }
+    }
+
+    /** 
+     * @param {Array<HUMAN_EVENT>} events
+     * @param {Number|null} [lastId]
+     */
+    updateEvents = (events, lastId=null) => {
+        console.log(events);
+        let prevId = 0;
+        if(typeof lastId == 'number') {
+            if(this.eventsElements[lastId]) {
+                prevId = lastId;
+            }
+        }
+        for(let event of events) {
+            if(typeof this.eventsElements[event.id] == 'undefined') {
+                const eventCont = Utils.createHTMLElement('div', ['eventEntry'], { css: { order: `${event.id + 1}` } });
+                const eventHead = Utils.createHTMLElement('div', ['head']);
+
+                let eventTime = this.human.parent.timeManager.tickToTime(event.tickNumber, event.tickIteration, true);
+                let year = `${eventTime.year}`;
+                let day = `${eventTime.dayOfMonth}.${eventTime.month}`;
+                let strDay = `<span class="dayOfMonth">${eventTime.dayOfMonth}</span>`;
+                if(eventTime.dayOfMonth < 10) {
+                    strDay = `<span class="dayOfMonth subTen">0${eventTime.dayOfMonth}</span>`;
+                }
+                let strMonth = `${strDay}<span class="separator">.</span><span class="month">${eventTime.month}</span>`;
+                if(eventTime.month < 10) {
+                    strMonth = `${strDay}<span class="separator">.</span><span class="month subTen">0${eventTime.month}</span>`
+                }
+                let strHours = `<span class="hour">${eventTime.hour}</span>`;
+                if(eventTime.hour < 10) {
+                    strHours = `<span class="hour underTen">${eventTime.hour}</span>`;
+                }
+                let strMinutes = `<span class="minutes">${eventTime.minute}</span>`;
+                if(eventTime.minute < 10) {
+                    strMinutes = `<span class="minutes">0${eventTime.minute}</span>`;
+                }
+                const eventTimestamp = Utils.createHTMLElement('h4', ['timestamp'], {}, `<span class="time">${strHours}<span class="separator">:</span>${strMinutes}</span>`);
+                const eventTitle = Utils.createHTMLElement('h3', ['title']);
+                const eventExtraInfo = Utils.createHTMLElement('div', ['additonalInfo']);
+
+                switch(event.type) {
+                    case "newIntrest": {
+                        eventTitle.classList.add('newIntrest');
+                        eventExtraInfo.classList.add('newIntrest');
+                        eventTitle.innerHTML = `<span>${localisation.newIntrest}:</span> <span class="intrestName">${this.human.parent.intrestsData.intrests[event.intrest].name}</span>`;
+                        const extraInfoP = Utils.createAndAppendHTMLElement(eventExtraInfo, 'p', [], {}, `<span class="eTT">${localisation.humanWindowEvent_intrestGainedFrom}</span>`);
+                        event.participants.forEach((participantData, index) => {
+                            let contents = `${participantData.name} `;
+                            if(index + 1 == event.participants.length) {
+                                contents = `${participantData.name}.`;
+                            }
+                            let participantLink = Utils.createAndAppendHTMLElement(extraInfoP, 'a', ['participant', 'clickable']);
+                            participantLink.innerHTML = contents;
+                            participantLink.addEventListener('click', () => {
+                                if(this.human.parent.humans[participantData.id]) {
+                                    this.human.parent.humans[participantData.id].handleClick();
+                                }
+                            });
+                        });
+                        break;
+                    }
+                    case "befriend": {
+                        eventTitle.classList.add('befriend');
+                        eventExtraInfo.classList.add('befriend');
+                        eventTitle.innerHTML = `<span>${localisation.humanWindowEvent_newFriend}:</span> `;
+                        const friendLink = Utils.createAndAppendHTMLElement(eventTitle, 'a', ['friend', 'clickable'], {}, event.human.name);
+                        friendLink.addEventListener('click', () => {
+                            if(this.human.parent.humans[event.human.id]) {
+                                this.human.parent.humans[event.human.id].handleClick();
+                            }
+                        });
+                        const extraInfoP = Utils.createAndAppendHTMLElement(eventExtraInfo, 'p', [], {}, `${localisationParse(localisation.humanWindowEvent_newFriendConnectionReason, { topic: this.human.parent.intrestsData.intrests[event.reason].name })}`);
+                        break;
+                    }
+                    case "relationChange": {
+                        if(event.score > 0) {
+                            eventTitle.classList.add('relationChangePositive');
+                            eventExtraInfo.classList.add('relationChangePositive');
+                            eventTitle.innerHTML = `<span>${localisation.humanWindowEvent_friendChangeRelationPositive}:</span> `;
+                        } else {
+                            eventTitle.classList.add('relationChangeNegative');
+                            eventExtraInfo.classList.add('relationChangeNegative');
+                            eventTitle.innerHTML = `<span>${localisation.humanWindowEvent_friendChangeRelationNegative}:</span> `;
+                        }
+                        const friendLink = Utils.createAndAppendHTMLElement(eventTitle, 'a', ['friend', 'clickable'], {}, event.human.name);
+                        friendLink.addEventListener('click', () => {
+                            if(this.human.parent.humans[event.human.id]) {
+                                this.human.parent.humans[event.human.id].handleClick();
+                            }
+                        });
+                        const extraInfoP = Utils.createAndAppendHTMLElement(eventExtraInfo, 'p', [], {}, `${localisationParse(localisation.humanWindowEvent_friendChangeRelationReason, { topic: this.human.parent.intrestsData.intrests[event.reason].name })}`);
+                        break;
+                    }
+                    case "birthDay": {
+                        eventTitle.classList.add('birthDay');
+                        eventExtraInfo.classList.add('birthDay');
+                        eventTitle.innerHTML = `<span>${localisation.humanWindowEvent_birthDay}</span> `;
+                        break;
+                    }
+                }
+
+                eventHead.appendChild(eventTimestamp);
+                eventHead.appendChild(eventTitle);
+                eventCont.appendChild(eventHead);
+                eventCont.appendChild(eventExtraInfo);
+                this.eventsElements[event.id] = eventCont;
+
+                if(typeof this.eventsElementsByYear[year] == 'undefined') {
+                    let firstId = event.id + 0;
+                    let lastId = event.id + 0;
+                    const eventsElementsByDate = Utils.createAndAppendHTMLElement(this.eventsCont, 'div', ['eventsSortingContainer', 'year', 'folded'], { css: { 'order': `${event.id}` } });
+                    //@ts-ignore
+                    this.eventsElementsByYear[year] = { 
+                        date: year,
+                        dateElement: Utils.createAndAppendHTMLElement(eventsElementsByDate, 'a', ['folded']),
+                        dateTxt: Utils.createHTMLElement('span', ['year'], {}, year),
+                        countElement: Utils.createHTMLElement('span', ['count']),
+                        cont: Utils.createAndAppendHTMLElement(eventsElementsByDate, 'div', ['eventsDateCont', 'year'])
+                    };
+                    Object.defineProperty(this.eventsElementsByYear[year], 'firstId', {
+                        get: () => {
+                            return firstId;
+                        },
+                        set: (newVal) => {
+                            firstId = newVal;
+                            eventsElementsByDate.style.setProperty('order', `${firstId}`);
+                            this.eventsElementsByYear[year].countElement.innerHTML = ` (${this.eventsElementsByYear[year].events.length})`;
+                        },
+                        enumerable: true
+                    });
+                    Object.defineProperty(this.eventsElementsByYear[year], 'lastId', {
+                        get: () => {
+                            return lastId;
+                        },
+                        set: (newVal) => {
+                            lastId = newVal;
+                        },
+                        enumerable: true
+                    });
+                    Object.defineProperty(this.eventsElementsByYear[year], 'events', {
+                        get: () => {
+                            let retArr = [];
+                            for(let i = this.eventsElementsByYear[year].firstId; i <= this.eventsElementsByYear[year].lastId; i++) {
+                                if(this.eventsElements[i]) {
+                                    retArr.push(this.eventsElements[i]);
+                                }
+                            }
+                            console.log(retArr);
+                            return retArr;
+                        },
+                        set: () => { },
+                        enumerable: true
+                    });
+                    this.eventsElementsByYear[year].dateElement.appendChild(this.eventsElementsByYear[year].dateTxt);
+                    //this.eventsElementsByYear[year].dateElement.appendChild(this.eventsElementsByYear[year].countElement);
+                    this.eventsElementsByYear[year].dateElement.addEventListener('click', () => {
+                        if(eventsElementsByDate.classList.contains('folded')) {
+                            eventsElementsByDate.classList.remove('folded');
+                            if(this.eventsElementsByYear[year].dateElement.classList.contains('folded')) {
+                                this.eventsElementsByYear[year].dateElement.classList.remove('folded');
+                            }
+                        } else {
+                            eventsElementsByDate.classList.add('folded');
+                            if(!this.eventsElementsByYear[year].dateElement.classList.contains('folded')) {
+                                this.eventsElementsByYear[year].dateElement.classList.add('folded');
+                            }
+                        }
+                        setTimeout(() => {
+                            this.customScroll.attachObserver();
+                        });
+                    });
+                } else {
+                    if(event.id <= this.eventsElementsByYear[year].firstId) {
+                        this.eventsElementsByYear[year].firstId = event.id + 0;
+                    } else if(event.id > this.eventsElementsByYear[year].lastId) {
+                        this.eventsElementsByYear[year].lastId = event.id + 0;
+                    }
+                }
+
+                if(typeof this.eventsElementsByDate[day] == 'undefined') { 
+                    let firstId = event.id + 0;
+                    let lastId = event.id + 0;
+                    const eventsElementsByDate = Utils.createAndAppendHTMLElement(this.eventsElementsByYear[year].cont, 'div', ['eventsSortingContainer', 'day', 'folded'], { css: { 'order': `${event.id}` } })
+                    //@ts-ignore
+                    this.eventsElementsByDate[day] = {
+                        date: day,
+                        dateElement: Utils.createAndAppendHTMLElement(eventsElementsByDate, 'a', ['folded']),
+                        dateTxt: Utils.createHTMLElement('span', ['date'], {}, strMonth),
+                        countElement: Utils.createHTMLElement('span', ['count']),
+                        cont: Utils.createAndAppendHTMLElement(eventsElementsByDate, 'div', ['eventsDateCont', 'day'])
+                    };
+                    Object.defineProperty(this.eventsElementsByDate[day], 'firstId', {
+                        get: () => {
+                            return firstId;
+                        },
+                        set: (newVal) => {
+                            firstId = newVal;
+                            eventsElementsByDate.style.setProperty('order', `${firstId}`);
+                            this.eventsElementsByDate[day].countElement.innerHTML = ` (${this.eventsElementsByDate[day].events.length})`;
+                        },
+                        enumerable: true
+                    });
+                    Object.defineProperty(this.eventsElementsByDate[day], 'lastId', {
+                        get: () => {
+                            return lastId;
+                        },
+                        set: (newVal) => {
+                            lastId = newVal;
+                        },
+                        enumerable: true
+                    });
+                    Object.defineProperty(this.eventsElementsByDate[day], 'events', {
+                        get: () => {
+                            let retArr = [];
+                            for(let i = this.eventsElementsByDate[day].firstId; i <= this.eventsElementsByDate[day].lastId; i++) {
+                                if(this.eventsElements[i]) {
+                                    retArr.push(this.eventsElements[i]);
+                                }
+                            }
+                            return retArr;
+                        },
+                        set: () => {},
+                        enumerable: true
+                    });
+                    this.eventsElementsByDate[day].dateElement.appendChild(this.eventsElementsByDate[day].dateTxt);
+                    //this.eventsElementsByDate[day].dateElement.appendChild(this.eventsElementsByDate[day].countElement);
+                    this.eventsElementsByDate[day].dateElement.addEventListener('click', () => {
+                        if(eventsElementsByDate.classList.contains('folded')) {
+                            eventsElementsByDate.classList.remove('folded');
+                            if(this.eventsElementsByDate[day].dateElement.classList.contains('folded')) {
+                                this.eventsElementsByDate[day].dateElement.classList.remove('folded');
+                            }
+                        } else {
+                            eventsElementsByDate.classList.add('folded');
+                            if(!this.eventsElementsByDate[day].dateElement.classList.contains('folded')) {
+                                this.eventsElementsByDate[day].dateElement.classList.add('folded');
+                            }
+                        }
+                        setTimeout(() => {
+                            this.customScroll.attachObserver();
+                        });
+                    });
+                } else {
+                    if(event.id <= this.eventsElementsByDate[day].firstId) {
+                        this.eventsElementsByDate[day].firstId = event.id + 0;
+                    } else if(event.id > this.eventsElementsByDate[day].lastId) {
+                        this.eventsElementsByDate[day].lastId = event.id+0;
+                    }
+                }
+                this.eventsElementsByDate[day].cont.appendChild(this.eventsElements[event.id]);
+            }
+        }
     }
 
     /**
@@ -251,6 +607,12 @@ class DisplayedHumanStatusWindow {
         this.basicInfoName = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'h1');
         this.basicInfoName.innerHTML = `${this.human.name} ${this.human.lastName}`;
         this.basicInfoAction = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['action']);
+        this.basicInfoSubAction = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['subAction', 'hidden']);
+        this.basicInfoSubActionHead = Utils.createAndAppendHTMLElement(this.basicInfoSubAction, 'div', ['head']);
+        this.basicInfoSubActionParticipants = Utils.createAndAppendHTMLElement(this.basicInfoSubAction, 'ul', ['participants']);
+        this.basicInfoSubActionExtra = Utils.createAndAppendHTMLElement(this.basicInfoSubAction, 'div', ['extra']);
+        /** @type {{[id: String]: HTMLElement}} */
+        this.basicInfoSubActionParticipantsElements = {};
         this.basicInfoSubCont = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['subCont']);
 
         this.basicInfoValues.age.value.innerHTML = `${this.human.age}`;
@@ -283,11 +645,14 @@ class DisplayedHumanStatusWindow {
         ageH3.appendChild(this.basicInfoValues.age.value);
         ageH3.appendChild(this.basicInfoValues.age.suffix);
 
+        this.basicInfoSpecialTagsCont = Utils.createAndAppendHTMLElement(this.basicInfoCont, 'div', ['specialTags', 'hidden']);
+        const basicIngoHead = Utils.createAndAppendHTMLElement(this.basicInfoSpecialTagsCont, 'h2', [], {}, `${localisation.specialTags}`);
+
         attriburesList.forEach((attributeName) => {
             let obj = {};
             obj.cont = Utils.createAndAppendHTMLElement(this.attributesCont, 'div', ['valueCont', `${attributeName}`]);
             obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['name'], {}, `${localisation.attributeNames[attributeName]}:`);
-            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h4', ['attribute'], {css: {'--percent': `${this.human.attributes[attributeName]}%`}}, `${this.human.attributes[attributeName]}`);
+            obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h4', ['attribute'], {css: {'--percent': `${this.human.attributes[attributeName]}%`}}, `<span class="indicator">${this.human.attributes[attributeName]}</span>`);
             this.attributesValues[attributeName] = obj;
         });
 
@@ -306,6 +671,10 @@ class DisplayedHumanStatusWindow {
         Utils.createAndAppendHTMLElement(intrestCont, 'h2', [], {}, localisation.intrests);
         this.intrestsCont = Utils.createAndAppendHTMLElement(intrestCont, 'div', ['intrestsList']);
 
+        const eventsCont = Utils.createAndAppendHTMLElement(this.extendedInfoCont, 'div', ['events']);
+        Utils.createAndAppendHTMLElement(eventsCont, 'h2', [], {}, localisation.events);
+        this.eventsCont = Utils.createAndAppendHTMLElement(eventsCont, 'div', ['eventsList'])
+
         this.windowEl = new DisplayWindow(this.windowContent, {
             className: ['humanStatus', 'open'], 
             id: `humanStatus-${this.human.id}`,
@@ -320,6 +689,8 @@ class DisplayedHumanStatusWindow {
                 this.human.parent.removeInfoWindow(this.windowEl);
                 this.human.statusWindow = null;
                 this.human.parent.socket.send(`humanStatusRevoke-${this.human.id}`);
+                this.human.stopEventsRequest();
+                this.customScroll.dettachObserver();
                 if(!this.pinPermanently) {
                     this.human.pinned = false;
                 }
@@ -327,14 +698,17 @@ class DisplayedHumanStatusWindow {
             });
         }
         this.human.parent.appCont.append(this.windowEl.window);
+        this.customScroll = new CustomScroll(this.windowContent, 'windowContentScroll');
         this.human.parent.addInfoWindow(this.windowEl);
         this.updateAction();
+        this.human.startEventsRequest();
         let waitTime = Utils.getTransitionTime(this.windowEl.window);
         setTimeout(() => {
             if(this.windowEl.window.classList.contains('open')) {
                 this.windowEl.window.classList.remove('open');
             }
             this.human.parent.focusInfoWindow(this.windowEl);
+            this.customScroll.attachObserver();
             this.windowEl.window.addEventListener('pointerdown', () => {
                 this.human.parent.focusInfoWindow(this.windowEl);
             });
@@ -414,10 +788,13 @@ class DisplayedHuman {
      * @param {HUMAN_STATUS_SOCKET_MESSAGE} data 
      */
     updateStatuses = (data) => {
-        if(this.statusWindow) {
+        if(this.statusWindow) { //@ts-ignore
             this.statusWindow.updateStatuses(data);
         }
     }
+
+    /** @type {PromiseWithResolvers<true>|undefined} */
+    #deleteDataProm;
 
     /** @type {*|Null|Number} */
     deleteDataTimer = null;
@@ -534,12 +911,7 @@ class DisplayedHuman {
                             this.#hoverToolTipAction.classList.remove(className);
                         }
                     });
-                    // if(typeof this.#target == 'number' && this.parent.plots[this.#target]) {
-                    //     this.#hoverToolTipAction.innerHTML = `w <span class="location">domu <span="location-adress">(${this.parent.plots[this.#target].adress})</span></span>`;
-                    // } else {
-                    //     this.#hoverToolTipAction.innerHTML = `w <span class="location">domu</span>`;
-                    // }
-                    this.#hoverToolTipAction.innerHTML = `w <span class="location">domu</span>`;
+                    this.#hoverToolTipAction.innerHTML = `${localisation.humanTooltipAction_inHome}`;
                     break;
                 }
                 case "walking": {
@@ -552,17 +924,12 @@ class DisplayedHuman {
                         }
                     });
                     if(this.#targetType == 'home') {
-                        // if(typeof this.#target == 'number' && this.parent.plots[this.#target]) {
-                        //     this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu <span="location-adress">(${this.parent.plots[this.#target].adress})</span></span>`;
-                        // } else {
-                        //     this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu</span>`;
-                        // }
-                        this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">domu</span>`;
+                        this.#hoverToolTipAction.innerHTML = `${localisation.humanTooltipAction_GoingHome}`;
                     } else {
                         if(typeof this.#target == 'number' && this.parent.plots[this.#target]) {
-                            this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">${this.parent.plots[this.#target].name}</span>`;
+                            this.#hoverToolTipAction.innerHTML = `${localisationParse(localisation.humanTooltipAction_GoingHosp, {name: this.parent.plots[this.#target].name})}`;
                         } else {
-                            this.#hoverToolTipAction.innerHTML = `idzie do <span class="location">${this.#target}</span>`;
+                            this.#hoverToolTipAction.innerHTML = `${localisationParse(localisation.humanTooltipAction_GoingHosp, { name: `${this.#target}` })}`;
                         }
                     }
                     break;
@@ -576,7 +943,7 @@ class DisplayedHuman {
                             this.#hoverToolTipAction.classList.remove(className);
                         }
                     });
-                    this.#hoverToolTipAction.innerHTML = 'spotyka się';
+                    this.#hoverToolTipAction.innerHTML = `${localisation.actions.meeting}`;
                     break;
                 }
                 case "in hospitality": {
@@ -589,9 +956,9 @@ class DisplayedHuman {
                         }
                     });
                     if(typeof this.target == 'number' && this.parent.plots[this.#target]) {
-                        this.#hoverToolTipAction.innerHTML = `w <span class="location">${this.parent.plots[this.#target].name}</span>`;
+                        this.#hoverToolTipAction.innerHTML = localisationParse(localisation.humanTooltipAction_inHosp, { name: this.parent.plots[this.#target].name });
                     } else {
-                        this.#hoverToolTipAction.innerHTML = `w <span class="location">${this.#target}</span>`;
+                        this.#hoverToolTipAction.innerHTML = localisationParse(localisation.humanTooltipAction_inHosp, { name: `${this.#target}` });
                     }
                     break;
                 }
@@ -649,6 +1016,10 @@ class DisplayedHuman {
         }
     }
 
+    /**
+     * 
+     * @returns {Promise<HUMAN_DATA>}
+     */
     getData = () => {
         return new Promise(async (res) => {
             if(typeof this.#name == 'undefined' || typeof this.#lastName == 'undefined') {
@@ -661,7 +1032,7 @@ class DisplayedHuman {
                 this.#age = this.#temp.data.info.age + 0;
                 this.#gender = `${this.#temp.data.info.gender}`;
             }
-            res(true);
+            res(this.#temp.data);
         });
     }
 
@@ -780,6 +1151,27 @@ class DisplayedHuman {
             this.#hovered = false;
         } else {
             this.hideToolTip(forceInstant);
+        }
+    }
+
+    startEventsRequest = () => {
+        let msg = { id: this.id };
+        console.log(msg);
+        this.parent.socket.send(`humanEvents-${JSON.stringify(msg)}`);
+    }
+
+    stopEventsRequest = () => {
+        this.parent.socket.send(`humanEventsRevoke-${JSON.stringify({id: this.id})}`);
+    }
+
+    /** 
+     * @param {Array<HUMAN_EVENT>} events
+     * @param {Number|null} [lastId]
+     */
+    updateEvents = (events, lastId=null) => {
+        console.log(events);
+        if(this.statusWindow) {
+            this.statusWindow.updateEvents(events, lastId);
         }
     }
 

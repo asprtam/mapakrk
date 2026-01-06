@@ -46,6 +46,52 @@
     z-index: 5;
 }
 
+.window.map-window .contentHolder .map.content .clock {
+    z-index: 10;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top:0px;
+    transform: translate(-50%, 0);
+}
+
+.window.map-window .contentHolder .map.content .clock .timeDisplay {
+    display: flex;
+    column-gap: 10px;
+}
+
+.window.map-window .contentHolder .map.content .clock .timeDisplay p,
+.window.map-window .contentHolder .map.content .clock .timeDisplay span {
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.window.map-window .contentHolder .map.content .clock .timeDisplay .time {
+    display: grid;
+    width: 55px;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
+.window.map-window .contentHolder .map.content .clock .timeDisplay .time > div,
+.window.map-window .contentHolder .map.content .clock .timeDisplay .date > div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.window.map-window .contentHolder .map.content .clock .timeDisplay .date {
+    grid-template-columns: 2fr 1fr 2fr 1fr 4fr;
+    display: grid;
+    width: 110px;
+}
+
+.window.map-window .contentHolder .map.content .clock .timeDisplay .hour.subTen p::before,
+.window.map-window .contentHolder .map.content .clock .timeDisplay .day.subTen p::before {
+    content: '0';
+    opacity: 0;
+}
+
 .window.map-window .contentHolder .map.content .screen.fake.hoverHuman,
 .window.map-window .contentHolder .map.content .screen.fake.hoverPlot {
     cursor: pointer;

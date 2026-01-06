@@ -255,7 +255,9 @@ const LASTNAMES = [
     { male: "Bolec", female: "Bolec", other: "Bolec"},
     { male: "Bolek", female: "Bolek", other: "Bolek"},
     { male: "Bolczyk", female: "Bolczyk", other: "Bolczyk"},
-    { male: "Koral", female: "Koral", other: "Koral"}
+    { male: "Koral", female: "Koral", other: "Koral"},
+    { male: "Ogon", female: "Ogon", other: "Ogon" },
+    { male: "Kaczorowski", female: "Kaczorowska", other: "Kaczorowski" }
 ];
 
 /** @type {Array<String>} */

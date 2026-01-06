@@ -18,16 +18,27 @@
     z-index: 3;
 }
 
+.window:is(.humanStatus, .plotStarus):not(.focused) > .container > header {
+    filter: saturate(30%) brightness(1.2);
+}
+
 .window.humanStatus .valueCont, .window.plotStatus .valueCont {
     display: flex;
     column-gap: 5px;
 }
 
-.window.humanStatus .content, .window.plotStatus .content {
+.window:is(.humanStatus, .ALLHumans) .content, .window.plotStatus .content {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.window:is(.humanStatus, .ALLHumans) .content::-webkit-scrollbar, .window.plotStatus .content::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes windowHuman_open {
@@ -45,7 +56,7 @@
     }
 }
 
-.window.humanStatus.open, .window.magnifyingGlass.open, .window.plotStatus.open {
+.window:is(.humanStatus, .ALLHumans).open, .window.magnifyingGlass.open, .window.plotStatus.open {
     transform: scale(0);
     opacity: 0;
     animation-name: windowHuman_open;
@@ -65,7 +76,7 @@
     }
 }
 
-.window.humanStatus.closing, .window.magnifyingGlass.closing, .window.plotStatus.closing {
+.window:is(.humanStatus, .ALLHumans).closing, .window.magnifyingGlass.closing, .window.plotStatus.closing {
     animation-name: windowHuman_close;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -73,7 +84,7 @@
     transform-origin: center bottom;
 }
 
-.window.humanStatus .content, .window.plotStatus .content {
+.window:is(.humanStatus, .ALLHumans) .content, .window.plotStatus .content {
     position: relative;
     width: 100%;
     height: 100%;
@@ -84,10 +95,49 @@
     row-gap: 20px;
 }
 
+
+.window:is(.humanStatus, .ALLHumans) .content, .window.plotStatus .content {
+    z-index: 1;
+}
+
+.window:is(.humanStatus, .ALLHumans) .contentHolder .windowContentScroll, .window.plotStatus .contentHolder .windowContentScroll {
+    z-index: 2;
+    position: absolute;
+    width: 18px;
+    background: var(--color1-light-80);
+    box-sizing: border-box;
+    border: var(--color1) 1.5px solid;
+    box-shadow: inset 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* .window.humanStatus .contentHolder .windowContentScroll .windowContentScroll-belt,
+.window.plotStatus .contentHolder .windowContentScroll .windowContentScroll-belt {
+    position: absolute;
+    z-index: 1;
+    width: 100%
+    height:100%;
+} */
+
+.window:is(.humanStatus, .ALLHumans) .contentHolder .windowContentScroll .windowContentScroll-thumb,
+.window.plotStatus .contentHolder .windowContentScroll .windowContentScroll-thumb {
+    position: absolute;
+    width: calc(100% + 3px);
+    left: -1.5px !important;
+    background: var(--color1-light-50);
+    border-radius: 2px;
+    box-sizing: border-box;
+    border: var(--color1) 1.5px solid;
+    box-shadow: inset 1px 1px 5px -1px rgba(255, 255, 255, 0.9), inset -1px -1px 5px -1px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
 .window.humanStatus .content .basicInfo, .window.plotStatus .content .basicInfo {
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .window.humanStatus .content .basicInfo h1, .window.plotStatus .content .basicInfo h1 {
@@ -116,6 +166,45 @@
     cursor: pointer;
 }
 
+.window.humanStatus .content .basicInfo .subAction {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.window.humanStatus .content .basicInfo .subAction :is(.head, .participants, .extra) {
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.window.humanStatus .content .basicInfo .subAction .participants {
+    display: flex;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: flex-start;
+    font-size: 12px;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.window.humanStatus .content .basicInfo .subAction .participants li {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.window.humanStatus .content .basicInfo .subAction .participants .clickable {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.window.humanStatus .content .basicInfo .subAction.hidden {
+    display: none !important;
+}
+
 .window:is(.humanStatus) .content .extendedInfo {
     position: relative;
     width: 100%;
@@ -124,9 +213,12 @@
     row-gap: 15px;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests) {
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events),
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer,
+.window:is(.ALLHumans) .content .letterParent {
     box-sizing: border-box;
     position: relative;
+    background: var(--color1-light-70);
     padding: 10px;
     padding-top: 14px;
     width: 100%;
@@ -135,7 +227,55 @@
     flex-direction: column;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests)::after {
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year {
+    background: var(--color1-light-60);
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsList,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsList .eventsDateCont {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsList .eventsDateCont.day {
+    row-gap: 10px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year {
+    min-width: 100%;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer {
+    padding: 20px 10px 14px;
+    row-gap: 10px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year.folded,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year .eventsSortingContainer.day.folded {
+    padding: 20px 10px 0px;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year.folded .eventsSortingContainer.day {
+    display: none;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year .eventsSortingContainer.day .eventsDateCont {
+    display: flex;
+    flex-direction: column;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year .eventsSortingContainer.day.folded .eventsDateCont {
+    display: none;
+}
+
+
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events)::after,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer::after,
+.window:is(.ALLHumans) .content .letterParent::after {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -152,7 +292,9 @@
     touch-action: none;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests) h2 {
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events) h2,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer > a,
+.window:is(.ALLHumans) .content .letterParent > .letter {
     color: var(--color9-dark-50);
     font-weight: 500;
     box-sizing: border-box;
@@ -165,6 +307,67 @@
     top: -0.5px;
     transform: translateY(-50%);
     z-index: 4;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer.year>a {
+    background: var(--color1-light-60);
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a {
+    padding: 0px 5px 0px 15px;
+    cursor: pointer;
+    text-decoration: underline !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a::before {
+    content: '';
+    position: absolute;
+    left: 7.5px;
+    top: calc(50% + 0.5px);
+    transform: translate(-50%, -50%);
+    background: var(--color9-dark-50);
+    width: 7px;
+    height: 5px;
+    transition: background 0.2s ease-in-out;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a.folded::before {
+    transform: translate(-50%, -50%) rotateZ(180deg);
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a::after {
+    bottom: 1px;
+    position: absolute;
+    /* content: ''; */
+    height: 1px;
+    background: var(--color9-dark-50);
+    left: 15px;
+    width: calc(100% - 20px);
+    transition: background 0.2s ease-in-out;
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:hover,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:not(.folded) {
+    color: var(--color9-dark-20);
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:not(.folded):hover {
+    color: var(--color9-dark-50);
+}
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:hover::after,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:hover::before,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:not(.folded)::after,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:not(.folded)::before {
+    background: var(--color9-dark-20);
+}
+
+
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:not(.folded):hover::after,
+.window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer>a:not(.folded):hover::before {
+    background: var(--color9-dark-50);
 }
 
 .window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont {
@@ -211,4 +414,122 @@
     left: 0px;
     top: 0px;
     border-radius: 3px;
+}
+
+.eventEntry, .eventEntry .head {
+    display: flex;
+    flex-direction: column;
+}
+
+.eventEntry .head {
+    row-gap: 1px;
+}
+
+.eventEntry {
+    row-gap: 2px;
+}
+
+.eventEntry .head h4 {
+    font-size: 14px;
+    line-height: 12px;
+    color: var(--color9-dark-50);
+}
+
+.eventEntry .head h3 {
+    font-size: 13px;
+    line-height: 12px;
+}
+
+.eventEntry .head h3 a, .eventEntry .additonalInfo.newIntrest p .participant.clickable {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.eventEntry .head h3 .intrestName, .eventEntry .additonalInfo p .talk-topic {
+    color: var(--color6-dark-20);
+}
+
+.eventEntry .additonalInfo {
+    line-height: 12px;
+}
+
+.eventEntry .additonalInfo p {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.eventEntry .additonalInfo.newIntrest p {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 5px;
+}
+
+.eventEntry .additonalInfo p {
+
+}
+
+.window.plotStatus .visitorsList li a {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName {
+    line-height: 20px;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName.clickable {
+    color: blue;
+    cursor: pointer;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName .inner {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 2px;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName.clickable .inner::before {
+    width: 100%;
+    position: absolute;
+    content: '';
+    height: 1px;
+    bottom: 5px;
+    left: 0px;
+    background: blue;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName .inner, .window:is(.ALLHumans) .content .letterParent .letterList .humanName .inner p {
+    color: inherit;
+    line-height: inherit;
+    text-decoration: inherit;
+    white-space: nowrap;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName .inner span {
+    color: inherit;
+    line-height: inherit;
+    text-decoration: inherit;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName .inner span.name {
+    font-size: 13px;
+}
+
+.window:is(.ALLHumans) .content .letterParent .letterList .humanName .inner span.lastname {
+    font-size: 16px;
 }

@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/express": "^5.0.2",
     "@types/ws": "^8.18.1",
+    "async-cleanup": "^1.0.0",
     "body-parser": "^2.2.0",
     "easystarjs": "^0.4.4",
     "express": "^5.1.0",

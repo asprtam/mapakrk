@@ -1,7 +1,7 @@
 import Files from "files";
 import fs from "fs";
 import sharp from "sharp";
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import { Color } from "./simulation/utils.js";
 import { WebSocketExpress, Router } from 'websocket-express';
 import { Grid } from "./simulation/grid.js";
@@ -11,6 +11,7 @@ import { LogWrite } from "./logWrite.js";
 import { streets } from "./data/streets.js";
 import { intrests, intrestCategories } from "./data/intrests.js";
 import https from "https";
+import { addCleanupListener, exitAfterCleanup } from "async-cleanup";
 
 /**
  * @param {import('express').Request} req 
@@ -31,9 +32,9 @@ const credentials = {
     ca: fs.readFileSync('/etc/letsencrypt/live/goblin.international-0001/chain.pem', 'utf8')
 }
 
-/** @returns {{saveLogs: Boolean, generateColors: Boolean, clearConsole: Boolean}} */
+/** @returns {{saveLogs: Boolean, generateColors: Boolean, clearConsole: Boolean, saveData: Boolean, loadData: Boolean, useCurrentDate: Boolean}} */
 const getCommandLineParams = () => {
-    let returnParams = {saveLogs: false, generateColors: false, clearConsole:true};
+    let returnParams = { saveLogs: false, generateColors: false, clearConsole: true, saveData: true, loadData: true, useCurrentDate: false};
     if (process.argv.length > 0) {
         if(process.argv.indexOf('-save-logs') > -1) {
             returnParams.saveLogs = true;
@@ -44,11 +45,20 @@ const getCommandLineParams = () => {
         if(process.argv.indexOf('-colors') > -1) {
             returnParams.generateColors = true;
         }
+        if(process.argv.indexOf('-no-save') > -1) {
+            returnParams.saveData = false;
+        }
+        if(process.argv.indexOf('-no-load') > -1) {
+            returnParams.loadData = false;
+        }
+        if(process.argv.indexOf('-use-curr-date') > -1) {
+            returnParams.useCurrentDate = true;
+        }
     }
     return returnParams;
 }
 
-const {saveLogs, generateColors, clearConsole} = getCommandLineParams();
+const { saveLogs, generateColors, clearConsole, saveData, useCurrentDate, loadData} = getCommandLineParams();
 const log = new LogWrite(saveLogs);
 
 const createColors = () => {
@@ -192,6 +202,90 @@ const copyGlobals = () => {
 
 const port = 3000;
 const portHttps = 3001;
+/** @type {Simulation} */
+let simulation;
+
+let dumpDataFunction = () => {
+    return new Promise((res) => {
+        if(saveData) {
+            if(simulation) {
+                if(simulation.getDataDump) {
+                    /**
+                     * @returns {{time: String, date: String}}
+                     */
+                    const getTimeDate = () => {
+                        let date = `${new Date(Date.now()).toLocaleString()}`.replaceAll(',', '').trim().split(' ');
+                        return {time: `${date[1]}`, date: date[0]};
+                    }
+                    let dumpedData = simulation.getDataDump();
+                    const {time, date} = getTimeDate();
+                    let fileName = `${date.replaceAll(/[\.\/]/gmi, '-')}_${time.replaceAll(':', '-')}.json`;
+                    let writer = fs.createWriteStream(`./saves/${fileName}`);
+                    writer.write(JSON.stringify(dumpedData, null, '\t'), (err) => {
+                        writer.close(() => {
+                            setTimeout(() => {
+                                res(true);
+                            });
+                        });
+                    });
+                } else {
+                    res(false);
+                }
+            } else {
+                res(false);
+            }
+        } else {
+            res(false);
+        }
+    });
+}
+
+const getSavedData = () => {
+    return new Promise((res) => {
+        if(loadData) {
+            readdir('./saves', {withFileTypes: true}).then(async (entries) => {
+                let lastTime = 0;
+                let foundName = '';
+                for(let entry of entries) {
+                    let stats = await stat(`./saves/${entry.name}`);
+                    if(stats.mtimeMs >= lastTime) {
+                        lastTime = stats.mtimeMs + 0;
+                        foundName = `./saves/${entry.name}`;
+                    }
+                }
+                if(foundName !== '') {
+                    let fileContent = await readFile(foundName, { encoding: 'utf-8'});
+                    res(JSON.parse(fileContent));
+                } else {
+                    res(null);
+                }
+            });
+        } else {
+            res(null);
+        }
+    });
+}
+
+/**
+     * @typedef {Object} SOCKET_CONNECTION
+     * @property {Number} id
+     * @property {import("websocket-express").ExtendedWebSocket} ws
+     * @property {Array<Number>} requireStatusOf
+     * @property {Array<Number>} requireStatusOfPlots
+     * @property {Array<{id: Number, lastRequestedEventId?: Number}>} requireEventsOfHumans
+     */
+/** @typedef {'humanData'|'humanStatus'|'plotStatus'|'humanStatusRevoke'|'plotStatusRevoke'|'humanEvents'|'humanEventsRevoke'} SOCKET_MESSAGE_TYPE */
+/**
+ * @typedef {Object} SOCKET_CONNECTION_HUMAN_EVENT_REQUEST
+ * @property {Number} id
+ * @property {Number|null} [last]
+ */
+/**
+ * @typedef {Object} SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE
+ * @property {Number} i
+ * @property {Array<import("./simulation/human.js").HUMAN_EVENT>} e
+ * @property {Number|null} [l]
+ */
 
 const init = async () => {
     /** 
@@ -338,12 +432,14 @@ const init = async () => {
     console.clear();
 
     const sprites = await getSprites();
+    let savedData = await getSavedData();
 
-    let simulation = new Simulation(new Grid(RAW_MAP), SimulationGlobals.startHumans, SimulationGlobals.startHospitalities, log);
+    simulation = new Simulation(new Grid(RAW_MAP), SimulationGlobals.startHumans, SimulationGlobals.startHospitalities, log, useCurrentDate, savedData);
 
     const app = new WebSocketExpress();
     const router = new Router();
-    /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf: Array<Number>, requireStatusOfPlots: Array<Number>}>} */
+    
+    /** @type {Array<SOCKET_CONNECTION>} */
     let connections = [];
 
     // app.use(bodyParser.text());
@@ -351,7 +447,8 @@ const init = async () => {
     router.ws('/', async(req, res) => {
         const ws = await res.accept();
         let id = connections.length;
-        let connection = {ws: ws, requireStatusOf: [], requireStatusOfPlots: []};
+        /** @type {SOCKET_CONNECTION} */ //@ts-ignore
+        let connection = { ws: ws, requireStatusOf: [], requireStatusOfPlots: [], requireEventsOfHumans: [] };
         Object.defineProperty(connection, 'id', {
             set: (val) => {
                 id = val;
@@ -365,6 +462,7 @@ const init = async () => {
         ws.onmessage = (event) => {
             let indexOfDash = event.data.indexOf('-');
             if(indexOfDash >= 0) {
+                /** @type {SOCKET_MESSAGE_TYPE|null} */
                 let tag = event.data.slice(0, indexOfDash);
                 let rest = event.data.slice(indexOfDash + 1);
                 switch(tag) {
@@ -392,7 +490,7 @@ const init = async () => {
                                 if(!connection.requireStatusOfPlots.includes(targetId)) {
                                     connection.requireStatusOfPlots.push(targetId);
                                 }
-                                ws.send(`humanStatus-${JSON.stringify(simulation.getPlotStatus(targetId))}`);
+                                ws.send(`plotStatus-${JSON.stringify(simulation.getPlotStatus(targetId))}`);
                             }
                         }
                         break;
@@ -417,6 +515,63 @@ const init = async () => {
                         }
                         break;
                     }
+                    case 'humanEvents': {
+                        try {
+                            /** @type {SOCKET_CONNECTION_HUMAN_EVENT_REQUEST} */
+                            let reqData = JSON.parse(rest);
+                            // simulation.logWrite(reqData);
+                            if(reqData) {
+                                if(simulation.humans[reqData.id]) {
+                                    let doesInclude = false;
+                                    for(let humanRequest of connection.requireEventsOfHumans) {
+                                        if(humanRequest.id == reqData.id) {
+                                            doesInclude = true;
+                                            break;
+                                        }
+                                    }
+                                    if(!doesInclude) {
+                                        let lastId = 0;
+                                        /** @type {SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE} */
+                                        let humanEventResonse = { e: simulation.humans[reqData.id].events, i: reqData.id, l: lastId };
+                                        // simulation.logWrite('humanEvents request', [humanEventResonse]);
+                                        if(humanEventResonse.e.length > 9) {
+                                            ws.send(`humanEvents-${JSON.stringify([humanEventResonse])}`);
+                                        }
+                                        connection.requireEventsOfHumans.push({id: reqData.id, lastRequestedEventId: lastId});
+                                    }
+                                }
+                            }
+                        } catch(err) {
+                            
+                        }
+                        break;
+                    }
+                    case "humanEventsRevoke": {
+                        /** @param {Number} reqId */
+                        const find = (reqId) => {
+                            for(let i = 0; i < connection.requireEventsOfHumans.length; i++) {
+                                if(connection.requireEventsOfHumans[i].id == reqId) {
+                                    return i;
+                                }
+                            }
+                            return -1;
+                        }
+                        try {
+                            /** @type {SOCKET_CONNECTION_HUMAN_EVENT_REQUEST} */
+                            let reqData = JSON.parse(rest);
+                            if(reqData) {
+                                let foundId = find(reqData.id);
+                                if(foundId >= 0) {
+                                    connection.requireEventsOfHumans = connection.requireEventsOfHumans.slice(0, foundId).concat(connection.requireEventsOfHumans.slice(foundId+1));
+                                    connection.requireEventsOfHumans.forEach((socketConn, index) => {
+                                        socketConn.id = index + 0;
+                                    });
+                                }
+                            }
+                        } catch(err) {
+
+                        }
+                    }
                     default: {
                         break;
                     }
@@ -425,7 +580,7 @@ const init = async () => {
         }
         ws.send(`tickData-${JSON.stringify(simulation.tick)}`);
         ws.onclose = () => {
-            /** @type {Array<{ws: import("websocket-express").ExtendedWebSocket, id: Number, requireStatusOf:Array<Number>, requireStatusOfPlots:Array<Number>}>} */
+            /** @type {Array<SOCKET_CONNECTION>} */
             let newConnections = [];
             let newIndex = 0;
             connections.forEach((_con) => {
@@ -453,6 +608,11 @@ const init = async () => {
         }
     });
 
+    router.get('/startDate', async (req, res) => {
+        setOrigins(req, res);
+        res.json({startHour: simulation.startHour, startDay: simulation.startDay, startYear: simulation.startYear});
+    });
+
     router.get('/intrests', async (req, res) => {
         setOrigins(req, res);
         res.json({intrests: intrests.list, categories: intrestCategories.list});
@@ -472,7 +632,7 @@ const init = async () => {
         setOrigins(req, res);
         const plots = simulation.plots.map((plot) => {
             if(plot.isHospitality) { //@ts-ignore
-                return {id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality, welcomeIntrestsTags: plot.welcomeIntrestsTags, welcomeIntrestCategories: plot.welcomeIntrestCategories, unwelcomeIntrestsTags: plot.unwelcomeIntrestsTags, unwelcomeIntrestCategories: plot.unwelcomeIntrestCategories };
+                return { id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality, welcomeIntrestsTags: plot.welcomeIntrestsTags, welcomeIntrestCategories: plot.welcomeIntrestCategories, unwelcomeIntrestsTags: plot.unwelcomeIntrestsTags, unwelcomeIntrestCategories: plot.unwelcomeIntrestCategories, openHours: plot.openHours };
             } else {
                 return {id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality}
             }
@@ -529,6 +689,30 @@ const init = async () => {
                         }
                     }
                 }
+                if(con.requireEventsOfHumans.length > 0) {
+                    /** @type {Array<SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE>} */
+                    const allResponse = [];
+                    for(let reqData of con.requireEventsOfHumans) {
+                        let lastId = 0;
+                        if(reqData.lastRequestedEventId) {
+                            lastId = Math.max(reqData.lastRequestedEventId, 0);
+                        }
+                        /** @type {SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE} */
+                        let humanEventResonse = { e: simulation.humans[reqData.id].getEventsInRange(lastId+1), i: reqData.id, l: lastId };
+                        if(humanEventResonse.e.length > 0) {
+                            allResponse.push(humanEventResonse);
+                            reqData.lastRequestedEventId = lastId+1;
+                        }
+                    }
+                    if(allResponse.length > 0) {
+                        try {
+                            // simulation.logWrite('humanEvents request', allResponse);
+                            con.ws.send(`humanEvents-${JSON.stringify(allResponse)}`);
+                        } catch(err) {
+                            console.error(err);
+                        }
+                    }
+                }
             }
             res(true);
         });
@@ -536,6 +720,11 @@ const init = async () => {
     
     simulation.start();
 }
+
+addCleanupListener(async () => {
+    await dumpDataFunction();
+    console.log('data dumped');
+});
 
 try {
     init();

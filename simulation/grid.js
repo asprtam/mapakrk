@@ -38,6 +38,19 @@ class Grid {
     slots = [];
 
     /**
+     * @param {pos} pos
+     * @returns {Boolean}
+     */
+    isValidPos = (pos) => {
+        if(this.mapData[pos.x]) {
+            if(this.mapData[pos.x][pos.y]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * @returns {PLOT_SLOT}
      */
     getRandomAvailableSlot = () => {
@@ -47,6 +60,20 @@ class Grid {
         } else {
             return random;
         }
+    }
+
+    /**
+     * @param {pos} pos
+     * @returns {PLOT_SLOT|null}
+     */
+    getSlotByPos = (pos) => {
+        for(let slot of this.slots) {
+            if(slot.pos.x == pos.x && slot.pos.y == pos.y) {
+                return slot;
+                break;
+            }
+        }
+        return null;
     }
 
     /**

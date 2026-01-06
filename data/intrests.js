@@ -65,6 +65,11 @@ const _list = {
         categories: ['artforms', 'tech'],
         connected: ['drawing', 'gaming']
     },
+    "vj": {
+        name: "VJ",
+        categories: ['artforms', 'clubCulture'],
+        connected: ['music', 'digitalArt', 'film', 'photography']
+    },
     "communism": {
         name: "komunizm",
         categories: ['leftActivism', 'socialTopics', 'internetCulture'],
@@ -85,7 +90,7 @@ const _list = {
     },
     "animalActivism": {
         name: "aktywizm prozwierzęcy",
-        categories: ['leftActivism', 'socialTopics'],
+        categories: ['socialTopics'],
         connected: ['climateActivism']
     },
     "chanCulture": {
@@ -269,6 +274,48 @@ const intrests = {
         } else {
             return true;
         }
+    },
+    /** 
+     * @param {Array<INTREST_TAG>} intrestTags
+     * @returns {Boolean}
+     */
+    doIntrestTagsShareCategory: (intrestTags) => {
+        let includes = false;
+
+        for(let i = 0; i<intrestTags.length; i++) {
+            let currentTagCategories = intrests.getCategoriesOfIntrest(intrestTags[i]);
+            for(let j = i+1; j<intrestTags.length; j++) {
+                let _categories = intrests.getCategoriesOfIntrest(intrestTags[j]);
+                for(let categoryName of _categories) {
+                    if(currentTagCategories.includes(categoryName)) {
+                        includes = true;
+                        break;
+                    }
+                }
+                if(includes) {
+                    break;
+                }
+            }
+            if(includes) {
+                break;
+            }
+        }
+
+        return includes;
+    },
+    /**
+     * @param {INTREST_TAG} intrestTag
+     * @returns {Array<INTREST_CATEGORY_NAME>}
+     */
+    getCategoriesOfIntrest: (intrestTag) => {
+        /** @type {Array<INTREST_CATEGORY_NAME>} */
+        const categoriesArr = [];
+        if(Object.keys(intrests.list).includes(intrestTag)) {
+            for(let categoryName of intrests.list[intrestTag].categories) {
+                categoriesArr.push(categoryName);
+            }
+        }
+        return categoriesArr;
     },
     /**
      * @param {INTREST_CATEGORY_NAME} name 
@@ -494,7 +541,7 @@ const intrests = {
                     intrest.disconnected.forEach((tag) => {
                         if(Object.keys(_list).includes(tag)) {
                             if(typeof connected[tag] == 'undefined') {
-                                let score = 3;
+                                let score = -3;
                                 intrest.categories.forEach((name) => {
                                     if(_list[tag].categories.includes(name)) {
                                         score+=2;
@@ -554,7 +601,7 @@ const intrests = {
                     intrest.disconnected.forEach((tag) => {
                         if(Object.keys(_list).includes(tag)) {
                             if(typeof connected[tag] == 'undefined') {
-                                let score = 3;
+                                let score = -3;
                                 intrest.categories.forEach((name) => {
                                     if(_list[tag].categories.includes(name)) {
                                         score+=2;
@@ -584,6 +631,66 @@ const intrests = {
     },
     /**
      * @param {Array<INTREST_TAG>} intrestTags
+     * @param {INTREST_TAG} targetTag
+     * @param {Boolean} [allowNegativeScore]
+     * @returns {Number}
+     */
+    getIntrestConnectionScoreFromArray: (intrestTags, targetTag, allowNegativeScore = true) => {
+        let score = 0;
+
+        let targetIntrest = intrests.getIntrestByTag(targetTag);
+
+        if(targetIntrest) {
+            intrestTags.forEach((intrestTag) => {
+                if(intrestTag !== targetTag) {
+                    let intrest = intrests.getIntrestByTag(intrestTag);
+                    if(intrest) {
+                        if(intrest.disconnected) {
+                            if(intrest.disconnected.includes(targetTag)) {
+                                score -= 3;
+                            }
+                        }
+                        if(intrest.connected) {
+                            if(intrest.connected.includes(targetTag)) {
+                                score += 3;
+                            }
+                        }
+                        if(intrest.categories) {
+                            intrest.categories.forEach((categoryName) => {
+                                let category = intrestCategories[categoryName];
+                                if(category) {
+                                    if(category.connected) {
+                                        category.connected.forEach((_categoryName) => {
+                                            if(targetIntrest.categories.includes(_categoryName)) {
+                                                score += 1;
+                                            }
+                                        });
+                                    }
+                                    if(category.disconnected) {
+                                        category.disconnected.forEach((_categoryName) => {
+                                            if(targetIntrest.categories.includes(_categoryName)) {
+                                                score -= 1;
+                                            }
+                                        });
+                                    }
+                                }
+                                if(targetIntrest.categories.includes(categoryName)) {
+                                    score +=2;
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        }
+
+        if(!allowNegativeScore && score < 0) {
+            score = 0;
+        }
+        return score;
+    },
+    /**
+     * @param {Array<INTREST_TAG>} intrestTags
      * @param {INTREST_CATEGORY_NAME} intrestCategoryName
      * @returns {Boolean}
      */
@@ -591,6 +698,29 @@ const intrests = {
         for(let intrestTag of intrestTags) {
             if(_list[intrestTag]) {
                 if(_list[intrestTag].categories.includes(intrestCategoryName)) {
+                    return true;
+                    break;
+                }
+            }
+        }
+        return false;
+    },
+    /** 
+     * @param {Array<INTREST_TAG>} intrestTags
+     * @param {Array<INTREST_CATEGORY_NAME>} intrestCategoryNames
+     * @returns {Boolean}
+     */
+    intrestsArrContainsCategies: (intrestTags, intrestCategoryNames) => {
+        for(let intrestTag of intrestTags) {
+            if(_list[intrestTag]) {
+                let found = false;
+                for(let intrestCategoryName of intrestCategoryNames) {
+                    if(_list[intrestTag].categories.includes(intrestCategoryName)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if(found) {
                     return true;
                     break;
                 }
@@ -704,6 +834,26 @@ const intrests = {
         });
 
         return obj;
+    },
+    /**
+     * @param {Array<INTREST_TAG>} intrestTags 
+     * @returns {{[key in INTREST_CATEGORY_NAME]?: Number}}
+     */
+    countIntrestsByCategory: (intrestTags) => {
+        /** @type {{[key in INTREST_CATEGORY_NAME]?: Number}} */
+        let returnObj = {};
+        intrestTags.forEach((intrestTag) => {
+            if(_list[intrestTag]) {
+                _list[intrestTag].categories.forEach((catName) => {
+                    if(returnObj[catName]) {
+                        returnObj[catName]++;
+                    } else {
+                        returnObj[catName] = 1;
+                    }
+                });
+            }
+        });
+        return returnObj;
     },
     /**
      * @returns {INTREST_TAG}

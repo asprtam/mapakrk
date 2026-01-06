@@ -3,9 +3,12 @@ import { App } from "./app";
 import { DisplayWindow } from "./window";
 import { localisation } from "./localisation";
 import { intrests, intrestCategories } from "../../data/intrests.js";
+import { colors } from "./colors.js";
 /** @typedef {import("../../simulation/entites").PLOT_STATUS} PLOT_STATUS */
 /** @typedef {import("../../data/intrests.js").INTREST_CATEGORY_NAME} INTREST_CATEGORY_NAME */
 /** @typedef {import("../../data/intrests.js").INTREST_TAG} INTREST_TAG */
+/** @typedef {import("../../simulation/entites").PLOT_OPEN_HOURS} PLOT_OPEN_HOURS */
+/** @typedef {import("../../simulation/simulation").TICK_PLOT_DATA} TICK_PLOT_DATA */
 
 class PlotStatusWindow {
     /** @type {Plot|Hospitality} */
@@ -22,11 +25,16 @@ class PlotStatusWindow {
      * @property {HTMLElement} name
      * @property {HTMLElement} value
      */
-    /** @type {{adress: INFO_VALUES}} */ //@ts-ignore
+    /** @type {{adress: INFO_VALUES, openingHours: INFO_VALUES}} */ //@ts-ignore
     basicInfoValues = {
         adress: {
-            cont: Utils.createHTMLElement('div', ['valueCont', 'age']),
-            name: Utils.createHTMLElement('h2', ['name'], {}, `Adres:`),
+            cont: Utils.createHTMLElement('div', ['valueCont', 'adress']),
+            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.plotData.adress}:`),
+            value: Utils.createHTMLElement('h3', ['value'])
+        },
+        openingHours: {
+            cont: Utils.createHTMLElement('div', ['valueCont', 'openingHours']),
+            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.plotData.openHours}:`),
             value: Utils.createHTMLElement('h3', ['value'])
         }
     };
@@ -83,14 +91,30 @@ class PlotStatusWindow {
         this.extendedInfoCont = Utils.createAndAppendHTMLElement(this.windowContent, 'div', ['extendedInfo']);
         this.visitorsCont = Utils.createAndAppendHTMLElement(this.extendedInfoCont, 'div', ['visitors'], {});
         let visitorsHeader = Utils.createAndAppendHTMLElement(this.visitorsCont, 'h2');
-        Utils.createAndAppendHTMLElement(visitorsHeader, 'span', ['name'], {}, 'Odwiedzający');
+        Utils.createAndAppendHTMLElement(visitorsHeader, 'span', ['name'], {}, localisation.plotData.visitors);
         this.visitorsCountElement = Utils.createAndAppendHTMLElement(visitorsHeader, 'span', ['count'], {}, `(0)`);
         this.visitorsList = Utils.createAndAppendHTMLElement(this.visitorsCont, 'ul', ['visitorsList']);
 
         if(this.plot.isHospitality) {
+            if(this.plot.openHours) {
+                if(this.plot.openHours.close.hour !== this.plot.openHours.open.hour || this.plot.openHours.close.minute !== this.plot.openHours.open.minute) {
+                    let minutesText_open = `${this.plot.openHours.open.minute}`;
+                    if(this.plot.openHours.open.minute < 10) {
+                        minutesText_open = `0${minutesText_open}`;
+                    }
+                    let minutesText_close = `${this.plot.openHours.close.minute}`;
+                    if(this.plot.openHours.close.minute < 10) {
+                        minutesText_close = `0${minutesText_close}`;
+                    }
+                    this.basicInfoValues.openingHours.value.innerHTML = `${this.plot.openHours.open.hour}:${minutesText_open} - ${this.plot.openHours.close.hour}:${minutesText_close}`;
+                    this.basicInfoSubCont.appendChild(this.basicInfoValues.openingHours.cont);
+                    this.basicInfoValues.openingHours.cont.appendChild(this.basicInfoValues.openingHours.name);
+                    this.basicInfoValues.openingHours.cont.appendChild(this.basicInfoValues.openingHours.value);
+                }
+            }
             if(this.plot.welcomeIntrestsTags.length > 0) {
                 const intrestCont = Utils.createAndAppendHTMLElement(this.basicInfoSubCont, 'div', ['intrests']);
-                Utils.createAndAppendHTMLElement(intrestCont, 'h2', [], {}, 'Powiązana tematyka');
+                Utils.createAndAppendHTMLElement(intrestCont, 'h2', [], {}, localisation.plotData.theme);
                 this.intrestsCont = Utils.createAndAppendHTMLElement(intrestCont, 'div', ['intrestsList']);
                 for(let intrestTag of this.plot.welcomeIntrestsTags) {
                     if(typeof this.intrestsValues[intrestTag] == 'undefined') {
@@ -158,6 +182,8 @@ class Plot {
     #hoverToolTip;
     /** @type {HTMLElement} */
     #hoverToolTipName;
+    /** @type {HTMLElement} */
+    #hoverTooltipStatus;
     /** @type {Boolean} */
     #hoverToolTipClosing = false;
     /** @type {String} */
@@ -166,6 +192,10 @@ class Plot {
     #hovered = false;
     /** @type {PlotStatusWindow|null} */
     statusWindow = null;
+    /** @type {Boolean} */
+    isOpen = true;
+    /** @type {Number} */
+    currentVisitorsCount = 0;
     get hovered() {
         return this.#hovered;
     }
@@ -266,6 +296,10 @@ class Plot {
                     this.#hoverToolTipName.remove();
                     this.#hoverToolTipName = undefined;
                 }
+                if(this.#hoverTooltipStatus) {
+                    this.#hoverTooltipStatus.remove();
+                    this.#hoverTooltipStatus = undefined;
+                }
                 if(this.#hoverToolTip) {
                     this.#hoverToolTip.remove();
                     this.#hoverToolTip = undefined;
@@ -307,15 +341,45 @@ class Plot {
                 hoverToolTips.forEach((el) => {
                     el.remove();
                 });
+
+                if(this.isOpen && this.currentVisitorsCount > 0) {
+                    if(this.#hoverToolTip.classList.contains('inactive')) {
+                        this.#hoverToolTip.classList.remove('inactive');
+                    }
+                } else {
+                    if(!this.#hoverToolTip.classList.contains('inactive')) {
+                        this.#hoverToolTip.classList.add('inactive');
+                    }
+                }
+
                 /** @type {HTMLElement} */
                 let hoverToolTipInner = document.querySelector(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipPlot-${this.id}"] .content`);
                 if(hoverToolTipInner == null || hoverToolTipInner == undefined) {
                     hoverToolTipInner = Utils.createAndAppendHTMLElement(this.#hoverToolTip, 'div', ['content']);
                     this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `${this.name}`);
+                    if(this.isOpen) {
+                        this.#hoverTooltipStatus = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['status'], {}, `<span class="openClose">${localisation.plotData.open}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`);
+                    } else {
+                        this.#hoverTooltipStatus = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['status'], {}, `<span class="openClose">${localisation.plotData.closed}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`);
+                    }
                 } else {
                     this.#hoverToolTipName = document.querySelector(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipPlot-${this.id}"] .content .name`);
                     if(this.#hoverToolTipName == null || this.#hoverToolTipName == undefined) {
                         this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `${this.name}`);
+                    }
+                    this.#hoverTooltipStatus = document.querySelector(`.container .contentHolder .map.content .screen.fake .tooltips [id="tooltipPlot-${this.id}"] .content .status`);
+                    if(this.#hoverTooltipStatus == null || this.#hoverTooltipStatus == undefined) {
+                        if(this.isOpen) {
+                            this.#hoverTooltipStatus = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['status'], {}, `<span class="openClose">${localisation.plotData.open}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`);
+                        } else {
+                            this.#hoverTooltipStatus = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['status'], {}, `<span class="openClose">${localisation.plotData.closed}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`);
+                        }
+                    } else {
+                        if(this.isOpen) {
+                            this.#hoverTooltipStatus.innerHTML = `<span class="openClose">${localisation.plotData.open}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`;
+                        } else {
+                            this.#hoverTooltipStatus.innerHTML = `<span class="openClose">${localisation.plotData.closed}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`;
+                        }
                     }
                 }
             } else {
@@ -324,6 +388,20 @@ class Plot {
                 this.#hoverToolTip = Utils.createHTMLElement('div', classArr, {attibutes: {'id': `tooltipPlot-${this.id}`, 'data-id': this.#currentTooltipUniqueId}}, '<div class="face"><div class="bg"></div><div class="arrow"></div></div>');
                 const hoverToolTipInner = Utils.createAndAppendHTMLElement(this.#hoverToolTip, 'div', ['content']);
                 this.#hoverToolTipName = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['name'], {}, `${this.name}`);
+                if(this.isOpen) {
+                    this.#hoverTooltipStatus = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['status'], {}, `<span class="openClose">${localisation.plotData.open}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`);
+                } else {
+                    this.#hoverTooltipStatus = Utils.createAndAppendHTMLElement(hoverToolTipInner, 'p', ['status'], {}, `<span class="openClose">${localisation.plotData.closed}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`);
+                }
+                if(this.isOpen && this.currentVisitorsCount > 0) {
+                    if(this.#hoverToolTip.classList.contains('inactive')) {
+                        this.#hoverToolTip.classList.remove('inactive');
+                    }
+                } else {
+                    if(!this.#hoverToolTip.classList.contains('inactive')) {
+                        this.#hoverToolTip.classList.add('inactive');
+                    }
+                }
                 this.app.tooltipsCont.appendChild(this.#hoverToolTip);
             }
         } else {
@@ -345,6 +423,40 @@ class Plot {
         }
         this.updateTooltipPos();
         // this.hideToolTip();
+    }
+
+    /** @param {TICK_PLOT_DATA} data */
+    update = (data) => {
+        if(this.isHospitality) {
+            this.currentVisitorsCount = data.visitorsCount;
+            this.isOpen = data.isOpen;
+            if(this.#hoverTooltipStatus) {
+                if(this.isOpen) {
+                    this.#hoverTooltipStatus.innerHTML = `<span class="openClose">${localisation.plotData.open}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`;
+                } else {
+                    this.#hoverTooltipStatus.innerHTML = `<span class="openClose">${localisation.plotData.closed}</span><span class="visitors">${localisation.plotData.visitors}: ${this.currentVisitorsCount}</span>`;
+                }
+            }
+            if(this.#hoverToolTip) {
+                if(this.currentVisitorsCount > 0 && this.isOpen) {
+                    if(this.#hoverToolTip.classList.contains('inactive')) {
+                        this.#hoverToolTip.classList.remove('inactive') 
+                    }
+                } else {
+                    if(!this.#hoverToolTip.classList.contains('inactive')) {
+                        this.#hoverToolTip.classList.add('inactive');
+                    }
+                }
+            }
+            if(this.app.viewOptions.plotsVisible) {
+                this.app.spritePlot.clear(this.app.plotsCanvasCTX, { x: this.renderedPos.x - ((this.app.plotDisplayWidth / 2) * this.app.mapScalingFactor), y: this.renderedPos.y - ((this.app.plotDisplayHeight / 2) * this.app.mapScalingFactor) }, this.app.mapScalingFactor, this.app.requiredFactor);
+                if(this.currentVisitorsCount > 0 && this.isOpen) {
+                    this.app.spritePlot.draw(this.app.plotsCanvasCTX, { x: this.renderedPos.x - ((this.app.plotDisplayWidth / 2) * this.app.mapScalingFactor), y: this.renderedPos.y - ((this.app.plotDisplayHeight / 2) * this.app.mapScalingFactor) }, this.app.mapScalingFactor, this.app.requiredFactor, colors.color6.base);
+                } else {
+                    this.app.spritePlot.draw(this.app.plotsCanvasCTX, { x: this.renderedPos.x - ((this.app.plotDisplayWidth / 2) * this.app.mapScalingFactor), y: this.renderedPos.y - ((this.app.plotDisplayHeight / 2) * this.app.mapScalingFactor) }, this.app.mapScalingFactor, this.app.requiredFactor, colors.color4.base);
+                }
+            }
+        }
     }
 
     /** @param {PLOT_STATUS} data */
@@ -399,13 +511,17 @@ class Hospitality extends Plot {
     welcomeIntrestCategories = [];
     /** @type {Array<INTREST_CATEGORY_NAME>} */
     unwelcomeIntrestCategories = [];
+    /** @type {PLOT_OPEN_HOURS} */
+    openHours = { open: { hour: 0, minute: 0 }, close: { hour: 0, minute: 0 }};
 
     /**
      * @param {App} app 
-     * @param {{id: Number, pos: import("../../simulation/path").pos, squares: Array<import("../../simulation/path").pos>, name: String, adress: String, isHospitality: Boolean, welcomeIntrestsTags: Array<INTREST_TAG>, unwelcomeIntrestsTags: Array<INTREST_TAG>, welcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, unwelcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>}} config 
+     * @param {{id: Number, pos: import("../../simulation/path").pos, squares: Array<import("../../simulation/path").pos>, name: String, adress: String, isHospitality: Boolean, welcomeIntrestsTags: Array<INTREST_TAG>, unwelcomeIntrestsTags: Array<INTREST_TAG>, welcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, unwelcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, openHours: PLOT_OPEN_HOURS}} config 
      */
     constructor(app, config) {
         super(app, config);
+        this.openHours = config.openHours;
+        console.log(this.openHours);
         this.welcomeIntrestsTags = config.welcomeIntrestsTags.toSorted();
         this.unwelcomeIntrestsTags = config.unwelcomeIntrestsTags.toSorted();
         this.welcomeIntrestCategories = config.welcomeIntrestCategories.toSorted();

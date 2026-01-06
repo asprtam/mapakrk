@@ -1061,7 +1061,6 @@ class CustomScroll {
      * @param {WheelEvent} e 
      */
     #handleWheel = (e) => {
-        console.log('handleWheel', e);
 
         let time = 100;
         if (time < Utils.getTransitionTime([this.#cont])) {
@@ -1264,7 +1263,7 @@ class CustomScroll {
         }, time);
     }
 
-    #createElements = () => {
+    #createElements = () => {    
         if (!this.#areElementsExisting) {
 
             this.#elementHeight = this.#element.offsetHeight - (this.#elementBorderTop + this.#elementBorderBottom);
@@ -1328,7 +1327,6 @@ class CustomScroll {
     #handleSizeChange = () => {
         this.#elementHeight = this.#element.offsetHeight - (this.#elementBorderTop + this.#elementBorderBottom);
         this.#elementScrollHeight = this.#element.scrollHeight;
-
         if (this.#element.offsetHeight > 0 && this.#element.offsetHeight < this.#element.scrollHeight) {
             this.#createElements();
 
@@ -1420,6 +1418,8 @@ class CustomScroll {
 
             this.#handleSizeChange();
             this.#observer.observe(this.#element);
+        } else {
+            this.#handleSizeChange();
         }
     }
 

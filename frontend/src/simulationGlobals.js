@@ -19,6 +19,14 @@ class SimulationGlobals {
     static intrestPreferenceGain = 100;
     /** @type {Number} */
     static intrestCategoryPreferenceGain = 50;
+    /** @type {Number} */
+    static ticksPerHour = Math.round(60 * (1 / this.currentSpeed));
+    /** @type {{hour: 0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23, day: Number, year: Number}} */
+    static defaultStartDate = {
+        hour: 2,
+        day: 150,
+        year: 2024
+    }
 
     constructor() {
 
