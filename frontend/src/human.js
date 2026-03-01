@@ -3,6 +3,7 @@
 /** @typedef {import("../../simulation/simulation").HUMAN_STATUS_SOCKET_MESSAGE} HUMAN_STATUS_SOCKET_MESSAGE */
 /** @typedef {import("../../simulation/entites").HUMAN_ACTION} HUMAN_ACTION */
 /** @typedef {import("../../simulation/entites").HUMAN_DATA} HUMAN_DATA */
+/** @typedef {import("../../simulation/entites").HUMAN_INFO} HUMAN_INFO */
 /** @typedef {import("../../simulation/entites").HUMAN_TARGET_TYPE} HUMAN_TARGET_TYPE */
 /** @typedef {import("../../simulation/entites").HUMAN_ATTRIBUTES} HUMAN_ATTRIBUTES */
 /** @typedef {import("../../simulation/entites").HUMAN_STATUSES} HUMAN_STATUSES */
@@ -84,6 +85,10 @@ class DisplayedHumanStatusWindow {
     statusesCont = Utils.createHTMLElement('div', ['statuses'], {}, `<h2>${localisation.statuses}</h2>`);
     /** @type {{[key in keyof HUMAN_STATUSES]: INFO_VALUES}} */ //@ts-ignore
     statusesValues = {};
+    /** @type {HTMLElement} */
+    friendsCont = Utils.createHTMLElement('div', ['friends'], {}, `<h2>${localisation.friends}</h2>`);
+    /** @type {Array<INFO_VALUES>} */
+    friendsElements = [];
     /** @type {HTMLElement} */
     eventsCont;
     /** @type {Array<HTMLElement>} */
@@ -340,6 +345,55 @@ class DisplayedHumanStatusWindow {
                 this.basicInfoSpecialTagsCont.classList.add('hidden');
             }
         }
+        if(data.friends) {
+            data.friends.forEach((friendData) => {
+                if(this.friendsElements[friendData.id]) {
+                    if(friendData.preference < 0) {
+                        if(!this.friendsElements[friendData.id].value.classList.contains('negative')) {
+                            this.friendsElements[friendData.id].value.classList.add('negative');
+                        }
+                        this.friendsElements[friendData.id].value.style.setProperty('--percent', `${Math.abs(friendData.preference)}%`);
+                    } else {
+                        if(this.friendsElements[friendData.id].value.classList.contains('negative')) {
+                            this.friendsElements[friendData.id].value.classList.remove('negative');
+                        }
+                        this.friendsElements[friendData.id].value.style.setProperty('--percent', `${friendData.preference}%`);
+                    }
+                    this.friendsElements[friendData.id].value.innerHTML = `<span class="indicator">${friendData.preference}</span>`;
+                } else if(this.human.parent.humans[friendData.id]) {
+                    /** @type {INFO_VALUES} */ //@ts-ignore
+                    let obj = {};
+                    obj.cont = Utils.createAndAppendHTMLElement(this.friendsCont, 'div', ['valueCont']);
+                    obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['name'], {}, ``);
+                    obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h4', ['status'], {}, `<span class="indicator">${friendData.preference}</span>`);
+                    if(friendData.preference < 0) {
+                        if(!obj.value.classList.contains('negative')) {
+                            obj.value.classList.add('negative');
+                        }
+                        obj.value.style.setProperty('--percent', `${Math.abs(friendData.preference)}%`);
+                    } else {
+                        if(obj.value.classList.contains('negative')) {
+                            obj.value.classList.remove('negative');
+                        }
+                        obj.value.style.setProperty('--percent', `${friendData.preference}%`);
+                    }
+                    this.human.parent.humans[friendData.id].getData().then((humanData) => {
+                        obj.name.innerHTML = `<span class="humanName">${humanData.info.name} ${humanData.info.lastname}</span>:`;
+                        obj.name.addEventListener('click', () => {
+                            this.human.parent.humans[friendData.id].handleClick();
+                        });
+                    });
+                    this.friendsElements[friendData.id] = obj;
+                }
+            });
+        } else {
+            this.friendsElements.forEach((friendElement) => {
+                if(friendElement) {
+                    friendElement.cont.remove();
+                }
+            });
+            this.friendsElements = [];
+        }
     }
 
     /** 
@@ -347,7 +401,6 @@ class DisplayedHumanStatusWindow {
      * @param {Number|null} [lastId]
      */
     updateEvents = (events, lastId=null) => {
-        console.log(events);
         let prevId = 0;
         if(typeof lastId == 'number') {
             if(this.eventsElements[lastId]) {
@@ -441,6 +494,18 @@ class DisplayedHumanStatusWindow {
                         eventTitle.innerHTML = `<span>${localisation.humanWindowEvent_birthDay}</span> `;
                         break;
                     }
+                    case "loseIntrest": {
+                        eventTitle.classList.add('loseIntrest');
+                        eventExtraInfo.classList.add('loseIntrest');
+                        eventTitle.innerHTML = `<span>${localisation.loseIntrest}:</span> <span class="intrestName">${this.human.parent.intrestsData.intrests[event.intrest].name}</span>`;
+                        break;
+                    }
+                    case 'closerToMadness': {
+                        eventTitle.classList.add('closerToMadness');
+                        eventExtraInfo.classList.add('closerToMadness');
+                        eventTitle.innerHTML = `<span>${localisation.closerToMadness}</span>`;
+                        break;
+                    }
                 }
 
                 eventHead.appendChild(eventTimestamp);
@@ -489,7 +554,6 @@ class DisplayedHumanStatusWindow {
                                     retArr.push(this.eventsElements[i]);
                                 }
                             }
-                            console.log(retArr);
                             return retArr;
                         },
                         set: () => { },
@@ -667,6 +731,7 @@ class DisplayedHumanStatusWindow {
         this.extendedInfoCont = Utils.createAndAppendHTMLElement(this.windowContent, 'div', ['extendedInfo']);
         this.extendedInfoCont.appendChild(this.attributesCont);
         this.extendedInfoCont.appendChild(this.statusesCont);
+        this.extendedInfoCont.appendChild(this.friendsCont);
         const intrestCont = Utils.createAndAppendHTMLElement(this.extendedInfoCont, 'div', ['intrests']);
         Utils.createAndAppendHTMLElement(intrestCont, 'h2', [], {}, localisation.intrests);
         this.intrestsCont = Utils.createAndAppendHTMLElement(intrestCont, 'div', ['intrestsList']);
@@ -1156,7 +1221,6 @@ class DisplayedHuman {
 
     startEventsRequest = () => {
         let msg = { id: this.id };
-        console.log(msg);
         this.parent.socket.send(`humanEvents-${JSON.stringify(msg)}`);
     }
 
@@ -1169,7 +1233,6 @@ class DisplayedHuman {
      * @param {Number|null} [lastId]
      */
     updateEvents = (events, lastId=null) => {
-        console.log(events);
         if(this.statusWindow) {
             this.statusWindow.updateEvents(events, lastId);
         }

@@ -19,13 +19,17 @@ class PlotStatusWindow {
     windowContent;
     /** @type {Boolean} */
     pinPermanently = false;
+    /** @type {*} */
+    plotDataAttributes = {};
+    /** @type {HTMLElement} */
+    attributesCont = Utils.createHTMLElement('div', ['attributes'], {}, `<h2>${localisation.plotData.plotAttributes}</h2>`);
     /**
      * @typedef {Object} INFO_VALUES
      * @property {HTMLElement} cont
      * @property {HTMLElement} name
      * @property {HTMLElement} value
      */
-    /** @type {{adress: INFO_VALUES, openingHours: INFO_VALUES}} */ //@ts-ignore
+    /** @type {{adress: INFO_VALUES, openingHours: INFO_VALUES, subtype: INFO_VALUES }} */ //@ts-ignore
     basicInfoValues = {
         adress: {
             cont: Utils.createHTMLElement('div', ['valueCont', 'adress']),
@@ -35,6 +39,11 @@ class PlotStatusWindow {
         openingHours: {
             cont: Utils.createHTMLElement('div', ['valueCont', 'openingHours']),
             name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.plotData.openHours}:`),
+            value: Utils.createHTMLElement('h3', ['value'])
+        },
+        subtype: {
+            cont: Utils.createHTMLElement('div', ['valueCont', 'subtype']),
+            name: Utils.createHTMLElement('h2', ['name'], {}, `${localisation.plotData.subtype}:`),
             value: Utils.createHTMLElement('h3', ['value'])
         }
     };
@@ -71,6 +80,15 @@ class PlotStatusWindow {
                 delete this.#visitorsLi[key];
             }
         });
+        if(this.plotDataAttributes.popularityScore) {
+            if(typeof data.popularityScore == 'number') {
+                this.plotDataAttributes.popularityScore.value.style.setProperty('--percent', `${data.popularityScore}%`);
+                this.plotDataAttributes.popularityScore.value.innerHTML = `<span class="indicator">${data.popularityScore}</span>`;
+            } else {
+                this.plotDataAttributes.popularityScore.value.style.setProperty('--percent', `${0}%`);
+                this.plotDataAttributes.popularityScore.value.innerHTML = `<span class="indicator">${0}</span>`;
+            }
+        }
     }
 
     /**
@@ -96,6 +114,7 @@ class PlotStatusWindow {
         this.visitorsList = Utils.createAndAppendHTMLElement(this.visitorsCont, 'ul', ['visitorsList']);
 
         if(this.plot.isHospitality) {
+            this.extendedInfoCont.prepend(this.attributesCont);
             if(this.plot.openHours) {
                 if(this.plot.openHours.close.hour !== this.plot.openHours.open.hour || this.plot.openHours.close.minute !== this.plot.openHours.open.minute) {
                     let minutesText_open = `${this.plot.openHours.open.minute}`;
@@ -112,6 +131,12 @@ class PlotStatusWindow {
                     this.basicInfoValues.openingHours.cont.appendChild(this.basicInfoValues.openingHours.value);
                 }
             }
+            if(this.plot.subtype) {
+                this.basicInfoValues.subtype.value.innerHTML = `${localisation.plotTypes[this.plot.subtype]}`;
+                this.basicInfoValues.subtype.cont.appendChild(this.basicInfoValues.subtype.name);
+                this.basicInfoValues.subtype.cont.appendChild(this.basicInfoValues.subtype.value);
+                this.basicInfoSubCont.appendChild(this.basicInfoValues.subtype.cont);
+            }
             if(this.plot.welcomeIntrestsTags.length > 0) {
                 const intrestCont = Utils.createAndAppendHTMLElement(this.basicInfoSubCont, 'div', ['intrests']);
                 Utils.createAndAppendHTMLElement(intrestCont, 'h2', [], {}, localisation.plotData.theme);
@@ -122,6 +147,13 @@ class PlotStatusWindow {
                     }
                 }
             }
+            ['popularityScore'].forEach((attributeName) => {
+                let obj = {};
+                obj.cont = Utils.createAndAppendHTMLElement(this.attributesCont, 'div', ['valueCont', `${attributeName}`]);
+                obj.name = Utils.createAndAppendHTMLElement(obj.cont, 'h3', ['name'], {}, `${localisation.plotData[attributeName]}:`);
+                obj.value = Utils.createAndAppendHTMLElement(obj.cont, 'h4', ['attribute'], {css: {'--percent': `${0}%`}}, `<span class="indicator">${0}</span>`);
+                this.plotDataAttributes[attributeName] = obj;
+            });
         }
 
         this.windowEl = new DisplayWindow(this.windowContent, {
@@ -513,19 +545,22 @@ class Hospitality extends Plot {
     unwelcomeIntrestCategories = [];
     /** @type {PLOT_OPEN_HOURS} */
     openHours = { open: { hour: 0, minute: 0 }, close: { hour: 0, minute: 0 }};
+    /** @type {import("../../simulation/entites").HOSPITALITY_SUBTYPE} */
+    subtype;
+
 
     /**
      * @param {App} app 
-     * @param {{id: Number, pos: import("../../simulation/path").pos, squares: Array<import("../../simulation/path").pos>, name: String, adress: String, isHospitality: Boolean, welcomeIntrestsTags: Array<INTREST_TAG>, unwelcomeIntrestsTags: Array<INTREST_TAG>, welcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, unwelcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, openHours: PLOT_OPEN_HOURS}} config 
+     * @param {{id: Number, pos: import("../../simulation/path").pos, squares: Array<import("../../simulation/path").pos>, name: String, adress: String, isHospitality: Boolean, welcomeIntrestsTags: Array<INTREST_TAG>, unwelcomeIntrestsTags: Array<INTREST_TAG>, welcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, unwelcomeIntrestCategories: Array<INTREST_CATEGORY_NAME>, openHours: PLOT_OPEN_HOURS, subtype: import("../../simulation/entites").HOSPITALITY_SUBTYPE}} config 
      */
     constructor(app, config) {
         super(app, config);
         this.openHours = config.openHours;
-        console.log(this.openHours);
         this.welcomeIntrestsTags = config.welcomeIntrestsTags.toSorted();
         this.unwelcomeIntrestsTags = config.unwelcomeIntrestsTags.toSorted();
         this.welcomeIntrestCategories = config.welcomeIntrestCategories.toSorted();
         this.unwelcomeIntrestCategories = config.unwelcomeIntrestCategories.toSorted();
+        this.subtype = config.subtype;
     }
 }
 

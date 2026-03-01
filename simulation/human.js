@@ -6,7 +6,7 @@ import { LASTNAMES, MALE_NAMES, FEMALE_NAMES, OTHER_NAMES } from "./names.js";
 import { Path } from "./path.js";
 import { intrests, intrestCategories } from "../data/intrests.js";
 import { Meeting, FieldMeeting, PlotBoundMeeting } from "./meeting.js";
-import { SpecialTagsNoPolitical } from "./humanSpecialTags.js";
+import { SpecialTagsNoPolitical, SpecialTagsNoKiller, SpecialTagsNoPoliticalOrKiller } from "./humanSpecialTags.js";
 import { TypeGoblin } from "../frontend/src/goblinTypes.js";
 
 
@@ -105,6 +105,14 @@ import { TypeGoblin } from "../frontend/src/goblinTypes.js";
  * @typedef {STEAL_HIS_LOOK<DUMPED_HUMAN_EVENT_BASE>['LOOK'] & {type: 'newIntrest', intrest: INTREST_TAG, participants: Array<Number>}} DUMPED_HUMAN_EVENT_INTREST
  */
 
+/**
+ * @typedef {STEAL_HIS_LOOK<HUMAN_EVENT_BASE>['LOOK'] & {type: 'loseIntrest', intrest: INTREST_TAG}} HUMAN_LOSE_INTREST_EVENT
+ */
+
+/**
+ * @typedef {STEAL_HIS_LOOK<DUMPED_HUMAN_EVENT_BASE>['LOOK'] & {type: 'loseIntrest', intrest: INTREST_TAG}} DUMPED_HUMAN_LOSE_INTREST_EVENT
+ */
+
 /** 
  * @typedef {STEAL_HIS_LOOK<HUMAN_EVENT_BASE>['LOOK'] & {type: 'birthDay'}} HUMAN_EVENT_BIRTHDAY
  */
@@ -114,8 +122,17 @@ import { TypeGoblin } from "../frontend/src/goblinTypes.js";
  */
 
 /** 
+ * @typedef {STEAL_HIS_LOOK<HUMAN_EVENT_BASE>['LOOK'] & {type: 'closerToMadness'}} HUMAN_EVENT_CLOSER_TO_MADNESS
+ */
+
+/** 
+ * @typedef {STEAL_HIS_LOOK<DUMPED_HUMAN_EVENT_BASE>['LOOK'] & {type: 'closerToMadness'}} DUMPED_HUMAN_EVENT_CLOSER_TO_MADNESS
+ */
+
+/** 
  * @typedef {Object} HUMAN_EVENT_FRIEND_REST
  * @property {'befriend'} type
+ * @property {'becameEnemies'|'becameFriends'} subType
  * @property {HUMAN_EVENT_PERSON_DATA} human
  * @property {INTREST_TAG} reason
  * @property {Number} initalScore
@@ -124,6 +141,7 @@ import { TypeGoblin } from "../frontend/src/goblinTypes.js";
 /** 
  * @typedef {Object} DUMPED_HUMAN_EVENT_FRIEND_REST
  * @property {'befriend'} type
+ * @property {'becameEnemies'|'becameFriends'} subType
  * @property {Number} human
  * @property {INTREST_TAG} reason
  * @property {Number} initalScore
@@ -164,16 +182,16 @@ import { TypeGoblin } from "../frontend/src/goblinTypes.js";
  */
 
 /**
- * @typedef {STEAL_HIS_LOOK<HUMAN_EVENT_INTREST|HUMAN_EVENT_FRIEND|HUMAN_EVENT_FRIEND_CHANGE_RELATION|HUMAN_EVENT_BIRTHDAY>['LOOK']} HUMAN_EVENT
+ * @typedef {STEAL_HIS_LOOK<HUMAN_EVENT_INTREST|HUMAN_EVENT_FRIEND|HUMAN_EVENT_FRIEND_CHANGE_RELATION|HUMAN_EVENT_BIRTHDAY|HUMAN_LOSE_INTREST_EVENT|HUMAN_EVENT_CLOSER_TO_MADNESS>['LOOK']} HUMAN_EVENT
  */
 
 /**
- * @template {'befriend'|'newIntrest'|'birthDay'|'relationChange'} TYPE
- * @typedef {{'befriend': HUMAN_EVENT_FRIEND, 'newIntrest': HUMAN_EVENT_INTREST, 'birthDay': HUMAN_EVENT_BIRTHDAY, 'relationChange': HUMAN_EVENT_FRIEND_CHANGE_RELATION}[TYPE]} HUMAN_EVENT_TEMPLATED
+ * @template {'befriend'|'newIntrest'|'birthDay'|'relationChange'|'loseIntrest'|'closerToMadness'} TYPE
+ * @typedef {{'befriend': HUMAN_EVENT_FRIEND, 'newIntrest': HUMAN_EVENT_INTREST, 'birthDay': HUMAN_EVENT_BIRTHDAY, 'relationChange': HUMAN_EVENT_FRIEND_CHANGE_RELATION, 'loseIntrest': HUMAN_LOSE_INTREST_EVENT, closerToMadness: HUMAN_EVENT_CLOSER_TO_MADNESS}[TYPE]} HUMAN_EVENT_TEMPLATED
  */
 
 /**
- * @typedef {STEAL_HIS_LOOK<DUMPED_HUMAN_EVENT_INTREST|DUMPED_HUMAN_EVENT_FRIEND|DUMPED_HUMAN_EVENT_FRIEND_CHANGE_RELATION|DUMPED_HUMAN_EVENT_BIRTHDAY>['LOOK']} DUMPED_HUMAN_EVENT
+ * @typedef {STEAL_HIS_LOOK<DUMPED_HUMAN_EVENT_INTREST|DUMPED_HUMAN_EVENT_FRIEND|DUMPED_HUMAN_EVENT_FRIEND_CHANGE_RELATION|DUMPED_HUMAN_EVENT_BIRTHDAY|DUMPED_HUMAN_LOSE_INTREST_EVENT|DUMPED_HUMAN_EVENT_CLOSER_TO_MADNESS>['LOOK']} DUMPED_HUMAN_EVENT
  */
 
 /** @typedef {import("./humanSpecialTags.js").HUMAN_SPECIAL_TAG} HUMAN_SPECIAL_TAG */
@@ -210,6 +228,14 @@ import { TypeGoblin } from "../frontend/src/goblinTypes.js";
  * @property {{type: HUMAN_ACTION, pos: pos, target: Number|null, targetType: HUMAN_TARGET_TYPE}} [currentAction]
  * @property {Array<HUMAN_SPECIAL_TAG>} [specialTags]
  * @property {HUMAN_DEATH_INFO|null} [deathDate]
+ */
+
+/**
+ * @typedef {Object} HUMAN_WORK
+ * @property {Number} progress
+ * @property {Array<Number>} authors
+ * @property {Array<'painting'|'drawing'|'music'|'sculpture'|'graffiti'|'photography'|'film'|'digitalArt'>} medium
+ * @property {Array<INTREST_TAG>} topics
  */
 
 //atrybuty jako komentarz (modność, im więcej wystaw tym szybsza smierć), strata modności za wystawe z kimś niemodnym
@@ -283,8 +309,21 @@ class Human {
     deathDate = null;
     /** @type {Number} */
     intrestsLimit = 10;
+    /** @type {Number} */
+    madnessScore = 0;
+    /** @type {Boolean} */
+    get isInterestsFull () {
+        if(this.intrests.length < this.intrestsLimit) {
+            return false;
+        }
+        return true;
+    }
     /** @type {{eventsToParse?: Array<DUMPED_HUMAN_EVENT>}} */
     #temp = {};
+    /** @type {Array<HUMAN_WORK>} */
+    works;
+    /** @type {HUMAN_WORK} */
+    currentWork;
 
     /** @type {Boolean} */
     get isAlive() {
@@ -322,7 +361,9 @@ class Human {
                 }
                 case "relationChange":
                 case "befriend": {
-                    copy.human = el.id + 0;
+                    if(el.human) {
+                        copy.human = el.human.id + 0;   
+                    }
                     return copy;
                 }
             }
@@ -340,9 +381,21 @@ class Human {
          * @returns {Array<HUMAN_EVENT_PERSON_DATA>}
          */
         const parseParticipants = (participants) => {
-            return participants.map((el) => {
-                return { id: el + 0, name: `${this.simulation.humans[el].info.name} ${this.simulation.humans[el].info.lastname}` };
+            /** @type {Array<HUMAN_EVENT_PERSON_DATA>} */
+            let newParticipants = [];
+            participants.forEach((el) => {
+                if(this.simulation.humans[el]) {
+                    newParticipants.push({ id: el + 0, name: `${this.simulation.humans[el].info.name} ${this.simulation.humans[el].info.lastname}` });
+                } else {
+                    this.simulation.logWrite(`warn missing human ${el}`);
+                }
             });
+            return newParticipants;
+        }
+
+        let isAutistic = false;
+        if(this.specialTags.includes('autism')) {
+            isAutistic = true;
         }
 
         return dumpedEvents.map((el, id) => {
@@ -360,6 +413,17 @@ class Human {
                     return copy;
                 }
                 case "birthDay": {
+                    return copy;
+                }
+                case "closerToMadness": {
+                    if(isAutistic) {
+                        this.madnessScore += 3;
+                    } else {
+                        this.madnessScore += 2;
+                    }
+                    return copy;
+                }
+                case "loseIntrest": {
                     return copy;
                 }
             }
@@ -418,41 +482,86 @@ class Human {
             let friendDataExternal = this.simulation.humans[id].getFriendOfId(this.id);
 
             if(friendDataInSelf && friendDataExternal) {
-                if(friendDataExternal.preference < 100 && friendDataInSelf.preference < 100) {
-                    friendDataInSelf.preference = friendDataInSelf.preference + change;
-                    if(friendDataInSelf.preference > 100) {
-                        friendDataInSelf.preference = 100;
-                    }
-                    friendDataExternal.preference = friendDataExternal.preference + change;
-                    if(friendDataExternal.preference > 100) {
-                        friendDataExternal.preference = 100;
-                    }
                     let eventIdSelf = this.events.length;
                     let eventIdExternal = this.simulation.humans[id].events.length;
-                    this.addIntrestAction(reason);
-                    this.events.push({
-                        id: eventIdSelf,
-                        type: "relationChange",
-                        human: { id: id, name: `${this.simulation.humans[id].info.name} ${this.simulation.humans[id].info.lastname}` },
-                        score: change,
-                        tickNumber: tickId + 0,
-                        tickIteration: tickIteration + 0,
-                        reason: reason
-                    });
-                    this.simulation.humans[id].addIntrestAction(reason);
-                    this.simulation.humans[id].events.push({
-                        id: eventIdExternal,
-                        human: { id: this.id, name: `${this.info.name} ${this.info.lastname}` },
-                        type: 'relationChange',
-                        score: change,
-                        tickIteration: tickIteration + 0,
-                        tickNumber: tickId + 0,
-                        reason: reason
-                    });
-                }
+                    /** @type {null|'becameFriends'|'becameEnemies'} */
+                    let typeOfChange = null;
+                    if((friendDataInSelf.preference >= 0 && (friendDataInSelf.preference + change) < 0) || (friendDataExternal.preference >= 0 &&(friendDataExternal.preference + change) < 0)) {
+                        typeOfChange = 'becameFriends';
+                        friendDataInSelf.preference = 10;
+                        friendDataExternal.preference = 10;
+                    } else if ((friendDataInSelf.preference < 0 && (friendDataInSelf.preference + change) >= 0) || (friendDataExternal.preference < 0 &&(friendDataExternal.preference + change) >= 0)) {
+                        typeOfChange = 'becameEnemies';
+                        friendDataInSelf.preference = -10;
+                        friendDataExternal.preference = -10;
+                    } else {
+                        friendDataInSelf.preference = friendDataInSelf.preference + change;
+                        if(friendDataInSelf.preference > 100) {
+                            friendDataInSelf.preference = 100;
+                        } else if(friendDataInSelf.preference <= -100) {
+                            friendDataInSelf.preference = -100;
+                        }
+                        friendDataExternal.preference = friendDataExternal.preference + change;
+                        if(friendDataExternal.preference > 100) {
+                            friendDataExternal.preference = 100;
+                        } else if(friendDataExternal.preference <= -100) {
+                            friendDataExternal.preference = -100;
+                        }
+                        this.addIntrestAction(reason);
+                        this.events.push({
+                            id: eventIdSelf,
+                            type: "relationChange",
+                            human: { id: id, name: `${this.simulation.humans[id].info.name} ${this.simulation.humans[id].info.lastname}` },
+                            score: change,
+                            tickNumber: tickId + 0,
+                            tickIteration: tickIteration + 0,
+                            reason: reason
+                        });
+                        this.simulation.humans[id].addIntrestAction(reason);
+                        this.simulation.humans[id].events.push({
+                            id: eventIdExternal,
+                            human: { id: this.id, name: `${this.info.name} ${this.info.lastname}` },
+                            type: 'relationChange',
+                            score: change,
+                            tickIteration: tickIteration + 0,
+                            tickNumber: tickId + 0,
+                            reason: reason
+                        });
+                    }
+                    if(typeOfChange) {
+                        this.addIntrestAction(reason);
+                        this.events.push({
+                            id: eventIdSelf,
+                            type: "befriend",
+                            subType: typeOfChange,
+                            human: { id: id, name: `${this.simulation.humans[id].info.name} ${this.simulation.humans[id].info.lastname}` },
+                            initalScore: change,
+                            tickNumber: tickId + 0,
+                            tickIteration: tickIteration + 0,
+                            reason: reason
+                        });
+                        this.simulation.humans[id].addIntrestAction(reason);
+                        this.simulation.humans[id].events.push({
+                            id: eventIdExternal,
+                            human: { id: this.id, name: `${this.info.name} ${this.info.lastname}` },
+                            type: 'befriend',
+                            subType: typeOfChange,
+                            initalScore: change,
+                            tickIteration: tickIteration + 0,
+                            tickNumber: tickId + 0,
+                            reason: reason
+                        });
+                    }
             }
-
         } else {
+            /** @type {'becameFriends'|'becameEnemies'} */
+            let typeOfChange = 'becameFriends';
+            if(change < 0) {
+                typeOfChange = 'becameEnemies';
+                change = -10;
+            } else {
+                change = 10;
+            }
             this.friends.push({id: id, preference: change});
             this.simulation.humans[id].friends.push({id: this.id, preference: change});
             let eventIdSelf = this.events.length;
@@ -462,6 +571,7 @@ class Human {
                 id: eventIdSelf,
                 human: { id: id, name: `${this.simulation.humans[id].info.name} ${this.simulation.humans[id].info.lastname}` },
                 type: 'befriend',
+                subType: typeOfChange,
                 tickIteration: tickIteration + 0,
                 tickNumber: tickId + 0,
                 reason: reason,
@@ -472,6 +582,7 @@ class Human {
                 id: eventIdExternal,
                 human: { id: this.id, name: `${this.info.name} ${this.info.lastname}` },
                 type: 'befriend',
+                subType: typeOfChange,
                 tickIteration: tickIteration + 0,
                 tickNumber: tickId + 0,
                 reason: reason,
@@ -514,21 +625,25 @@ class Human {
     /**
      * @param {{id: Number, affinity: Number, social: Number, age: Number}} human0Data
      * @param {{id: Number, affinity: Number, social: Number, age: Number}} human1Data
-     * @returns {Boolean}
+     * @returns {'befriend'|'dislike'|null}
      */
     static willBefriend = (human0Data, human1Data) => {
         let totalMax = 600;
         let socialDiff = Math.abs(human0Data.social - human1Data.social);
         let ageDiff = Math.abs(human0Data.age - human1Data.age) * 5;
-        let probabilityObj = { 'befriend': human0Data.affinity + human1Data.affinity + (100 - socialDiff), 'dont': (totalMax + ageDiff) - (human0Data.affinity + human1Data.affinity + (100 - socialDiff)) };
-        switch(Utils.getRandomWithProbability(probabilityObj)) {
-            case 'befriend': {
-                return true;
+        let probabilityObj = { 
+            'befriend': Math.max(0, human0Data.affinity) + Math.max(human1Data.affinity, 0) + (100 - socialDiff),
+            'dislike': Math.abs(((totalMax*0.25) + ageDiff + (socialDiff * 5)) + (Math.abs(Math.min(0, human0Data.affinity) + Math.abs(Math.min(0, human1Data.affinity))))),
+            'dont': ((totalMax*0.75) + ageDiff + (100 - socialDiff)) - (Math.max(0, human0Data.affinity) + Math.max(human1Data.affinity, 0) + Math.max(human1Data.social, human0Data.social, 0))
+        };
+        const result = Utils.getRandomWithProbability(probabilityObj);
+        switch(result) {
+            case 'dont': {
+                return null;
                 break;
             }
-            default:
-            case 'dont': {
-                return false;
+            default: {
+                return result;
                 break;
             }
         }
@@ -585,10 +700,15 @@ class Human {
 
         /** @type {Hospitality} */ //@ts-ignore
         let hospitality = this.simulation.plots[id];
-        if(hospitality.isHospitality && socialScore) {
-            let socialScore = Math.round(hospitality.currentVisitors.length * ((this.attributes.social-30)/30)*100);
-            socialScore+= Math.round(hospitality.humansWalkingTo.length * ((this.attributes.social-30)/30)*50);
-            preferenceScore+=socialScore;
+
+        if(hospitality.isHospitality) {
+            preferenceScore += Math.round((hospitality.popularityScore) * ((this.attributes.social-30)/30))
+
+            if(socialScore) {
+                let socialScore = Math.round(hospitality.currentVisitors.length * ((this.attributes.social-30)/30)*100);
+                socialScore+= Math.round(hospitality.humansWalkingTo.length * ((this.attributes.social-30)/30)*50);
+                preferenceScore+=socialScore;
+            }
 
             if(hospitality.welcomeIntrestsTags.length > 0 || hospitality.unwelcomeIntrestsTags.length > 0) {
                 for(let intrestTag of this.intrests) {
@@ -775,7 +895,19 @@ class Human {
         if(this.friends.length > 0) {
             /** @type {{[id:String]: Number}} obiekt - klucz = id, wartość = szansa */
             let hospitalitiesWithFriends = {};
-            this.friends.forEach((friendData) => {
+            if(this.specialTags.includes('confrontational')) {
+                this.friends.forEach((friendData) => {
+                let friend = this.simulation.humans[friendData.id];
+                if(friend.targetType == 'hospitality' && !exclude.includes(friend.target) && this.simulation.plots[friend.target].isOpen) {
+                    if(Object.keys(hospitalitiesWithFriends).includes(`${friend.target}`)) {
+                        hospitalitiesWithFriends[`${friend.target}`] += Math.abs(friendData.preference);
+                    } else {
+                        hospitalitiesWithFriends[`${friend.target}`] = Math.abs(friendData.preference) + this.getHospitalityPreferenceScore(friend.target);
+                    }
+                }
+            });
+            } else {
+                this.friends.forEach((friendData) => {
                 let friend = this.simulation.humans[friendData.id];
                 if(friend.targetType == 'hospitality' && !exclude.includes(friend.target) && this.simulation.plots[friend.target].isOpen) {
                     if(Object.keys(hospitalitiesWithFriends).includes(`${friend.target}`)) {
@@ -785,12 +917,15 @@ class Human {
                     }
                 }
             });
+            }
             switch (Object.keys(hospitalitiesWithFriends).length) {
                 case 0: {
                     break;
                 }
                 case 1: {
-                    preferedHospitality = Number(Object.keys(hospitalitiesWithFriends)[0]);
+                    if(hospitalitiesWithFriends[Object.keys(hospitalitiesWithFriends)[0]]) {
+                        preferedHospitality = Number(Object.keys(hospitalitiesWithFriends)[0]);
+                    }
                     break;
                 }
                 default: {
@@ -888,6 +1023,10 @@ class Human {
             }
             res(true);
         });
+    }
+
+    beginNewWork = () => {
+
     }
 
     /**
@@ -1030,16 +1169,32 @@ class Human {
 
     /** @returns {Promise<Boolean>} */
     decideNext = () => {
-
         return new Promise(async (res) => {
             switch(this.action) {
                 case "in home": {
                     if(this.status.fatigue <= 250) {
-                        let nextAction = Utils.getRandomWithProbability({'stay home': 1700 - this.status.boredom, 'leave home': Math.max(0, this.status.boredom - 300)});
+                        let rangeMult = 5;
+                        /** @type {'stay home'|'leave home'} */
+                        let nextAction = 'stay home';
+                        let nextActionProbabilityObject = {
+                            'stay home': 1700 - this.status.boredom,
+                            'leave home': Math.max(0, this.status.boredom - 300)
+                        }
+                        if((this.specialTags.includes('latePartyGoer') || this.specialTags.includes('nightOwl')) && ['night', 'evening'].includes(this.simulation.currentDayTime)) {
+                            if(this.specialTags.includes('latePartyGoer') && this.specialTags.includes('nightOwl')) {
+                                nextAction = Utils.getRandomWithProbability(nextActionProbabilityObject);
+                                rangeMult = 10;
+                            } else if(this.specialTags.includes('latePartyGoer')) {
+                                nextAction = 'leave home';
+                                rangeMult = 10;
+                            }
+                        } else {
+                            nextAction = Utils.getRandomWithProbability(nextActionProbabilityObject);
+                        }
                         if(nextAction == 'stay home') {
                             res(true)
                         } else {
-                            Human.goToRandomHospitality(this).then(() => {
+                            Human.goToRandomHospitality(this, [], rangeMult).then(() => {
                                 res(true);
                             });
                         }
@@ -1056,14 +1211,25 @@ class Human {
                         }
                         if(nextAction == 'change') {
                             this.simulation.plots[this.target + 0].removeVisitor(this.id);
-
-                            let goHomeOrNew = Utils.getRandomWithProbability({'go home': ((100 + Math.round(this.status.fatigue / 10)) - this.attributes.social), 'change place': this.attributes.social + Math.round((1000 - this.status.fatigue)/10)});
+                            let rangeMult = 2;
+                            /** @type {'go home'|'change place'} */
+                            let goHomeOrNew = 'go home';
+                            if(this.specialTags.includes('latePartyGoer') && ['night', 'evening'].includes(this.simulation.currentDayTime)) {
+                                goHomeOrNew = 'change place';
+                                rangeMult = 10;
+                            } else {
+                                let goHomeProbabilityObject = {
+                                    'go home': ((100 + Math.round(this.status.fatigue / 10)) - this.attributes.social),
+                                    'change place': this.attributes.social + Math.round((1000 - this.status.fatigue)/10)
+                                }
+                                goHomeOrNew = Utils.getRandomWithProbability(goHomeProbabilityObject);
+                            }
                             if(goHomeOrNew == 'go home') {
                                 Human.goHome(this).then(() => {
                                     res(true);
                                 });
                             } else {
-                                Human.goToRandomHospitality(this, [this.target + 0], 2).then((found) => {
+                                Human.goToRandomHospitality(this, [this.target + 0], rangeMult).then((found) => {
                                     if(found) {
                                         res(true);
                                     } else {
@@ -1160,31 +1326,99 @@ class Human {
                 case "in home": {
                     this.targetType = 'home';
                     this.target = this.homeId;
-                    if(this.statusClearedFlags.fatigue) {
-                        if(this.simulation.timeManager.isNight) {
+                    if(this.specialTags.includes('nightOwl')) {
+                        if(['evening', 'night'].includes(this.simulation.currentDayTime)) {
                             if(this.status.boredom > 1) {
                                 this.status.boredom -= Math.floor((((100 - this.attributes.social) + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * this.simulation.currentSpeed);
                                 if(this.status.boredom < 1) {
                                     this.status.boredom = 1;
                                 }
                             }
-                        } else {
-                            this.status.boredom += Math.floor(((this.attributes.social + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * this.simulation.currentSpeed);
+                            if(!this.statusClearedFlags.fatigue) {
+                                this.status.fatigue -= Math.max(0, Math.round((10 - (this.simulation.plots[this.homeId].currentVisitors.length - 1)) * 2));
+                                if(this.status.fatigue < 1) {
+                                    this.status.fatigue = 1;
+                                    this.statusClearedFlags.fatigue = true;
+                                }
+                            }
+                        } else if(this.statusClearedFlags.fatigue) {
+                            this.status.boredom += Math.floor(((this.attributes.social + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * this.simulation.currentSpeed) * 2;
                             if(this.status.boredom > 999) {
                                 this.status.boredom = 999;
                             }
+                        } else {
+                            this.status.fatigue -= Math.max(0, Math.round((10 - (this.simulation.plots[this.homeId].currentVisitors.length - 1)) * 0.5));
+                            if(this.status.fatigue < 1) {
+                                this.status.fatigue = 1;
+                                this.statusClearedFlags.fatigue = true;
+                            }
                         }
                     } else {
-                        this.status.fatigue -= Math.max(0, (10 - (this.simulation.plots[this.homeId].currentVisitors.length - 1)));
-                        if(this.status.fatigue < 1) {
-                            this.status.fatigue = 1;
-                            this.statusClearedFlags.fatigue = true;
+                        if(this.statusClearedFlags.fatigue) {
+                            if(['evening', 'night'].includes(this.simulation.currentDayTime)) {
+                                if(this.status.boredom > 1) {
+                                    this.status.boredom -= Math.floor((((100 - this.attributes.social) + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * this.simulation.currentSpeed);
+                                    if(this.status.boredom < 1) {
+                                        this.status.boredom = 1;
+                                    }
+                                }
+                            } else {
+                                this.status.boredom += Math.floor(((this.attributes.social + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * this.simulation.currentSpeed);
+                                if(this.status.boredom > 999) {
+                                    this.status.boredom = 999;
+                                }
+                            }
+                        } else {
+                            this.status.fatigue -= Math.max(0, (10 - (this.simulation.plots[this.homeId].currentVisitors.length - 1)));
+                            if(this.status.fatigue < 1) {
+                                this.status.fatigue = 1;
+                                this.statusClearedFlags.fatigue = true;
+                            }
                         }
                     }
                     res(true);
                     break;
                 }
                 case "working": {
+                    if(this.currentWork == undefined || this.currentWork == null) {
+                        this.beginNewWork();
+                    }
+                    if(this.specialTags.includes('nightOwl')) {
+                        if(['evening', 'night'].includes(this.simulation.currentDayTime)) {
+                            this.status.fatigue += 5;
+                            if(this.status.fatigue > 999) {
+                                this.status.fatigue = 999;
+                            }
+                            this.status.boredom += Math.max(1, Math.floor(((this.attributes.social + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * (this.simulation.currentSpeed * 0.5)));
+                            if(this.status.boredom > 999) {
+                                this.status.boredom = 999;
+                            }
+                        } else {
+                            this.status.fatigue += 20;
+                            if(this.status.fatigue > 999) {
+                                this.status.fatigue = 999;
+                            }
+                            this.status.boredom += Math.max(1, Math.floor(((this.attributes.social + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * (this.simulation.currentSpeed * 2)));
+                            if(this.status.boredom > 999) {
+                                this.status.boredom = 999;
+                            }
+                        }
+                    } else {
+                        this.status.fatigue += 10;
+                        if(this.status.fatigue > 999) {
+                            this.status.fatigue = 999;
+                        }
+                        this.status.boredom += Math.max(1, Math.floor(((this.attributes.social + SimulationGlobals.boredomRatio) / SimulationGlobals.boredomRatio) * (this.simulation.currentSpeed)));
+                        if(this.status.boredom > 999) {
+                            this.status.boredom = 999;
+                        }
+                    }
+                    if(this.currentWork) {
+                        this.currentWork.progress += Math.min(1, Math.round(this.attributes.intelligence / 20));
+                        if(this.currentWork.progress >= 100) {
+                            this.currentWork.progress = 100;
+                        }
+                    }
                     res(true);
                     break;
                 }
@@ -1541,6 +1775,20 @@ class Human {
         return returnObj;
     }
 
+    /** @returns {INTREST_TAG} */
+    getLowestIntrest = () => {
+        /** @type {INTREST_TAG} */
+        let found = 'drawing';
+        let lowest = Number.MAX_SAFE_INTEGER;
+        Object.keys(this.#interestsActionCounts).forEach((key) => {
+            if(this.#interestsActionCounts[key] < lowest) {
+                lowest = this.#interestsActionCounts[key] + 0; //@ts-ignore
+                found = `${key}`;
+            }
+        });
+        return found;
+    }
+
     /** 
      * @param {INTREST_TAG} tag
      * @param {Array<{id: Number, name: String}>} participantsObjArr
@@ -1550,6 +1798,58 @@ class Human {
      */
     addIntrest = (tag, participantsObjArr, tickId, tickIteration, plot=null) => {
         if(!this.intrests.includes(tag)) {
+            if(this.isInterestsFull) {
+                let probObj = { 'loseOne': 100 - this.attributes.intelligence, 'keep': this.attributes.intelligence };
+                let isAutistic = false;
+                if(this.specialTags.includes('autism')) {
+                    probObj.keep = probObj.keep * 2;
+                    isAutistic = true;
+                }
+                switch(Utils.getRandomWithProbability(probObj)) {
+                    case "loseOne": {
+                        let _id = this.events.length;
+                        let intrestToLoose = this.getLowestIntrest();
+                        if(Object.keys(this.#interestsActionCounts).includes(intrestToLoose)) {
+                            delete this.#interestsActionCounts[intrestToLoose];
+                            this.events.push({
+                                id: _id,
+                                type: 'loseIntrest',
+                                intrest: intrestToLoose,
+                                tickNumber: tickId,
+                                tickIteration: tickIteration
+                            });
+                        }
+                    }
+                    default:
+                    case "keep": {
+                        let probaObj = { 'closer': 100 - this.attributes.social, 'avoid': this.attributes.social };
+                        if(isAutistic) {
+                            probaObj.closer = probaObj.closer * 2;
+                        }
+                        switch(Utils.getRandomWithProbability(probaObj)) {
+                            case 'closer': {
+                                let _id = this.events.length;
+                                if(isAutistic) {
+                                    this.madnessScore += 3;
+                                } else {
+                                    this.madnessScore += 2;
+                                }
+                                this.events.push({
+                                    id: _id,
+                                    type: 'closerToMadness',
+                                    tickNumber: tickId,
+                                    tickIteration: tickIteration
+                                });
+                                break;
+                            }
+                            default: {
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
             this.#interestsActionCounts[tag] = 1;
             this.intrestCategories = this.getIntrestCategories(this.intrests);
             if(intrests.intrestsArrContainsCategies([tag], ['rightActivism', 'leftActivism'])) {
@@ -1637,6 +1937,7 @@ class Human {
     init = () => {
         return new Promise(async (res) => {
             if(this.#temp.eventsToParse) {
+                this.events = [];
                 this.events = this.dedumpEvent(this.#temp.eventsToParse);
                 delete this.#temp.eventsToParse;
             }
@@ -1730,11 +2031,11 @@ class Human {
         const getRandomSpecialTags = () => {
             this.specialTags = [];
             if(Utils.getRandomWithProbability({none: 90, some: 10}) == 'some') {
-                let count = Utils.randomInRange(0, Math.min(3, SpecialTagsNoPolitical.length));
+                let count = Utils.randomInRange(0, Math.min(3, SpecialTagsNoPoliticalOrKiller.length));
                 for(let i = 0; i<count; i++) {
-                    let random = Utils.getRandomArrayElement(SpecialTagsNoPolitical);
+                    let random = Utils.getRandomArrayElement(SpecialTagsNoPoliticalOrKiller);
                     while(this.specialTags.includes(random)) {
-                        random = Utils.getRandomArrayElement(SpecialTagsNoPolitical);
+                        random = Utils.getRandomArrayElement(SpecialTagsNoPoliticalOrKiller);
                     }
                     this.specialTags.push(`${random}`);
                 }

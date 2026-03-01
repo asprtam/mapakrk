@@ -32,11 +32,13 @@ const _list = {
     "drawing": {
         name: "rysunek",
         categories: ['artforms'],
-        connected: ['digitalArt']
+        connected: ['digitalArt'],
+        disconnected: ['ai']
     },
     "painting": {
         name: "malarstwo",
-        categories: ['artforms']
+        categories: ['artforms'],
+        disconnected: ['ai']
     },
     "music": {
         name: "muzyka",
@@ -49,6 +51,7 @@ const _list = {
     "graffiti": {
         name: "graffiti",
         categories: ['artforms', 'streetCulture'],
+        disconnected: ['ai']
     },
     "photography": {
         name: "fotografia",
@@ -73,7 +76,7 @@ const _list = {
     "communism": {
         name: "komunizm",
         categories: ['leftActivism', 'socialTopics', 'internetCulture'],
-        disconnected: ['fascism', 'libertarianism']
+        disconnected: ['fascism', 'libertarianism', 'eugenics']
     },
     "climateActivism": {
         name: "aktywizm klimatyczny",
@@ -143,12 +146,20 @@ const _list = {
     },
     "ai": {
         name: 'sztuczna inteligencja',
-        categories: ['tech', 'socialTopics']
+        categories: ['tech', 'socialTopics'],
+        disconnected: ['painting', 'drawing']
     },
     "religionStudies": {
         name: "religioznawstwo",
         categories: ['socialTopics', 'history'],
-        connected: ['tradition']
+        connected: ['tradition'],
+        disconnected: ['traditionalValues', 'eugenics']
+    },
+    "teology": {
+        name: "teologia",
+        categories: ['socialTopics', 'history'],
+        disconnected: ['tradition', 'religionStudies'],
+        connected: ['traditionalValues', 'fascism']
     },
     "tradition": {
         name: "tradycje ludowe",

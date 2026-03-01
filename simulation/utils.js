@@ -341,21 +341,25 @@ class Utils {
         let tenthPow = 0;
 
         Object.keys(probability).forEach((key) => {
-            let currentPow = 0;
-            while(Math.floor(probability[key] * Math.pow(10, currentPow)) !== probability[key] * Math.pow(10, currentPow)) {
-                currentPow++;
-            }
-            if(currentPow > tenthPow) {
-                tenthPow = currentPow+0;
+            if(probability[key] > 0) {
+                let currentPow = 0;
+                while(Math.floor(probability[key] * Math.pow(10, currentPow)) !== probability[key] * Math.pow(10, currentPow)) {
+                    currentPow++;
+                }
+                if(currentPow > tenthPow) {
+                    tenthPow = currentPow+0;
+                }
             }
         });
         
         /** @type {{[id:string]: {min: Number, max: Number}}} */
         let parsedProbability = {};
         Object.keys(probability).forEach((key) => {
-            parsedProbability[key] = {min: max+0, max: 0};
-            max += probability[key]*Math.pow(10, tenthPow);
-            parsedProbability[key].max = max+0;
+            if(probability[key] > 0) {
+                parsedProbability[key] = {min: max+0, max: 0};
+                max += probability[key]*Math.pow(10, tenthPow);
+                parsedProbability[key].max = max+0;
+            }
         });
 
         let random = Math.floor(Math.random() * max);

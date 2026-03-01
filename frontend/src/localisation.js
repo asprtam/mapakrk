@@ -6,6 +6,13 @@
  * @property {String} closed
  * @property {String} open
  * @property {String} openHours
+ * @property {String} subtype
+ * @property {String} popularityScore
+ * @property {String} plotAttributes
+ */
+
+/**
+ * @typedef {{[key in import("../../simulation/entites").HOSPITALITY_SUBTYPE]: String}} LOCALISATION_HOSPITALITY_SUBTYPE
  */
 
 /** 
@@ -20,6 +27,7 @@
  * @property {String} friends
  * @property {String} intrests
  * @property {LOCALISATION_PLOT_DATA} plotData
+ * @property {LOCALISATION_HOSPITALITY_SUBTYPE} plotTypes
  * @property {String} humanTooltipAction_GoingHome
  * @property {String} humanTooltipAction_GoingHosp
  * @property {String} humanTooltipAction_inHosp
@@ -32,6 +40,8 @@
  * @property {String} humanWindowAction_GoingHosp
  * @property {String} events
  * @property {String} newIntrest
+ * @property {String} loseIntrest
+ * @property {String} closerToMadness
  * @property {String} humanWindowEvent_intrestGainedFrom
  * @property {String} humanWindowEvent_newFriend
  * @property {String} humanWindowEvent_newFriendConnectionReason
@@ -79,7 +89,16 @@ const localisationPl = {
         theme: "Powiązana tematyka",
         closed: "Zamknięte",
         open: "Otwarte",
-        openHours: "Godziny otwarcia"
+        openHours: "Godziny otwarcia",
+        subtype: "Typ",
+        popularityScore: "Popularność",
+        plotAttributes: 'Właściwości'
+    },
+    plotTypes: {
+        cafe: 'Kawiarnia',
+        gallery: 'Galeria',
+        bar: 'Bar',
+        club: 'Klub'
     },
     humanTooltipAction_GoingHome: 'idzie do <span class="location">domu</span>',
     humanTooltipAction_GoingHosp: 'idzie do <span class="location">${name}</span>',
@@ -100,7 +119,9 @@ const localisationPl = {
     humanWindowEvent_friendChangeRelationNegative: 'Pogarsza relację z',
     humanWindowEvent_friendChangeRelationReason: 'przez rozmowę o <span class="talk-topic">${topic}</span>',
     humanWindowEvent_birthDay: 'Obchodzi urodziny',
-    specialTags: 'special tags'
+    specialTags: 'Specjalne cechy',
+    loseIntrest: "Traci zainteresowanie",
+    closerToMadness: "Zbliża się do szaleństwa"
 };
 
 /** @type {LOCALISATION} */
@@ -140,7 +161,16 @@ const localisationEng = {
         theme: "Related topics",
         open: "Open",
         closed: "Closed",
-        openHours: "Working hours"
+        openHours: "Working hours",
+        subtype: "Type",
+        popularityScore: "Popularity",
+        plotAttributes: "Attributes"
+    },
+    plotTypes: {
+        cafe: 'Cafe',
+        gallery: 'Gallery',
+        bar: 'Bar',
+        club: 'Club'
     },
     humanTooltipAction_GoingHome: 'walking <span class="location">home</span>',
     humanTooltipAction_GoingHosp: 'walking to <span class="location">${name}</span>',
@@ -161,7 +191,9 @@ const localisationEng = {
     humanWindowEvent_friendChangeRelationNegative: 'Worsens relation with',
     humanWindowEvent_friendChangeRelationReason: 'due to conversation about <span class="talk-topic">${topic}</span>',
     humanWindowEvent_birthDay: 'Celebrated theirs birthday',
-    specialTags: 'special tags'
+    specialTags: 'Special traits',
+    loseIntrest: 'Lost intrest',
+    closerToMadness: "Gets closer to madness"
 };
 
 let isPolish = false;

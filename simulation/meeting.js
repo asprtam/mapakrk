@@ -214,30 +214,47 @@ class Meeting {
                 const result = Utils.getRandomWithProbability(probabilityObj);
                 switch(result) {
                     case "friendChance": {
-                        if(this.topic) {
+                        if(this.topic == null || this.topic == undefined) {
                             this.topic = this.getNextTopic();
                         }
                         /** @type {Array<{id: Number, affinity: Number, social: Number, age: Number}>} */
                         let humansWithTopicAffinity = [];
                         this.currentParticipants.forEach((humanId) => {
-                            let affinity = 0;
-                            if(this.simulation.humans[humanId].intrests.includes(this.topic)) {
-                                affinity = 100;
-                            } else if(intrests.doIntrestTagsShareCategory(this.simulation.humans[humanId].intrests.concat([this.topic]))) {
-                                affinity = 1;
-                            }
-                            if(affinity > 0) {
-                                humansWithTopicAffinity.push({id: humanId, affinity: affinity, social: this.simulation.humans[humanId].attributes.social + 0, age: this.simulation.humans[humanId].info.age + 0});
+                            if(this.simulation.humans[humanId]) {
+                                let affinity = intrests.getIntrestConnectionScoreFromArray(this.simulation.humans[humanId].intrests, this.topic, true) * 5;
+                                if(affinity != 0) {
+                                    humansWithTopicAffinity.push({id: humanId, affinity: affinity, social: this.simulation.humans[humanId].attributes.social + 0, age: this.simulation.humans[humanId].info.age + 0});
+                                }
                             }
                         });
                         if(humansWithTopicAffinity.length > 1) {
-                            this.simulation.logWrite('friendChance', this.meetingData, humansWithTopicAffinity);
                             for(let i = 0; i<humansWithTopicAffinity.length; i++) {
                                 for(let j = i+1; j<humansWithTopicAffinity.length; j++) {
-                                    if((this.simulation.humans[humansWithTopicAffinity[i].id].specialTags.includes('leftWing') && !this.simulation.humans[humansWithTopicAffinity[j].id].specialTags.includes('rightWing')) || (this.simulation.humans[humansWithTopicAffinity[i].id].specialTags.includes('rightWing') && !this.simulation.humans[humansWithTopicAffinity[j].id].specialTags.includes('leftWing'))) {
-                                        let befriend = Human.willBefriend(humansWithTopicAffinity[i], humansWithTopicAffinity[j]);
-                                        if(befriend) {
-                                            this.simulation.humans[humansWithTopicAffinity[i].id].friendChangeRelation(humansWithTopicAffinity[j].id, Math.max(Math.floor((100 - Math.abs(humansWithTopicAffinity[i].social - humansWithTopicAffinity[j].social)) / 10), 1), tickId, tickIteration, this.topic);
+                                    let befriendResult = Human.willBefriend(humansWithTopicAffinity[i], humansWithTopicAffinity[j]);
+                                    this.simulation.logWrite('friendChance', 'result = ', befriendResult, this.meetingData, humansWithTopicAffinity[i], humansWithTopicAffinity[j]);
+                                    switch(befriendResult) {
+                                        case "befriend": {
+                                            this.simulation.humans[humansWithTopicAffinity[i].id].friendChangeRelation(
+                                                humansWithTopicAffinity[j].id, 
+                                                Math.max(Math.floor((100 - Math.abs(humansWithTopicAffinity[i].social - humansWithTopicAffinity[j].social)) / 5), 1), 
+                                                tickId, 
+                                                tickIteration, 
+                                                this.topic
+                                            );
+                                            break;
+                                        }
+                                        case "dislike": {
+                                            this.simulation.humans[humansWithTopicAffinity[i].id].friendChangeRelation(
+                                                humansWithTopicAffinity[j].id, 
+                                                Math.max(Math.floor(Math.abs(humansWithTopicAffinity[i].social - humansWithTopicAffinity[j].social) / 5), 1) * -1, 
+                                                tickId, 
+                                                tickIteration, 
+                                                this.topic
+                                            );
+                                            break;
+                                        }
+                                        default: {
+                                            break;
                                         }
                                     }
                                 }
@@ -266,6 +283,9 @@ class Meeting {
                         if(participantsWithTopic.length > 0 && participantsWithNoTopic.length > 0) {
                             for(let humanId of participantsWithNoTopic) {
                                 let baseAffinity = intrests.getIntrestConnectionScoreFromArray(this.simulation.humans[humanId].intrests, this.topic);
+                                if(this.simulation.humans[humanId].isInterestsFull) {
+                                    baseAffinity = Math.floor(baseAffinity/2);
+                                }
                                 if(baseAffinity > 0) {
                                     baseAffinity = baseAffinity*5;
                                     let maxAffinity = 0;

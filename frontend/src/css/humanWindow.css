@@ -213,7 +213,7 @@
     row-gap: 15px;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events),
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events, .friends),
 .window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer,
 .window:is(.ALLHumans) .content .letterParent {
     box-sizing: border-box;
@@ -273,7 +273,7 @@
 }
 
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events)::after,
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events, .friends)::after,
 .window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer::after,
 .window:is(.ALLHumans) .content .letterParent::after {
     position: absolute;
@@ -292,7 +292,7 @@
     touch-action: none;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events) h2,
+.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses, .intrests, .events, .friends) h2,
 .window:is(.humanStatus) .content .extendedInfo .events .eventsSortingContainer > a,
 .window:is(.ALLHumans) .content .letterParent > .letter {
     color: var(--color9-dark-50);
@@ -370,7 +370,7 @@
     background: var(--color9-dark-50);
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont {
+.window:is(.humanStatu, .plotStatuss) .content .extendedInfo :is(.attributes, .statuses, .friends) .valueCont {
     position: relative;
     width: 100%;
     display: flex;
@@ -378,11 +378,11 @@
     font-size: 16px;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status) {
+.window:is(.humanStatus, .plotStatus) .content .extendedInfo :is(.attributes, .statuses, .friends) .valueCont :is(.attribute, .status) {
     text-indent: -99999px;
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status) {
+.window:is(.humanStatus, .plotStatus) .content .extendedInfo :is(.attributes, .statuses, .friends) .valueCont :is(.attribute, .status) {
     position: relative;
     width: 100px;
     height: 13px;
@@ -392,7 +392,7 @@
     background: color-mix(in srgb, var(--color1-light-90) 60%, #ccc 50%);
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status)::before {
+.window:is(.humanStatus, .plotStatus) .content .extendedInfo :is(.attributes, .statuses, .friends) .valueCont :is(.attribute, .status)::before {
     position: absolute;
     content: '';
     position: absolute;
@@ -403,7 +403,11 @@
     background: linear-gradient(90deg, var(--color8) 0%, var(--color8-light-50) 100%);
 }
 
-.window:is(.humanStatus) .content .extendedInfo :is(.attributes, .statuses) .valueCont :is(.attribute, .status)::after {
+.window:is(.humanStatus, .plotStatus) .content .extendedInfo :is(.attributes, .statuses, .friends) .valueCont :is(.attribute, .status).negative::before {
+    background: linear-gradient(90deg, var(--color6) 0%, var(--color6-light-50) 100%);
+}
+
+.window:is(.humanStatus, .plotStatus) .content .extendedInfo :is(.attributes, .statuses, .friends) .valueCont :is(.attribute, .status)::after {
     border: 1px var(--color1-dark-70) solid;
     box-shadow: inset 1px 1px 3px -1px rgba(0, 0, 0, 0.5);
     position: absolute;

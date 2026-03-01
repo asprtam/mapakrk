@@ -2,10 +2,12 @@ import { Grid } from "./grid.js";
 import { SimulationGlobals } from "./simulationGlobals.js";
 import { Plot, Home, Hospitality, Human } from "./entites.js";
 import { Utils } from "./utils.js";
-import { LogWrite } from "../logWrite.js"; 
-import { TimeManager } from "./timeManager.js"; //@ts-ignore
+import { LogWrite } from "../logWrite.js";  //@ts-ignore
+import { TimeManager, TIME_MANAGER } from "./timeManager.js"; //@ts-ignore
 import pkg from "easystarjs";
 const Easystar = pkg.js;
+//@ts-ignore
+import { TG, TypeGoblin } from "../typeGoblin.js";
 // import { EasyStar } from "easystarjs";
 // const Easystar = require('easystarjs/bin/easystar-0.4.4.js');
 // const Easystar = require('easystarjs');
@@ -120,13 +122,18 @@ class Simulation {
     startYear = 0;
     /** @type {TimeManager} */
     timeManager;
-    /** @type {{hour: Number, minute: Number, day: Number, year: Number, month: 1|2|3|4|5|6|7|8|9|10|11|12, dayOfMonth: Number}} */
+    /** @type {{hour: TIME_MANAGER.HOUR, minute: TIME_MANAGER.MINUTE, day: TIME_MANAGER.DAY, year: Number, month: TIME_MANAGER.MONTH, dayOfMonth: Number}} */
     currentTime = { hour: 0, minute: 0, day: 0, year: 0, month: 1, dayOfMonth: 1 };
+    /** @type {'morning'|'evening'|'noon'|'afternoon'|'night'} */
+    currentDayTime = 'morning';
     get parsedCurrentHour() {
         return this.currentTime.hour + (this.currentTime.minute / 60);
     }
     /** @type {Array<Meeting|PlotBoundMeeting|FieldMeeting>} */
     meetings = [];
+    /** @type {PromiseWithResolvers<Boolean>} */
+    done;
+    #highestPopularityInCurrentDay = 5;
 
     /** @returns {SIMULATION_SAVED_DATA} */
     getDataDump = () => {
@@ -317,18 +324,79 @@ class Simulation {
                 nextTickIteration++;
             }
             let newTime = this.timeManager.tickToTime(nextTickId, nextTickIteration, true, SimulationGlobals.ticksPerHour);
-            if(newTime.hour >= 23 || newTime.hour <= 5) {
+            if(newTime.hour <= 5) {
                 this.timeManager.isNight = true;
             } else {
                 this.timeManager.isNight = false;
             }
+            let isNewDay = false;
             if(newTime.day != this.currentTime.day) {
+                isNewDay = true;
                 await Promise.all(this.humans.map((human) => { return human.tickNewDay(newTime.day, nextTickId, nextTickIteration); }));
             }
-            this.currentTime = newTime;
+            this.currentTime = newTime; //@ts-ignore
+            this.currentDayTime = this.timeManager.getDayTime(this.currentTime);
             this.humanTickLookupTable = [];
             if(this.#tickId%Math.floor(SimulationGlobals.ticksPerHour/2) == 0) {
-                await Promise.all(this.plots.map((plot) => { return plot.managementTick(); }));
+                /** @type {Number} */
+                let highestPopularity = 0;
+                /** @type {Array<Number>} */
+                let highestPopularityids = [];
+                await Promise.all(this.plots.map((plot) => { 
+                    if(plot.isHospitality) {
+                        if(plot.isOpen) {
+                            if(plot.currentVisitors.length > highestPopularity) {
+                                highestPopularity = plot.currentVisitors.length; //@ts-ignore
+                                highestPopularityids = [plot.hospitalityId];
+                            } else if(plot.currentVisitors.length == highestPopularity && highestPopularity > 0) { //@ts-ignore
+                                highestPopularityids.push(plot.hospitalityId);
+                            }
+                        }   
+                    }
+                    return plot.managementTick();
+                }));
+                if(highestPopularityids.length > 0) {
+                    if(highestPopularity > this.#highestPopularityInCurrentDay) {
+                        this.#highestPopularityInCurrentDay = highestPopularity;
+                    }
+                    if(isNewDay) {
+                        this.hospitalities.forEach((hospitality) => {
+                            if(highestPopularityids.includes(hospitality.hospitalityId)) {
+                                hospitality.popularityScore += Math.min(1, Math.round(highestPopularity/5));
+                                if(hospitality.popularityScore >= 100) {
+                                    hospitality.popularityScore = 100;
+                                }
+                            } else if(!hospitality.hasIncreasedPopularityInCurrentDay) {
+                                hospitality.popularityScore -= Math.min(1, Math.round(this.#highestPopularityInCurrentDay/5));
+                                if(hospitality.popularityScore <= 1) {
+                                    hospitality.popularityScore = 1;
+                                }
+                            }
+                            hospitality.hasIncreasedPopularityInCurrentDay = false;
+                        });
+                    } else {
+                        this.hospitalities.forEach((hospitality) => {
+                        if(highestPopularityids.includes(hospitality.hospitalityId)) {
+                            hospitality.popularityScore += Math.min(1, Math.round(highestPopularity/5));
+                            if(hospitality.popularityScore >= 100) {
+                                hospitality.popularityScore = 100;
+                            }
+                            hospitality.hasIncreasedPopularityInCurrentDay = true;
+                        }
+                    });
+                    }
+                } else if(isNewDay) {
+                    this.hospitalities.forEach((hospitality) => {
+                        if(!hospitality.hasIncreasedPopularityInCurrentDay) {
+                            hospitality.popularityScore -= Math.min(1, Math.round(this.#highestPopularityInCurrentDay/5));
+                            if(hospitality.popularityScore <= 1) {
+                                hospitality.popularityScore = 1;
+                            }
+                        }
+                        hospitality.hasIncreasedPopularityInCurrentDay = false;
+                    });
+                    this.#highestPopularityInCurrentDay = 5;
+                }
             }
             /** @type {Array<Promise>} */
             const promiseArr = [];
@@ -401,17 +469,12 @@ class Simulation {
     }
 
     /**
-     * @param {Grid} grid
      * @param {Number} startHumans
      * @param {Number} startHospitalities
-     * @param {LogWrite} log
      * @param {Boolean} [useCurrentDate]
      * @param {SIMULATION_SAVED_DATA|null} [savedData]
      */
-    constructor(grid, startHumans, startHospitalities, log, useCurrentDate = false, savedData=null) {
-        this.grid = grid;
-        this.log = log;
-
+    #asyncConstructor = async (startHumans, startHospitalities, useCurrentDate = false, savedData = null) => {
         const setStartDateToCurrent = () => {
             if(!useCurrentDate && SimulationGlobals.defaultStartDate) {
                 this.startHour = SimulationGlobals.defaultStartDate.hour + 0;
@@ -450,8 +513,9 @@ class Simulation {
                 setStartDateToCurrent();
             }
             this.timeManager = new TimeManager(this, this.startHour, this.startDay, this.startYear);
-            this.currentTime = this.timeManager.tickToTime(this.#tickId, this.#tickIteration, true, SimulationGlobals.ticksPerHour);
-            if(this.currentTime.hour >= 23 || this.currentTime.hour <= 5) {
+            this.currentTime = this.timeManager.tickToTime(this.#tickId, this.#tickIteration, true, SimulationGlobals.ticksPerHour); //@ts-ignore
+            this.currentDayTime = this.timeManager.getDayTime(this.currentTime);
+            if(this.currentTime.hour <= 5) {
                 this.timeManager.isNight = true;
             } else {
                 this.timeManager.isNight = false;
@@ -463,8 +527,9 @@ class Simulation {
                     new Hospitality(this, hospData);
                 }
             }
-            for(let i = 0;i < extraHospitalities; i++) {
+            for(let i = 0; i < extraHospitalities; i++) {
                 new Hospitality(this);
+                await Utils.waitFor(Utils.randomInRange(1, 5));
             }
             let extraHumans = startHumans;
             if(savedData.humans) {
@@ -475,23 +540,43 @@ class Simulation {
             }
             for(let i = 0; i < extraHumans; i++) {
                 new Human(this);
+                await Utils.waitFor(Utils.randomInRange(1, 5));
             }
         } else {
             setStartDateToCurrent();
             this.timeManager = new TimeManager(this, this.startHour, this.startDay, this.startYear);
-            this.currentTime = this.timeManager.tickToTime(this.#tickId, this.#tickIteration, true, SimulationGlobals.ticksPerHour);
-            if(this.currentTime.hour >= 23 || this.currentTime.hour <= 5) {
+            this.currentTime = this.timeManager.tickToTime(this.#tickId, this.#tickIteration, true, SimulationGlobals.ticksPerHour); //@ts-ignore
+            this.currentDayTime = this.timeManager.getDayTime(this.currentTime);
+            if(this.currentTime.hour <= 5) {
                 this.timeManager.isNight = true;
             } else {
                 this.timeManager.isNight = false;
             }
-            for(let i = 0;i < startHospitalities;i++) {
+            for(let i = 0; i < startHospitalities;i++) {
                 new Hospitality(this);
+                await Utils.waitFor(Utils.randomInRange(1, 5));
             }
-            for(let i = 0;i < startHumans;i++) {
+            for(let i = 0; i < startHumans;i++) {
                 new Human(this);
+                await Utils.waitFor(Utils.randomInRange(1, 5));
             }
         }
+        this.done.resolve(true);
+    }
+
+    /**
+     * @param {Grid} grid
+     * @param {Number} startHumans
+     * @param {Number} startHospitalities
+     * @param {LogWrite} log
+     * @param {Boolean} [useCurrentDate]
+     * @param {SIMULATION_SAVED_DATA|null} [savedData]
+     */
+    constructor(grid, startHumans, startHospitalities, log, useCurrentDate = false, savedData=null) {
+        this.grid = grid;
+        this.log = log;
+        this.done = Promise.withResolvers();
+        this.#asyncConstructor(startHumans, startHospitalities, useCurrentDate, savedData)
     }
 }
 

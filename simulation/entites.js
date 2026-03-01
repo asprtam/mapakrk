@@ -3,6 +3,10 @@ import { Human } from "./human.js";
 import { intrests, intrestCategories } from "../data/intrests.js";
 import { PlotBoundMeeting } from "./meeting.js";
 import { Utils } from "./utils.js";
+//@ts-ignore
+import { TG, TypeGoblin } from "../typeGoblin.js";
+//@ts-ignore
+import { TIME_MANAGER } from "./timeManager.js";
 
 /**
  * @typedef {{x: Number, y:Number}} pos
@@ -16,12 +20,13 @@ import { Utils } from "./utils.js";
  * @property {Number} id
  * @property {Array<{name: String, id: Number}>} visitors
  * @property {Boolean} isOpen
+ * @property {Number} [popularityScore]
  */
 
 /**
  * @typedef {Object} PLOT_MANAGEMENT_TIME
- * @property {Number} hour
- * @property {Number} minute
+ * @property {TIME_MANAGER.HOUR} hour
+ * @property {TIME_MANAGER.MINUTE} minute
  */
 
 /**
@@ -37,6 +42,9 @@ import { Utils } from "./utils.js";
  * @property {pos} [pos]
  * @property {Array<INTREST_TAG>} [connectedTopics]
  * @property {String} [name]
+ * @property {HOSPITALITY_SUBTYPE} [subtype]
+ * @property {Number} [popularityScore]
+ * @property {Boolean} [hasIncreasedPopularityInCurrentDay]
  */
 
 class Plot {
@@ -87,7 +95,10 @@ class Plot {
             if(this.simulation.humans[humanId]) {
                 plotStatus.visitors.push({name: `${this.simulation.humans[humanId].info.name} ${this.simulation.humans[humanId].info.lastname}`, id: humanId+0});
             }
-        });
+        }); //@ts-ignore
+        if(this.popularityScore) { //@ts-ignore
+            plotStatus.popularityScore = this.popularityScore;
+        }
         
         return plotStatus;
     }
@@ -168,6 +179,23 @@ class Home extends Plot {
     }
 }
 
+/** 
+ * @typedef {Object} HOSPITALITY_SUBTYPE_INFO
+ */
+
+const HospitalitySubtypes = {
+    /** @type {HOSPITALITY_SUBTYPE_INFO} */ //@ts-ignore
+    'bar': {},
+    /** @type {HOSPITALITY_SUBTYPE_INFO} */ //@ts-ignore
+    'cafe': {},
+    /** @type {HOSPITALITY_SUBTYPE_INFO} */ //@ts-ignore
+    'club': {},
+    /** @type {HOSPITALITY_SUBTYPE_INFO} */ //@ts-ignore
+    'gallery': {}
+}
+
+/** @typedef {keyof typeof HospitalitySubtypes} HOSPITALITY_SUBTYPE */
+
 class Hospitality extends Plot {
     /** @type {Number} */
     hospitalityId;
@@ -175,6 +203,12 @@ class Hospitality extends Plot {
     isHospitality = true;
     /** @type {PLOT_OPEN_HOURS} */
     openHours;
+    /** @type {HOSPITALITY_SUBTYPE} */
+    subtype;
+    /** @type {Boolean} */
+    hasIncreasedPopularityInCurrentDay = false;
+    /** @type {Number} */
+    popularityScore = 0;
     /** @type {{open: Number, close: Number}} */
     get parsedOpenHours() {
         return { open: this.openHours.open.hour + (this.openHours.open.minute / 60), close: this.openHours.close.hour + (this.openHours.close.minute / 60) }
@@ -230,7 +264,10 @@ class Hospitality extends Plot {
                 inheritedIntrestEvents: this.inheritedIntrestEvents,
                 pos: this.pos,
                 connectedTopics: this.welcomeIntrestsTags,
-                name: this.name
+                name: this.name,
+                subtype: this.subtype,
+                popularityScore: this.popularityScore,
+                hasIncreasedPopularityInCurrentDay: this.hasIncreasedPopularityInCurrentDay
             }
         } else {
             return {
@@ -238,6 +275,9 @@ class Hospitality extends Plot {
                 inheritedIntrestEvents: this.inheritedIntrestEvents,
                 pos: this.pos,
                 connectedTopics: this.welcomeIntrestsTags,
+                subtype: this.subtype,
+                popularityScore: this.popularityScore,
+                hasIncreasedPopularityInCurrentDay: this.hasIncreasedPopularityInCurrentDay
             }
         }
     }
@@ -310,6 +350,76 @@ class Hospitality extends Plot {
         });
     }
 
+    /** @returns {HOSPITALITY_SUBTYPE} */
+    getRandomSubtype = () => {
+        /** @type {{[key in HOSPITALITY_SUBTYPE]?: Number}} */
+        let subtypeProbabilityObject = {};
+        Object.keys(HospitalitySubtypes).forEach((subtype) => {
+            subtypeProbabilityObject[subtype] = Math.round(100 / Object.keys(HospitalitySubtypes).length);
+        });
+        if(this.hospitalityId >= 4) {
+            let containsClub = false;
+            let containsBar = false;
+            let containsCafe = false;
+            let containsGallery = false;
+            for(let hospitality of this.simulation.hospitalities) {
+                if(!containsClub) {
+                    hospitality.subtype == 'club';
+                    containsClub = true;
+                }
+                if(!containsBar) {
+                    hospitality.subtype == 'bar';
+                    containsBar = true;
+                }
+                if(!containsCafe) {
+                    hospitality.subtype == 'cafe';
+                    containsCafe = true;
+                }
+                if(!containsGallery) {
+                    hospitality.subtype == 'gallery';
+                    containsGallery = true;
+                }
+                if(containsClub && containsBar && containsCafe && containsGallery) {
+                    break;
+                }
+            }
+            if(!containsClub) {
+                if(!this.welcomeIntrestsTags.includes('teology') && !this.welcomeIntrestsTags.includes('traditionalValues')) {
+                    subtypeProbabilityObject['club'] += 100;
+                }
+            }
+            if(!containsBar) {
+                subtypeProbabilityObject['bar'] += 100;
+            }
+            if(!containsCafe) {
+                if(!this.welcomeIntrestsTags.includes('techno')) {
+                    subtypeProbabilityObject['cafe'] += 100;
+                }
+            }
+            if(!containsGallery) {
+                subtypeProbabilityObject['gallery'] += 100;
+            }
+        }
+        if(this.welcomeIntrestsTags.includes('music') || this.welcomeIntrestsTags.includes('techno') || this.welcomeIntrestsTags.includes('hiphop')) {
+            subtypeProbabilityObject['club'] += 100;
+        }
+        if(intrests.intrestsArrContainsCategory(this.welcomeIntrestsTags, 'drugs')) {
+            subtypeProbabilityObject['club'] += 100;
+            subtypeProbabilityObject['bar'] += 50;
+        }
+        if(intrests.intrestsArrContainsCategory(this.welcomeIntrestsTags, 'artforms')) {
+            subtypeProbabilityObject['gallery'] += 200;
+        }
+        if(intrests.intrestsArrContainsCategory(this.welcomeIntrestsTags, 'socialTopics')) {
+            subtypeProbabilityObject['cafe'] += 100;
+            subtypeProbabilityObject['bar'] += 50;
+            if(this.welcomeIntrestsTags.includes('lgbtActivism')) {
+                subtypeProbabilityObject['club'] += 100;
+            }
+        }
+        return Utils.getRandomWithProbability(subtypeProbabilityObject);
+    }
+
     /** 
      * @override
      * @returns {Promise<Boolean>}
@@ -352,7 +462,7 @@ class Hospitality extends Plot {
 
         const getRandomIntrests = () => {
             let intrestCount = 0;
-            switch(Utils.getRandomWithProbability({ 'any': 1, 'none': 1 })) {
+            switch(Utils.getRandomWithProbability({ 'any': 2, 'none': 1 })) {
                 case "any": {
                     intrestCount = Utils.randomInRange(1, 3);
                     break;
@@ -376,9 +486,6 @@ class Hospitality extends Plot {
                     });
                     if(Object.keys(possibleIntrests).length > 0) {
                         let randomIntrest = Utils.getRandomWithProbability(possibleIntrests);
-                        while(intrests.list[firstIntrest].categories.includes('artforms')) {
-                            randomIntrest = Utils.getRandomWithProbability(possibleIntrests);
-                        }
                         this.welcomeIntrestsTags.push(randomIntrest);
                     }
                 };
@@ -390,7 +497,38 @@ class Hospitality extends Plot {
         }
 
         const getDefaultHours = () => {
-            this.openHours = { open: { hour: 7, minute: 0 }, close: { hour: 23, minute: 0 } };
+            let minOpenTime = 6;
+            let maxOpenTime = 16;
+            let minOpenHour = 7;
+            let maxOpenHour = 10;
+            switch(this.subtype) {
+                case "bar": {
+                    minOpenTime = 8;
+                    maxOpenTime = 12;
+                    minOpenHour = 10;
+                    maxOpenHour = 15;
+                    break;
+                }
+                case "cafe": {
+                    maxOpenHour = 12;
+                    minOpenTime = 8;
+                    break;
+                }
+                case "club": {
+                    maxOpenTime = 12;
+                    minOpenHour = 17;
+                    maxOpenHour = 20;
+                    break;
+                }
+                case "gallery": {
+                    maxOpenHour = 11;
+                    maxOpenTime = 12;
+                    break;
+                }
+            }
+            let openHour = Utils.randomInRange(minOpenHour, maxOpenHour);
+            let openTime = Utils.randomInRange(minOpenTime, maxOpenTime);
+            return { open: { hour: openHour, minute: 0 }, close: { hour: (openHour + openTime)%24, minute: 0 } }
         }
 
         if(savedData) {
@@ -410,25 +548,37 @@ class Hospitality extends Plot {
             } else {
                 getRandomIntrests();
             }
+            if(savedData.subtype) {
+                this.subtype = savedData.subtype;
+            } else {
+                this.subtype = this.getRandomSubtype();
+            }
             if(savedData.inheritedIntrestEvents) {
                 this.inheritedIntrestEvents = savedData.inheritedIntrestEvents;
             }
             if(savedData.hours) {
-                this.openHours = savedData.hours;
-                this.openHours.open.hour = this.openHours.open.hour % 24;
-                this.openHours.close.hour = this.openHours.close.hour % 24;
-                this.openHours.open.minute = this.openHours.open.minute % 60;
+                this.openHours = savedData.hours; //@ts-ignore
+                this.openHours.open.hour = this.openHours.open.hour % 24; //@ts-ignore
+                this.openHours.close.hour = this.openHours.close.hour % 24; //@ts-ignore
+                this.openHours.open.minute = this.openHours.open.minute % 60; //@ts-ignore
                 this.openHours.close.minute = this.openHours.close.minute % 60;
-            } else {
-                getDefaultHours();
+            } else { //@ts-ignore
+                this.openHours = getDefaultHours();
             }
             if(savedData.name) {
                 this.name = savedData.name;
             }
+            if(savedData.popularityScore) {
+                this.popularityScore = savedData.popularityScore;
+            }
+            if(savedData.hasIncreasedPopularityInCurrentDay) {
+                this.hasIncreasedPopularityInCurrentDay = savedData.hasIncreasedPopularityInCurrentDay;
+            }
         } else {
             this.slotId = this.simulation.grid.getRandomAvailableSlot().id;
-            getDefaultHours();
             getRandomIntrests();
+            this.subtype = this.getRandomSubtype(); //@ts-ignore
+            this.openHours = getDefaultHours();
         }
 
         this.simulation.grid.claimSlot(this.slotId, "H");

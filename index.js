@@ -267,13 +267,13 @@ const getSavedData = () => {
 }
 
 /**
-     * @typedef {Object} SOCKET_CONNECTION
-     * @property {Number} id
-     * @property {import("websocket-express").ExtendedWebSocket} ws
-     * @property {Array<Number>} requireStatusOf
-     * @property {Array<Number>} requireStatusOfPlots
-     * @property {Array<{id: Number, lastRequestedEventId?: Number}>} requireEventsOfHumans
-     */
+ * @typedef {Object} SOCKET_CONNECTION
+ * @property {Number} id
+ * @property {import("websocket-express").ExtendedWebSocket} ws
+ * @property {Array<Number>} requireStatusOf
+ * @property {Array<Number>} requireStatusOfPlots
+ * @property {Array<{id: Number, lastRequestedEventId?: Number}>} requireEventsOfHumans
+ */
 /** @typedef {'humanData'|'humanStatus'|'plotStatus'|'humanStatusRevoke'|'plotStatusRevoke'|'humanEvents'|'humanEventsRevoke'} SOCKET_MESSAGE_TYPE */
 /**
  * @typedef {Object} SOCKET_CONNECTION_HUMAN_EVENT_REQUEST
@@ -632,7 +632,7 @@ const init = async () => {
         setOrigins(req, res);
         const plots = simulation.plots.map((plot) => {
             if(plot.isHospitality) { //@ts-ignore
-                return { id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality, welcomeIntrestsTags: plot.welcomeIntrestsTags, welcomeIntrestCategories: plot.welcomeIntrestCategories, unwelcomeIntrestsTags: plot.unwelcomeIntrestsTags, unwelcomeIntrestCategories: plot.unwelcomeIntrestCategories, openHours: plot.openHours };
+                return { id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality, welcomeIntrestsTags: plot.welcomeIntrestsTags, welcomeIntrestCategories: plot.welcomeIntrestCategories, unwelcomeIntrestsTags: plot.unwelcomeIntrestsTags, unwelcomeIntrestCategories: plot.unwelcomeIntrestCategories, openHours: plot.openHours, subtype: plot.subtype };
             } else {
                 return {id: plot.id, pos: plot.pos, squares: plot.squares, name: plot.name, adress: plot.adress, isHospitality: plot.isHospitality}
             }
@@ -698,7 +698,7 @@ const init = async () => {
                             lastId = Math.max(reqData.lastRequestedEventId, 0);
                         }
                         /** @type {SOCKET_CONNECTION_HUMAN_EVENT_RESPONSE} */
-                        let humanEventResonse = { e: simulation.humans[reqData.id].getEventsInRange(lastId+1), i: reqData.id, l: lastId };
+                        let humanEventResonse = { e: simulation.humans[reqData.id].getEventsInRange(lastId), i: reqData.id, l: lastId };
                         if(humanEventResonse.e.length > 0) {
                             allResponse.push(humanEventResonse);
                             reqData.lastRequestedEventId = lastId+1;
@@ -706,7 +706,6 @@ const init = async () => {
                     }
                     if(allResponse.length > 0) {
                         try {
-                            // simulation.logWrite('humanEvents request', allResponse);
                             con.ws.send(`humanEvents-${JSON.stringify(allResponse)}`);
                         } catch(err) {
                             console.error(err);
@@ -718,7 +717,9 @@ const init = async () => {
         });
     });
     
-    simulation.start();
+    simulation.done.promise.then(() => {
+        simulation.start();
+    });
 }
 
 addCleanupListener(async () => {

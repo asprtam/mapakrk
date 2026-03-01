@@ -1,0 +1,5136 @@
+{
+	"tick": 6980,
+	"tickIteration": 0,
+	"startDate": {
+		"hour": 2,
+		"day": 150,
+		"year": 2024
+	},
+	"humans": [
+		{
+			"id": 0,
+			"info": {
+				"age": 23,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Maja",
+				"lastname": "Brzoza",
+				"customGenderName": null
+			},
+			"birthDay": 103,
+			"attributes": {
+				"physical": 38,
+				"social": 98,
+				"intelligence": 54
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 52,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "film",
+					"initalScore": 10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "film",
+					"initalScore": 10
+				},
+				{
+					"type": "newIntrest",
+					"participants": [
+						4,
+						5,
+						7,
+						16,
+						17,
+						20,
+						24,
+						37,
+						39,
+						54,
+						56,
+						57,
+						58,
+						23,
+						22,
+						15,
+						59
+					],
+					"intrest": "fascism",
+					"tickNumber": 4719,
+					"tickIteration": 0,
+					"hospitalityId": 5
+				}
+			],
+			"intrests": {
+				"animalActivism": 1,
+				"feminism": 1,
+				"gaming": 1,
+				"memes": 1,
+				"modernHistory": 1,
+				"vj": 1,
+				"fascism": 1
+			},
+			"home": {
+				"x": 220,
+				"y": 228
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 220,
+					"y": 228
+				},
+				"target": 15,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 1,
+			"info": {
+				"age": 21,
+				"gender": "male",
+				"genderPronoun": "other",
+				"name": "Natan",
+				"lastname": "Gołębiowskie",
+				"customGenderName": null
+			},
+			"birthDay": 169,
+			"attributes": {
+				"physical": 30,
+				"social": 94,
+				"intelligence": 6
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 23,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": 10
+				},
+				{
+					"human": 34,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 54,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"lgbtActivism": 1,
+				"psychodelics": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 130,
+				"y": 105
+			},
+			"friends": [
+				{
+					"id": 34,
+					"preference": 10
+				},
+				{
+					"id": 16,
+					"preference": -10
+				},
+				{
+					"id": 54,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": 10
+				}
+			],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 152,
+					"y": 110
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 2,
+			"info": {
+				"age": 44,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Serafin",
+				"lastname": "Dym",
+				"customGenderName": null
+			},
+			"birthDay": 13,
+			"attributes": {
+				"physical": 1,
+				"social": 61,
+				"intelligence": 27
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"brainrot": 1,
+				"digitalArt": 1
+			},
+			"home": {
+				"x": 361,
+				"y": 186
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 361,
+					"y": 186
+				},
+				"target": 17,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 3,
+			"info": {
+				"age": 18,
+				"gender": "other",
+				"genderPronoun": "female",
+				"name": "Danka",
+				"lastname": "Wierzbicka",
+				"customGenderName": null
+			},
+			"birthDay": 96,
+			"attributes": {
+				"physical": 8,
+				"social": 41,
+				"intelligence": 5
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"film": 1,
+				"music": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 272,
+				"y": 169
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 272,
+					"y": 169
+				},
+				"target": 18,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 4,
+			"info": {
+				"age": 68,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Beatrycze",
+				"lastname": "Koral",
+				"customGenderName": null
+			},
+			"birthDay": 113,
+			"attributes": {
+				"physical": 96,
+				"social": 40,
+				"intelligence": 89
+			},
+			"statuses": {
+				"boredom": 775,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"historyOfPoland": 1,
+				"photography": 1
+			},
+			"home": {
+				"x": 217,
+				"y": 40
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 196,
+					"y": 66
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 5,
+			"info": {
+				"age": 42,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Alin",
+				"lastname": "Łuczak",
+				"customGenderName": null
+			},
+			"birthDay": 357,
+			"attributes": {
+				"physical": 83,
+				"social": 23,
+				"intelligence": 10
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"animalActivism": 1,
+				"historyOfPoland": 1,
+				"tradition": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 216,
+				"y": 91
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 216,
+					"y": 91
+				},
+				"target": 20,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 6,
+			"info": {
+				"age": 27,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Matylda",
+				"lastname": "Jezioro",
+				"customGenderName": null
+			},
+			"birthDay": 277,
+			"attributes": {
+				"physical": 23,
+				"social": 22,
+				"intelligence": 83
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 34,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 54,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"chanCulture": 1,
+				"drawing": 1,
+				"film": 1,
+				"historyOfPoland": 2
+			},
+			"home": {
+				"x": 218,
+				"y": 120
+			},
+			"friends": [
+				{
+					"id": 34,
+					"preference": 10
+				},
+				{
+					"id": 16,
+					"preference": -10
+				},
+				{
+					"id": 54,
+					"preference": -10
+				},
+				{
+					"id": 8,
+					"preference": 10
+				},
+				{
+					"id": 31,
+					"preference": -10
+				},
+				{
+					"id": 7,
+					"preference": 10
+				},
+				{
+					"id": 58,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 218,
+					"y": 120
+				},
+				"target": 21,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 7,
+			"info": {
+				"age": 33,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Alojzy",
+				"lastname": "Szulski",
+				"customGenderName": null
+			},
+			"birthDay": 291,
+			"attributes": {
+				"physical": 73,
+				"social": 96,
+				"intelligence": 25
+			},
+			"statuses": {
+				"boredom": 300,
+				"fatigue": 129
+			},
+			"events": [
+				{
+					"human": 0,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "film",
+					"initalScore": 10
+				},
+				{
+					"human": 52,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "film",
+					"initalScore": -10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 29,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 54,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 18,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"fascism": 1,
+				"modernHistory": 1,
+				"psychodelics": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 208,
+				"y": 129
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": 10
+				},
+				{
+					"id": 54,
+					"preference": -10
+				},
+				{
+					"id": 18,
+					"preference": -10
+				},
+				{
+					"id": 31,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 252,
+					"y": 213
+				},
+				"target": 13,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 8,
+			"info": {
+				"age": 30,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Cyryl",
+				"lastname": "Wiatr",
+				"customGenderName": null
+			},
+			"birthDay": 173,
+			"attributes": {
+				"physical": 57,
+				"social": 49,
+				"intelligence": 84
+			},
+			"statuses": {
+				"boredom": 591,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 56,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "relationChange",
+					"score": -10,
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture"
+				},
+				{
+					"human": 17,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"communism": 1,
+				"music": 1,
+				"techno": 2
+			},
+			"home": {
+				"x": 4,
+				"y": 242
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": 10
+				},
+				{
+					"id": 16,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": -20
+				},
+				{
+					"id": 37,
+					"preference": -10
+				},
+				{
+					"id": 47,
+					"preference": -10
+				},
+				{
+					"id": 56,
+					"preference": -10
+				},
+				{
+					"id": 17,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 9,
+			"info": {
+				"age": 63,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Władysława",
+				"lastname": "Urbanska",
+				"customGenderName": null
+			},
+			"birthDay": 313,
+			"attributes": {
+				"physical": 57,
+				"social": 30,
+				"intelligence": 60
+			},
+			"statuses": {
+				"boredom": 456,
+				"fatigue": 361
+			},
+			"events": [
+				{
+					"human": 38,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4253,
+					"reason": "music",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"eugenics": 1,
+				"graffiti": 1,
+				"lgbtActivism": 1
+			},
+			"home": {
+				"x": 354,
+				"y": 95
+			},
+			"friends": [
+				{
+					"id": 38,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 377,
+					"y": 17
+				},
+				"target": 14,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 10,
+			"info": {
+				"age": 30,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Więcesław",
+				"lastname": "Urbanek",
+				"customGenderName": null
+			},
+			"birthDay": 76,
+			"attributes": {
+				"physical": 27,
+				"social": 79,
+				"intelligence": 47
+			},
+			"statuses": {
+				"boredom": 791,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 55,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1163,
+					"reason": "historyOfPoland",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1163,
+					"reason": "historyOfPoland",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"chanCulture": 1,
+				"fascism": 2,
+				"graffiti": 1,
+				"modernHistory": 1
+			},
+			"home": {
+				"x": 108,
+				"y": 159
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 127,
+					"y": 153
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 11,
+			"info": {
+				"age": 25,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Danuta",
+				"lastname": "Wieczor",
+				"customGenderName": null
+			},
+			"birthDay": 329,
+			"attributes": {
+				"physical": 35,
+				"social": 31,
+				"intelligence": 48
+			},
+			"statuses": {
+				"boredom": 43,
+				"fatigue": 999
+			},
+			"events": [],
+			"intrests": {
+				"communism": 1,
+				"religionStudies": 1,
+				"techno": 1,
+				"vj": 2
+			},
+			"home": {
+				"x": 311,
+				"y": 62
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 252,
+					"y": 213
+				},
+				"target": 13,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 12,
+			"info": {
+				"age": 27,
+				"gender": "male",
+				"genderPronoun": "other",
+				"name": "Emil",
+				"lastname": "Żelazo",
+				"customGenderName": null
+			},
+			"birthDay": 268,
+			"attributes": {
+				"physical": 69,
+				"social": 18,
+				"intelligence": 66
+			},
+			"statuses": {
+				"boredom": 546,
+				"fatigue": 72
+			},
+			"events": [],
+			"intrests": {
+				"chanCulture": 2,
+				"digitalArt": 1
+			},
+			"home": {
+				"x": 208,
+				"y": 100
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 94,
+					"y": 106
+				},
+				"target": 5,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 13,
+			"info": {
+				"age": 29,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Seweryn",
+				"lastname": "Okap",
+				"customGenderName": null
+			},
+			"birthDay": 70,
+			"attributes": {
+				"physical": 100,
+				"social": 17,
+				"intelligence": 31
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"incelism": 1,
+				"lgbtActivism": 1,
+				"music": 1,
+				"techno": 1
+			},
+			"home": {
+				"x": 131,
+				"y": 97
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 131,
+					"y": 97
+				},
+				"target": 28,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 14,
+			"info": {
+				"age": 65,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Joachim",
+				"lastname": "Kubiak-Wiatr",
+				"customGenderName": null
+			},
+			"birthDay": 38,
+			"attributes": {
+				"physical": 31,
+				"social": 59,
+				"intelligence": 76
+			},
+			"statuses": {
+				"boredom": 429,
+				"fatigue": 826
+			},
+			"events": [
+				{
+					"human": 45,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4408,
+					"reason": "incelism",
+					"initalScore": -10
+				},
+				{
+					"human": 51,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5125,
+					"reason": "drawing",
+					"initalScore": 10
+				},
+				{
+					"human": 43,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5128,
+					"reason": "drawing",
+					"initalScore": -10
+				},
+				{
+					"type": "relationChange",
+					"human": 51,
+					"score": -6,
+					"tickNumber": 5128,
+					"tickIteration": 0,
+					"reason": "drawing"
+				}
+			],
+			"intrests": {
+				"sculpture": 2,
+				"traditionalValues": 1
+			},
+			"home": {
+				"x": 334,
+				"y": 31
+			},
+			"friends": [
+				{
+					"id": 45,
+					"preference": -10
+				},
+				{
+					"id": 51,
+					"preference": 4
+				},
+				{
+					"id": 43,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 361,
+					"y": 60
+				},
+				"target": 10,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 15,
+			"info": {
+				"age": 20,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Radek",
+				"lastname": "Olejniczak",
+				"customGenderName": null
+			},
+			"birthDay": 357,
+			"attributes": {
+				"physical": 33,
+				"social": 36,
+				"intelligence": 66
+			},
+			"statuses": {
+				"boredom": 502,
+				"fatigue": 999
+			},
+			"events": [],
+			"intrests": {
+				"feminism": 2,
+				"historyOfPoland": 2,
+				"music": 1,
+				"techno": 1
+			},
+			"home": {
+				"x": 46,
+				"y": 132
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 16,
+			"info": {
+				"age": 20,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Nina",
+				"lastname": "Mazur",
+				"customGenderName": null
+			},
+			"birthDay": 236,
+			"attributes": {
+				"physical": 45,
+				"social": 83,
+				"intelligence": 59
+			},
+			"statuses": {
+				"boredom": 813,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 20,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 29,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1665,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"type": "relationChange",
+					"human": 20,
+					"score": -3,
+					"tickNumber": 1665,
+					"tickIteration": 0,
+					"reason": "graffiti"
+				},
+				{
+					"human": 17,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1665,
+					"reason": "graffiti",
+					"initalScore": 10
+				},
+				{
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"human": 20,
+					"initalScore": 16,
+					"tickNumber": 1801,
+					"tickIteration": 0,
+					"reason": "graffiti"
+				},
+				{
+					"type": "relationChange",
+					"human": 17,
+					"score": -1,
+					"tickNumber": 1801,
+					"tickIteration": 0,
+					"reason": "graffiti"
+				},
+				{
+					"type": "relationChange",
+					"human": 29,
+					"score": -13,
+					"tickNumber": 2434,
+					"tickIteration": 0,
+					"reason": "digitalArt"
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 34,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 1,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 18,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"communism": 1,
+				"libertarianism": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 164,
+				"y": 24
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": -10
+				},
+				{
+					"id": 34,
+					"preference": -10
+				},
+				{
+					"id": 1,
+					"preference": -10
+				},
+				{
+					"id": 8,
+					"preference": -10
+				},
+				{
+					"id": 18,
+					"preference": -10
+				},
+				{
+					"id": 31,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": 10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 17,
+			"info": {
+				"age": 16,
+				"gender": "other",
+				"genderPronoun": "female",
+				"name": "Konstancja",
+				"lastname": "Topór",
+				"customGenderName": null
+			},
+			"birthDay": 211,
+			"attributes": {
+				"physical": 69,
+				"social": 79,
+				"intelligence": 56
+			},
+			"statuses": {
+				"boredom": 477,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1665,
+					"reason": "graffiti",
+					"initalScore": 10
+				},
+				{
+					"human": 16,
+					"type": "relationChange",
+					"score": -1,
+					"tickIteration": 0,
+					"tickNumber": 1801,
+					"reason": "graffiti"
+				},
+				{
+					"human": 20,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1801,
+					"reason": "graffiti",
+					"initalScore": 10
+				},
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 56,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"digitalArt": 2,
+				"libertarianism": 1
+			},
+			"home": {
+				"x": 17,
+				"y": 78
+			},
+			"friends": [
+				{
+					"id": 47,
+					"preference": -10
+				},
+				{
+					"id": 56,
+					"preference": 10
+				},
+				{
+					"id": 58,
+					"preference": -10
+				},
+				{
+					"id": 8,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 18,
+			"info": {
+				"age": 46,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Lena",
+				"lastname": "Woźniak",
+				"customGenderName": null
+			},
+			"birthDay": 343,
+			"attributes": {
+				"physical": 82,
+				"social": 79,
+				"intelligence": 49
+			},
+			"statuses": {
+				"boredom": 867,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"type": "newIntrest",
+					"participants": [
+						4,
+						5,
+						7,
+						16,
+						17,
+						20,
+						24,
+						37,
+						39,
+						48,
+						54,
+						56,
+						57,
+						58,
+						23,
+						22,
+						15,
+						59
+					],
+					"intrest": "sculpture",
+					"tickNumber": 4538,
+					"tickIteration": 0,
+					"hospitalityId": 5
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"animalActivism": 1,
+				"communism": 1,
+				"depressants": 1,
+				"graffiti": 2,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 249,
+				"y": 171
+			},
+			"friends": [
+				{
+					"id": 16,
+					"preference": -10
+				},
+				{
+					"id": 7,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 164,
+					"y": 140
+				},
+				"target": 33,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 19,
+			"info": {
+				"age": 20,
+				"gender": "other",
+				"genderPronoun": "female",
+				"name": "Amelia",
+				"lastname": "Podkowa",
+				"customGenderName": null
+			},
+			"birthDay": 305,
+			"attributes": {
+				"physical": 70,
+				"social": 7,
+				"intelligence": 48
+			},
+			"statuses": {
+				"boredom": 295,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 59,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 2067,
+					"reason": "music",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"music": 3,
+				"techno": 2
+			},
+			"home": {
+				"x": 78,
+				"y": 5
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 94,
+					"y": 106
+				},
+				"target": 5,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 20,
+			"info": {
+				"age": 19,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Alex",
+				"lastname": "Łuczarskie",
+				"customGenderName": null
+			},
+			"birthDay": 135,
+			"attributes": {
+				"physical": 13,
+				"social": 66,
+				"intelligence": 72
+			},
+			"statuses": {
+				"boredom": 111,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 29,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 29,
+					"type": "relationChange",
+					"score": -9,
+					"tickIteration": 0,
+					"tickNumber": 1665,
+					"reason": "graffiti"
+				},
+				{
+					"human": 16,
+					"type": "relationChange",
+					"score": -3,
+					"tickIteration": 0,
+					"tickNumber": 1665,
+					"reason": "graffiti"
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"initalScore": 16,
+					"tickIteration": 0,
+					"tickNumber": 1801,
+					"reason": "graffiti"
+				},
+				{
+					"human": 17,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1801,
+					"reason": "graffiti",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"film": 1,
+				"graffiti": 9,
+				"music": 1,
+				"painting": 1,
+				"photography": 2,
+				"psychodelics": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 114,
+				"y": 68
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 21,
+			"info": {
+				"age": 39,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Metody",
+				"lastname": "Por",
+				"customGenderName": null
+			},
+			"birthDay": 178,
+			"attributes": {
+				"physical": 40,
+				"social": 74,
+				"intelligence": 17
+			},
+			"statuses": {
+				"boredom": 504,
+				"fatigue": 785
+			},
+			"events": [],
+			"intrests": {
+				"digitalArt": 2,
+				"drawing": 3,
+				"painting": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 111,
+				"y": 228
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 94,
+					"y": 106
+				},
+				"target": 5,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"drugAddict"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 22,
+			"info": {
+				"age": 22,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Maurycy",
+				"lastname": "Grzybek",
+				"customGenderName": null
+			},
+			"birthDay": 241,
+			"attributes": {
+				"physical": 90,
+				"social": 10,
+				"intelligence": 35
+			},
+			"statuses": {
+				"boredom": 587,
+				"fatigue": 61
+			},
+			"events": [],
+			"intrests": {
+				"hiphop": 1,
+				"music": 1,
+				"sculpture": 1,
+				"stimulants": 1
+			},
+			"home": {
+				"x": 293,
+				"y": 169
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 94,
+					"y": 106
+				},
+				"target": 5,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 23,
+			"info": {
+				"age": 34,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Alex",
+				"lastname": "Brzezińskie",
+				"customGenderName": null
+			},
+			"birthDay": 138,
+			"attributes": {
+				"physical": 39,
+				"social": 57,
+				"intelligence": 31
+			},
+			"statuses": {
+				"boredom": 379,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 1,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "graffiti",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"depressants": 1,
+				"graffiti": 4
+			},
+			"home": {
+				"x": 59,
+				"y": 130
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 24,
+			"info": {
+				"age": 29,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Paulina",
+				"lastname": "Kula",
+				"customGenderName": null
+			},
+			"birthDay": 151,
+			"attributes": {
+				"physical": 69,
+				"social": 100,
+				"intelligence": 30
+			},
+			"statuses": {
+				"boredom": 22,
+				"fatigue": 354
+			},
+			"events": [
+				{
+					"human": 23,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 1,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": 10
+				},
+				{
+					"human": 29,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 20,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"id": 5,
+					"type": "birthDay",
+					"tickNumber": 2640,
+					"tickIteration": 0
+				},
+				{
+					"type": "newIntrest",
+					"participants": [
+						4,
+						5,
+						7,
+						16,
+						17,
+						20,
+						37,
+						39,
+						54,
+						56,
+						57,
+						58,
+						23,
+						22,
+						15,
+						59,
+						0
+					],
+					"intrest": "fascism",
+					"tickNumber": 4719,
+					"tickIteration": 0,
+					"hospitalityId": 5
+				},
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 36,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"digitalArt": 2,
+				"libertarianism": 2,
+				"fascism": 1
+			},
+			"home": {
+				"x": 122,
+				"y": 145
+			},
+			"friends": [
+				{
+					"id": 47,
+					"preference": -10
+				},
+				{
+					"id": 36,
+					"preference": -10
+				},
+				{
+					"id": 31,
+					"preference": 10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"drugAddict",
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 25,
+			"info": {
+				"age": 20,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Nina",
+				"lastname": "Morze-Gała",
+				"customGenderName": null
+			},
+			"birthDay": 288,
+			"attributes": {
+				"physical": 70,
+				"social": 31,
+				"intelligence": 32
+			},
+			"statuses": {
+				"boredom": 722,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 53,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4722,
+					"reason": "photography",
+					"initalScore": -10
+				},
+				{
+					"human": 36,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4722,
+					"reason": "photography",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"ai": 1,
+				"film": 1,
+				"gaming": 1,
+				"painting": 1,
+				"photography": 4,
+				"sculpture": 1,
+				"vj": 2
+			},
+			"home": {
+				"x": 121,
+				"y": 231
+			},
+			"friends": [
+				{
+					"id": 53,
+					"preference": -10
+				},
+				{
+					"id": 36,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 142,
+					"y": 219
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 26,
+			"info": {
+				"age": 50,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Oliwer",
+				"lastname": "Mazurek",
+				"customGenderName": null
+			},
+			"birthDay": 193,
+			"attributes": {
+				"physical": 14,
+				"social": 90,
+				"intelligence": 28
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"religionStudies": 1,
+				"techno": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 167,
+				"y": 47
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 167,
+					"y": 47
+				},
+				"target": 41,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 27,
+			"info": {
+				"age": 21,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Wit",
+				"lastname": "Kamień",
+				"customGenderName": null
+			},
+			"birthDay": 217,
+			"attributes": {
+				"physical": 52,
+				"social": 9,
+				"intelligence": 69
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"film": 2,
+				"lgbtActivism": 1,
+				"painting": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 21,
+				"y": 167
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 21,
+					"y": 167
+				},
+				"target": 42,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 28,
+			"info": {
+				"age": 18,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Angelika",
+				"lastname": "Piorun",
+				"customGenderName": null
+			},
+			"birthDay": 144,
+			"attributes": {
+				"physical": 6,
+				"social": 95,
+				"intelligence": 39
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"communism": 1,
+				"depressants": 1,
+				"digitalArt": 1,
+				"film": 1,
+				"gaming": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 315,
+				"y": 136
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 315,
+					"y": 136
+				},
+				"target": 43,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 29,
+			"info": {
+				"age": 27,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Bolesława",
+				"lastname": "Tomaszewski",
+				"customGenderName": null
+			},
+			"birthDay": 192,
+			"attributes": {
+				"physical": 61,
+				"social": 17,
+				"intelligence": 60
+			},
+			"statuses": {
+				"boredom": 558,
+				"fatigue": 556
+			},
+			"events": [
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 20,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1428,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1665,
+					"reason": "graffiti",
+					"initalScore": -10
+				},
+				{
+					"type": "relationChange",
+					"human": 20,
+					"score": -9,
+					"tickNumber": 1665,
+					"tickIteration": 0,
+					"reason": "graffiti"
+				},
+				{
+					"human": 16,
+					"type": "relationChange",
+					"score": -13,
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt"
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"chanCulture": 3,
+				"vj": 1
+			},
+			"home": {
+				"x": 122,
+				"y": 221
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 30,
+			"info": {
+				"age": 20,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Maria",
+				"lastname": "Szczepańskie",
+				"customGenderName": null
+			},
+			"birthDay": 221,
+			"attributes": {
+				"physical": 3,
+				"social": 7,
+				"intelligence": 19
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"type": "loseIntrest",
+					"intrest": "ai",
+					"tickNumber": 4761,
+					"tickIteration": 0
+				},
+				{
+					"type": "closerToMadness",
+					"tickNumber": 4761,
+					"tickIteration": 0
+				},
+				{
+					"type": "newIntrest",
+					"participants": [
+						21,
+						42,
+						12,
+						50,
+						44,
+						48,
+						29
+					],
+					"intrest": "digitalArt",
+					"tickNumber": 4761,
+					"tickIteration": 0,
+					"hospitalityId": 0
+				}
+			],
+			"intrests": {
+				"communism": 1,
+				"graffiti": 1,
+				"libertarianism": 1,
+				"psychodelics": 1,
+				"stimulants": 1,
+				"digitalArt": 1
+			},
+			"home": {
+				"x": 232,
+				"y": 21
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 232,
+					"y": 21
+				},
+				"target": 45,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 31,
+			"info": {
+				"age": 37,
+				"gender": "other",
+				"genderPronoun": "female",
+				"name": "Salomea",
+				"lastname": "Sosna",
+				"customGenderName": null
+			},
+			"birthDay": 118,
+			"attributes": {
+				"physical": 24,
+				"social": 40,
+				"intelligence": 63
+			},
+			"statuses": {
+				"boredom": 717,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 29,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 2434,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "relationChange",
+					"score": -10,
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture"
+				},
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"ai": 1,
+				"drawing": 1,
+				"gaming": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 95,
+				"y": 236
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": -10
+				},
+				{
+					"id": 16,
+					"preference": -10
+				},
+				{
+					"id": 7,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": -20
+				},
+				{
+					"id": 24,
+					"preference": 10
+				},
+				{
+					"id": 58,
+					"preference": 10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 32,
+			"info": {
+				"age": 27,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Milka",
+				"lastname": "Wieczorek",
+				"customGenderName": null
+			},
+			"birthDay": 123,
+			"attributes": {
+				"physical": 16,
+				"social": 92,
+				"intelligence": 62
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"communism": 1,
+				"feminism": 1,
+				"gaming": 1,
+				"lgbtActivism": 1,
+				"medieval": 1,
+				"psychodelics": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 204,
+				"y": 37
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 204,
+					"y": 37
+				},
+				"target": 47,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 33,
+			"info": {
+				"age": 22,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Iwo",
+				"lastname": "Sikorskie",
+				"customGenderName": null
+			},
+			"birthDay": 136,
+			"attributes": {
+				"physical": 20,
+				"social": 48,
+				"intelligence": 59
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 53,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1312,
+					"reason": "digitalArt",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"animalActivism": 1,
+				"fascism": 1,
+				"incelism": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 384,
+				"y": 192
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 384,
+					"y": 192
+				},
+				"target": 48,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 34,
+			"info": {
+				"age": 37,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Olga",
+				"lastname": "Orzechowska",
+				"customGenderName": null
+			},
+			"birthDay": 206,
+			"attributes": {
+				"physical": 35,
+				"social": 90,
+				"intelligence": 98
+			},
+			"statuses": {
+				"boredom": 444,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 1,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"depressants": 1,
+				"hiphop": 1,
+				"sculpture": 1,
+				"vj": 2
+			},
+			"home": {
+				"x": 306,
+				"y": 118
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": 10
+				},
+				{
+					"id": 1,
+					"preference": 10
+				},
+				{
+					"id": 16,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 35,
+			"info": {
+				"age": 20,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Ksenia",
+				"lastname": "Wójcik",
+				"customGenderName": null
+			},
+			"birthDay": 206,
+			"attributes": {
+				"physical": 95,
+				"social": 23,
+				"intelligence": 7
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"chanCulture": 2,
+				"digitalArt": 1,
+				"feminism": 1,
+				"gaming": 1,
+				"lgbtActivism": 1
+			},
+			"home": {
+				"x": 314,
+				"y": 142
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 314,
+					"y": 142
+				},
+				"target": 50,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 36,
+			"info": {
+				"age": 27,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Seweryn",
+				"lastname": "Romanowski",
+				"customGenderName": null
+			},
+			"birthDay": 145,
+			"attributes": {
+				"physical": 76,
+				"social": 46,
+				"intelligence": 57
+			},
+			"statuses": {
+				"boredom": 179,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 53,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4722,
+					"reason": "photography",
+					"initalScore": -10
+				},
+				{
+					"human": 25,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4722,
+					"reason": "photography",
+					"initalScore": -10
+				},
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 56,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"drawing": 1,
+				"religionStudies": 2,
+				"teology": 1
+			},
+			"home": {
+				"x": 285,
+				"y": 66
+			},
+			"friends": [
+				{
+					"id": 53,
+					"preference": -10
+				},
+				{
+					"id": 25,
+					"preference": -10
+				},
+				{
+					"id": 24,
+					"preference": -10
+				},
+				{
+					"id": 56,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 37,
+			"info": {
+				"age": 20,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Sergiusz",
+				"lastname": "Tama",
+				"customGenderName": null
+			},
+			"birthDay": 186,
+			"attributes": {
+				"physical": 75,
+				"social": 94,
+				"intelligence": 55
+			},
+			"statuses": {
+				"boredom": 164,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 34,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 1,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 54,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				},
+				{
+					"type": "relationChange",
+					"human": 31,
+					"score": -10,
+					"tickNumber": 6868,
+					"tickIteration": 0,
+					"reason": "chanCulture"
+				}
+			],
+			"intrests": {
+				"ai": 1,
+				"ancientHistory": 1,
+				"fascism": 2,
+				"medieval": 1,
+				"psychodelics": 1,
+				"religionStudies": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 103,
+				"y": 2
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": -10
+				},
+				{
+					"id": 34,
+					"preference": -10
+				},
+				{
+					"id": 1,
+					"preference": 10
+				},
+				{
+					"id": 54,
+					"preference": -10
+				},
+				{
+					"id": 8,
+					"preference": -10
+				},
+				{
+					"id": 31,
+					"preference": -20
+				},
+				{
+					"id": 47,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": 10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 38,
+			"info": {
+				"age": 30,
+				"gender": "other",
+				"genderPronoun": "male",
+				"name": "Tymoteusz",
+				"lastname": "Makowski",
+				"customGenderName": null
+			},
+			"birthDay": 112,
+			"attributes": {
+				"physical": 61,
+				"social": 16,
+				"intelligence": 61
+			},
+			"statuses": {
+				"boredom": 722,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"type": "newIntrest",
+					"participants": [
+						11,
+						4,
+						57,
+						12
+					],
+					"intrest": "communism",
+					"tickNumber": 2862,
+					"tickIteration": 0,
+					"hospitalityId": 4
+				},
+				{
+					"human": 9,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4253,
+					"reason": "music",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"digitalArt": 1,
+				"gaming": 1,
+				"communism": 1
+			},
+			"home": {
+				"x": 224,
+				"y": 155
+			},
+			"friends": [
+				{
+					"id": 9,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 239,
+					"y": 129
+				},
+				"target": 14,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 39,
+			"info": {
+				"age": 27,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Milena",
+				"lastname": "Tomczak",
+				"customGenderName": null
+			},
+			"birthDay": 333,
+			"attributes": {
+				"physical": 97,
+				"social": 80,
+				"intelligence": 41
+			},
+			"statuses": {
+				"boredom": 213,
+				"fatigue": 999
+			},
+			"events": [],
+			"intrests": {
+				"depressants": 1,
+				"film": 2,
+				"graffiti": 1
+			},
+			"home": {
+				"x": 125,
+				"y": 60
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 40,
+			"info": {
+				"age": 48,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Jarek",
+				"lastname": "Komin",
+				"customGenderName": null
+			},
+			"birthDay": 70,
+			"attributes": {
+				"physical": 7,
+				"social": 54,
+				"intelligence": 65
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"digitalArt": 1,
+				"eugenics": 1,
+				"gaming": 1,
+				"libertarianism": 1,
+				"painting": 1,
+				"psychodelics": 1
+			},
+			"home": {
+				"x": 30,
+				"y": 59
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 30,
+					"y": 59
+				},
+				"target": 55,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 41,
+			"info": {
+				"age": 34,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Kondrat",
+				"lastname": "Sienkiewicz",
+				"customGenderName": null
+			},
+			"birthDay": 333,
+			"attributes": {
+				"physical": 6,
+				"social": 26,
+				"intelligence": 91
+			},
+			"statuses": {
+				"boredom": 999,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"ai": 1,
+				"chanCulture": 1,
+				"communism": 1,
+				"digitalArt": 2
+			},
+			"home": {
+				"x": 16,
+				"y": 138
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 16,
+					"y": 138
+				},
+				"target": 56,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"latePartyGoer",
+				"confrontational",
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 42,
+			"info": {
+				"age": 16,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Marcin",
+				"lastname": "Szaniecki",
+				"customGenderName": null
+			},
+			"birthDay": 122,
+			"attributes": {
+				"physical": 40,
+				"social": 18,
+				"intelligence": 86
+			},
+			"statuses": {
+				"boredom": 611,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"eugenics": 1,
+				"memes": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 117,
+				"y": 75
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 125,
+					"y": 97
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 43,
+			"info": {
+				"age": 34,
+				"gender": "other",
+				"genderPronoun": "female",
+				"name": "Teodora",
+				"lastname": "Szabla",
+				"customGenderName": null
+			},
+			"birthDay": 128,
+			"attributes": {
+				"physical": 39,
+				"social": 8,
+				"intelligence": 3
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 14,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5128,
+					"reason": "drawing",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"climateActivism": 1,
+				"stimulants": 1,
+				"techno": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 298,
+				"y": 188
+			},
+			"friends": [
+				{
+					"id": 14,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 298,
+					"y": 188
+				},
+				"target": 58,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 44,
+			"info": {
+				"age": 39,
+				"gender": "female",
+				"genderPronoun": "male",
+				"name": "Honorata",
+				"lastname": "Orzech",
+				"customGenderName": null
+			},
+			"birthDay": 225,
+			"attributes": {
+				"physical": 39,
+				"social": 32,
+				"intelligence": 48
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"animalActivism": 1,
+				"digitalArt": 1,
+				"gaming": 1
+			},
+			"home": {
+				"x": 115,
+				"y": 14
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 115,
+					"y": 14
+				},
+				"target": 59,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 45,
+			"info": {
+				"age": 28,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Milka",
+				"lastname": "Borowska",
+				"customGenderName": null
+			},
+			"birthDay": 61,
+			"attributes": {
+				"physical": 33,
+				"social": 86,
+				"intelligence": 67
+			},
+			"statuses": {
+				"boredom": 188,
+				"fatigue": 393
+			},
+			"events": [
+				{
+					"human": 14,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4408,
+					"reason": "incelism",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"digitalArt": 1,
+				"eugenics": 1,
+				"libertarianism": 2
+			},
+			"home": {
+				"x": 301,
+				"y": 96
+			},
+			"friends": [
+				{
+					"id": 14,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 361,
+					"y": 60
+				},
+				"target": 10,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 46,
+			"info": {
+				"age": 34,
+				"gender": "male",
+				"genderPronoun": "other",
+				"name": "August",
+				"lastname": "Morze",
+				"customGenderName": null
+			},
+			"birthDay": 19,
+			"attributes": {
+				"physical": 90,
+				"social": 54,
+				"intelligence": 35
+			},
+			"statuses": {
+				"boredom": 421,
+				"fatigue": 999
+			},
+			"events": [],
+			"intrests": {
+				"drawing": 1,
+				"graffiti": 2,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 217,
+				"y": 160
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 47,
+			"info": {
+				"age": 28,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Maria",
+				"lastname": "Grzyb",
+				"customGenderName": null
+			},
+			"birthDay": 143,
+			"attributes": {
+				"physical": 40,
+				"social": 42,
+				"intelligence": 46
+			},
+			"statuses": {
+				"boredom": 191,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 49,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4180,
+					"reason": "photography",
+					"initalScore": -10
+				},
+				{
+					"human": 51,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5125,
+					"reason": "drawing",
+					"initalScore": -10
+				},
+				{
+					"human": 51,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"initalScore": 17,
+					"tickIteration": 0,
+					"tickNumber": 5128,
+					"reason": "drawing"
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 24,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 56,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 17,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"depressants": 1,
+				"digitalArt": 3,
+				"fascism": 1,
+				"psychodelics": 1
+			},
+			"home": {
+				"x": 313,
+				"y": 205
+			},
+			"friends": [
+				{
+					"id": 51,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": -10
+				},
+				{
+					"id": 24,
+					"preference": -10
+				},
+				{
+					"id": 56,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": -10
+				},
+				{
+					"id": 17,
+					"preference": -10
+				},
+				{
+					"id": 8,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 48,
+			"info": {
+				"age": 48,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Sobiesława",
+				"lastname": "Kamień-Kaczmarska",
+				"customGenderName": null
+			},
+			"birthDay": 244,
+			"attributes": {
+				"physical": 91,
+				"social": 80,
+				"intelligence": 61
+			},
+			"statuses": {
+				"boredom": 861,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"type": "newIntrest",
+					"participants": [
+						4,
+						5,
+						7,
+						16,
+						17,
+						18,
+						20,
+						24,
+						37,
+						39,
+						54,
+						56,
+						57,
+						58,
+						23,
+						22,
+						15,
+						59
+					],
+					"intrest": "sculpture",
+					"tickNumber": 4538,
+					"tickIteration": 0,
+					"hospitalityId": 5
+				},
+				{
+					"type": "newIntrest",
+					"participants": [
+						21,
+						42,
+						12,
+						30,
+						50,
+						44,
+						29
+					],
+					"intrest": "digitalArt",
+					"tickNumber": 4761,
+					"tickIteration": 0,
+					"hospitalityId": 0
+				}
+			],
+			"intrests": {
+				"brainrot": 1,
+				"gaming": 3,
+				"memes": 1,
+				"photography": 1,
+				"sculpture": 1,
+				"digitalArt": 1
+			},
+			"home": {
+				"x": 160,
+				"y": 228
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 149,
+					"y": 148
+				},
+				"target": 63,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 49,
+			"info": {
+				"age": 20,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Fabian",
+				"lastname": "Młynarz-Majewskiak",
+				"customGenderName": null
+			},
+			"birthDay": 218,
+			"attributes": {
+				"physical": 12,
+				"social": 91,
+				"intelligence": 36
+			},
+			"statuses": {
+				"boredom": 122,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4180,
+					"reason": "photography",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"painting": 1,
+				"photography": 3
+			},
+			"home": {
+				"x": 170,
+				"y": 148
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 50,
+			"info": {
+				"age": 31,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Hania",
+				"lastname": "Szabla",
+				"customGenderName": null
+			},
+			"birthDay": 167,
+			"attributes": {
+				"physical": 93,
+				"social": 23,
+				"intelligence": 21
+			},
+			"statuses": {
+				"boredom": 722,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"psychodelics": 1,
+				"techno": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 117,
+				"y": 22
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "walking",
+				"pos": {
+					"x": 80,
+					"y": 20
+				},
+				"target": 6,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 51,
+			"info": {
+				"age": 64,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Kewin",
+				"lastname": "Rybak",
+				"customGenderName": null
+			},
+			"birthDay": 135,
+			"attributes": {
+				"physical": 48,
+				"social": 28,
+				"intelligence": 56
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 14,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5125,
+					"reason": "drawing",
+					"initalScore": 10
+				},
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5125,
+					"reason": "drawing",
+					"initalScore": -10
+				},
+				{
+					"human": 14,
+					"type": "relationChange",
+					"score": -6,
+					"tickIteration": 0,
+					"tickNumber": 5128,
+					"reason": "drawing"
+				},
+				{
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"human": 47,
+					"initalScore": 17,
+					"tickNumber": 5128,
+					"tickIteration": 0,
+					"reason": "drawing"
+				}
+			],
+			"intrests": {
+				"graffiti": 1,
+				"modernHistory": 1
+			},
+			"home": {
+				"x": 361,
+				"y": 187
+			},
+			"friends": [
+				{
+					"id": 14,
+					"preference": 4
+				},
+				{
+					"id": 47,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 361,
+					"y": 187
+				},
+				"target": 66,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 52,
+			"info": {
+				"age": 26,
+				"gender": "female",
+				"genderPronoun": "female",
+				"name": "Eryka",
+				"lastname": "Dąbrowa",
+				"customGenderName": null
+			},
+			"birthDay": 48,
+			"attributes": {
+				"physical": 25,
+				"social": 87,
+				"intelligence": 68
+			},
+			"statuses": {
+				"boredom": 201,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 0,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "film",
+					"initalScore": 10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 870,
+					"reason": "film",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"eugenics": 1,
+				"psychodelics": 2,
+				"vj": 1
+			},
+			"home": {
+				"x": 214,
+				"y": 195
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 53,
+			"info": {
+				"age": 40,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Cezary",
+				"lastname": "Szkapa-Andrzejewski",
+				"customGenderName": null
+			},
+			"birthDay": 143,
+			"attributes": {
+				"physical": 15,
+				"social": 89,
+				"intelligence": 20
+			},
+			"statuses": {
+				"boredom": 924,
+				"fatigue": 295
+			},
+			"events": [
+				{
+					"human": 33,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1312,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 25,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4722,
+					"reason": "photography",
+					"initalScore": -10
+				},
+				{
+					"human": 36,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 4722,
+					"reason": "photography",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"depressants": 1,
+				"fascism": 2,
+				"historyOfPoland": 1,
+				"libertarianism": 1,
+				"traditionalValues": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 354,
+				"y": 200
+			},
+			"friends": [
+				{
+					"id": 25,
+					"preference": -10
+				},
+				{
+					"id": 36,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 54,
+			"info": {
+				"age": 23,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Sok",
+				"lastname": "Wiśniewskie",
+				"customGenderName": null
+			},
+			"birthDay": 265,
+			"attributes": {
+				"physical": 47,
+				"social": 58,
+				"intelligence": 39
+			},
+			"statuses": {
+				"boredom": 315,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 1,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 7,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 58,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"photography": 1,
+				"sculpture": 1
+			},
+			"home": {
+				"x": 132,
+				"y": 242
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": -10
+				},
+				{
+					"id": 1,
+					"preference": -10
+				},
+				{
+					"id": 7,
+					"preference": -10
+				},
+				{
+					"id": 58,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 55,
+			"info": {
+				"age": 37,
+				"gender": "male",
+				"genderPronoun": "other",
+				"name": "Fryderyk",
+				"lastname": "Malinowskie",
+				"customGenderName": null
+			},
+			"birthDay": 182,
+			"attributes": {
+				"physical": 44,
+				"social": 45,
+				"intelligence": 40
+			},
+			"statuses": {
+				"boredom": 737,
+				"fatigue": 659
+			},
+			"events": [
+				{
+					"human": 10,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 1163,
+					"reason": "historyOfPoland",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"communism": 1,
+				"digitalArt": 2,
+				"feminism": 2,
+				"memes": 1
+			},
+			"home": {
+				"x": 266,
+				"y": 127
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 94,
+					"y": 106
+				},
+				"target": 5,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"leftWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 56,
+			"info": {
+				"age": 17,
+				"gender": "other",
+				"genderPronoun": "other",
+				"name": "Dust",
+				"lastname": "Adamczyk",
+				"customGenderName": null
+			},
+			"birthDay": 124,
+			"attributes": {
+				"physical": 69,
+				"social": 61,
+				"intelligence": 9
+			},
+			"statuses": {
+				"boredom": 585,
+				"fatigue": 999
+			},
+			"events": [
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 36,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 17,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"digitalArt": 1,
+				"film": 2,
+				"gaming": 3
+			},
+			"home": {
+				"x": 83,
+				"y": 98
+			},
+			"friends": [
+				{
+					"id": 47,
+					"preference": -10
+				},
+				{
+					"id": 36,
+					"preference": -10
+				},
+				{
+					"id": 17,
+					"preference": 10
+				},
+				{
+					"id": 8,
+					"preference": -10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 57,
+			"info": {
+				"age": 30,
+				"gender": "other",
+				"genderPronoun": "female",
+				"name": "Janina",
+				"lastname": "Burza",
+				"customGenderName": null
+			},
+			"birthDay": 197,
+			"attributes": {
+				"physical": 43,
+				"social": 29,
+				"intelligence": 71
+			},
+			"statuses": {
+				"boredom": 547,
+				"fatigue": 1
+			},
+			"events": [],
+			"intrests": {
+				"memes": 1,
+				"modernHistory": 1,
+				"tradition": 1,
+				"vj": 1
+			},
+			"home": {
+				"x": 218,
+				"y": 117
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 218,
+					"y": 117
+				},
+				"target": 72,
+				"targetType": "home"
+			},
+			"specialTags": [],
+			"deathDate": null
+		},
+		{
+			"id": 58,
+			"info": {
+				"age": 18,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Albin",
+				"lastname": "Drągalski",
+				"customGenderName": null
+			},
+			"birthDay": 332,
+			"attributes": {
+				"physical": 58,
+				"social": 100,
+				"intelligence": 64
+			},
+			"statuses": {
+				"boredom": 246,
+				"fatigue": 194
+			},
+			"events": [
+				{
+					"human": 10,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 1163,
+					"reason": "historyOfPoland",
+					"initalScore": 10
+				},
+				{
+					"human": 6,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 16,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": 10
+				},
+				{
+					"human": 54,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 8,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 18,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 5610,
+					"reason": "digitalArt",
+					"initalScore": -10
+				},
+				{
+					"human": 37,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				},
+				{
+					"human": 47,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 36,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"human": 17,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": -10
+				},
+				{
+					"type": "relationChange",
+					"human": 8,
+					"score": -10,
+					"tickNumber": 6868,
+					"tickIteration": 0,
+					"reason": "chanCulture"
+				},
+				{
+					"human": 31,
+					"type": "befriend",
+					"subType": "becameFriends",
+					"tickIteration": 0,
+					"tickNumber": 6868,
+					"reason": "chanCulture",
+					"initalScore": 10
+				}
+			],
+			"intrests": {
+				"communism": 2,
+				"depressants": 1,
+				"graffiti": 2,
+				"teology": 2
+			},
+			"home": {
+				"x": 229,
+				"y": 152
+			},
+			"friends": [
+				{
+					"id": 6,
+					"preference": -10
+				},
+				{
+					"id": 16,
+					"preference": 10
+				},
+				{
+					"id": 54,
+					"preference": -10
+				},
+				{
+					"id": 8,
+					"preference": -20
+				},
+				{
+					"id": 18,
+					"preference": -10
+				},
+				{
+					"id": 37,
+					"preference": 10
+				},
+				{
+					"id": 47,
+					"preference": -10
+				},
+				{
+					"id": 36,
+					"preference": -10
+				},
+				{
+					"id": 17,
+					"preference": -10
+				},
+				{
+					"id": 31,
+					"preference": 10
+				}
+			],
+			"currentAction": {
+				"type": "in hospitality",
+				"pos": {
+					"x": 144,
+					"y": 115
+				},
+				"target": 7,
+				"targetType": "hospitality"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		},
+		{
+			"id": 59,
+			"info": {
+				"age": 40,
+				"gender": "male",
+				"genderPronoun": "male",
+				"name": "Radosław",
+				"lastname": "Podkowa",
+				"customGenderName": null
+			},
+			"birthDay": 311,
+			"attributes": {
+				"physical": 64,
+				"social": 38,
+				"intelligence": 26
+			},
+			"statuses": {
+				"boredom": 743,
+				"fatigue": 1
+			},
+			"events": [
+				{
+					"human": 19,
+					"type": "befriend",
+					"subType": "becameEnemies",
+					"tickIteration": 0,
+					"tickNumber": 2067,
+					"reason": "music",
+					"initalScore": -10
+				}
+			],
+			"intrests": {
+				"fascism": 1,
+				"graffiti": 1,
+				"historyOfPoland": 2
+			},
+			"home": {
+				"x": 322,
+				"y": 10
+			},
+			"friends": [],
+			"currentAction": {
+				"type": "in home",
+				"pos": {
+					"x": 322,
+					"y": 10
+				},
+				"target": 74,
+				"targetType": "home"
+			},
+			"specialTags": [
+				"rightWing"
+			],
+			"deathDate": null
+		}
+	],
+	"hospitalities": [
+		{
+			"hours": {
+				"open": {
+					"hour": 9,
+					"minute": 0
+				},
+				"close": {
+					"hour": 21,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {
+				"digitalArt": 2
+			},
+			"pos": {
+				"x": 51,
+				"y": 144
+			},
+			"connectedTopics": [
+				"eugenics"
+			],
+			"subtype": "cafe",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 18,
+					"minute": 0
+				},
+				"close": {
+					"hour": 3,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 49,
+				"y": 20
+			},
+			"connectedTopics": [
+				"depressants"
+			],
+			"subtype": "club",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 11,
+					"minute": 0
+				},
+				"close": {
+					"hour": 2,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 139,
+				"y": 159
+			},
+			"connectedTopics": [
+				"ancientHistory"
+			],
+			"subtype": "cafe",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 11,
+					"minute": 0
+				},
+				"close": {
+					"hour": 17,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 294,
+				"y": 40
+			},
+			"connectedTopics": [],
+			"subtype": "gallery",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 19,
+					"minute": 0
+				},
+				"close": {
+					"hour": 7,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {
+				"communism": 1
+			},
+			"pos": {
+				"x": 395,
+				"y": 40
+			},
+			"connectedTopics": [
+				"psychodelics"
+			],
+			"subtype": "club",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 8,
+					"minute": 0
+				},
+				"close": {
+					"hour": 20,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {
+				"sculpture": 2,
+				"fascism": 2
+			},
+			"pos": {
+				"x": 94,
+				"y": 106
+			},
+			"connectedTopics": [
+				"feminism"
+			],
+			"subtype": "cafe",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 11,
+					"minute": 0
+				},
+				"close": {
+					"hour": 20,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 59,
+				"y": 22
+			},
+			"connectedTopics": [],
+			"subtype": "bar",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 8,
+					"minute": 0
+				},
+				"close": {
+					"hour": 17,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 144,
+				"y": 115
+			},
+			"connectedTopics": [
+				"eugenics"
+			],
+			"subtype": "gallery",
+			"popularityScore": 9
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 9,
+					"minute": 0
+				},
+				"close": {
+					"hour": 16,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 41,
+				"y": 158
+			},
+			"connectedTopics": [
+				"medieval"
+			],
+			"subtype": "gallery",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 20,
+					"minute": 0
+				},
+				"close": {
+					"hour": 6,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 107,
+				"y": 172
+			},
+			"connectedTopics": [],
+			"subtype": "club",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 10,
+					"minute": 0
+				},
+				"close": {
+					"hour": 18,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 361,
+				"y": 60
+			},
+			"connectedTopics": [],
+			"subtype": "cafe",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 20,
+					"minute": 0
+				},
+				"close": {
+					"hour": 8,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 98,
+				"y": 147
+			},
+			"connectedTopics": [],
+			"subtype": "club",
+			"popularityScore": 5
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 12,
+					"minute": 0
+				},
+				"close": {
+					"hour": 20,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 335,
+				"y": 176
+			},
+			"connectedTopics": [
+				"stimulants"
+			],
+			"subtype": "bar",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 7,
+					"minute": 0
+				},
+				"close": {
+					"hour": 17,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 252,
+				"y": 213
+			},
+			"connectedTopics": [],
+			"subtype": "gallery",
+			"popularityScore": 1
+		},
+		{
+			"hours": {
+				"open": {
+					"hour": 9,
+					"minute": 0
+				},
+				"close": {
+					"hour": 22,
+					"minute": 0
+				}
+			},
+			"inheritedIntrestEvents": {},
+			"pos": {
+				"x": 377,
+				"y": 17
+			},
+			"connectedTopics": [
+				"teology"
+			],
+			"subtype": "cafe",
+			"popularityScore": 1
+		}
+	]
+}
